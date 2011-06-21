@@ -1,0 +1,11 @@
+*.o
+sls
+libsls.a
+makeQAPrl
+makeQAPuni
+ksgen
+enumerate
+cfg/kur.cfg
+out/*
+prob/gsap/gsapgen
+prob/gap/*
