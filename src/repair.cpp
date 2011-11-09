@@ -434,12 +434,10 @@ void gsap_repair_impl<Chromosome,Encoding>::repair(Chromosome<Encoding>& chr,
         }
     }
 
-    bool good=true;
     for(unsigned int i=0; i<excess.size(); ++i)
     {
         if(excess[i]>0)
         {
-            good=false;
             break;
         }
     }

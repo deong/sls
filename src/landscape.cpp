@@ -272,9 +272,7 @@ void random_walk<Chromosome,Encoding>::run()
 
             // now compute the nearest point on the pareto front
             double minfdist = chr.fitness_distance(pf[0]);
-            unsigned int minfidx = 0;
             typename Encoding::Genotype mingdist = this->m_hc->get_neighborhood()->distance_between(chr, pf[0]);
-            unsigned int mingidx = 0;
             for(unsigned int k=1; k<pf.size(); k++)
             {
                 double currfdist = chr.fitness_distance(pf[k]);
@@ -282,12 +280,10 @@ void random_walk<Chromosome,Encoding>::run()
                 if(currfdist < minfdist)
                 {
                     minfdist = currfdist;
-                    minfidx = k;
                 }
                 if(currgdist < mingdist)
                 {
                     mingdist = currgdist;
-                    mingidx = k;
                 }
             }
             cout << mingdist << " " << minfdist << " " << chr.fitness << endl;
@@ -357,9 +353,7 @@ void random_walk_between_optima<Chromosome,Encoding>::run()
             
             // now compute the nearest point on the pareto front
             double minfdist = c2.fitness_distance(pf[0]);
-            unsigned int minfidx = 0;
             typename Encoding::Genotype mingdist = this->m_hc->get_neighborhood()->distance_between(c2, pf[0]);
-            unsigned int mingidx = 0;
             for(unsigned int j=1; j<pf.size(); j++)
             {
                 double currfdist = c2.fitness_distance(pf[j]);
@@ -367,12 +361,10 @@ void random_walk_between_optima<Chromosome,Encoding>::run()
                 if(currfdist < minfdist)
                 {
                     minfdist = currfdist;
-                    minfidx = j;
                 }
                 if(currgdist < mingdist)
                 {
                     mingdist = currgdist;
-                    mingidx = j;
                 }
             }
             cout << mingdist << " " << minfdist << " " << c2.fitness << endl;

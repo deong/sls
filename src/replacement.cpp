@@ -239,14 +239,12 @@ void elitist_replacement<Chromosome,Encoding>::merge_populations(population<Chro
     next = offspring;
     
     // find the best individual in the parent population
-    int best_idx = 0;
     Chromosome<Encoding> best = parents[0];
     for(unsigned int i=1; i<parents.size(); i++)
     {
         if(this->m_comp->compare(parents[i],best) == -1)
         {
             best = parents[i];
-            best_idx = i;
         }
     }
 
