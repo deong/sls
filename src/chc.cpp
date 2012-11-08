@@ -162,18 +162,18 @@ void chc<Chromosome,Encoding>::run_one_generation()
             m_cross_op->crossover(p1, p2, c1, c2);
 
             // evaluate the offspring
-	    if(this->m_repair)
-		this->m_repair->repair(c1,this->m_fitfunc);
-            c1.evaluate(this->m_fitfunc);
-	    chromosome_evaluated(c1);
-
-	    if(this->m_repair)
-		this->m_repair->repair(c2,this->m_fitfunc);
-	    c2.evaluate(this->m_fitfunc);
-            chromosome_evaluated(c2);
-
-            offspring.add(c1);
-            offspring.add(c2);
+			if(this->m_repair)
+				this->m_repair->repair(c1,this->m_fitfunc);
+			c1.evaluate(this->m_fitfunc);
+			this->chromosome_evaluated(c1);
+			
+			if(this->m_repair)
+				this->m_repair->repair(c2,this->m_fitfunc);
+			c2.evaluate(this->m_fitfunc);
+			this->chromosome_evaluated(c2);
+			
+			offspring.add(c1);
+			offspring.add(c2);
         }
     }
 
@@ -224,9 +224,9 @@ void chc<Chromosome,Encoding>::diverge()
         {
             this->m_population[i][order[j]] = (this->m_population[i][order[j]] == 0) ? 1 : 0;
         }
-	if(this->m_repair)
-	    this->m_repair->repair(this->m_population[i],this->m_fitfunc);
-        this->m_population[i].evaluate(this->m_fitfunc);
-	chromosome_evaluated(this->m_population[i]);
+		if(this->m_repair)
+			this->m_repair->repair(this->m_population[i],this->m_fitfunc);
+		this->m_population[i].evaluate(this->m_fitfunc);
+		this->chromosome_evaluated(this->m_population[i]);
     }
 }

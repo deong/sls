@@ -168,8 +168,8 @@ void simple_ga<Chromosome,Encoding>::run_one_generation()
         // evaluate the offspring
         c1.evaluate(this->m_fitfunc);
         c2.evaluate(this->m_fitfunc);
-        chromosome_evaluated(c1);
-        chromosome_evaluated(c2);
+        this->chromosome_evaluated(c1);
+        this->chromosome_evaluated(c2);
 
         offspring.add(c1);
         offspring.add(c2);

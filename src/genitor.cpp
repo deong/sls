@@ -174,7 +174,7 @@ void genitor<Chromosome,Encoding>::run_one_generation()
 
     // evaluate the offspring
     offspring.evaluate(this->m_fitfunc);
-    chromosome_evaluated(offspring);
+    this->chromosome_evaluated(offspring);
     
     // put the offspring into the population in place of the
     // worst individual
