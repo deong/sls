@@ -134,8 +134,11 @@ const string keywords::METRIC = "metric";
 const string keywords::EVALUATION_COUNTER = "evaluation_count";
 const string keywords::GENERATION_COUNTER = "generation_count";
 const string keywords::BEST_SOLUTION = "best_solution";
+const string keywords::REPORT_ALL_BEST = "report_all_best";
 const string keywords::HYPERVOLUME = "hypervolume";
 const string keywords::REFERENCE_POINT = "reference_point";
+const string keywords::POPULATION_ENTROPY = "population_entropy";
+const string keywords::PRINT_EVERY_GENERATION = "print_every_generation";
 
 const string keywords::TERMINATOR = "terminator";
 const string keywords::EVALUATION_LIMIT = "evaluation_limit";

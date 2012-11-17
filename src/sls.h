@@ -36,6 +36,8 @@ private:
     sls(const sls& that);
     sls& operator=(const sls& that);
 
+	static bool m_print_every_generation;
+	
 protected:
     typename Encoding::ProblemType* m_fitfunc;
     repair_operator<Chromosome,Encoding>* m_repair;

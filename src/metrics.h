@@ -87,6 +87,7 @@ private:
     Chromosome<Encoding> m_best;
     unsigned int  m_num_evals;
     unsigned int  m_evals_to_best;
+	bool m_report_all_best;
     comparator<Chromosome,Encoding>* m_comp;
     
     // prevent copying of performance metrics
@@ -161,6 +162,33 @@ public:
     virtual void generation_completed(const population<Chromosome,Encoding>& pop);
     virtual void compute();
     virtual void report(ostream& ostr) const;
+};
+
+/**
+ * @class population_entropy
+ * @brief measures the average entropy in the population over all genes
+ *
+ * @author deong
+ * @date 11/17/2012
+ */
+template <template <typename> class Chromosome, typename Encoding>
+class population_entropy : public metric<Chromosome,Encoding>
+{
+public:
+    population_entropy();
+    virtual ~population_entropy();
+	
+	virtual void reset();
+	virtual void generation_completed(const population<Chromosome,Encoding>& pop);
+	virtual void report(ostream& ostr) const;
+	
+private:
+	// disable copying
+	population_entropy(const population_entropy& that);
+	population_entropy& operator=(const population_entropy& that);
+	
+private:
+	double m_avg_entropy;
 };
 
 /*!

@@ -14,6 +14,8 @@
 #include <list>
 #include <vector>
 #include <deque>
+#include <map>
+#include <cmath>
 #include "metrics.h"
 #include "chromosome.h"
 #include "encoding.h"
@@ -226,7 +228,8 @@ void evaluation_counter<Chromosome,Encoding>::report(ostream& ostr) const
 template <template <typename> class Chromosome, typename Encoding>
 best_solution<Chromosome,Encoding>::best_solution() :
     m_num_evals(0),
-    m_evals_to_best(0)
+    m_evals_to_best(0),
+	m_report_all_best(false)
 {
 }
 
@@ -261,6 +264,7 @@ best_solution<Chromosome,Encoding>::~best_solution()
 template <template <typename> class Chromosome, typename Encoding>
 void best_solution<Chromosome,Encoding>::initialize(const string& prefix)
 {
+	configuration::boolean_parameter(keywords::REPORT_ALL_BEST, m_report_all_best, false);
     comparator_factory<Chromosome,Encoding> cf;
     cf.set_prefix(prefix);
     m_comp = cf.construct();
@@ -318,6 +322,11 @@ void best_solution<Chromosome,Encoding>::chromosome_evaluated(const Chromosome<E
     {
         this->m_best = sol;
         this->m_evals_to_best = this->m_num_evals;
+		if(this->m_report_all_best)
+		{
+			this->report(cout);
+			cout << endl;
+		}
     }
 }
 
@@ -335,7 +344,7 @@ void best_solution<Chromosome,Encoding>::chromosome_evaluated(const Chromosome<E
 template <template <typename> class Chromosome, typename Encoding>
 void best_solution<Chromosome,Encoding>::report(ostream& ostr) const
 {
-    ostr << "best_solution: " << endl << this->m_best << endl;
+    ostr << "best_solution: " << endl << this->m_best;
     ostr << "evaluations_to_best: " << this->m_evals_to_best << endl;
 }
 
@@ -680,6 +689,89 @@ bool hypervolume<Chromosome,Encoding>::weakly_dominated_by_archive(const vector<
     return false;
 }
 
+/**
+ * @brief initialize the entropy monitor
+ *
+ * @author deong
+ * @date 11/17/2012
+ */
+template <template <typename> class Chromosome, typename Encoding>
+population_entropy<Chromosome,Encoding>::population_entropy() :
+	m_avg_entropy(0.0)
+{
+}
+
+/**
+ * @brief destructor
+ *
+ * @author deong
+ * @date 11/17/2012
+ */
+template <template <typename> class Chromosome, typename Encoding>
+population_entropy<Chromosome,Encoding>::~population_entropy() 
+{
+}
+
+/**
+ * @brief reset the entropy counter to 0
+ *
+ * @author deong
+ * @date 11/17/2012
+ */
+template <template <typename> class Chromosome, typename Encoding>
+void population_entropy<Chromosome,Encoding>::reset() 
+{
+	m_avg_entropy = 0.0;
+}
+
+/**
+ * @brief compute the average entropy per gene over the population
+ *
+ * @author deong
+ * @date 11/17/2012
+ */
+template <template <typename> class Chromosome, typename Encoding>
+void population_entropy<Chromosome,Encoding>::generation_completed(const population<Chromosome,Encoding>& pop)
+{
+	m_avg_entropy = 0.0;
+	unsigned int N = pop[0].length();
+	for(unsigned int i=0; i<N; ++i)
+	{
+		map<typename Encoding::Genotype, unsigned int> alleles;
+		for(unsigned int j=0; j<pop.size(); ++j) 
+		{
+			if(alleles.count(pop[j][i]) == 0) 
+			{
+				alleles[pop[j][i]] = 1;
+			}
+			else 
+			{
+				alleles[pop[j][i]]++;
+			}
+		}
+		double allele_entropy = 0.0;
+		for(typename map<typename Encoding::Genotype, unsigned int>::const_iterator it=alleles.begin(); it!=alleles.end(); it++) 
+		{
+			double p = (double)(it->second) / pop.size();
+			allele_entropy += -p * log2(p);
+		}
+		m_avg_entropy += allele_entropy;
+	}
+	m_avg_entropy /= N;
+}
+
+/**
+ * @brief report the entropy value
+ *
+ * @author deong
+ * @date 11/17/2012
+ */
+template <template <typename> class Chromosome, typename Encoding>
+void population_entropy<Chromosome,Encoding>::report(ostream& ostr) const 
+{
+	ostr << "average_entropy: " << m_avg_entropy << endl;
+}
+
 /*!
  * \brief create and initialize a list of metrics
  *
@@ -723,6 +815,11 @@ list<metric<Chromosome,Encoding>*> metric_factory<Chromosome,Encoding>::construc
             lm->initialize(this->m_prefix);
             metlist.push_back(lm);
         }
+		else if(curr==keywords::POPULATION_ENTROPY)
+		{
+			population_entropy<Chromosome,Encoding>* m = new population_entropy<Chromosome,Encoding>;
+			metlist.push_back(m);
+		}
         else
         {
             error("invalid metric specified: " + curr);

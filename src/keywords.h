@@ -159,9 +159,12 @@ public:
     static const string EVALUATION_COUNTER;
     static const string GENERATION_COUNTER;
     static const string BEST_SOLUTION;
+	static const string REPORT_ALL_BEST;
     static const string HYPERVOLUME;
     static const string REFERENCE_POINT;
-    
+    static const string POPULATION_ENTROPY;
+	static const string PRINT_EVERY_GENERATION;
+	
     // termination criteria
     static const string TERMINATOR;
     static const string EVALUATION_LIMIT;

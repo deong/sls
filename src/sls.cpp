@@ -24,6 +24,9 @@ list<metric<Chromosome,Encoding>*> sls<Chromosome,Encoding>::m_metrics;
 template <template <typename> class Chromosome, typename Encoding>
 list<terminator<Chromosome,Encoding>*> sls<Chromosome,Encoding>::m_terminators;
 
+template <template <typename> class Chromosome, typename Encoding>
+bool sls<Chromosome,Encoding>::m_print_every_generation;
+
 /*!
  * \brief constructor
  *
@@ -102,7 +105,6 @@ void sls<Chromosome,Encoding>::chromosome_evaluated(const Chromosome<Encoding>& 
     {
         (*it)->chromosome_evaluated(chr);
     }
-	//cout << chr << endl;
 }
 
 /*!
@@ -131,6 +133,11 @@ void sls<Chromosome,Encoding>::generation_completed()
     {
         (*it)->generation_completed();
     }
+	if(m_print_every_generation)
+	{
+		report_metrics(cout);
+		cout << endl;
+	}
 }
 
 /*!
@@ -159,6 +166,11 @@ void sls<Chromosome,Encoding>::generation_completed(const population<Chromosome,
     {
         (*it)->generation_completed(pop);
     }
+	if(m_print_every_generation)
+	{
+		report_metrics(cout);
+		cout << endl;
+	}
 }
 
 /*!
@@ -171,13 +183,13 @@ template <template <typename> class Chromosome, typename Encoding>
 bool sls<Chromosome,Encoding>::terminate()
 {
     for(typename list<terminator<Chromosome,Encoding>*>::const_iterator it=m_terminators.begin();
-	it != m_terminators.end();
-	it++)
+		it != m_terminators.end();
+		it++)
     {
-	if((*it)->terminate())
-	{
-	    return true;
-	}
+		if((*it)->terminate())
+		{
+			return true;
+		}
     }
     return false;
 }
@@ -260,4 +272,8 @@ void sls<Chromosome,Encoding>::initialize()
 		repair_factory<Chromosome,Encoding> rof;
 		this->m_repair=rof.construct();
     }
+
+	// verbose logging
+	m_print_every_generation = false;
+	configuration::boolean_parameter(keywords::PRINT_EVERY_GENERATION, m_print_every_generation, false);
 }

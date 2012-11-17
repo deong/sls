@@ -506,7 +506,7 @@ bool configuration::boolean_parameter(const string& keyword, bool& res, bool req
     }
     else if(temp == "false" || temp == "no")
     {
-        res = true;
+        res = false;
     }
     else
     {
