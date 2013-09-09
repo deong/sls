@@ -195,7 +195,7 @@ protected:
     static unsigned int m_len;
     
     // is the string gray coded
-    static bool m_gray;
+    static vector<bool> m_gray;
 
 public:
     binary_encoding();

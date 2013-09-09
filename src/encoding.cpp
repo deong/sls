@@ -25,7 +25,7 @@ using namespace std;
 
 // initialize static instances
 vector<int> binary_encoding::m_bpp;
-bool binary_encoding::m_gray;
+vector<bool> binary_encoding::m_gray;
 unsigned int binary_encoding::m_len;
 vector<pair<double,double> > numeric_encoding::m_range;
 vector<vector<int> > integer_encoding::m_legal_values;
@@ -683,7 +683,7 @@ inline void binary_encoding::encode(const vector<double>& params)
             int_val/=2;
         }
 
-        if(m_gray)
+        if(m_gray[param])
         {
             for(unsigned int b=0; b<num_bits-1; ++b)
             {
@@ -717,7 +717,7 @@ inline void binary_encoding::decode()
     {
         unsigned int num_bits = m_bpp[param];
         unsigned int intval = 0;
-        if(m_gray)
+        if(m_gray[param])
         {
             // convert from gray to binary
             vector<int> binary(num_bits);
@@ -749,15 +749,19 @@ inline void binary_encoding::decode()
 }
 
 /*!
- * \brief initialize the encoding parameters
+ * \brief configures the way real parameters are encoded into binary
  *
- * \author deong
- * \date 05/09/2007
+ * You have two options
  *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
+ * 1. If all parameters should have the same encoding type and length,
+ *    then you can just set parameter_length and parameter_encoding.
+ *
+ * 2. If you want independent encodings for the different variables,
+ *    then number them and specify the encoding parameters as e.g.,
+ *    parameter_0_length, parameter_0_encoding, parameter_1_length,...
+ *
+ * Note that in both cases, the encoding type is optional, and defaults
+ * to standard binary if not specified.
  */
 void binary_parameters::initialize_parameters(const numeric_problem* p)
 {
@@ -788,17 +792,46 @@ void binary_parameters::initialize_parameters(const numeric_problem* p)
     }
     binary_encoding::m_len = totallen;
 
-    binary_encoding::m_gray = false;
-	string enc;
-	configuration::string_parameter("parameter_encoding", enc, false);
-	if(enc == "gray") {
-		binary_encoding::m_gray = true;
-	} else if(enc == "binary") {
-		binary_encoding::m_gray = false;
+    bool gray_coded = false;
+	if(configuration::keyword_exists("parameter_encoding")) {
+		string enc;
+		configuration::string_parameter("parameter_encoding", enc, false);
+		if(enc == "gray") {
+			gray_coded = true;
+		} else if(enc == "binary") {
+			gray_coded = false;
+		} else {
+			cerr << "illegal value for parameter_encoding: " << enc << endl;
+			cerr << "must be binary or gray" << endl;
+			exit(1);
+		}
+		for(unsigned int i=0; i<dim; ++i) {
+			binary_encoding::m_gray.push_back(gray_coded);
+		}
 	} else {
-		cerr << "illegal value for parameter_encoding: " << enc << endl;
-		cerr << "must be binary or gray" << endl;
-		exit(1);
+		for(unsigned int i=0; i<dim; ++i) {
+			bool gray_coded = false;
+			string enc;
+			ostringstream s;
+            s << "parameter_" << i << "_encoding";
+            string pname = s.str();
+
+			if(!configuration::keyword_exists(pname)) {
+				binary_encoding::m_gray.push_back(false);
+			} else {
+				configuration::string_parameter(pname, enc, false);
+				if(enc == "gray") {
+					gray_coded = true;
+				} else if(enc == "binary") {
+					gray_coded = false;
+				} else {
+					cerr << "illegal value for parameter_encoding: " << enc << endl;
+					cerr << "must be binary or gray" << endl;
+					exit(1);
+				}
+				binary_encoding::m_gray.push_back(gray_coded);
+			}
+		}
 	}
 }
 
@@ -817,7 +850,7 @@ void binary_parameters::cleanup()
 {
     binary_encoding::m_bpp.clear();
     binary_encoding::m_len = 0;
-    binary_encoding::m_gray = false;
+    binary_encoding::m_gray.clear();
 }
 
 /*!
