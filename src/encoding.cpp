@@ -775,9 +775,9 @@ void binary_parameters::initialize_parameters(const numeric_problem* p)
     }
     else
     {
-        ostringstream s;
         for(unsigned int i=0; i<dim; i++)
         {
+			ostringstream s;
             s << "parameter_" << i << "_length";
             string pname = s.str();
             unsigned int plen = 0;
@@ -786,26 +786,20 @@ void binary_parameters::initialize_parameters(const numeric_problem* p)
             binary_encoding::m_bpp.push_back(plen);
         }
     }
+    binary_encoding::m_len = totallen;
 
     binary_encoding::m_gray = false;
-    string enc;
-    configuration::string_parameter("parameter_encoding", enc, false);
-    if(enc == "gray")
-    {
-        binary_encoding::m_gray = true;
-    }
-    else if(enc == "binary")
-    {
-        binary_encoding::m_gray = false;
-    }
-    else
-    {
-        cerr << "illegal value for parameter_encoding: " << enc << endl;
-        cerr << "must be binary or gray" << endl;
-        exit(1);
-    }
-
-    binary_encoding::m_len = totallen;
+	string enc;
+	configuration::string_parameter("parameter_encoding", enc, false);
+	if(enc == "gray") {
+		binary_encoding::m_gray = true;
+	} else if(enc == "binary") {
+		binary_encoding::m_gray = false;
+	} else {
+		cerr << "illegal value for parameter_encoding: " << enc << endl;
+		cerr << "must be binary or gray" << endl;
+		exit(1);
+	}
 }
 
 /*!

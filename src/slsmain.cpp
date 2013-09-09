@@ -186,8 +186,7 @@ int main(int argc, char** argv)
                 gen.initialize();
                 gen.run();
             }
-            else
-                                if(enc == keywords::GSAP_ENCODING)
+            else if(enc == keywords::GSAP_ENCODING)
             {
                 genitor<chromosome,gsap_encoding> gen;
                 gen.initialize();

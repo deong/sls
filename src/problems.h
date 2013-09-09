@@ -504,6 +504,22 @@ public:
     virtual bool evaluate(const vector<double>& p, vector<double>& fit) const;
 };
 
+/**
+ * @class rana_problem
+ * @brief 
+ */
+class rana_problem : public numeric_problem
+{
+public:
+    rana_problem();
+    virtual ~rana_problem();
+
+	virtual unsigned int dimensions() const;
+	virtual unsigned int objectives() const;
+	virtual pair<double,double> parameter_range(unsigned int index) const;
+	virtual bool evaluate(const vector<double>& p, vector<double>& fit) const;
+};
+
 /*!
  * \class numeric_problem_factory
  *

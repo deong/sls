@@ -2309,6 +2309,66 @@ bool dtlz1_problem::evaluate(const vector<double>& p, vector<double>& fit) const
     return true;
 }
 
+/**
+ * @brief constructor
+ */
+rana_problem::rana_problem() 
+{
+}
+
+/**
+ * @brief destructor
+ */
+rana_problem::~rana_problem()
+{
+}
+
+/**
+ * @brief return the number of variables
+ */
+unsigned int rana_problem::dimensions() const 
+{
+	return 10;
+}
+
+/**
+ * @brief return the number of objectives
+ */
+unsigned int rana_problem::objectives() const
+{
+	return 1;
+}
+
+/**
+ * @brief return the valid range of values for the input parameter
+ */
+pair<double,double> rana_problem::parameter_range(unsigned int index) const 
+{
+	return make_pair<double,double>(-512.0, 511.0);
+}
+
+/**
+ * @brief do the evaluation
+ */
+bool rana_problem::evaluate(const vector<double>& p, vector<double>& fit) const 
+{
+	const double RANA_WEIGHTS[]={0.3489, 0.1848, 0.3790, 0.4386, 0.9542, 0.1430, 0.7849, 0.3689, 0.9767, 0.8163};
+	const double RANA_SUM_WEIGHTS=5.3953;
+	double sum=0.0;
+	for(unsigned int i=0; i<p.size(); i++) {
+		double p1 = p[i];
+		double p2 = p[(i+1)%p.size()];
+		
+		sum+=RANA_WEIGHTS[i] * (p1 * sin(sqrt(fabs(p2+1.0-p1)))*
+								cos(sqrt(fabs(p1+p2+1.0))) +
+								(p2+1.0)*
+								cos(sqrt(fabs(p2+1.0-p1)))*
+								sin(sqrt(fabs(p1+p2+1.0))));
+    }
+	fit[0] = sum / RANA_SUM_WEIGHTS;
+	return true;
+}
+
 /*!
  * \brief create a permutation problem
  *
@@ -2527,6 +2587,10 @@ numeric_problem* numeric_problem_factory::construct()
         p->initialize();
         return p;
     }
+	else if(prob == "rana")
+	{
+		return new rana_problem;
+	}
     else
     {
         cerr << "invalid problem specified; " << prob << endl;

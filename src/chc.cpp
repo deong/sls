@@ -87,14 +87,15 @@ void chc<Chromosome,Encoding>::initialize()
     // initialize the comparator
     comparator_factory<Chromosome,Encoding> cf;
     m_comp = cf.construct();
-    
+	
     // sort the population by fitness
     this->m_population.sort(m_comp);
     
     // configure the selection and replacement schemes
     m_sel_scheme = new random_selection<Chromosome,Encoding>;
     m_rep_scheme = new truncation_replacement<Chromosome,Encoding>;
-
+	m_rep_scheme->initialize();
+	
     // figure out which crossover operator to use
     m_cross_op = new hux_crossover<Chromosome,Encoding>;
 

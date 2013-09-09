@@ -344,7 +344,7 @@ void best_solution<Chromosome,Encoding>::chromosome_evaluated(const Chromosome<E
 template <template <typename> class Chromosome, typename Encoding>
 void best_solution<Chromosome,Encoding>::report(ostream& ostr) const
 {
-    ostr << "best_solution: " << endl << this->m_best;
+    ostr << "best_solution:\n" << this->m_best << endl;
     ostr << "evaluations_to_best: " << this->m_evals_to_best << endl;
 }
 
