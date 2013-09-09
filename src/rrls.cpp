@@ -49,7 +49,7 @@ void rrls<Chromosome,Encoding>::initialize()
 
 	// initialize the local search components
 	local_search_factory<Chromosome,Encoding> lsf;
-	lsf.set_prefix("ls_");
+	lsf.set_prefix("embedded_");
 	m_hc = lsf.construct();
 }
 

@@ -55,7 +55,7 @@ void morrls<Chromosome,Encoding>::initialize()
 
 	// initialize the local search components
 	local_search_factory<Chromosome,Encoding> lsf;
-	lsf.set_prefix("ls_");
+	lsf.set_prefix("embedded_");
 	m_hc = lsf.construct();
 
 	// set up the number of different weight vectors to use
