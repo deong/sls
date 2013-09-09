@@ -827,7 +827,7 @@ bool knapsack_problem::evaluate(const vector<int>& p, vector<int>& fit) const
             total_weight+=p[j]*ks_weights[j];
         }
         // negate the fitness value for minimization    
-        fit[i]=-fit[i]; 
+        fit[i] = -fit[i]; 
     }
     return (static_cast<unsigned int>(total_weight)<=ks_capacity);
 }
