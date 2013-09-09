@@ -5,7 +5,7 @@
  * algorithm has converged
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #ifndef _CONVERGENCE_H_
@@ -18,9 +18,6 @@
  * \class convergence
  *
  * monitor the convergence behavior of a search algorithm
- *
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class convergence
@@ -42,9 +39,6 @@ public:
 
 /*!
  * \class convergence_factory
- *
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class convergence_factory

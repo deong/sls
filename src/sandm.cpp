@@ -1,8 +1,8 @@
 /**
  * \file sandm.cpp
  *
- * \author deong@acm.org
- * \date 01/17/2008
+ * Deon Garrett
+ * jdgarrett@gmail.com
  */
 
 #include "sandm.h"
@@ -17,9 +17,6 @@ using namespace std;
 
 /**
  * \brief constructor
- *
- * \author deong@acm.org
- * \date 01/17/2008
  */
 template <template <typename> class Chromosome, typename Encoding>
 sandm<Chromosome,Encoding>::sandm() :
@@ -31,9 +28,6 @@ sandm<Chromosome,Encoding>::sandm() :
 
 /**
  * \brief destructor
- *
- * \author deong@acm.org
- * \date 01/17/2008
  */
 template <template <typename> class Chromosome, typename Encoding>
 sandm<Chromosome,Encoding>::~sandm()
@@ -44,9 +38,6 @@ sandm<Chromosome,Encoding>::~sandm()
 
 /**
  * \brief initialize the algorithm components
- *
- * \author deong@acm.org
- * \date 01/17/2008
  */
 template <template <typename> class Chromosome, typename Encoding>
 void sandm<Chromosome,Encoding>::initialize()
@@ -61,9 +52,6 @@ void sandm<Chromosome,Encoding>::initialize()
 
 /**
  * \brief run the algorithm
- *
- * \author deong@acm.org
- * \date 01/17/2008
  */
 template <template <typename> class Chromosome, typename Encoding>
 void sandm<Chromosome,Encoding>::run()

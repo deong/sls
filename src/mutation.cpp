@@ -4,7 +4,7 @@
  * evolutionary algorithm mutation operators
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #include <string>
@@ -22,14 +22,6 @@ using namespace std;
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 mutation_operator<Chromosome,Encoding>::mutation_operator()
@@ -38,14 +30,6 @@ mutation_operator<Chromosome,Encoding>::mutation_operator()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 mutation_operator<Chromosome,Encoding>::~mutation_operator()
@@ -57,14 +41,6 @@ mutation_operator<Chromosome,Encoding>::~mutation_operator()
  *
  * empty method provided here so that subclasses need only implement
  * the method if they require non-standard initialization
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void mutation_operator<Chromosome,Encoding>::initialize()
@@ -73,14 +49,6 @@ void mutation_operator<Chromosome,Encoding>::initialize()
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 bitwise_mutation_impl<Chromosome,Encoding>::bitwise_mutation_impl()
@@ -89,14 +57,6 @@ bitwise_mutation_impl<Chromosome,Encoding>::bitwise_mutation_impl()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 bitwise_mutation_impl<Chromosome,Encoding>::~bitwise_mutation_impl()
@@ -105,14 +65,6 @@ bitwise_mutation_impl<Chromosome,Encoding>::~bitwise_mutation_impl()
 
 /*!
  * \brief initialize the mutation rate
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void bitwise_mutation_impl<Chromosome,Encoding>::initialize()
@@ -122,14 +74,6 @@ void bitwise_mutation_impl<Chromosome,Encoding>::initialize()
 
 /*!
  * \brief flip individual bits with a given probability
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void bitwise_mutation_impl<Chromosome,Encoding>::mutate(Chromosome<Encoding>& sol) const
@@ -147,14 +91,6 @@ void bitwise_mutation_impl<Chromosome,Encoding>::mutate(Chromosome<Encoding>& so
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 swap_mutation_impl<Chromosome,Encoding>::swap_mutation_impl() :
@@ -164,14 +100,6 @@ swap_mutation_impl<Chromosome,Encoding>::swap_mutation_impl() :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 swap_mutation_impl<Chromosome,Encoding>::~swap_mutation_impl()
@@ -180,14 +108,6 @@ swap_mutation_impl<Chromosome,Encoding>::~swap_mutation_impl()
 
 /*!
  * \brief initialize the mutation rate
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void swap_mutation_impl<Chromosome,Encoding>::initialize()
@@ -197,14 +117,6 @@ void swap_mutation_impl<Chromosome,Encoding>::initialize()
 
 /*!
  * \brief swap alleles with a given probability
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void swap_mutation_impl<Chromosome,Encoding>::mutate(Chromosome<Encoding>& sol) const
@@ -222,14 +134,6 @@ void swap_mutation_impl<Chromosome,Encoding>::mutate(Chromosome<Encoding>& sol) 
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 gaussian_mutation_impl<Chromosome,Encoding>::gaussian_mutation_impl() :
@@ -241,14 +145,6 @@ gaussian_mutation_impl<Chromosome,Encoding>::gaussian_mutation_impl() :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 gaussian_mutation_impl<Chromosome,Encoding>::~gaussian_mutation_impl()
@@ -257,14 +153,6 @@ gaussian_mutation_impl<Chromosome,Encoding>::~gaussian_mutation_impl()
 
 /*!
  * \brief initialize the distribution parameters
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void gaussian_mutation_impl<Chromosome,Encoding>::initialize()
@@ -276,14 +164,6 @@ void gaussian_mutation_impl<Chromosome,Encoding>::initialize()
 
 /*!
  * \brief add a random gaussian to the parameters with a specified probability
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void gaussian_mutation_impl<Chromosome,Encoding>::mutate(Chromosome<Encoding>& sol) const
@@ -302,14 +182,6 @@ void gaussian_mutation_impl<Chromosome,Encoding>::mutate(Chromosome<Encoding>& s
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 polynomial_mutation_impl<Chromosome,Encoding>::polynomial_mutation_impl() :
@@ -320,14 +192,6 @@ polynomial_mutation_impl<Chromosome,Encoding>::polynomial_mutation_impl() :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 polynomial_mutation_impl<Chromosome,Encoding>::~polynomial_mutation_impl()
@@ -336,14 +200,6 @@ polynomial_mutation_impl<Chromosome,Encoding>::~polynomial_mutation_impl()
 
 /*!
  * \brief initialize the distribution parameters
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void polynomial_mutation_impl<Chromosome,Encoding>::initialize()
@@ -354,14 +210,6 @@ void polynomial_mutation_impl<Chromosome,Encoding>::initialize()
 
 /*!
  * \brief add a polynomially generated random variate to the parameters
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void polynomial_mutation_impl<Chromosome,Encoding>::mutate(Chromosome<Encoding>& sol) const
@@ -400,14 +248,6 @@ void polynomial_mutation_impl<Chromosome,Encoding>::mutate(Chromosome<Encoding>&
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 shift_mutation_impl<Chromosome,Encoding>::shift_mutation_impl() :
@@ -417,14 +257,6 @@ shift_mutation_impl<Chromosome,Encoding>::shift_mutation_impl() :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 shift_mutation_impl<Chromosome,Encoding>::~shift_mutation_impl()
@@ -433,14 +265,6 @@ shift_mutation_impl<Chromosome,Encoding>::~shift_mutation_impl()
 
 /*!
  * \brief initialize the mutation rate
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void shift_mutation_impl<Chromosome,Encoding>::initialize()
@@ -450,14 +274,6 @@ void shift_mutation_impl<Chromosome,Encoding>::initialize()
 
 /*!
  * \brief randomly reassign selected tasks
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void shift_mutation_impl<Chromosome,Encoding>::mutate(Chromosome<Encoding>& sol) const
@@ -474,14 +290,6 @@ void shift_mutation_impl<Chromosome,Encoding>::mutate(Chromosome<Encoding>& sol)
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 06/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 sss_mutation_impl<Chromosome,Encoding>::sss_mutation_impl() :
@@ -491,14 +299,6 @@ sss_mutation_impl<Chromosome,Encoding>::sss_mutation_impl() :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 06/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 sss_mutation_impl<Chromosome,Encoding>::~sss_mutation_impl()
@@ -507,14 +307,6 @@ sss_mutation_impl<Chromosome,Encoding>::~sss_mutation_impl()
 
 /*!
  * \brief initialize the mutation rate
- *
- * \author deong
- * \date 06/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void sss_mutation_impl<Chromosome,Encoding>::initialize()
@@ -524,14 +316,6 @@ void sss_mutation_impl<Chromosome,Encoding>::initialize()
 
 /*!
  * \brief randomly reassign selected tasks or swap tasks
- *
- * \author deong
- * \date 06/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void sss_mutation_impl<Chromosome,Encoding>::mutate(Chromosome<Encoding>& sol) const
@@ -556,14 +340,6 @@ void sss_mutation_impl<Chromosome,Encoding>::mutate(Chromosome<Encoding>& sol) c
 
 /*!
  * \brief construct mutation operators for binary encodings
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 mutation_operator<Chromosome,Encoding>* bit_mutation_operator_factory<Chromosome,Encoding>::construct()
@@ -586,14 +362,6 @@ mutation_operator<Chromosome,Encoding>* bit_mutation_operator_factory<Chromosome
 
 /*!
  * \brief construct mutation operators for permutation encodings
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 mutation_operator<Chromosome,Encoding>* permutation_mutation_operator_factory<Chromosome,Encoding>::construct()
@@ -616,14 +384,6 @@ mutation_operator<Chromosome,Encoding>* permutation_mutation_operator_factory<Ch
 
 /*!
  * \brief construct mutation operators for real encodings
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 mutation_operator<Chromosome,Encoding>* real_mutation_operator_factory<Chromosome,Encoding>::construct()
@@ -652,14 +412,6 @@ mutation_operator<Chromosome,Encoding>* real_mutation_operator_factory<Chromosom
 
 /*!
  * \brief construct mutation operators for integer encodings
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 mutation_operator<Chromosome,Encoding>* integer_mutation_operator_factory<Chromosome,Encoding>::construct()
@@ -670,14 +422,6 @@ mutation_operator<Chromosome,Encoding>* integer_mutation_operator_factory<Chromo
 
 /*!
  * \brief construct mutation operators for gap encodings
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 mutation_operator<Chromosome,Encoding>* gap_mutation_operator_factory<Chromosome,Encoding>::construct()
@@ -712,9 +456,6 @@ mutation_operator<Chromosome,Encoding>* gap_mutation_operator_factory<Chromosome
 
 /*!
  * \brief construct mutation operators for gsap encodings
- *
- * \author deong
- * \date 01/22/2009
  */
 template <template <typename> class Chromosome, typename Encoding>
 mutation_operator<Chromosome,Encoding>* gsap_mutation_operator_factory<Chromosome,Encoding>::construct()

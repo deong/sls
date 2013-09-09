@@ -7,7 +7,7 @@
  * the representations for several different types of encodings
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #ifndef _ENCODING_H_
@@ -21,9 +21,6 @@ using namespace std;
 
 /*!
  * \class encoding
- *
- * \author deong
- * \date 05/09/2007
  */
 template <typename G, typename P>
 class encoding
@@ -67,9 +64,6 @@ public:
  *
  * bit_vector_encoding is used for any encoding that uses
  * a vector of bits for the genotype
- * 
- * \author deong
- * \date 05/09/2007
  */
 template <typename P>
 class bit_vector_encoding : public encoding<int,P>
@@ -96,9 +90,6 @@ public:
  * boolean_encoding is suitable for problems in which each parameter
  * can be represented as a boolean value (knapsack problems for
  * example)
- * 
- * \author deong
- * \date 05/09/2007
  */
 class boolean_encoding : public bit_vector_encoding<int>
 {
@@ -123,9 +114,6 @@ public:
  * \class numeric_parameters
  *
  * helper class for numeric encodings
- *
- * \author deong
- * \date 05/09/2007
  */
 class numeric_parameters
 {
@@ -139,9 +127,6 @@ public:
  *
  * numeric_encoding is a mixin which adds parameter range bounds for
  * real-valued encodings
- * 
- * \author deong
- * \date 05/09/2007
  */
 class numeric_encoding
 {
@@ -160,9 +145,6 @@ public:
  * \class binary_parameters
  *
  * helper class for binary encoding
- *
- * \author deong
- * \date 05/09/2007
  */
 class binary_parameters
 {
@@ -176,9 +158,6 @@ public:
  *
  * binary_encoding encodes a real-valued parameter vector into a
  * binary string
- * 
- * \author deong
- * \date 05/09/2007
  */
 class binary_encoding : public bit_vector_encoding<double>, public numeric_encoding
 {
@@ -214,9 +193,6 @@ public:
  * \class real_encoding
  *
  * directly stores real numbers as part of the encoding
- * 
- * \author deong
- * \date 05/09/2007
  */
 class real_encoding : public encoding<double,double>, public numeric_encoding
 {
@@ -249,9 +225,6 @@ public:
  * permutation_encoding is suitable for combinatorial optimization
  * problems whose chromosomes can be represented as permutations (tsp
  * for example)
- * 
- * \author deong
- * \date 05/09/2007
  */
 class permutation_encoding : public encoding<int,int>
 {
@@ -284,9 +257,6 @@ public:
  * integer_encoding is suitable for problems characterized by vectors
  * of integers.  it supports constrained integer encodings through a
  * method denoting the acceptable values at each locus
- * 
- * \author deong
- * \date 05/09/2007
  */
 class integer_encoding : public encoding<int,int>
 {
@@ -321,9 +291,6 @@ public:
  * \class gap_encoding
  *
  * specialized encoding for generalized assignment problem
- *
- * \author deong
- * \date 05/09/2007
  */
 class gap_encoding : public encoding<int,int>
 {
@@ -362,9 +329,6 @@ public:
 /**
  * \class gsap_encoding
  * \brief encoding for the generalized sailor assignment problem
- *
- * \author deong
- * \date 01/22/2009
  */
 class gsap_encoding : public encoding<int,int>
 {

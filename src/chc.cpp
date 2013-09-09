@@ -4,7 +4,7 @@
  * Eshelman's CHC algorithm
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #include <iostream>
@@ -26,14 +26,6 @@ using namespace std;
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 chc<Chromosome,Encoding>::chc() :
@@ -48,14 +40,6 @@ chc<Chromosome,Encoding>::chc() :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 chc<Chromosome,Encoding>::~chc()
@@ -69,14 +53,6 @@ chc<Chromosome,Encoding>::~chc()
 
 /*!
  * \brief initialize the algorithm
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void chc<Chromosome,Encoding>::initialize()
@@ -108,14 +84,6 @@ void chc<Chromosome,Encoding>::initialize()
 
 /*!
  * \brief run the CHC search algorithm
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void chc<Chromosome,Encoding>::run()
@@ -131,14 +99,6 @@ void chc<Chromosome,Encoding>::run()
 
 /*!
  * \brief run a single generation of the algorithm
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void chc<Chromosome,Encoding>::run_one_generation()
@@ -201,14 +161,6 @@ void chc<Chromosome,Encoding>::run_one_generation()
 
 /*!
  * \brief perform a "cataclysmic mutation" to restart the search
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void chc<Chromosome,Encoding>::diverge()

@@ -5,7 +5,7 @@
  * algorithms
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #ifndef _PROBLEMS_H_
@@ -19,9 +19,6 @@ using namespace std;
  * \class problem
  *
  * base class for all problems
- * 
- * \author deong
- * \date 05/11/2007
  */
 class problem
 {
@@ -50,9 +47,6 @@ public:
  * \class numeric_problem
  *
  * problems defined by arithmetic expressions
- * 
- * \author deong
- * \date 05/11/2007
  */
 class numeric_problem : public problem
 {
@@ -73,9 +67,6 @@ public:
  * \class bit_string_problem
  *
  * problems operating directly on binary strings
- *
- * \author deong
- * \date 05/11/2007
  */
 class bit_string_problem : public problem
 {
@@ -93,9 +84,6 @@ public:
 
 /*!
  * \class permutation_problem
- *
- * \author deong
- * \date 05/11/2007
  */
 class permutation_problem : public problem
 {
@@ -116,9 +104,6 @@ public:
 
 /*!
  * \class integer_problem
- *
- * \author deong
- * \date 05/11/2007
  */
 class integer_problem : public problem
 {
@@ -137,9 +122,6 @@ public:
 
 /*!
  * \class qap_problem
- *
- * \author deong
- * \date 05/11/2007
  */
 class qap_problem : public permutation_problem
 {
@@ -169,9 +151,6 @@ public:
 
 /*!
  * \class gap_problem
- *
- * \author deong
- * \date 05/11/2007
  */
 class gap_problem : public integer_problem
 {
@@ -217,9 +196,6 @@ public:
  * be minimized.  We may also wish to define other objectives to, for example,
  * reward solutions in which agents are assigned tasks in contiguous time
  * slots.
- * 
- * \author deong@acm.org
- * \date 11/03/2008
  */
 class gsap_problem : public integer_problem
 {
@@ -267,9 +243,6 @@ protected:
 /*!
  * \class knapsack_problem
  * \brief multiobjective knapsack problem
- *
- * \author deong@acm.org
- * \date 09/22/2008
  */
 class knapsack_problem : public bit_string_problem
 {
@@ -291,9 +264,6 @@ public:
 
 /*!
  * \class onemax_problem
- *
- * \author deong
- * \date 05/11/2007
  */
 class onemax_problem : public bit_string_problem
 {
@@ -314,9 +284,6 @@ public:
  * \class lotz_problem
  *
  * leading-ones-trailing-zeros
- *
- * \author deong
- * \date 05/11/2007
  */
 class lotz_problem : public bit_string_problem
 {
@@ -335,9 +302,6 @@ public:
 
 /*!
  * \class f1_problem
- *
- * \author deong
- * \date 05/11/2007
  */
 class f1_problem : public numeric_problem
 {
@@ -357,9 +321,6 @@ public:
 
 /*!
  * \class f2_problem
- *
- * \author deong
- * \date 05/11/2007
  */
 class f2_problem : public numeric_problem
 {
@@ -379,9 +340,6 @@ public:
 
 /*!
  * \class f3_problem
- *
- * \author deong
- * \date 05/11/2007
  */
 class f3_problem : public numeric_problem
 {
@@ -401,9 +359,6 @@ public:
 
 /*!
  * \class f4_problem
- *
- * \author deong
- * \date 05/11/2007
  */
 class f4_problem : public numeric_problem
 {
@@ -423,9 +378,6 @@ public:
 
 /*!
  * \class f5_problem
- *
- * \author deong
- * \date 05/11/2007
  */
 class f5_problem : public numeric_problem
 {
@@ -445,9 +397,6 @@ public:
 
 /*!
  * \class kur_problem
- *
- * \author deong
- * \date 05/11/2007
  */
 class kur_problem : public numeric_problem
 {
@@ -463,9 +412,6 @@ public:
 
 /*!
  * \class sch_problem
- *
- * \author deong
- * \date 05/11/2007
  */
 class sch_problem : public numeric_problem
 {
@@ -481,9 +427,6 @@ public:
 
 /*!
  * \class zdt1_problem
- *
- * \author deong
- * \date 05/11/2007
  */
 class zdt1_problem : public numeric_problem
 {
@@ -499,9 +442,6 @@ public:
 
 /*!
  * \class zdt2_problem
- *
- * \author deong
- * \date 05/11/2007
  */
 class zdt2_problem : public numeric_problem
 {
@@ -517,9 +457,6 @@ public:
 
 /*!
  * \class zdt3_problem
- *
- * \author deong
- * \date 05/11/2007
  */
 class zdt3_problem : public numeric_problem
 {
@@ -535,9 +472,6 @@ public:
 
 /*!
  * \class zdt4_problem
- *
- * \author deong
- * \date 05/11/2007
  */
 class zdt4_problem : public numeric_problem
 {
@@ -553,9 +487,6 @@ public:
 
 /*!
  * \class zdt6_problem
- *
- * \author deong
- * \date 05/11/2007
  */
 class zdt6_problem : public numeric_problem
 {
@@ -571,9 +502,6 @@ public:
 
 /*!
  * \class dtlz1_problem
- *
- * \author deong
- * \date 05/11/2007
  */
 class dtlz1_problem : public numeric_problem
 {
@@ -610,9 +538,6 @@ public:
 
 /*!
  * \class numeric_problem_factory
- *
- * \author deong
- * \date 05/11/2007
  */
 class numeric_problem_factory
 {
@@ -622,9 +547,6 @@ public:
 
 /*!
  * \class bit_string_problem_factory
- *
- * \author deong
- * \date 05/11/2007
  */
 class bit_string_problem_factory
 {
@@ -634,9 +556,6 @@ public:
 
 /*!
  * \class permutation_problem_factory
- *
- * \author deong
- * \date 05/11/2007
  */
 class permutation_problem_factory
 {
@@ -646,9 +565,6 @@ public:
 
 /*!
  * \class integer_problem_factory
- *
- * \author deong
- * \date 05/11/2007
  */
 class integer_problem_factory
 {
@@ -658,9 +574,6 @@ public:
 
 /*!
  * \class gap_problem_factory
- *
- * \author deong
- * \date 05/11/2007
  */
 class gap_problem_factory
 {
@@ -670,9 +583,6 @@ public:
 
 /*!
  * \class gap_problem_factory
- *
- * \author deong
- * \date 01/22/2009
  */
 class gsap_problem_factory
 {

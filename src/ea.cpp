@@ -8,7 +8,7 @@
  * of evolutionary algorithms.
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #include <iostream>
@@ -29,14 +29,6 @@ using namespace std;
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 ea<Chromosome,Encoding>::ea()
@@ -45,14 +37,6 @@ ea<Chromosome,Encoding>::ea()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 ea<Chromosome,Encoding>::~ea()
@@ -67,14 +51,6 @@ ea<Chromosome,Encoding>::~ea()
 
 /*!
  * \brief notify of new chromosome evaluation
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void ea<Chromosome,Encoding>::chromosome_evaluated(const Chromosome<Encoding>& sol)
@@ -91,14 +67,6 @@ void ea<Chromosome,Encoding>::chromosome_evaluated(const Chromosome<Encoding>& s
 
 /*!
  * \brief notify of generation completion
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void ea<Chromosome,Encoding>::generation_completed(const population<Chromosome,Encoding>& pop)
@@ -115,14 +83,6 @@ void ea<Chromosome,Encoding>::generation_completed(const population<Chromosome,E
 
 /*!
  * \brief check whether algorithm has converged
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 bool ea<Chromosome,Encoding>::converged() const
@@ -141,14 +101,6 @@ bool ea<Chromosome,Encoding>::converged() const
 
 /*!
  * \brief initialize the generic ea components
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void ea<Chromosome,Encoding>::initialize()

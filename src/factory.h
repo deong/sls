@@ -2,8 +2,7 @@
  * \file factory.h
  *
  * Deon Garrett
- * University of Memphis
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #ifndef _FACTORY_H_
@@ -19,9 +18,6 @@ using std::string;
  * basic class for all factory classes; provides ability
  * to customize configuration variables by specifying a
  * prefix
- *
- * \author deong
- * \date 06/27/2007
  */
 class factory
 {

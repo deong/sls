@@ -4,7 +4,7 @@
  * Simulated Annealing
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #include <cmath>
@@ -25,9 +25,6 @@ using namespace std;
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 06/21/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 simulated_annealing<Chromosome,Encoding>::simulated_annealing()
@@ -36,9 +33,6 @@ simulated_annealing<Chromosome,Encoding>::simulated_annealing()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 06/21/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 simulated_annealing<Chromosome,Encoding>::~simulated_annealing()
@@ -47,9 +41,6 @@ simulated_annealing<Chromosome,Encoding>::~simulated_annealing()
 
 /*!
  * \brief initialize the algorithm components
- *
- * \author deong
- * \date 06/21/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 void simulated_annealing<Chromosome,Encoding>::initialize()
@@ -72,9 +63,6 @@ void simulated_annealing<Chromosome,Encoding>::initialize()
 
 /*!
  * \brief reset the algorithm parameters
- *
- * \author deong
- * \date 07/07/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 void simulated_annealing<Chromosome,Encoding>::reset()
@@ -97,9 +85,6 @@ void simulated_annealing<Chromosome,Encoding>::reset()
 
 /*!
  * \brief determine whether to accept a given move
- *
- * \author deong
- * \date 06/21/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 bool simulated_annealing<Chromosome,Encoding>::accept_move(double delta) const
@@ -124,9 +109,6 @@ bool simulated_annealing<Chromosome,Encoding>::accept_move(double delta) const
 
 /*!
  * \brief improve a chromosome using the simulated annealing algorithm
- *
- * \author deong
- * \date 06/21/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 void simulated_annealing<Chromosome,Encoding>::improve(Chromosome<Encoding>& chr,

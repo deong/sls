@@ -4,7 +4,7 @@
  * Defines neighborhood operators for the various encodings
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #include <iostream>
@@ -22,14 +22,6 @@ using namespace std;
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 neighborhood<Chromosome,Encoding>::neighborhood()
@@ -38,14 +30,6 @@ neighborhood<Chromosome,Encoding>::neighborhood()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 neighborhood<Chromosome,Encoding>::~neighborhood()
@@ -54,14 +38,6 @@ neighborhood<Chromosome,Encoding>::~neighborhood()
 
 /*!
  * \brief initialize the neighborhood with a seed value
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void neighborhood<Chromosome,Encoding>::initialize(const Chromosome<Encoding>& sol)
@@ -71,14 +47,6 @@ void neighborhood<Chromosome,Encoding>::initialize(const Chromosome<Encoding>& s
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 hamming_neighborhood_impl<Chromosome,Encoding>::hamming_neighborhood_impl()
@@ -87,14 +55,6 @@ hamming_neighborhood_impl<Chromosome,Encoding>::hamming_neighborhood_impl()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 hamming_neighborhood_impl<Chromosome,Encoding>::~hamming_neighborhood_impl()
@@ -103,14 +63,6 @@ hamming_neighborhood_impl<Chromosome,Encoding>::~hamming_neighborhood_impl()
 
 /*!
  * \brief compute the hamming distance between two chromosomes
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 typename Encoding::Genotype hamming_neighborhood_impl<Chromosome,Encoding>::distance_between(const Chromosome<Encoding>& c1,
@@ -129,14 +81,6 @@ typename Encoding::Genotype hamming_neighborhood_impl<Chromosome,Encoding>::dist
 
 /*!
  * \brief compute distance between chromosomes and number of infeasible solutions on path
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void hamming_neighborhood_impl<Chromosome,Encoding>::feasible_distance_between(const Chromosome<Encoding>& c1,
@@ -166,14 +110,6 @@ void hamming_neighborhood_impl<Chromosome,Encoding>::feasible_distance_between(c
 
 /*!
  * \brief randomize the order in which to flip bits
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void hamming_neighborhood_impl<Chromosome,Encoding>::initialize(const Chromosome<Encoding>& sol)
@@ -187,14 +123,6 @@ void hamming_neighborhood_impl<Chromosome,Encoding>::initialize(const Chromosome
 
 /*!
  * \brief check if more neighbors exist
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 bool hamming_neighborhood_impl<Chromosome,Encoding>::has_more_neighbors() const
@@ -204,14 +132,6 @@ bool hamming_neighborhood_impl<Chromosome,Encoding>::has_more_neighbors() const
 
 /*!
  * \brief return the next available move
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 move<Chromosome,Encoding> hamming_neighborhood_impl<Chromosome,Encoding>::next_neighbor()
@@ -226,14 +146,6 @@ move<Chromosome,Encoding> hamming_neighborhood_impl<Chromosome,Encoding>::next_n
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 swap_neighborhood_impl<Chromosome,Encoding>::swap_neighborhood_impl()
@@ -242,14 +154,6 @@ swap_neighborhood_impl<Chromosome,Encoding>::swap_neighborhood_impl()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 swap_neighborhood_impl<Chromosome,Encoding>::~swap_neighborhood_impl()
@@ -258,14 +162,6 @@ swap_neighborhood_impl<Chromosome,Encoding>::~swap_neighborhood_impl()
 
 /*!
  * \brief compute swap distance between chromosomes
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 typename Encoding::Genotype swap_neighborhood_impl<Chromosome,Encoding>::distance_between(const Chromosome<Encoding>& c1,
@@ -288,14 +184,6 @@ typename Encoding::Genotype swap_neighborhood_impl<Chromosome,Encoding>::distanc
 
 /*!
  * \brief compute swap distance and number of infeasible solutions along path
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void swap_neighborhood_impl<Chromosome,Encoding>::feasible_distance_between(const Chromosome<Encoding>& c1,
@@ -327,14 +215,6 @@ void swap_neighborhood_impl<Chromosome,Encoding>::feasible_distance_between(cons
 
 /*!
  * \brief randomize the order of allele visitation
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void swap_neighborhood_impl<Chromosome,Encoding>::initialize(const Chromosome<Encoding>& sol)
@@ -349,14 +229,6 @@ void swap_neighborhood_impl<Chromosome,Encoding>::initialize(const Chromosome<En
 
 /*!
  * \brief check if more neighbors exist
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 bool swap_neighborhood_impl<Chromosome,Encoding>::has_more_neighbors() const
@@ -366,14 +238,6 @@ bool swap_neighborhood_impl<Chromosome,Encoding>::has_more_neighbors() const
 
 /*!
  * \brief return the next available swap
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 move<Chromosome,Encoding> swap_neighborhood_impl<Chromosome,Encoding>::next_neighbor()
@@ -392,14 +256,6 @@ move<Chromosome,Encoding> swap_neighborhood_impl<Chromosome,Encoding>::next_neig
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 shift_neighborhood_impl<Chromosome,Encoding>::shift_neighborhood_impl()
@@ -408,14 +264,6 @@ shift_neighborhood_impl<Chromosome,Encoding>::shift_neighborhood_impl()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 shift_neighborhood_impl<Chromosome,Encoding>::~shift_neighborhood_impl()
@@ -424,14 +272,6 @@ shift_neighborhood_impl<Chromosome,Encoding>::~shift_neighborhood_impl()
 
 /*!
  * \brief compute shift distance between chromosomes
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 typename Encoding::Genotype shift_neighborhood_impl<Chromosome,Encoding>::distance_between(const Chromosome<Encoding>& c1,
@@ -450,14 +290,6 @@ typename Encoding::Genotype shift_neighborhood_impl<Chromosome,Encoding>::distan
 
 /*!
  * \brief compute shift distance with infeasibility of intermediates
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void shift_neighborhood_impl<Chromosome,Encoding>::feasible_distance_between(const Chromosome<Encoding>& c1,
@@ -487,14 +319,6 @@ void shift_neighborhood_impl<Chromosome,Encoding>::feasible_distance_between(con
 
 /*!
  * \brief randomize agent/task visitation orders
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void shift_neighborhood_impl<Chromosome,Encoding>::initialize(const Chromosome<Encoding>& sol)
@@ -510,14 +334,6 @@ void shift_neighborhood_impl<Chromosome,Encoding>::initialize(const Chromosome<E
 
 /*!
  * \brief check if more neighbors exist
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 bool shift_neighborhood_impl<Chromosome,Encoding>::has_more_neighbors() const
@@ -527,14 +343,6 @@ bool shift_neighborhood_impl<Chromosome,Encoding>::has_more_neighbors() const
 
 /*!
  * \brief return next available move
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 move<Chromosome,Encoding> shift_neighborhood_impl<Chromosome,Encoding>::next_neighbor()
@@ -554,14 +362,6 @@ move<Chromosome,Encoding> shift_neighborhood_impl<Chromosome,Encoding>::next_nei
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 sss_neighborhood_impl<Chromosome,Encoding>::sss_neighborhood_impl()
@@ -570,14 +370,6 @@ sss_neighborhood_impl<Chromosome,Encoding>::sss_neighborhood_impl()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 sss_neighborhood_impl<Chromosome,Encoding>::~sss_neighborhood_impl()
@@ -586,14 +378,6 @@ sss_neighborhood_impl<Chromosome,Encoding>::~sss_neighborhood_impl()
 
 /*!
  * \brief compute shift/swap distance between chromosomes
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 typename Encoding::Genotype sss_neighborhood_impl<Chromosome,Encoding>::distance_between(const Chromosome<Encoding>& c1,
@@ -649,14 +433,6 @@ typename Encoding::Genotype sss_neighborhood_impl<Chromosome,Encoding>::distance
 
 /*!
  * \brief compute shift/swap distance with infeasibility of intermediates
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void sss_neighborhood_impl<Chromosome,Encoding>::feasible_distance_between(const Chromosome<Encoding>& c1,
@@ -721,14 +497,6 @@ void sss_neighborhood_impl<Chromosome,Encoding>::feasible_distance_between(const
 
 /*!
  * \brief initialize each constituent neighborhood
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void sss_neighborhood_impl<Chromosome,Encoding>::initialize(const Chromosome<Encoding>& sol)
@@ -739,14 +507,6 @@ void sss_neighborhood_impl<Chromosome,Encoding>::initialize(const Chromosome<Enc
 
 /*!
  * \brief return false only if both neighborhoods have been exhausted
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 bool sss_neighborhood_impl<Chromosome,Encoding>::has_more_neighbors() const
@@ -756,14 +516,6 @@ bool sss_neighborhood_impl<Chromosome,Encoding>::has_more_neighbors() const
 
 /*!
  * \brief return next shift or swap move at random
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 move<Chromosome,Encoding> sss_neighborhood_impl<Chromosome,Encoding>::next_neighbor()
@@ -796,14 +548,6 @@ move<Chromosome,Encoding> sss_neighborhood_impl<Chromosome,Encoding>::next_neigh
 
 /*!
  * \brief create a binary neighborhood operator
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 neighborhood<Chromosome,Encoding>* bit_neighborhood_factory<Chromosome,Encoding>::construct()
@@ -830,14 +574,6 @@ neighborhood<Chromosome,Encoding>* bit_neighborhood_factory<Chromosome,Encoding>
 
 /*!
  * \brief create a permutation neighborhood operator
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 neighborhood<Chromosome,Encoding>* permutation_neighborhood_factory<Chromosome,Encoding>::construct()
@@ -859,14 +595,6 @@ neighborhood<Chromosome,Encoding>* permutation_neighborhood_factory<Chromosome,E
 
 /*!
  * \brief create a gap neighborhood operator
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 neighborhood<Chromosome,Encoding>* gap_neighborhood_factory<Chromosome,Encoding>::construct()
@@ -898,14 +626,6 @@ neighborhood<Chromosome,Encoding>* gap_neighborhood_factory<Chromosome,Encoding>
 
 /*!
  * \brief create a gsap neighborhood operator
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 neighborhood<Chromosome,Encoding>* gsap_neighborhood_factory<Chromosome,Encoding>::construct()
@@ -937,14 +657,6 @@ neighborhood<Chromosome,Encoding>* gsap_neighborhood_factory<Chromosome,Encoding
 
 /*!
  * \brief other neighborhoods not implemented
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 neighborhood<Chromosome,Encoding>* neighborhood_factory<Chromosome,Encoding>::construct()

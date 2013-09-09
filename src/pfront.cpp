@@ -4,7 +4,7 @@
  * class representing a pareto front
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #include <iostream>
@@ -22,14 +22,6 @@ using namespace std;
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 pareto_front<Chromosome,Encoding>::pareto_front() :
@@ -39,14 +31,6 @@ pareto_front<Chromosome,Encoding>::pareto_front() :
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 pareto_front<Chromosome,Encoding>::pareto_front(unsigned int sz) :
@@ -56,14 +40,6 @@ pareto_front<Chromosome,Encoding>::pareto_front(unsigned int sz) :
 
 /*!
  * \brief copy constructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 pareto_front<Chromosome,Encoding>::pareto_front(const pareto_front& pf)
@@ -76,14 +52,6 @@ pareto_front<Chromosome,Encoding>::pareto_front(const pareto_front& pf)
  * \brief population constructor
  *
  * fills front with all nondominated individuals from the population
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 pareto_front<Chromosome,Encoding>::pareto_front(const population<Chromosome,Encoding>& pop)
@@ -96,14 +64,6 @@ pareto_front<Chromosome,Encoding>::pareto_front(const population<Chromosome,Enco
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 pareto_front<Chromosome,Encoding>::~pareto_front()
@@ -115,14 +75,6 @@ pareto_front<Chromosome,Encoding>::~pareto_front()
  *
  * verifies that the chromosome is nondominated and removes any members
  * from the front that become dominated as a result of the new chromosome
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 bool pareto_front<Chromosome,Encoding>::add(const Chromosome<Encoding>& chr)
@@ -153,14 +105,6 @@ bool pareto_front<Chromosome,Encoding>::add(const Chromosome<Encoding>& chr)
 
 /*!
  * \brief construct a pareto front from a given population
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void pareto_front<Chromosome,Encoding>::construct_front(const population<Chromosome,Encoding>& pop)
@@ -174,14 +118,6 @@ void pareto_front<Chromosome,Encoding>::construct_front(const population<Chromos
 
 /*!
  * \brief read in a pareto front from a given file
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void pareto_front<Chromosome,Encoding>::construct_front(string filename, const typename Encoding::ProblemType* prob)
@@ -243,14 +179,6 @@ void pareto_front<Chromosome,Encoding>::construct_front(string filename, const t
 
 /*!
  * \brief display the solutions in the pareto front
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 ostream& operator<<(ostream& s, const pareto_front<Chromosome,Encoding>& pf)

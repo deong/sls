@@ -29,9 +29,6 @@ template <typename Encoding> istream& operator>>(istream&, chromosome<Encoding>&
  * \class basic_chromosome
  *
  * provides aspects common to all chromosome types
- *
- * \author deong
- * \date 05/08/2007
  */
 template <typename Encoding>
 class basic_chromosome
@@ -91,9 +88,6 @@ protected:
 
 /*!
  * \class chromosome
- *
- * \author deong
- * \date 05/08/2007
  */
 template <typename Encoding>
 class chromosome : public basic_chromosome<Encoding>
@@ -116,9 +110,6 @@ public:
 
 /*!
  * \class chromosome<integer_encoding>
- *
- * \author deong
- * \date 05/08/2007
  */
 template <>
 class chromosome<integer_encoding> : public basic_chromosome<integer_encoding>
@@ -144,9 +135,6 @@ public:
 
 /*!
  * \class chromosome<gap_encoding>
- *
- * \author deong
- * \date 05/08/2007
  */
 template <>
 class chromosome<gap_encoding> : public basic_chromosome<gap_encoding>
@@ -181,9 +169,6 @@ public:
 
 /*!
  * \class chromosome<gsap_encoding>
- *
- * \author deong
- * \date 05/08/2007
  */
 template <>
 class chromosome<gsap_encoding> : public basic_chromosome<gsap_encoding>

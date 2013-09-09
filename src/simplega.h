@@ -4,7 +4,7 @@
  * Simple Genetic Algorithm (generational ga)
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #ifndef _SIMPLEGA_H_
@@ -18,9 +18,6 @@
 
 /*!
  * \class simple_ga
- *
- * \author deong
- * \date 05/11/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class simple_ga : public ea<Chromosome,Encoding>

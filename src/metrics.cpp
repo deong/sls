@@ -6,7 +6,7 @@
  * useful metrics for stochastic local search.
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #include <iostream>
@@ -29,14 +29,6 @@ using namespace std;
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 metric<Chromosome,Encoding>::metric()
@@ -45,14 +37,6 @@ metric<Chromosome,Encoding>::metric()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 metric<Chromosome,Encoding>::~metric()
@@ -64,14 +48,6 @@ metric<Chromosome,Encoding>::~metric()
  *
  * empty definition provided so that subclasses are required to implement the
  * method only if they need notification of chromosome evaluations
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void metric<Chromosome,Encoding>::chromosome_evaluated(const Chromosome<Encoding>& sol)
@@ -83,14 +59,6 @@ void metric<Chromosome,Encoding>::chromosome_evaluated(const Chromosome<Encoding
  *
  * empty method provided so that subclasses need only implement the method
  * if they require generation notification
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void metric<Chromosome,Encoding>::generation_completed()
@@ -102,14 +70,6 @@ void metric<Chromosome,Encoding>::generation_completed()
  *
  * empty method provided so that subclasses need only implement the method
  * if they require generation notification
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void metric<Chromosome,Encoding>::generation_completed(const population<Chromosome,Encoding>& pop)
@@ -121,14 +81,6 @@ void metric<Chromosome,Encoding>::generation_completed(const population<Chromoso
  *
  * empty method provided because most subclasses will not require
  * computation
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void metric<Chromosome,Encoding>::compute()
@@ -137,14 +89,6 @@ void metric<Chromosome,Encoding>::compute()
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 evaluation_counter<Chromosome,Encoding>::evaluation_counter() :
@@ -154,14 +98,6 @@ evaluation_counter<Chromosome,Encoding>::evaluation_counter() :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 evaluation_counter<Chromosome,Encoding>::~evaluation_counter()
@@ -170,9 +106,6 @@ evaluation_counter<Chromosome,Encoding>::~evaluation_counter()
 
 /*!
  * \brief reset the eval counter
- *
- * \author deong
- * \date 07/06/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 void evaluation_counter<Chromosome,Encoding>::reset()
@@ -182,14 +115,6 @@ void evaluation_counter<Chromosome,Encoding>::reset()
 
 /*!
  * \brief increment the evaluation count
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void evaluation_counter<Chromosome,Encoding>::chromosome_evaluated(const Chromosome<Encoding>& sol)
@@ -199,14 +124,6 @@ void evaluation_counter<Chromosome,Encoding>::chromosome_evaluated(const Chromos
 
 /*!
  * \brief print number of evaluations used
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void evaluation_counter<Chromosome,Encoding>::report(ostream& ostr) const
@@ -216,14 +133,6 @@ void evaluation_counter<Chromosome,Encoding>::report(ostream& ostr) const
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 best_solution<Chromosome,Encoding>::best_solution() :
@@ -235,14 +144,6 @@ best_solution<Chromosome,Encoding>::best_solution() :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 best_solution<Chromosome,Encoding>::~best_solution()
@@ -252,14 +153,6 @@ best_solution<Chromosome,Encoding>::~best_solution()
 
 /*!
  * \brief initialize comparator used to determine best solution
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void best_solution<Chromosome,Encoding>::initialize(const string& prefix)
@@ -272,9 +165,6 @@ void best_solution<Chromosome,Encoding>::initialize(const string& prefix)
 
 /*!
  * \brief initialize with default (empty) prefix
- *
- * \author deong
- * \date 06/27/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 void best_solution<Chromosome,Encoding>::initialize()
@@ -284,9 +174,6 @@ void best_solution<Chromosome,Encoding>::initialize()
 
 /*!
  * \brief reset the solution metric
- *
- * \author deong
- * \date 07/06/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 void best_solution<Chromosome,Encoding>::reset()
@@ -297,14 +184,6 @@ void best_solution<Chromosome,Encoding>::reset()
 
 /*!
  * \brief update best solution if necessary
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void best_solution<Chromosome,Encoding>::chromosome_evaluated(const Chromosome<Encoding>& sol)
@@ -332,14 +211,6 @@ void best_solution<Chromosome,Encoding>::chromosome_evaluated(const Chromosome<E
 
 /*!
  * \brief print best solution and number of evaluations required to find it
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void best_solution<Chromosome,Encoding>::report(ostream& ostr) const
@@ -350,14 +221,6 @@ void best_solution<Chromosome,Encoding>::report(ostream& ostr) const
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 generation_counter<Chromosome,Encoding>::generation_counter() :
@@ -367,14 +230,6 @@ generation_counter<Chromosome,Encoding>::generation_counter() :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 generation_counter<Chromosome,Encoding>::~generation_counter()
@@ -383,9 +238,6 @@ generation_counter<Chromosome,Encoding>::~generation_counter()
 
 /*!
  * \brief reset the generation count
- *
- * \author deong
- * \date 07/06/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 void generation_counter<Chromosome,Encoding>::reset()
@@ -395,14 +247,6 @@ void generation_counter<Chromosome,Encoding>::reset()
 
 /*!
  * \brief increment generation count
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void generation_counter<Chromosome,Encoding>::generation_completed(const population<Chromosome,Encoding>& pop)
@@ -412,14 +256,6 @@ void generation_counter<Chromosome,Encoding>::generation_completed(const populat
 
 /*!
  * \brief increment generation count
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void generation_counter<Chromosome,Encoding>::generation_completed()
@@ -429,14 +265,6 @@ void generation_counter<Chromosome,Encoding>::generation_completed()
 
 /*!
  * \brief print number of generations completed
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void generation_counter<Chromosome,Encoding>::report(ostream& ostr) const
@@ -446,14 +274,6 @@ void generation_counter<Chromosome,Encoding>::report(ostream& ostr) const
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 hypervolume<Chromosome,Encoding>::hypervolume() :
@@ -463,14 +283,6 @@ hypervolume<Chromosome,Encoding>::hypervolume() :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 hypervolume<Chromosome,Encoding>::~hypervolume()
@@ -479,14 +291,6 @@ hypervolume<Chromosome,Encoding>::~hypervolume()
 
 /*!
  * \brief read reference point from configuration database
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void hypervolume<Chromosome,Encoding>::initialize(const string& prefix)
@@ -497,9 +301,6 @@ void hypervolume<Chromosome,Encoding>::initialize(const string& prefix)
 
 /*!
  * \brief initialize with default empty prefix
- *
- * \author deong
- * \date 06/27/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 void hypervolume<Chromosome,Encoding>::initialize()
@@ -509,9 +310,6 @@ void hypervolume<Chromosome,Encoding>::initialize()
 
 /*!
  * \brief reset the hypervolume metric
- *
- * \author deong
- * \date 07/06/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 void hypervolume<Chromosome,Encoding>::reset()
@@ -524,14 +322,6 @@ void hypervolume<Chromosome,Encoding>::reset()
  *
  * Note: computation of hypervolume is expensive, so we only do it on demand,
  * when the compute method is called.
- * 
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void hypervolume<Chromosome,Encoding>::generation_completed(const population<Chromosome,Encoding>& pop)
@@ -541,14 +331,6 @@ void hypervolume<Chromosome,Encoding>::generation_completed(const population<Chr
 
 /*!
  * \brief print hypervolume of current nondominated set
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void hypervolume<Chromosome,Encoding>::report(ostream& ostr) const
@@ -558,14 +340,6 @@ void hypervolume<Chromosome,Encoding>::report(ostream& ostr) const
 
 /*!
  * \brief compute the hypervolume of the nondominated set
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void hypervolume<Chromosome,Encoding>::compute()
@@ -641,14 +415,6 @@ void hypervolume<Chromosome,Encoding>::compute()
 
 /*!
  * \brief determine if a chromosome is weakly dominated by another
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 bool hypervolume<Chromosome,Encoding>::weakly_dominated(const vector<typename Encoding::FitnessType>& p1,
@@ -666,14 +432,6 @@ bool hypervolume<Chromosome,Encoding>::weakly_dominated(const vector<typename En
 
 /*!
  * \brief determine if a chromosome is weakly dominated by the current archive
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 bool hypervolume<Chromosome,Encoding>::weakly_dominated_by_archive(const vector<typename Encoding::FitnessType>& p,
@@ -690,10 +448,7 @@ bool hypervolume<Chromosome,Encoding>::weakly_dominated_by_archive(const vector<
 }
 
 /**
- * @brief initialize the entropy monitor
- *
- * @author deong
- * @date 11/17/2012
+ * \brief initialize the entropy monitor
  */
 template <template <typename> class Chromosome, typename Encoding>
 population_entropy<Chromosome,Encoding>::population_entropy() :
@@ -702,10 +457,7 @@ population_entropy<Chromosome,Encoding>::population_entropy() :
 }
 
 /**
- * @brief destructor
- *
- * @author deong
- * @date 11/17/2012
+ * \brief destructor
  */
 template <template <typename> class Chromosome, typename Encoding>
 population_entropy<Chromosome,Encoding>::~population_entropy() 
@@ -713,10 +465,7 @@ population_entropy<Chromosome,Encoding>::~population_entropy()
 }
 
 /**
- * @brief reset the entropy counter to 0
- *
- * @author deong
- * @date 11/17/2012
+ * \brief reset the entropy counter to 0
  */
 template <template <typename> class Chromosome, typename Encoding>
 void population_entropy<Chromosome,Encoding>::reset() 
@@ -725,10 +474,7 @@ void population_entropy<Chromosome,Encoding>::reset()
 }
 
 /**
- * @brief compute the average entropy per gene over the population
- *
- * @author deong
- * @date 11/17/2012
+ * \brief compute the average entropy per gene over the population
  */
 template <template <typename> class Chromosome, typename Encoding>
 void population_entropy<Chromosome,Encoding>::generation_completed(const population<Chromosome,Encoding>& pop)
@@ -761,10 +507,7 @@ void population_entropy<Chromosome,Encoding>::generation_completed(const populat
 }
 
 /**
- * @brief report the entropy value
- *
- * @author deong
- * @date 11/17/2012
+ * \brief report the entropy value
  */
 template <template <typename> class Chromosome, typename Encoding>
 void population_entropy<Chromosome,Encoding>::report(ostream& ostr) const 
@@ -774,14 +517,6 @@ void population_entropy<Chromosome,Encoding>::report(ostream& ostr) const
 
 /*!
  * \brief create and initialize a list of metrics
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 list<metric<Chromosome,Encoding>*> metric_factory<Chromosome,Encoding>::construct()

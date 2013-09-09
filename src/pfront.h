@@ -4,7 +4,7 @@
  * class representing a pareto front
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #ifndef _PFRONT_H_
@@ -25,9 +25,6 @@ ostream& operator<<(ostream& s, const pareto_front<Chromosome,Encoding>& p);
  * \class pareto_front
  *
  * maintains a set of mutually nondominated solutions
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class pareto_front : public population<Chromosome,Encoding>

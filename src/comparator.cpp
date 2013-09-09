@@ -5,7 +5,7 @@
  * one another by fitness.
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #include <vector>
@@ -21,14 +21,6 @@ using namespace std;
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 comparator<Chromosome,Encoding>::comparator()
@@ -37,14 +29,6 @@ comparator<Chromosome,Encoding>::comparator()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 comparator<Chromosome,Encoding>::~comparator()
@@ -53,14 +37,6 @@ comparator<Chromosome,Encoding>::~comparator()
 
 /*!
  * \brief functor to allow dispatch to virtual compare method
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 inline bool comparator<Chromosome,Encoding>::operator()(const Chromosome<Encoding>& c1,
@@ -74,14 +50,6 @@ inline bool comparator<Chromosome,Encoding>::operator()(const Chromosome<Encodin
  *
  * empty definition provided so that derived classes need only provide
  * the method if they require initialization
- * 
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void comparator<Chromosome,Encoding>::initialize()
@@ -90,14 +58,6 @@ void comparator<Chromosome,Encoding>::initialize()
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 fitness_comparator<Chromosome,Encoding>::fitness_comparator()
@@ -106,14 +66,6 @@ fitness_comparator<Chromosome,Encoding>::fitness_comparator()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 fitness_comparator<Chromosome,Encoding>::~fitness_comparator()
@@ -122,14 +74,6 @@ fitness_comparator<Chromosome,Encoding>::~fitness_comparator()
 
 /*!
  * \brief compare based on first objective function
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 inline int fitness_comparator<Chromosome,Encoding>::compare(const Chromosome<Encoding>& c1,
@@ -151,14 +95,6 @@ inline int fitness_comparator<Chromosome,Encoding>::compare(const Chromosome<Enc
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 pareto_dominance_comparator<Chromosome,Encoding>::pareto_dominance_comparator()
@@ -167,14 +103,6 @@ pareto_dominance_comparator<Chromosome,Encoding>::pareto_dominance_comparator()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 pareto_dominance_comparator<Chromosome,Encoding>::~pareto_dominance_comparator()
@@ -183,14 +111,6 @@ pareto_dominance_comparator<Chromosome,Encoding>::~pareto_dominance_comparator()
 
 /*!
  * \brief compare based on pareto dominance
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 inline int pareto_dominance_comparator<Chromosome,Encoding>::compare(const Chromosome<Encoding>& c1,
@@ -227,14 +147,6 @@ inline int pareto_dominance_comparator<Chromosome,Encoding>::compare(const Chrom
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 scalarizing_comparator<Chromosome,Encoding>::scalarizing_comparator()
@@ -243,14 +155,6 @@ scalarizing_comparator<Chromosome,Encoding>::scalarizing_comparator()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 scalarizing_comparator<Chromosome,Encoding>::~scalarizing_comparator()
@@ -259,14 +163,6 @@ scalarizing_comparator<Chromosome,Encoding>::~scalarizing_comparator()
 
 /*!
  * \brief read in the weight vector used to scalarize objectives
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void scalarizing_comparator<Chromosome,Encoding>::initialize(const string& prefix)
@@ -280,9 +176,6 @@ void scalarizing_comparator<Chromosome,Encoding>::initialize(const string& prefi
 
 /*!
  * \brief initialize with default (empty) prefix
- *
- * \author deong
- * \date 06/27/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 void scalarizing_comparator<Chromosome,Encoding>::initialize()
@@ -292,14 +185,6 @@ void scalarizing_comparator<Chromosome,Encoding>::initialize()
 
 /*!
  * \brief create a random weight vector
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void scalarizing_comparator<Chromosome,Encoding>::randomize_weights(unsigned int nobj)
@@ -319,14 +204,6 @@ void scalarizing_comparator<Chromosome,Encoding>::randomize_weights(unsigned int
 
 /*!
  * \brief compare based on current scalarization of objective function values
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 inline int scalarizing_comparator<Chromosome,Encoding>::compare(const Chromosome<Encoding>& c1,
@@ -357,9 +234,6 @@ inline int scalarizing_comparator<Chromosome,Encoding>::compare(const Chromosome
 
 /*!
  * \brief compute the distance in objective space between two individuals
- *
- * \author deong
- * \date 06/21/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 inline double scalarizing_comparator<Chromosome,Encoding>::difference(const Chromosome<Encoding>& c1,
@@ -379,14 +253,6 @@ inline double scalarizing_comparator<Chromosome,Encoding>::difference(const Chro
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 weak_dominance_comparator<Chromosome,Encoding>::weak_dominance_comparator()
@@ -395,14 +261,6 @@ weak_dominance_comparator<Chromosome,Encoding>::weak_dominance_comparator()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 weak_dominance_comparator<Chromosome,Encoding>::~weak_dominance_comparator()
@@ -411,14 +269,6 @@ weak_dominance_comparator<Chromosome,Encoding>::~weak_dominance_comparator()
 
 /*!
  * \brief compare based on weak dominance
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 inline int weak_dominance_comparator<Chromosome,Encoding>::compare(const Chromosome<Encoding>& c1,
@@ -463,14 +313,6 @@ inline int weak_dominance_comparator<Chromosome,Encoding>::compare(const Chromos
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 strong_dominance_comparator<Chromosome,Encoding>::strong_dominance_comparator()
@@ -479,14 +321,6 @@ strong_dominance_comparator<Chromosome,Encoding>::strong_dominance_comparator()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 strong_dominance_comparator<Chromosome,Encoding>::~strong_dominance_comparator()
@@ -495,14 +329,6 @@ strong_dominance_comparator<Chromosome,Encoding>::~strong_dominance_comparator()
 
 /*!
  * \brief compare based on strong dominance
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 inline int strong_dominance_comparator<Chromosome,Encoding>::compare(const Chromosome<Encoding>& c1,
@@ -551,14 +377,6 @@ inline int strong_dominance_comparator<Chromosome,Encoding>::compare(const Chrom
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 epsilon_dominance_comparator<Chromosome,Encoding>::epsilon_dominance_comparator()
@@ -567,14 +385,6 @@ epsilon_dominance_comparator<Chromosome,Encoding>::epsilon_dominance_comparator(
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 epsilon_dominance_comparator<Chromosome,Encoding>::~epsilon_dominance_comparator()
@@ -585,14 +395,6 @@ epsilon_dominance_comparator<Chromosome,Encoding>::~epsilon_dominance_comparator
  * \brief read in the epsilon vector
  *
  * this defines the granularity of the imposed mesh
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void epsilon_dominance_comparator<Chromosome,Encoding>::initialize(const string& prefix)
@@ -602,9 +404,6 @@ void epsilon_dominance_comparator<Chromosome,Encoding>::initialize(const string&
 
 /*!
  * \brief initialize with default (empty) prefix
- *
- * \author deong
- * \date 06/27/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 void epsilon_dominance_comparator<Chromosome,Encoding>::initialize()
@@ -617,14 +416,6 @@ void epsilon_dominance_comparator<Chromosome,Encoding>::initialize()
  *
  * A <<eps B iff A is in a better "box" than B or they are in the same box,
  * but A is closer to the good corner.
- * 
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 inline int epsilon_dominance_comparator<Chromosome,Encoding>::compare(const Chromosome<Encoding>& c1,
@@ -665,14 +456,6 @@ inline int epsilon_dominance_comparator<Chromosome,Encoding>::compare(const Chro
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 single_objective_comparator<Chromosome,Encoding>::single_objective_comparator(unsigned int objnum)
@@ -682,14 +465,6 @@ single_objective_comparator<Chromosome,Encoding>::single_objective_comparator(un
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 single_objective_comparator<Chromosome,Encoding>::~single_objective_comparator()
@@ -698,14 +473,6 @@ single_objective_comparator<Chromosome,Encoding>::~single_objective_comparator()
 
 /*!
  * \brief compare chromosomes based on selected objective function value
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 inline int single_objective_comparator<Chromosome,Encoding>::compare(const Chromosome<Encoding>& c1,
@@ -727,14 +494,6 @@ inline int single_objective_comparator<Chromosome,Encoding>::compare(const Chrom
 
 /*!
  * \brief create and return an initialized comparator
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 comparator<Chromosome,Encoding>* comparator_factory<Chromosome,Encoding>::construct()

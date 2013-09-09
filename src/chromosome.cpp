@@ -2,7 +2,7 @@
  * \file chromosome.cpp
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #include <iostream>
@@ -20,14 +20,6 @@ using namespace std;
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 basic_chromosome<Encoding>::basic_chromosome()
@@ -38,14 +30,6 @@ basic_chromosome<Encoding>::basic_chromosome()
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 basic_chromosome<Encoding>::basic_chromosome(const typename Encoding::ProblemType* p)
@@ -57,14 +41,6 @@ basic_chromosome<Encoding>::basic_chromosome(const typename Encoding::ProblemTyp
 
 /*!
  * \brief copy constructor
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 basic_chromosome<Encoding>::basic_chromosome(const basic_chromosome<Encoding>& that)
@@ -77,14 +53,6 @@ basic_chromosome<Encoding>::basic_chromosome(const basic_chromosome<Encoding>& t
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 basic_chromosome<Encoding>::~basic_chromosome()
@@ -94,14 +62,6 @@ basic_chromosome<Encoding>::~basic_chromosome()
 
 /*!
  * \brief assignment operator
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 basic_chromosome<Encoding>& basic_chromosome<Encoding>::operator=(const basic_chromosome& that)
@@ -114,14 +74,6 @@ basic_chromosome<Encoding>& basic_chromosome<Encoding>::operator=(const basic_ch
 
 /*!
  * \brief inequality operator
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 bool basic_chromosome<Encoding>::operator!=(const basic_chromosome& that) const
@@ -140,14 +92,6 @@ bool basic_chromosome<Encoding>::operator!=(const basic_chromosome& that) const
  * \brief inequality operator specialized for real number encodings
  *
  * treats chromosomes as equal if no alleles differ by more than 1/10^8
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <>
 bool basic_chromosome<real_encoding>::operator!=(const basic_chromosome& that) const
@@ -164,14 +108,6 @@ bool basic_chromosome<real_encoding>::operator!=(const basic_chromosome& that) c
 
 /*!
  * \brief equality comparison
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 bool basic_chromosome<Encoding>::operator==(const basic_chromosome& that) const
@@ -190,9 +126,6 @@ bool basic_chromosome<Encoding>::operator==(const basic_chromosome& that) const
  * \brief less than comparison (needed to allow chromosomes to function as map keys)
  *
  * NOTE: don't use this -- it implements a mostly meaningless comparison
- * 
- * \author deong@acm.org
- * \date 10/15/2008
  */
 template <typename Encoding>
 bool basic_chromosome<Encoding>::operator<(const basic_chromosome& that) const
@@ -213,14 +146,6 @@ bool basic_chromosome<Encoding>::operator<(const basic_chromosome& that) const
 
 /*!
  * \brief return a given element from the encoded string
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 typename Encoding::Genotype& basic_chromosome<Encoding>::operator[](int index)
@@ -230,14 +155,6 @@ typename Encoding::Genotype& basic_chromosome<Encoding>::operator[](int index)
 
 /*!
  * \brief return a const element from the encoded string
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 const typename Encoding::Genotype& basic_chromosome<Encoding>::operator[](int index) const
@@ -247,14 +164,6 @@ const typename Encoding::Genotype& basic_chromosome<Encoding>::operator[](int in
 
 /*!
  * \brief iterator functionality
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 typename basic_chromosome<Encoding>::iterator basic_chromosome<Encoding>::begin()
@@ -264,14 +173,6 @@ typename basic_chromosome<Encoding>::iterator basic_chromosome<Encoding>::begin(
 
 /*!
  * \brief const_iterator functionality
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 typename basic_chromosome<Encoding>::const_iterator basic_chromosome<Encoding>::begin() const
@@ -281,14 +182,6 @@ typename basic_chromosome<Encoding>::const_iterator basic_chromosome<Encoding>::
 
 /*!
  * \brief iterator functionality
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 typename basic_chromosome<Encoding>::iterator basic_chromosome<Encoding>::end()
@@ -298,14 +191,6 @@ typename basic_chromosome<Encoding>::iterator basic_chromosome<Encoding>::end()
 
 /*!
  * \brief const_iterator functionality
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 typename basic_chromosome<Encoding>::const_iterator basic_chromosome<Encoding>::end() const
@@ -315,14 +200,6 @@ typename basic_chromosome<Encoding>::const_iterator basic_chromosome<Encoding>::
 
 /*!
  * \brief compute the distance between the fitness vectors of two chromosomes
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 double basic_chromosome<Encoding>::fitness_distance(const basic_chromosome& that) const
@@ -338,14 +215,6 @@ double basic_chromosome<Encoding>::fitness_distance(const basic_chromosome& that
 
 /*!
  * \brief return the length of the encoded string
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 unsigned int basic_chromosome<Encoding>::length() const
@@ -355,14 +224,6 @@ unsigned int basic_chromosome<Encoding>::length() const
 
 /*!
  * \brief return the encoding data for the chromosome
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 vector<typename Encoding::Genotype>& basic_chromosome<Encoding>::genotype()
@@ -372,14 +233,6 @@ vector<typename Encoding::Genotype>& basic_chromosome<Encoding>::genotype()
 
 /*!
  * \brief return a const version of the chromosome's encoded data
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 const vector<typename Encoding::Genotype>& basic_chromosome<Encoding>::genotype() const
@@ -389,14 +242,6 @@ const vector<typename Encoding::Genotype>& basic_chromosome<Encoding>::genotype(
 
 /*!
  * \brief check chromosome for feasibility
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 bool basic_chromosome<Encoding>::feasible() const
@@ -406,14 +251,6 @@ bool basic_chromosome<Encoding>::feasible() const
 
 /*!
  * \brief randomize the chromosome
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 void basic_chromosome<Encoding>::randomize()
@@ -423,14 +260,6 @@ void basic_chromosome<Encoding>::randomize()
 
 /*!
  * \brief evaluate the chromosome using the given fitness function
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 void basic_chromosome<Encoding>::evaluate(const typename Encoding::ProblemType* prob)
@@ -441,14 +270,6 @@ void basic_chromosome<Encoding>::evaluate(const typename Encoding::ProblemType* 
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 chromosome<Encoding>::chromosome() :
@@ -458,14 +279,6 @@ chromosome<Encoding>::chromosome() :
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 chromosome<Encoding>::chromosome(const typename Encoding::ProblemType* p) :
@@ -475,14 +288,6 @@ chromosome<Encoding>::chromosome(const typename Encoding::ProblemType* p) :
 
 /*!
  * \brief copy constructor
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 chromosome<Encoding>::chromosome(const chromosome& that) :
@@ -492,14 +297,6 @@ chromosome<Encoding>::chromosome(const chromosome& that) :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 chromosome<Encoding>::~chromosome()
@@ -508,14 +305,6 @@ chromosome<Encoding>::~chromosome()
 
 /*!
  * \brief assignment operator
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 chromosome<Encoding>& chromosome<Encoding>::operator=(const chromosome& that)
@@ -526,14 +315,6 @@ chromosome<Encoding>& chromosome<Encoding>::operator=(const chromosome& that)
 
 /*!
  * \brief equality comparison
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 bool chromosome<Encoding>::operator==(const chromosome& that) const
@@ -543,14 +324,6 @@ bool chromosome<Encoding>::operator==(const chromosome& that) const
 
 /*!
  * \brief inequality comparison
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 bool chromosome<Encoding>::operator!=(const chromosome& that) const
@@ -560,14 +333,6 @@ bool chromosome<Encoding>::operator!=(const chromosome& that) const
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 chromosome<integer_encoding>::chromosome() :
     basic_chromosome<integer_encoding>::basic_chromosome()
@@ -576,14 +341,6 @@ chromosome<integer_encoding>::chromosome() :
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 chromosome<integer_encoding>::chromosome(const integer_encoding::ProblemType* p) :
     basic_chromosome<integer_encoding>::basic_chromosome(p)
@@ -592,14 +349,6 @@ chromosome<integer_encoding>::chromosome(const integer_encoding::ProblemType* p)
 
 /*!
  * \brief copy constructor
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 chromosome<integer_encoding>::chromosome(const chromosome& that) :
     basic_chromosome<integer_encoding>::basic_chromosome(that)
@@ -608,14 +357,6 @@ chromosome<integer_encoding>::chromosome(const chromosome& that) :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 chromosome<integer_encoding>::~chromosome()
 {
@@ -623,14 +364,6 @@ chromosome<integer_encoding>::~chromosome()
 
 /*!
  * \brief assignment operator
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 chromosome<integer_encoding>& chromosome<integer_encoding>::operator=(const chromosome& that)
 {
@@ -640,14 +373,6 @@ chromosome<integer_encoding>& chromosome<integer_encoding>::operator=(const chro
 
 /*!
  * \brief equality comparison
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 bool chromosome<integer_encoding>::operator==(const chromosome& that) const
 {
@@ -656,14 +381,6 @@ bool chromosome<integer_encoding>::operator==(const chromosome& that) const
 
 /*!
  * \brief inequality comparison
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 bool chromosome<integer_encoding>::operator!=(const chromosome& that) const
 {
@@ -672,14 +389,6 @@ bool chromosome<integer_encoding>::operator!=(const chromosome& that) const
 
 /*!
  * \brief return a vector of allowed values for a given allele
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 const vector<int>& chromosome<integer_encoding>::legal_values(unsigned int index) const
 {
@@ -688,9 +397,6 @@ const vector<int>& chromosome<integer_encoding>::legal_values(unsigned int index
 
 /*!
  * \brief evaluate the fitness of the chromosome
- *
- * \author deong
- * \date 05/08/2007
  */
 void chromosome<integer_encoding>::evaluate(const integer_encoding::ProblemType* p)
 {
@@ -700,9 +406,6 @@ void chromosome<integer_encoding>::evaluate(const integer_encoding::ProblemType*
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/08/2007
  */
 chromosome<gap_encoding>::chromosome()
 {
@@ -710,9 +413,6 @@ chromosome<gap_encoding>::chromosome()
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/08/2007
  */
 chromosome<gap_encoding>::chromosome(const gap_encoding::ProblemType* p) :
     basic_chromosome<gap_encoding>::basic_chromosome(p)
@@ -722,9 +422,6 @@ chromosome<gap_encoding>::chromosome(const gap_encoding::ProblemType* p) :
 
 /*!
  * \brief copy constructor
- *
- * \author deong
- * \date 05/08/2007
  */
 chromosome<gap_encoding>::chromosome(const chromosome& that) :
     basic_chromosome<gap_encoding>::basic_chromosome(that)
@@ -736,9 +433,6 @@ chromosome<gap_encoding>::chromosome(const chromosome& that) :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/08/2007
  */
 chromosome<gap_encoding>::~chromosome()
 {
@@ -746,9 +440,6 @@ chromosome<gap_encoding>::~chromosome()
 
 /*!
  * \brief assignment operator
- *
- * \author deong
- * \date 05/08/2007
  */
 chromosome<gap_encoding>& chromosome<gap_encoding>::operator=(const chromosome& that)
 {
@@ -761,9 +452,6 @@ chromosome<gap_encoding>& chromosome<gap_encoding>::operator=(const chromosome& 
 
 /*!
  * \brief equality comparator
- *
- * \author deong
- * \date 05/08/2007
  */
 bool chromosome<gap_encoding>::operator==(const chromosome& that) const
 {
@@ -772,9 +460,6 @@ bool chromosome<gap_encoding>::operator==(const chromosome& that) const
 
 /*!
  * \brief inequality comparator
- *
- * \author deong
- * \date 05/08/2007
  */
 bool chromosome<gap_encoding>::operator!=(const chromosome& that) const
 {
@@ -783,9 +468,6 @@ bool chromosome<gap_encoding>::operator!=(const chromosome& that) const
 
 /*!
  * \brief return the number of agents for the problem
- *
- * \author deong
- * \date 05/08/2007
  */
 unsigned int chromosome<gap_encoding>::agents() const
 {
@@ -794,9 +476,6 @@ unsigned int chromosome<gap_encoding>::agents() const
 
 /*!
  * \brief return the number of tasks for the problem
- *
- * \author deong
- * \date 05/08/2007
  */
 unsigned int chromosome<gap_encoding>::tasks() const
 {
@@ -805,9 +484,6 @@ unsigned int chromosome<gap_encoding>::tasks() const
 
 /*!
  * \brief compute the feasibility of the chromosome
- *
- * \author deong
- * \date 05/08/2007
  */
 void chromosome<gap_encoding>::compute_infeasibility(const gap_encoding::ProblemType* p)
 {
@@ -834,9 +510,6 @@ void chromosome<gap_encoding>::compute_infeasibility(const gap_encoding::Problem
 
 /*!
  * \brief penalize an infeasible solution
- *
- * \author deong
- * \date 05/08/2007
  */
 void chromosome<gap_encoding>::penalize(const gap_encoding::ProblemType* p)
 {
@@ -855,9 +528,6 @@ void chromosome<gap_encoding>::penalize(const gap_encoding::ProblemType* p)
 
 /*!
  * \brief attempt to repair an infeasible solution
- *
- * \author deong
- * \date 05/08/2007
  */
 void chromosome<gap_encoding>::repair(const gap_encoding::ProblemType* p)
 {
@@ -987,9 +657,6 @@ void chromosome<gap_encoding>::repair(const gap_encoding::ProblemType* p)
 
 /*!
  * \brief evaluate the fitness of the chromosome
- *
- * \author deong
- * \date 05/08/2007
  */
 void chromosome<gap_encoding>::evaluate(const gap_encoding::ProblemType* p)
 {
@@ -1004,9 +671,6 @@ void chromosome<gap_encoding>::evaluate(const gap_encoding::ProblemType* p)
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 01/22/2009
  */
 chromosome<gsap_encoding>::chromosome()
 {
@@ -1014,9 +678,6 @@ chromosome<gsap_encoding>::chromosome()
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 01/22/2009
  */
 chromosome<gsap_encoding>::chromosome(const gsap_encoding::ProblemType* p) :
     basic_chromosome<gsap_encoding>::basic_chromosome(p)
@@ -1026,9 +687,6 @@ chromosome<gsap_encoding>::chromosome(const gsap_encoding::ProblemType* p) :
 
 /*!
  * \brief copy constructor
- *
- * \author deong
- * \date 01/22/2009
  */
 chromosome<gsap_encoding>::chromosome(const chromosome& that) :
     basic_chromosome<gsap_encoding>::basic_chromosome(that)
@@ -1039,9 +697,6 @@ chromosome<gsap_encoding>::chromosome(const chromosome& that) :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 01/22/2009
  */
 chromosome<gsap_encoding>::~chromosome()
 {
@@ -1049,9 +704,6 @@ chromosome<gsap_encoding>::~chromosome()
 
 /*!
  * \brief assignment operator
- *
- * \author deong
- * \date 01/22/2009
  */
 chromosome<gsap_encoding>& chromosome<gsap_encoding>::operator=(const chromosome& that)
 {
@@ -1063,9 +715,6 @@ chromosome<gsap_encoding>& chromosome<gsap_encoding>::operator=(const chromosome
 
 /*!
  * \brief equality comparator
- *
- * \author deong
- * \date 01/22/2009
  */
 bool chromosome<gsap_encoding>::operator==(const chromosome& that) const
 {
@@ -1074,9 +723,6 @@ bool chromosome<gsap_encoding>::operator==(const chromosome& that) const
 
 /*!
  * \brief inequality comparator
- *
- * \author deong
- * \date 01/22/2009
  */
 bool chromosome<gsap_encoding>::operator!=(const chromosome& that) const
 {
@@ -1085,9 +731,6 @@ bool chromosome<gsap_encoding>::operator!=(const chromosome& that) const
 
 /*!
  * \brief return the number of agents for the problem
- *
- * \author deong
- * \date 01/22/2009
  */
 unsigned int chromosome<gsap_encoding>::agents() const
 {
@@ -1096,9 +739,6 @@ unsigned int chromosome<gsap_encoding>::agents() const
 
 /*!
  * \brief return the number of tasks for the problem
- *
- * \author deong
- * \date 01/22/2009
  */
 unsigned int chromosome<gsap_encoding>::tasks() const
 {
@@ -1107,9 +747,6 @@ unsigned int chromosome<gsap_encoding>::tasks() const
 
 /*!
  * \brief compute the feasibility of the chromosome
- *
- * \author deong
- * \date 01/22/2009
  */
 void chromosome<gsap_encoding>::compute_infeasibility(const gsap_encoding::ProblemType* p)
 {
@@ -1144,9 +781,6 @@ void chromosome<gsap_encoding>::compute_infeasibility(const gsap_encoding::Probl
 
 /*!
  * \brief penalize an infeasible solution
- *
- * \author deong
- * \date 01/22/2009
  */
 void chromosome<gsap_encoding>::penalize(const gsap_encoding::ProblemType* p)
 {
@@ -1159,9 +793,6 @@ void chromosome<gsap_encoding>::penalize(const gsap_encoding::ProblemType* p)
 
 /*!
  * \brief attempt to repair an infeasible solution
- *
- * \author deong
- * \date 01/22/2009
  */
 void chromosome<gsap_encoding>::repair(const gsap_encoding::ProblemType* p)
 {
@@ -1169,9 +800,6 @@ void chromosome<gsap_encoding>::repair(const gsap_encoding::ProblemType* p)
 
 /*!
  * \brief evaluate the fitness of the chromosome
- *
- * \author deong
- * \date 01/22/2009
  */
 void chromosome<gsap_encoding>::evaluate(const gsap_encoding::ProblemType* p)
 {
@@ -1186,9 +814,6 @@ void chromosome<gsap_encoding>::evaluate(const gsap_encoding::ProblemType* p)
 
 /*!
  * \brief print a human readable representation of the chromosome
- *
- * \author deong
- * \date 05/08/2007
  */
 template <typename Encoding>
 ostream& operator<<(ostream& ostr, const chromosome<Encoding>& sol)
@@ -1210,9 +835,6 @@ ostream& operator<<(ostream& ostr, const chromosome<Encoding>& sol)
 
 /*!
  * \brief read in a chromosome from a textual representation
- *
- * \author deong@acm.org
- * \date 10/14/2008
  */
 template <typename Encoding>
 istream& operator>>(istream& istr, chromosome<Encoding>& sol)
@@ -1250,14 +872,6 @@ istream& operator>>(istream& istr, chromosome<Encoding>& sol)
     
 /*!
  * \brief print a human readable representation of the chromosome
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <>
 ostream& operator<<(ostream& ostr, const chromosome<boolean_encoding>& sol)
@@ -1273,9 +887,6 @@ ostream& operator<<(ostream& ostr, const chromosome<boolean_encoding>& sol)
 
 /*!
  * \brief read from a textual representation
- *
- * \author deong@acm.org
- * \date 10/14/2008
  */
 template <>
 istream& operator>>(istream& istr, chromosome<boolean_encoding>& sol)
@@ -1303,14 +914,6 @@ istream& operator>>(istream& istr, chromosome<boolean_encoding>& sol)
 
 /*!
  * \brief print a human readable representation of the chromosome
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <>
 ostream& operator<<(ostream& ostr, const chromosome<permutation_encoding>& sol)
@@ -1326,9 +929,6 @@ ostream& operator<<(ostream& ostr, const chromosome<permutation_encoding>& sol)
 
 /*!
  * \brief read from a textual representation
- *
- * \author deong@acm.org
- * \date 10/14/2008
  */
 template <>
 istream& operator>>(istream& istr, chromosome<permutation_encoding>& sol)
@@ -1356,14 +956,6 @@ istream& operator>>(istream& istr, chromosome<permutation_encoding>& sol)
 
 /*!
  * \brief print a human readable representation of the chromosome
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <>
 ostream& operator<<(ostream& ostr, const chromosome<real_encoding>& sol)
@@ -1379,9 +971,6 @@ ostream& operator<<(ostream& ostr, const chromosome<real_encoding>& sol)
 
 /*!
  * \brief read from a textual representation
- *
- * \author deong@acm.org
- * \date 10/14/2008
  */
 template <>
 istream& operator>>(istream& istr, chromosome<real_encoding>& sol)
@@ -1409,14 +998,6 @@ istream& operator>>(istream& istr, chromosome<real_encoding>& sol)
  
 /*!
  * \brief print a human readable representation of the chromosome
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <>
 ostream& operator<<(ostream& ostr, const chromosome<integer_encoding>& sol)
@@ -1432,9 +1013,6 @@ ostream& operator<<(ostream& ostr, const chromosome<integer_encoding>& sol)
 
 /*!
  * \brief read from a textual representation
- *
- * \author deong@acm.org
- * \date 10/14/2008
  */
 template <>
 istream& operator>>(istream& istr, chromosome<integer_encoding>& sol)
@@ -1462,14 +1040,6 @@ istream& operator>>(istream& istr, chromosome<integer_encoding>& sol)
 
 /*!
  * \brief print a human readable representation of the chromosome
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <>
 ostream& operator<<(ostream& ostr, const chromosome<gap_encoding>& sol)
@@ -1497,9 +1067,6 @@ ostream& operator<<(ostream& ostr, const chromosome<gap_encoding>& sol)
 
 /*!
  * \brief read from a textual representation
- *p
- * \author deong@acm.org
- * \date 10/14/2008
  */
 template <>
 istream& operator>>(istream& istr, chromosome<gap_encoding>& sol)
@@ -1550,9 +1117,6 @@ istream& operator>>(istream& istr, chromosome<gap_encoding>& sol)
 
 /*!
  * \brief print a human readable representation of the chromosome
- *
- * \author deong
- * \date 01/22/2009
  */
 template <>
 ostream& operator<<(ostream& ostr, const chromosome<gsap_encoding>& sol)
@@ -1580,9 +1144,6 @@ ostream& operator<<(ostream& ostr, const chromosome<gsap_encoding>& sol)
 
 /*!
  * \brief read from a textual representation
- *
- * \author deong@acm.org
- * \date 01/22/2009
  */
 template <>
 istream& operator>>(istream& istr, chromosome<gsap_encoding>& sol)

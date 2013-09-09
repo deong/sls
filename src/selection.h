@@ -6,7 +6,7 @@
  * performing this selection.
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #ifndef _SELECTION_H_
@@ -19,9 +19,6 @@ using namespace std;
 
 /*!
  * \class selection_scheme
- *
- * \author deong
- * \date 05/11/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class selection_scheme
@@ -43,9 +40,6 @@ public:
 
 /*!
  * \class tournament_selection
- *
- * \author deong
- * \date 05/11/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class tournament_selection : public selection_scheme<Chromosome,Encoding>
@@ -72,9 +66,6 @@ public:
 
 /*!
  * \class ranking_selection
- *
- * \author deong
- * \date 05/11/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class ranking_selection : public selection_scheme<Chromosome,Encoding>
@@ -97,9 +88,6 @@ public:
 
 /*!
  * \class random_selection
- *
- * \author deong
- * \date 05/11/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class random_selection : public selection_scheme<Chromosome,Encoding>
@@ -118,9 +106,6 @@ public:
 
 /*!
  * \class selection_scheme_factory
- *
- * \author deong
- * \date 05/11/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class selection_scheme_factory

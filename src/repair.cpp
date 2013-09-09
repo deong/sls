@@ -1,8 +1,8 @@
 /**
  * \file repair.cpp
  *
- * \author deong
- * \date 10/09/2007
+ * Deon Garrett
+ * jdgarrett@gmail.com
  */
 
 #include <iostream>
@@ -16,9 +16,6 @@ using namespace std;
 
 /**
  * \brief constructor
- *
- * \author deong
- * \date 10/09/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 repair_operator<Chromosome,Encoding>::repair_operator()
@@ -27,9 +24,6 @@ repair_operator<Chromosome,Encoding>::repair_operator()
 
 /**
  * \brief destructor
- *
- * \author deong
- * \date 10/09/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 repair_operator<Chromosome,Encoding>::~repair_operator()
@@ -38,9 +32,6 @@ repair_operator<Chromosome,Encoding>::~repair_operator()
 
 /**
  * \brief constructor
- *
- * \author deong
- * \date 10/09/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 gap_repair_nd_impl<Chromosome,Encoding>::gap_repair_nd_impl()
@@ -50,9 +41,6 @@ gap_repair_nd_impl<Chromosome,Encoding>::gap_repair_nd_impl()
 
 /**
  * \brief destructor
- *
- * \author deong
- * \date 10/09/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 gap_repair_nd_impl<Chromosome,Encoding>::~gap_repair_nd_impl()
@@ -66,9 +54,6 @@ gap_repair_nd_impl<Chromosome,Encoding>::~gap_repair_nd_impl()
  * This uses a next-descent local search to find individuals that violate
  * capacity contraints by less and less until it either reaches a local
  * optima or finds an individual that does not violate constraints
- * 
- * \author deong
- * \date 10/09/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 void gap_repair_nd_impl<Chromosome,Encoding>::repair(Chromosome<Encoding>& chr,
@@ -142,9 +127,6 @@ void gap_repair_nd_impl<Chromosome,Encoding>::repair(Chromosome<Encoding>& chr,
 
 /**
  * \brief constructor
- *
- * \author deong
- * \date 10/09/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 gap_repair_sd_impl<Chromosome,Encoding>::gap_repair_sd_impl()
@@ -154,9 +136,6 @@ gap_repair_sd_impl<Chromosome,Encoding>::gap_repair_sd_impl()
 
 /**
  * \brief destructor
- *
- * \author deong
- * \date 10/09/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 gap_repair_sd_impl<Chromosome,Encoding>::~gap_repair_sd_impl()
@@ -170,9 +149,6 @@ gap_repair_sd_impl<Chromosome,Encoding>::~gap_repair_sd_impl()
  * This uses a steepest-descent local search to find individuals that violate
  * capacity contraints by less and less until it either reaches a local
  * optima or finds an individual that does not violate constraints
- * 
- * \author deong
- * \date 10/09/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 void gap_repair_sd_impl<Chromosome,Encoding>::repair(Chromosome<Encoding>& chr,
@@ -252,9 +228,6 @@ void gap_repair_sd_impl<Chromosome,Encoding>::repair(Chromosome<Encoding>& chr,
 
 /**
  * \brief constructor
- *
- * \author deong
- * \date 10/09/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 gsap_repair_impl<Chromosome,Encoding>::gsap_repair_impl()
@@ -264,9 +237,6 @@ gsap_repair_impl<Chromosome,Encoding>::gsap_repair_impl()
 
 /**
  * \brief destructor
- *
- * \author deong
- * \date 10/09/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 gsap_repair_impl<Chromosome,Encoding>::~gsap_repair_impl()
@@ -276,9 +246,6 @@ gsap_repair_impl<Chromosome,Encoding>::~gsap_repair_impl()
 
 /**
  * \brief repair the individiual
- *
- * \author deong
- * \date 01/23/2009
  */
 template <template <typename> class Chromosome, typename Encoding>
 void gsap_repair_impl<Chromosome,Encoding>::repair(Chromosome<Encoding>& chr,
@@ -445,10 +412,7 @@ void gsap_repair_impl<Chromosome,Encoding>::repair(Chromosome<Encoding>& chr,
 
                         
 /*!
- * \brief create an initialized crossover operator for bit-vector encodings
- *
- * \author deong
- * \date 05/09/2007
+ * \brief create an initialized repair operator for bit-vector encodings
  */
 template <template <typename> class Chromosome, typename Encoding>
 repair_operator<Chromosome,Encoding>* bit_vector_repair_factory<Chromosome,Encoding>::construct()
@@ -457,10 +421,7 @@ repair_operator<Chromosome,Encoding>* bit_vector_repair_factory<Chromosome,Encod
 }
 
 /*!
- * \brief create an initialized crossover operator for real encodings
- *
- * \author deong
- * \date 05/09/2007
+ * \brief create an initialized repair operator for real encodings
  */
 template <template <typename> class Chromosome, typename Encoding>
 repair_operator<Chromosome,Encoding>* real_repair_factory<Chromosome,Encoding>::construct()
@@ -469,10 +430,7 @@ repair_operator<Chromosome,Encoding>* real_repair_factory<Chromosome,Encoding>::
 }
 
 /*!
- * \brief create an initialized crossover operator for permutation encodings
- *
- * \author deong
- * \date 05/09/2007
+ * \brief create an initialized repair operator for permutation encodings
  */
 template <template <typename> class Chromosome, typename Encoding>
 repair_operator<Chromosome,Encoding>* permutation_repair_factory<Chromosome,Encoding>::construct() 
@@ -481,10 +439,7 @@ repair_operator<Chromosome,Encoding>* permutation_repair_factory<Chromosome,Enco
 }
 
 /*!
- * \brief create an initialized crossover operator for integer encodings
- *
- * \author deong
- * \date 05/09/2007
+ * \brief create an initialized repair operator for integer encodings
  */
 template <template <typename> class Chromosome, typename Encoding>
 repair_operator<Chromosome,Encoding>* integer_repair_factory<Chromosome,Encoding>::construct()
@@ -493,10 +448,7 @@ repair_operator<Chromosome,Encoding>* integer_repair_factory<Chromosome,Encoding
 }
 
 /*!
- * \brief create an initialized crossover operator for gap encodings
- *
- * \author deong
- * \date 05/09/2007
+ * \brief create an initialized repair operator for gap encodings
  */
 template <template <typename> class Chromosome, typename Encoding>
 repair_operator<Chromosome,Encoding>* gap_repair_factory<Chromosome,Encoding>::construct()
@@ -523,10 +475,7 @@ repair_operator<Chromosome,Encoding>* gap_repair_factory<Chromosome,Encoding>::c
 }
 
 /*!
- * \brief create an initialized crossover operator for gsap encodings
- *
- * \author deong
- * \date 05/09/2007
+ * \brief create an initialized repair operator for gsap encodings
  */
 template <template <typename> class Chromosome, typename Encoding>
 repair_operator<Chromosome,Encoding>* gsap_repair_factory<Chromosome,Encoding>::construct()

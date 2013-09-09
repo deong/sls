@@ -5,7 +5,7 @@
  * ranking for parent selection
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #ifndef _GENITOR_H_
@@ -21,9 +21,6 @@
  * \class genitor
  *
  * Darrell Whitley's Genitor algorithm
- *
- * \author deong
- * \date 05/09/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class genitor : public ea<Chromosome,Encoding>

@@ -4,7 +4,7 @@
  * driver program for the stochastic local search framework
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #include <iostream>
@@ -57,14 +57,6 @@ using namespace std;
 
 /*!
  * \brief main driver for sls application
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 int main(int argc, char** argv)
 {

@@ -4,7 +4,7 @@
  * evolutionary algorithm crossover operators
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #ifndef _CROSSOVER_H_
@@ -19,9 +19,6 @@ using namespace std;
  * \class crossover_operator
  *
  * base class for all crossover operators
- *
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class crossover_operator
@@ -45,9 +42,6 @@ public:
  * \class uniform_crossover_impl
  *
  * implementation class for uniform crossover
- * 
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class uniform_crossover_impl : public crossover_operator<Chromosome,Encoding> 
@@ -71,9 +65,6 @@ public:
  * \class uniform_crossover
  *
  * interface for uniform_crossover_impl
- *
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome, typename Encoding> class uniform_crossover;
 template <template <typename> class Chromosome>
@@ -86,9 +77,6 @@ class uniform_crossover<Chromosome,boolean_encoding> :
  * \class uniform_crossover
  *
  * interface for uniform_crossover_impl
- *
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome>
 class uniform_crossover<Chromosome,binary_encoding> :
@@ -100,9 +88,6 @@ class uniform_crossover<Chromosome,binary_encoding> :
  * \class uniform_crossover
  *
  * interface for uniform_crossover_impl
- *
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome>
 class uniform_crossover<Chromosome,real_encoding> :
@@ -114,9 +99,6 @@ class uniform_crossover<Chromosome,real_encoding> :
  * \class uniform_crossover
  *
  * interface for uniform_crossover_impl
- *
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome>
 class uniform_crossover<Chromosome,integer_encoding> :
@@ -128,9 +110,6 @@ class uniform_crossover<Chromosome,integer_encoding> :
  * \class uniform_crossover
  *
  * interface for uniform_crossover_impl
- *
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome>
 class uniform_crossover<Chromosome,gap_encoding> :
@@ -142,9 +121,6 @@ class uniform_crossover<Chromosome,gap_encoding> :
  * \class uniform_crossover
  *
  * interface for uniform_crossover_impl
- *
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome>
 class uniform_crossover<Chromosome,gsap_encoding> :
@@ -156,9 +132,6 @@ class uniform_crossover<Chromosome,gsap_encoding> :
  * \class one_point_crossover_impl
  *
  * implementation class for one-point crossover
- *
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class one_point_crossover_impl : public crossover_operator<Chromosome,Encoding>
@@ -182,9 +155,6 @@ public:
  * \class one_point_crossover
  *
  * interface to one_point_crossover_impl
- *
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome, typename Encoding> class one_point_crossover;
 template <template <typename> class Chromosome>
@@ -197,9 +167,6 @@ class one_point_crossover<Chromosome,boolean_encoding> :
  * \class one_point_crossover
  *
  * interface to one_point_crossover_impl
- *
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome>
 class one_point_crossover<Chromosome,binary_encoding> :
@@ -211,9 +178,6 @@ class one_point_crossover<Chromosome,binary_encoding> :
  * \class one_point_crossover
  *
  * interface to one_point_crossover_impl
- *
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome>
 class one_point_crossover<Chromosome,real_encoding> :
@@ -225,9 +189,6 @@ class one_point_crossover<Chromosome,real_encoding> :
  * \class one_point_crossover
  *
  * interface to one_point_crossover_impl
- *
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome>
 class one_point_crossover<Chromosome,integer_encoding> :
@@ -239,9 +200,6 @@ class one_point_crossover<Chromosome,integer_encoding> :
  * \class one_point_crossover
  *
  * interface to one_point_crossover_impl
- *
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome>
 class one_point_crossover<Chromosome,gap_encoding> :
@@ -253,9 +211,6 @@ class one_point_crossover<Chromosome,gap_encoding> :
  * \class one_point_crossover
  *
  * interface to one_point_crossover_impl
- *
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome>
 class one_point_crossover<Chromosome,gsap_encoding> :
@@ -267,9 +222,6 @@ class one_point_crossover<Chromosome,gsap_encoding> :
  * \class two_point_crossover_impl
  *
  * implementation class for two-point crossover
- * 
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class two_point_crossover_impl : public crossover_operator<Chromosome,Encoding>
@@ -293,9 +245,6 @@ public:
  * \class two_point_crossover
  *
  * interface to two_point_crossover_impl
- *
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome, typename Encoding> class two_point_crossover;
 template <template <typename> class Chromosome>
@@ -308,9 +257,6 @@ class two_point_crossover<Chromosome,boolean_encoding> :
  * \class two_point_crossover
  *
  * interface to two_point_crossover_impl
- *
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome>
 class two_point_crossover<Chromosome,binary_encoding> :
@@ -322,9 +268,6 @@ class two_point_crossover<Chromosome,binary_encoding> :
  * \class two_point_crossover
  *
  * interface to two_point_crossover_impl
- *
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome>
 class two_point_crossover<Chromosome,real_encoding> :
@@ -336,9 +279,6 @@ class two_point_crossover<Chromosome,real_encoding> :
  * \class two_point_crossover
  *
  * interface to two_point_crossover_impl
- *
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome>
 class two_point_crossover<Chromosome,integer_encoding> :
@@ -350,9 +290,6 @@ class two_point_crossover<Chromosome,integer_encoding> :
  * \class two_point_crossover
  *
  * interface to two_point_crossover_impl
- *
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome>
 class two_point_crossover<Chromosome,gap_encoding> :
@@ -364,9 +301,6 @@ class two_point_crossover<Chromosome,gap_encoding> :
  * \class two_point_crossover
  *
  * interface to two_point_crossover_impl
- *
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome>
 class two_point_crossover<Chromosome,gsap_encoding> :
@@ -378,9 +312,6 @@ class two_point_crossover<Chromosome,gsap_encoding> :
  * \class hux_crossover_impl
  *
  * implementation class for hux crossover (half-uniform crossover)
- *
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class hux_crossover_impl : public crossover_operator<Chromosome,Encoding>
@@ -404,9 +335,6 @@ public:
  * \class hux_crossover
  *
  * interface to hux_crossover_impl
- *
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome, typename Encoding> class hux_crossover;
 template <template <typename> class Chromosome>
@@ -419,9 +347,6 @@ class hux_crossover<Chromosome,boolean_encoding> :
  * \class hux_crossover
  *
  * interface to hux_crossover_impl
- *
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome>
 class hux_crossover<Chromosome,binary_encoding> :
@@ -433,9 +358,6 @@ class hux_crossover<Chromosome,binary_encoding> :
  * \class sbx_crossover_impl
  *
  * implementation class for simulated binary crossover
- *
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class sbx_crossover_impl : public crossover_operator<Chromosome,Encoding>
@@ -458,9 +380,6 @@ public:
  * \class sbx_crossover
  *
  * interface to sbx_crossover_impl
- *
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome, typename Encoding> class sbx_crossover;
 template <template <typename> class Chromosome>
@@ -479,9 +398,6 @@ class sbx_crossover<Chromosome,real_encoding> :
  *
  * CX is useful for permutation problems in which absolute position within
  * the genome is the most important factor in determining fitness.
- * 
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class cycle_crossover_impl : public crossover_operator<Chromosome,Encoding>
@@ -505,9 +421,6 @@ public:
  * \class cycle_crossover
  *
  * interface to cycle_crossover_impl
- *
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome, typename Encoding> class cycle_crossover;
 template <template <typename> class Chromosome>
@@ -522,9 +435,6 @@ class cycle_crossover<Chromosome,permutation_encoding> :
  * implementation class for order crossover (OX).  OX is useful for
  * permutation problems in which relative ordering within the genome
  * is more important than absolute position.
- *
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class order_crossover_impl : public crossover_operator<Chromosome,Encoding>
@@ -548,9 +458,6 @@ public:
  * \class order_crossover
  *
  * interface to order_crossover_impl
- *
- * \author deong
- * \date 05/09/2007
  */
 template <template <typename> class Chromosome, typename Encoding> class order_crossover;
 template <template <typename> class Chromosome>
@@ -561,9 +468,6 @@ class order_crossover<Chromosome,permutation_encoding> :
 
 /*!
  * \class bit_vector_crossover_operator_factory
- *
- * \author deong
- * \date 05/09/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class bit_vector_crossover_operator_factory
@@ -574,9 +478,6 @@ public:
 
 /*!
  * \class real_crossover_operator_factory
- *
- * \author deong
- * \date 05/09/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class real_crossover_operator_factory
@@ -587,9 +488,6 @@ public:
 
 /*!
  * \class permutation_crossover_operator_factory
- *
- * \author deong
- * \date 05/09/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class permutation_crossover_operator_factory
@@ -600,9 +498,6 @@ public:
 
 /*!
  * \class integer_crossover_operator_factory
- *
- * \author deong
- * \date 05/09/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class integer_crossover_operator_factory
@@ -613,9 +508,6 @@ public:
 
 /*!
  * \class gap_crossover_operator_factory
- *
- * \author deong
- * \date 05/09/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class gap_crossover_operator_factory
@@ -626,9 +518,6 @@ public:
 
 /*!
  * \class gap_crossover_operator_factory
- *
- * \author deong
- * \date 05/09/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class gsap_crossover_operator_factory
@@ -641,9 +530,6 @@ public:
  * \class crossover_operator_factory
  *
  * empty base class -- specializations handle actual logic
- *
- * \author deong
- * \date 05/09/2007
  */
 template <template <typename> class Chromosome, typename Encoding> class crossover_operator_factory;
 
@@ -651,9 +537,6 @@ template <template <typename> class Chromosome, typename Encoding> class crossov
  * \class crossover_operator_factory
  *
  * creates crossover operators for binary encodings
- *
- * \author deong
- * \date 05/09/2007
  */
 template <template <typename> class Chromosome>
 class crossover_operator_factory<Chromosome,binary_encoding> :
@@ -665,9 +548,6 @@ class crossover_operator_factory<Chromosome,binary_encoding> :
  * \class crossover_operator_factory
  *
  * creates crossover operators for boolean encodings
- *
- * \author deong
- * \date 05/09/2007
  */
 template <template <typename> class Chromosome>
 class crossover_operator_factory<Chromosome,boolean_encoding> :
@@ -679,9 +559,6 @@ class crossover_operator_factory<Chromosome,boolean_encoding> :
  * \class crossover_operator_factory
  *
  * creates crossover operators for real encodings
- *
- * \author deong
- * \date 05/09/2007
  */
 template <template <typename> class Chromosome>
 class crossover_operator_factory<Chromosome,real_encoding> :
@@ -693,9 +570,6 @@ class crossover_operator_factory<Chromosome,real_encoding> :
  * \class crossover_operator_factory
  *
  * creates crossover operators for permutation encodings
- *
- * \author deong
- * \date 05/09/2007
  */
 template <template <typename> class Chromosome>
 class crossover_operator_factory<Chromosome,permutation_encoding> :
@@ -707,9 +581,6 @@ class crossover_operator_factory<Chromosome,permutation_encoding> :
  * \class crossover_operator_factory
  *
  * creates crossover operators for integer encodings
- *
- * \author deong
- * \date 05/09/2007
  */
 template <template <typename> class Chromosome>
 class crossover_operator_factory<Chromosome,integer_encoding> :
@@ -721,9 +592,6 @@ class crossover_operator_factory<Chromosome,integer_encoding> :
  * \class crossover_operator_factory
  *
  * creates crossover operators for gap encodings
- *
- * \author deong
- * \date 05/09/2007
  */
 template <template <typename> class Chromosome>
 class crossover_operator_factory<Chromosome,gap_encoding> :
@@ -735,9 +603,6 @@ class crossover_operator_factory<Chromosome,gap_encoding> :
  * \class crossover_operator_factory
  *
  * creates crossover operators for gap encodings
- *
- * \author deong
- * \date 05/09/2007
  */
 template <template <typename> class Chromosome>
 class crossover_operator_factory<Chromosome,gsap_encoding> :

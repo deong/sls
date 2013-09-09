@@ -1,8 +1,8 @@
 /**
  * \file repair.h
  *
- * \author deong
- * \date 10/08/2007
+ * Deon Garrett
+ * jdgarrett@gmail.com
  */
 
 #ifndef _REPAIR_H_
@@ -15,9 +15,6 @@
 /**
  * \class repair_operator
  * \brief abstract base class for all repair operators 
- *
- * \author deong
- * \date 10/09/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class repair_operator
@@ -36,9 +33,6 @@ public:
 /**
  * \class gap_repair_impl
  * \brief implementation class for gap_repair_nd operator
- *
- * \author deong
- * \date 10/09/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class gap_repair_nd_impl : public repair_operator<Chromosome,Encoding>
@@ -60,9 +54,6 @@ protected:
 /**
  * \class gap_repair_nd
  * \brief public interface to gap_repair_nd operator
- *
- * \author deong
- * \date 10/09/2007
  */
 template <template <typename> class Chromosome, typename Encoding> class gap_repair_nd;
 template <template <typename> class Chromosome>
@@ -74,9 +65,6 @@ class gap_repair_nd<Chromosome,gap_encoding> :
 /**
  * \class gsap_repair_impl
  * \brief implementation class for gsap_repair operator
- *
- * \author deong
- * \date 10/09/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class gsap_repair_impl : public repair_operator<Chromosome,Encoding>
@@ -98,9 +86,6 @@ protected:
 /**
  * \class gap_repair_nd
  * \brief public interface to gap_repair_nd operator
- *
- * \author deong
- * \date 10/09/2007
  */
 template <template <typename> class Chromosome, typename Encoding> class gsap_repair;
 template <template <typename> class Chromosome>
@@ -112,9 +97,6 @@ class gsap_repair<Chromosome,gsap_encoding> :
 /**
  * \class gap_repair_sd_impl
  * \brief implementation class for gap_repair_sd operator
- *
- * \author deong
- * \date 10/09/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class gap_repair_sd_impl : public repair_operator<Chromosome,Encoding>
@@ -136,9 +118,6 @@ protected:
 /**
  * \class gap_repair_sd
  * \brief public interface to gap_repair_sd operator
- *
- * \author deong
- * \date 10/09/2007
  */
 template <template <typename> class Chromosome, typename Encoding> class gap_repair_sd;
 template <template <typename> class Chromosome>
@@ -149,9 +128,6 @@ class gap_repair_sd<Chromosome,gap_encoding> :
 
 /*!
  * \class bit_vector_repair_factory
- *
- * \author deong
- * \date 10/09/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class bit_vector_repair_factory : public factory
@@ -162,9 +138,6 @@ public:
 
 /*!
  * \class real_repair_factory
- *
- * \author deong
- * \date 10/09/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class real_repair_factory : public factory
@@ -175,9 +148,6 @@ public:
 
 /*!
  * \class permutation_repair_factory
- *
- * \author deong
- * \date 10/09/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class permutation_repair_factory : public factory
@@ -188,9 +158,6 @@ public:
 
 /*!
  * \class integer_repair_factory
- *
- * \author deong
- * \date 10/09/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class integer_repair_factory : public factory
@@ -201,9 +168,6 @@ public:
 
 /*!
  * \class gap_repair_factory
- *
- * \author deong
- * \date 10/09/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class gap_repair_factory : public factory
@@ -214,9 +178,6 @@ public:
 
 /*!
  * \class gsap_repair_factory
- *
- * \author deong
- * \date 10/09/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class gsap_repair_factory : public factory
@@ -229,19 +190,13 @@ public:
  * \class repair_factory
  *
  * empty base class -- specializations handle actual logic
- *
- * \author deong
- * \date 05/09/2007
  */
 template <template <typename> class Chromosome, typename Encoding> class repair_factory;
 
 /*!
  * \class repair_factory
  *
- * creates crossover operators for binary encodings
- *
- * \author deong
- * \date 05/09/2007
+ * creates repair operators for binary encodings
  */
 template <template <typename> class Chromosome>
 class repair_factory<Chromosome,binary_encoding> :
@@ -252,10 +207,7 @@ class repair_factory<Chromosome,binary_encoding> :
 /*!
  * \class repair_factory
  *
- * creates crossover operators for boolean encodings
- *
- * \author deong
- * \date 05/09/2007
+ * creates repair operators for boolean encodings
  */
 template <template <typename> class Chromosome>
 class repair_factory<Chromosome,boolean_encoding> :
@@ -266,10 +218,7 @@ class repair_factory<Chromosome,boolean_encoding> :
 /*!
  * \class repair_factory
  *
- * creates crossover operators for real encodings
- *
- * \author deong
- * \date 05/09/2007
+ * creates repair operators for real encodings
  */
 template <template <typename> class Chromosome>
 class repair_factory<Chromosome,real_encoding> :
@@ -280,10 +229,7 @@ class repair_factory<Chromosome,real_encoding> :
 /*!
  * \class repair_factory
  *
- * creates crossover operators for permutation encodings
- *
- * \author deong
- * \date 05/09/2007
+ * creates repair operators for permutation encodings
  */
 template <template <typename> class Chromosome>
 class repair_factory<Chromosome,permutation_encoding> :
@@ -294,10 +240,7 @@ class repair_factory<Chromosome,permutation_encoding> :
 /*!
  * \class repair_factory
  *
- * creates crossover operators for integer encodings
- *
- * \author deong
- * \date 05/09/2007
+ * creates repair operators for integer encodings
  */
 template <template <typename> class Chromosome>
 class repair_factory<Chromosome,integer_encoding> :
@@ -308,10 +251,7 @@ class repair_factory<Chromosome,integer_encoding> :
 /*!
  * \class repair_factory
  *
- * creates crossover operators for gap encodings
- *
- * \author deong
- * \date 05/09/2007
+ * creates repair operators for gap encodings
  */
 template <template <typename> class Chromosome>
 class repair_factory<Chromosome,gap_encoding> :
@@ -322,10 +262,7 @@ class repair_factory<Chromosome,gap_encoding> :
 /*!
  * \class repair_factory
  *
- * creates crossover operators for gap encodings
- *
- * \author deong
- * \date 05/09/2007
+ * creates repair operators for gap encodings
  */
 template <template <typename> class Chromosome>
 class repair_factory<Chromosome,gsap_encoding> :

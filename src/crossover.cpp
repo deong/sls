@@ -4,7 +4,7 @@
  * evolutionary algorithm crossover operators
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #include <string>
@@ -22,14 +22,6 @@ using namespace std;
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 crossover_operator<Chromosome,Encoding>::crossover_operator()
@@ -38,14 +30,6 @@ crossover_operator<Chromosome,Encoding>::crossover_operator()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 crossover_operator<Chromosome,Encoding>::~crossover_operator()
@@ -54,14 +38,6 @@ crossover_operator<Chromosome,Encoding>::~crossover_operator()
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 uniform_crossover_impl<Chromosome,Encoding>::uniform_crossover_impl()
@@ -70,14 +46,6 @@ uniform_crossover_impl<Chromosome,Encoding>::uniform_crossover_impl()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 uniform_crossover_impl<Chromosome,Encoding>::~uniform_crossover_impl()
@@ -86,14 +54,6 @@ uniform_crossover_impl<Chromosome,Encoding>::~uniform_crossover_impl()
 
 /*!
  * \brief perform uniform crossover
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void uniform_crossover_impl<Chromosome,Encoding>::crossover(const Chromosome<Encoding>& p1,
@@ -119,14 +79,6 @@ void uniform_crossover_impl<Chromosome,Encoding>::crossover(const Chromosome<Enc
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 one_point_crossover_impl<Chromosome,Encoding>::one_point_crossover_impl()
@@ -135,14 +87,6 @@ one_point_crossover_impl<Chromosome,Encoding>::one_point_crossover_impl()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 one_point_crossover_impl<Chromosome,Encoding>::~one_point_crossover_impl()
@@ -151,14 +95,6 @@ one_point_crossover_impl<Chromosome,Encoding>::~one_point_crossover_impl()
 
 /*!
  * \brief perform one-point crossover
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void one_point_crossover_impl<Chromosome,Encoding>::crossover(const Chromosome<Encoding>& p1,
@@ -182,14 +118,6 @@ void one_point_crossover_impl<Chromosome,Encoding>::crossover(const Chromosome<E
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 two_point_crossover_impl<Chromosome,Encoding>::two_point_crossover_impl()
@@ -198,14 +126,6 @@ two_point_crossover_impl<Chromosome,Encoding>::two_point_crossover_impl()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 two_point_crossover_impl<Chromosome,Encoding>::~two_point_crossover_impl()
@@ -214,14 +134,6 @@ two_point_crossover_impl<Chromosome,Encoding>::~two_point_crossover_impl()
 
 /*!
  * \brief perform two-point crossover
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void two_point_crossover_impl<Chromosome,Encoding>::crossover(const Chromosome<Encoding>& p1,
@@ -265,14 +177,6 @@ void two_point_crossover_impl<Chromosome,Encoding>::crossover(const Chromosome<E
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 hux_crossover_impl<Chromosome,Encoding>::hux_crossover_impl()
@@ -281,14 +185,6 @@ hux_crossover_impl<Chromosome,Encoding>::hux_crossover_impl()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 hux_crossover_impl<Chromosome,Encoding>::~hux_crossover_impl()
@@ -297,14 +193,6 @@ hux_crossover_impl<Chromosome,Encoding>::~hux_crossover_impl()
 
 /*!
  * \brief perform HUX crossover
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void hux_crossover_impl<Chromosome,Encoding>::crossover(const Chromosome<Encoding>& p1,
@@ -337,14 +225,6 @@ void hux_crossover_impl<Chromosome,Encoding>::crossover(const Chromosome<Encodin
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 sbx_crossover_impl<Chromosome,Encoding>::sbx_crossover_impl() :
@@ -354,14 +234,6 @@ sbx_crossover_impl<Chromosome,Encoding>::sbx_crossover_impl() :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 sbx_crossover_impl<Chromosome,Encoding>::~sbx_crossover_impl()
@@ -370,14 +242,6 @@ sbx_crossover_impl<Chromosome,Encoding>::~sbx_crossover_impl()
 
 /*!
  * \brief initialize the eta parameter of the SBX crossover operator
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void sbx_crossover_impl<Chromosome,Encoding>::initialize()
@@ -387,14 +251,6 @@ void sbx_crossover_impl<Chromosome,Encoding>::initialize()
 
 /*!
  * \brief perform SBX crossover
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void sbx_crossover_impl<Chromosome,Encoding>::crossover(const Chromosome<Encoding>& p1,
@@ -478,14 +334,6 @@ void sbx_crossover_impl<Chromosome,Encoding>::crossover(const Chromosome<Encodin
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 cycle_crossover_impl<Chromosome,Encoding>::cycle_crossover_impl()
@@ -494,14 +342,6 @@ cycle_crossover_impl<Chromosome,Encoding>::cycle_crossover_impl()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 cycle_crossover_impl<Chromosome,Encoding>::~cycle_crossover_impl()
@@ -510,14 +350,6 @@ cycle_crossover_impl<Chromosome,Encoding>::~cycle_crossover_impl()
 
 /*!
  * \brief perform cycle crossover
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void cycle_crossover_impl<Chromosome,Encoding>::crossover(const Chromosome<Encoding>& p1,
@@ -586,14 +418,6 @@ void cycle_crossover_impl<Chromosome,Encoding>::crossover(const Chromosome<Encod
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 order_crossover_impl<Chromosome,Encoding>::order_crossover_impl()
@@ -602,14 +426,6 @@ order_crossover_impl<Chromosome,Encoding>::order_crossover_impl()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 order_crossover_impl<Chromosome,Encoding>::~order_crossover_impl()
@@ -618,14 +434,6 @@ order_crossover_impl<Chromosome,Encoding>::~order_crossover_impl()
 
 /*!
  * \brief perform order crossover
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void order_crossover_impl<Chromosome,Encoding>::crossover(const Chromosome<Encoding>& p1,
@@ -725,14 +533,6 @@ void order_crossover_impl<Chromosome,Encoding>::crossover(const Chromosome<Encod
 
 /*!
  * \brief create an initialized crossover operator for bit-vector encodings
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 crossover_operator<Chromosome,Encoding>* bit_vector_crossover_operator_factory<Chromosome,Encoding>::construct()
@@ -764,14 +564,6 @@ crossover_operator<Chromosome,Encoding>* bit_vector_crossover_operator_factory<C
 
 /*!
  * \brief create an initialized crossover operator for real encodings
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 crossover_operator<Chromosome,Encoding>* real_crossover_operator_factory<Chromosome,Encoding>::construct()
@@ -805,14 +597,6 @@ crossover_operator<Chromosome,Encoding>* real_crossover_operator_factory<Chromos
 
 /*!
  * \brief create an initialized crossover operator for permutation encodings
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 crossover_operator<Chromosome,Encoding>* permutation_crossover_operator_factory<Chromosome,Encoding>::construct() 
@@ -836,14 +620,6 @@ crossover_operator<Chromosome,Encoding>* permutation_crossover_operator_factory<
 
 /*!
  * \brief create an initialized crossover operator for integer encodings
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 crossover_operator<Chromosome,Encoding>* integer_crossover_operator_factory<Chromosome,Encoding>::construct()
@@ -871,14 +647,6 @@ crossover_operator<Chromosome,Encoding>* integer_crossover_operator_factory<Chro
 
 /*!
  * \brief create an initialized crossover operator for gap encodings
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 crossover_operator<Chromosome,Encoding>* gap_crossover_operator_factory<Chromosome,Encoding>::construct()
@@ -906,9 +674,6 @@ crossover_operator<Chromosome,Encoding>* gap_crossover_operator_factory<Chromoso
 
 /*!
  * \brief create an initialized crossover operator for gsap encodings
- *
- * \author deong
- * \date 01/22/2009
  */
 template <template <typename> class Chromosome, typename Encoding>
 crossover_operator<Chromosome,Encoding>* gsap_crossover_operator_factory<Chromosome,Encoding>::construct()

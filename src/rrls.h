@@ -4,7 +4,7 @@
  * random restarts local search
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #ifndef _RRLS_H_
@@ -17,9 +17,6 @@
  * \class rrls
  *
  * random restarts local search
- *
- * \author deong
- * \date 05/11/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class rrls : virtual public sls<Chromosome,Encoding>

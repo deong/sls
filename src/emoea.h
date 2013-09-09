@@ -4,7 +4,7 @@
  * Deb et. al.'s epsilon multiobjective evolutionary algorithm
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #ifndef _EMOEA_H_
@@ -23,9 +23,6 @@ using namespace std;
  * \class emoea_chromosome
  *
  * augments standard chromosome with grid information
- *
- * \author deong
- * \date 05/09/2007
  */
 template <typename Encoding>
 class emoea_chromosome : public chromosome<Encoding>
@@ -49,9 +46,6 @@ public:
  * \class emoea
  *
  * Epsilon Multiobjective Evolutionary Algorithm
- *
- * \author deong
- * \date 05/09/2007
  */
 template <typename Encoding>
 class emoea : public ea<emoea_chromosome,Encoding>

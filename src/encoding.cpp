@@ -7,7 +7,7 @@
  * the representations for several different types of encodings
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #include <iostream>
@@ -39,14 +39,6 @@ int gsap_encoding::m_cap_pen;
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename G, typename P>
 encoding<G,P>::encoding()
@@ -55,14 +47,6 @@ encoding<G,P>::encoding()
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename G, typename P>
 encoding<G,P>::encoding(const problem* p) :
@@ -72,14 +56,6 @@ encoding<G,P>::encoding(const problem* p) :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename G, typename P>
 encoding<G,P>::~encoding()
@@ -88,14 +64,6 @@ encoding<G,P>::~encoding()
 
 /*!
  * \brief assignment operator
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename G, typename P>
 encoding<G,P>& encoding<G,P>::operator=(const encoding<G,P>& that)
@@ -107,14 +75,6 @@ encoding<G,P>& encoding<G,P>::operator=(const encoding<G,P>& that)
 
 /*!
  * \brief equality operator
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename G, typename P>
 bool encoding<G,P>::operator==(const encoding<G,P>& that)
@@ -124,14 +84,6 @@ bool encoding<G,P>::operator==(const encoding<G,P>& that)
 
 /*!
  * \brief return a given element of the encoded genotype
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename G, typename P>
 inline G& encoding<G,P>::operator[](unsigned int index)
@@ -141,14 +93,6 @@ inline G& encoding<G,P>::operator[](unsigned int index)
 
 /*!
  * \brief return a given element of the encoded genotype
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename G, typename P>
 inline const G& encoding<G,P>::operator[](unsigned int index) const
@@ -158,14 +102,6 @@ inline const G& encoding<G,P>::operator[](unsigned int index) const
 
 /*!
  * \brief return the genotype vector
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename G, typename P>
 vector<G>& encoding<G,P>::genotype()
@@ -175,14 +111,6 @@ vector<G>& encoding<G,P>::genotype()
 
 /*!
  * \brief return the genotype vector
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename G, typename P>
 const vector<G>& encoding<G,P>::genotype() const
@@ -192,14 +120,6 @@ const vector<G>& encoding<G,P>::genotype() const
 
 /*!
  * \brief return the phenotype vector
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename G, typename P>
 vector<P>& encoding<G,P>::phenotype()
@@ -209,14 +129,6 @@ vector<P>& encoding<G,P>::phenotype()
 
 /*!
  * \brief return the phenotype vector
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename G, typename P>
 const vector<P>& encoding<G,P>::phenotype() const
@@ -226,14 +138,6 @@ const vector<P>& encoding<G,P>::phenotype() const
 
 /*!
  * \brief return the length of the genotype
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename G, typename P>
 inline unsigned int encoding<G,P>::length() const
@@ -243,14 +147,6 @@ inline unsigned int encoding<G,P>::length() const
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename P>
 bit_vector_encoding<P>::bit_vector_encoding()
@@ -259,14 +155,6 @@ bit_vector_encoding<P>::bit_vector_encoding()
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename P>
 bit_vector_encoding<P>::bit_vector_encoding(const problem* p) :
@@ -276,14 +164,6 @@ bit_vector_encoding<P>::bit_vector_encoding(const problem* p) :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename P>
 bit_vector_encoding<P>::~bit_vector_encoding()
@@ -292,14 +172,6 @@ bit_vector_encoding<P>::~bit_vector_encoding()
 
 /*!
  * \brief return an iterator to the front of the genotype vector
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename P>
 typename bit_vector_encoding<P>::iterator bit_vector_encoding<P>::begin()
@@ -309,14 +181,6 @@ typename bit_vector_encoding<P>::iterator bit_vector_encoding<P>::begin()
 
 /*!
  * \brief return an iterator to the front of the genotype vector
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename P>
 typename bit_vector_encoding<P>::const_iterator bit_vector_encoding<P>::begin() const
@@ -326,14 +190,6 @@ typename bit_vector_encoding<P>::const_iterator bit_vector_encoding<P>::begin() 
 
 /*!
  * \brief return an iterator to the end of the genotype vector
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename P>
 typename bit_vector_encoding<P>::iterator bit_vector_encoding<P>::end()
@@ -343,14 +199,6 @@ typename bit_vector_encoding<P>::iterator bit_vector_encoding<P>::end()
 
 /*!
  * \brief return an iterator to the end of the genotype vector
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename P>
 typename bit_vector_encoding<P>::const_iterator bit_vector_encoding<P>::end() const
@@ -360,14 +208,6 @@ typename bit_vector_encoding<P>::const_iterator bit_vector_encoding<P>::end() co
 
 /*!
  * \brief randomize the encoded solution
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename P>
 void bit_vector_encoding<P>::randomize()
@@ -381,14 +221,6 @@ void bit_vector_encoding<P>::randomize()
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 boolean_encoding::boolean_encoding()
 {
@@ -396,14 +228,6 @@ boolean_encoding::boolean_encoding()
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 boolean_encoding::boolean_encoding(const bit_string_problem* p) :
     bit_vector_encoding<int>::bit_vector_encoding(p)
@@ -413,14 +237,6 @@ boolean_encoding::boolean_encoding(const bit_string_problem* p) :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 boolean_encoding::~boolean_encoding()
 {
@@ -428,14 +244,6 @@ boolean_encoding::~boolean_encoding()
 
 /*!
  * \brief initialize encoding parameters
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 void boolean_encoding::initialize_parameters(const bit_string_problem* p)
 {
@@ -443,14 +251,6 @@ void boolean_encoding::initialize_parameters(const bit_string_problem* p)
 
 /*!
  * \brief clear encoding parameters
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 void boolean_encoding::clear_parameters()
 {
@@ -458,9 +258,6 @@ void boolean_encoding::clear_parameters()
 
 /*!
  * \brief encode an integer into a boolean genotype vector
- *
- * \author deong@acm.org
- * \date 10/10/2008
  */
 inline void boolean_encoding::encode(unsigned int p)
 {
@@ -480,14 +277,6 @@ inline void boolean_encoding::encode(unsigned int p)
 
 /*!
  * \brief decode the genotype into a phenotype vector
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 inline void boolean_encoding::decode()
 {
@@ -499,14 +288,6 @@ inline void boolean_encoding::decode()
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 numeric_encoding::numeric_encoding()
 {
@@ -514,14 +295,6 @@ numeric_encoding::numeric_encoding()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 numeric_encoding::~numeric_encoding()
 {
@@ -529,14 +302,6 @@ numeric_encoding::~numeric_encoding()
 
 /*!
  * \brief initialize the encoding parameters
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 void numeric_parameters::initialize_parameters(const numeric_problem* p)
 {
@@ -550,14 +315,6 @@ void numeric_parameters::initialize_parameters(const numeric_problem* p)
 
 /*!
  * \brief erase the encoding parameters
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 void numeric_parameters::cleanup()
 {
@@ -566,14 +323,6 @@ void numeric_parameters::cleanup()
 
 /*!
  * \brief return the range of valid values for an allele
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 const pair<double,double>& numeric_encoding::parameter_range(int pnum)
 {
@@ -582,14 +331,6 @@ const pair<double,double>& numeric_encoding::parameter_range(int pnum)
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 binary_encoding::binary_encoding()
 {
@@ -597,14 +338,6 @@ binary_encoding::binary_encoding()
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 binary_encoding::binary_encoding(const numeric_problem* p) :
     bit_vector_encoding<double>::bit_vector_encoding(p)
@@ -614,14 +347,6 @@ binary_encoding::binary_encoding(const numeric_problem* p) :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 binary_encoding::~binary_encoding()
 {
@@ -629,14 +354,6 @@ binary_encoding::~binary_encoding()
 
 /*!
  * \brief initialize the encoding parameters
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 void binary_encoding::initialize_parameters(const numeric_problem* p)
 {
@@ -646,14 +363,6 @@ void binary_encoding::initialize_parameters(const numeric_problem* p)
 
 /*!
  * \brief clear the encoding parameters
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 void binary_encoding::clear_parameters()
 {
@@ -699,14 +408,6 @@ inline void binary_encoding::encode(const vector<double>& params)
 
 /*!
  * \brief decode the genotype into a phenotype vector
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 inline void binary_encoding::decode()
 {
@@ -837,14 +538,6 @@ void binary_parameters::initialize_parameters(const numeric_problem* p)
 
 /*!
  * \brief erase the encoding parameters
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 void binary_parameters::cleanup()
 {
@@ -855,14 +548,6 @@ void binary_parameters::cleanup()
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 real_encoding::real_encoding()
 {
@@ -870,14 +555,6 @@ real_encoding::real_encoding()
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 real_encoding::real_encoding(const numeric_problem* p) :
     encoding<double,double>::encoding(p)
@@ -887,14 +564,6 @@ real_encoding::real_encoding(const numeric_problem* p) :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 real_encoding::~real_encoding()
 {
@@ -902,14 +571,6 @@ real_encoding::~real_encoding()
 
 /*!
  * \brief return an iterator to the beginning of the genotype
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 real_encoding::iterator real_encoding::begin()
 {
@@ -918,14 +579,6 @@ real_encoding::iterator real_encoding::begin()
 
 /*!
  * \brief return an iterator to the beginning of the genotype
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 real_encoding::const_iterator real_encoding::begin() const
 {
@@ -934,14 +587,6 @@ real_encoding::const_iterator real_encoding::begin() const
 
 /*!
  * \brief return an iterator to the end of the genotype
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 real_encoding::iterator real_encoding::end()
 {
@@ -950,14 +595,6 @@ real_encoding::iterator real_encoding::end()
 
 /*!
  * \brief return an iterator to the end of the genotype
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 real_encoding::const_iterator real_encoding::end() const
 {
@@ -966,14 +603,6 @@ real_encoding::const_iterator real_encoding::end() const
 
 /*!
  * \brief initialize the encoding parameters
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 void real_encoding::initialize_parameters(const numeric_problem* p)
 {
@@ -982,14 +611,6 @@ void real_encoding::initialize_parameters(const numeric_problem* p)
 
 /*!
  * \brief clear the encoding parameters
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 void real_encoding::clear_parameters()
 {
@@ -998,14 +619,6 @@ void real_encoding::clear_parameters()
 
 /*!
  * \brief randomize the encoded solution
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 void real_encoding::randomize()
 {
@@ -1019,14 +632,6 @@ void real_encoding::randomize()
 
 /*!
  * \brief decode the genotype into a phenotype vector
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 inline void real_encoding::decode()
 {
@@ -1038,14 +643,6 @@ inline void real_encoding::decode()
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 permutation_encoding::permutation_encoding()
 {
@@ -1053,14 +650,6 @@ permutation_encoding::permutation_encoding()
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 permutation_encoding::permutation_encoding(const permutation_problem* p) :
     encoding<int,int>::encoding(p)
@@ -1070,14 +659,6 @@ permutation_encoding::permutation_encoding(const permutation_problem* p) :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 permutation_encoding::~permutation_encoding()
 {
@@ -1085,14 +666,6 @@ permutation_encoding::~permutation_encoding()
 
 /*!
  * \brief return an iterator to the beginning of the genotype
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 permutation_encoding::iterator permutation_encoding::begin()
 {
@@ -1101,14 +674,6 @@ permutation_encoding::iterator permutation_encoding::begin()
 
 /*!
  * \brief return an iterator to the beginning of the genotype
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 permutation_encoding::const_iterator permutation_encoding::begin() const
 {
@@ -1117,14 +682,6 @@ permutation_encoding::const_iterator permutation_encoding::begin() const
 
 /*!
  * \brief return an iterator to the end of the genotype
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 permutation_encoding::iterator permutation_encoding::end()
 {
@@ -1133,14 +690,6 @@ permutation_encoding::iterator permutation_encoding::end()
 
 /*!
  * \brief return an iterator to the end of the genotype
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 permutation_encoding::const_iterator permutation_encoding::end() const
 {
@@ -1149,14 +698,6 @@ permutation_encoding::const_iterator permutation_encoding::end() const
 
 /*!
  * \brief initialize the encoding parameters
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 void permutation_encoding::initialize_parameters(const permutation_problem* p)
 {
@@ -1164,14 +705,6 @@ void permutation_encoding::initialize_parameters(const permutation_problem* p)
 
 /*!
  * \brief clear the encoding parameters
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 void permutation_encoding::clear_parameters()
 {
@@ -1179,14 +712,6 @@ void permutation_encoding::clear_parameters()
 
 /*!
  * \brief randomize the encoded solution
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 void permutation_encoding::randomize()
 {
@@ -1196,14 +721,6 @@ void permutation_encoding::randomize()
 
 /*!
  * \brief decode the genotype into a phenotype vector
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 inline void permutation_encoding::decode()
 {
@@ -1215,14 +732,6 @@ inline void permutation_encoding::decode()
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 integer_encoding::integer_encoding()
 {
@@ -1230,14 +739,6 @@ integer_encoding::integer_encoding()
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 integer_encoding::integer_encoding(const integer_problem* p) :
     encoding<int,int>::encoding(p)
@@ -1247,14 +748,6 @@ integer_encoding::integer_encoding(const integer_problem* p) :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 integer_encoding::~integer_encoding()
 {
@@ -1262,14 +755,6 @@ integer_encoding::~integer_encoding()
 
 /*!
  * \brief return an iterator to the beginning of the genotype
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 integer_encoding::iterator integer_encoding::begin()
 {
@@ -1278,14 +763,6 @@ integer_encoding::iterator integer_encoding::begin()
 
 /*!
  * \brief return an iterator to the beginning of the genotype
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 integer_encoding::const_iterator integer_encoding::begin() const
 {
@@ -1294,14 +771,6 @@ integer_encoding::const_iterator integer_encoding::begin() const
 
 /*!
  * \brief return an iterator to the end of the genotype
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 integer_encoding::iterator integer_encoding::end()
 {
@@ -1310,14 +779,6 @@ integer_encoding::iterator integer_encoding::end()
 
 /*!
  * \brief return an iterator to the end of the genotype
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 integer_encoding::const_iterator integer_encoding::end() const
 {
@@ -1326,14 +787,6 @@ integer_encoding::const_iterator integer_encoding::end() const
 
 /*!
  * \brief initialize the encoding parameters
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 void integer_encoding::initialize_parameters(const integer_problem* p)
 {
@@ -1347,14 +800,6 @@ void integer_encoding::initialize_parameters(const integer_problem* p)
 
 /*!
  * \brief clear the encoding parameters
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 void integer_encoding::clear_parameters()
 {
@@ -1367,14 +812,6 @@ void integer_encoding::clear_parameters()
 
 /*!
  * \brief return a vector of valid allele values
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 const vector<int>& integer_encoding::legal_values(unsigned int index) const
 {
@@ -1383,14 +820,6 @@ const vector<int>& integer_encoding::legal_values(unsigned int index) const
 
 /*!
  * \brief randomize the encoded solution
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 void integer_encoding::randomize()
 {
@@ -1403,14 +832,6 @@ void integer_encoding::randomize()
 
 /*!
  * \brief decode the genotype into a phenotype vector
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 void integer_encoding::decode()
 {
@@ -1422,14 +843,6 @@ void integer_encoding::decode()
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 gap_encoding::gap_encoding()
 {
@@ -1437,14 +850,6 @@ gap_encoding::gap_encoding()
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 gap_encoding::gap_encoding(const gap_problem* p) :
     encoding<int,int>::encoding(p)
@@ -1454,14 +859,6 @@ gap_encoding::gap_encoding(const gap_problem* p) :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 gap_encoding::~gap_encoding()
 {
@@ -1469,14 +866,6 @@ gap_encoding::~gap_encoding()
 
 /*!
  * \brief return the number of agents in the problem
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 unsigned int gap_encoding::agents() const
 {
@@ -1485,14 +874,6 @@ unsigned int gap_encoding::agents() const
 
 /*!
  * \brief return the number of tasks in the problem
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 unsigned int gap_encoding::tasks() const
 {
@@ -1501,14 +882,6 @@ unsigned int gap_encoding::tasks() const
 
 /*!
  * \brief return an iterator to the beginning of the genotype
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 gap_encoding::iterator gap_encoding::begin()
 {
@@ -1517,14 +890,6 @@ gap_encoding::iterator gap_encoding::begin()
 
 /*!
  * \brief return an iterator to the beginning of the genotype
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 gap_encoding::const_iterator gap_encoding::begin() const
 {
@@ -1533,14 +898,6 @@ gap_encoding::const_iterator gap_encoding::begin() const
 
 /*!
  * \brief return an iterator to the end of the genotype
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 gap_encoding::iterator gap_encoding::end()
 {
@@ -1549,14 +906,6 @@ gap_encoding::iterator gap_encoding::end()
 
 /*!
  * \brief return an iterator to the end of the genotype
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 gap_encoding::const_iterator gap_encoding::end() const
 {
@@ -1565,14 +914,6 @@ gap_encoding::const_iterator gap_encoding::end() const
 
 /*!
  * \brief initialize the encoding parameters
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 void gap_encoding::initialize_parameters(const gap_problem* p)
 {
@@ -1586,14 +927,6 @@ void gap_encoding::initialize_parameters(const gap_problem* p)
 
 /*!
  * \brief clear the encoding parameters
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 void gap_encoding::clear_parameters()
 {
@@ -1602,14 +935,6 @@ void gap_encoding::clear_parameters()
 
 /*!
  * \brief randomize the encoded solution
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 void gap_encoding::randomize()
 {
@@ -1622,14 +947,6 @@ void gap_encoding::randomize()
 
 /*!
  * \brief decode the genotype into a phenotype vector
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 void gap_encoding::decode()
 {
@@ -1641,9 +958,6 @@ void gap_encoding::decode()
 
 /**
  * \brief constructor
- *
- * \author deong
- * \date 01/22/2009
  */
 gsap_encoding::gsap_encoding()
 {
@@ -1651,9 +965,6 @@ gsap_encoding::gsap_encoding()
 
 /**
  * \brief constructor
- *
- * \author deong
- * \date 01/22/2009
  */
 gsap_encoding::gsap_encoding(const ProblemType* p) :
     encoding<int,int>::encoding(p)
@@ -1663,9 +974,6 @@ gsap_encoding::gsap_encoding(const ProblemType* p) :
 
 /**
  * \brief destructor
- *
- * \author deong
- * \date 01/22/2009
  */
 gsap_encoding::~gsap_encoding()
 {
@@ -1673,9 +981,6 @@ gsap_encoding::~gsap_encoding()
 
 /**
  * \brief return iterator to beginning of encoding
- *
- * \author deong
- * \date 01/22/2009
  */
 gsap_encoding::iterator gsap_encoding::begin()
 {
@@ -1684,9 +989,6 @@ gsap_encoding::iterator gsap_encoding::begin()
 
 /**
  * \brief return iterator to end of encoding
- *
- * \author deong
- * \date 01/22/2009
  */
 gsap_encoding::iterator gsap_encoding::end()
 {
@@ -1695,9 +997,6 @@ gsap_encoding::iterator gsap_encoding::end()
 
 /**
  * \brief return iterator to beginning of encoding
- *
- * \author deong
- * \date 01/22/2009
  */
 gsap_encoding::const_iterator gsap_encoding::begin() const
 {
@@ -1706,9 +1005,6 @@ gsap_encoding::const_iterator gsap_encoding::begin() const
 
 /**
  * \brief return iterator to end of encoding
- *
- * \author deong
- * \date 01/22/2009
  */
 gsap_encoding::const_iterator gsap_encoding::end() const
 {
@@ -1719,9 +1015,6 @@ gsap_encoding::const_iterator gsap_encoding::end() const
  * \brief randomize solution
  *
  * \todo make randomization attempt to honor constraints
- * 
- * \author deong
- * \date 01/22/2009
  */
 void gsap_encoding::randomize()
 {
@@ -1735,9 +1028,6 @@ void gsap_encoding::randomize()
 
 /**
  * \brief trivially decode the solution
- *
- * \author deong
- * \date 01/22/2009
  */
 void gsap_encoding::decode()
 {
@@ -1746,9 +1036,6 @@ void gsap_encoding::decode()
 
 /**
  * \brief initialize encoding parameters
- *
- * \author deong
- * \date 01/22/2009
  */
 void gsap_encoding::initialize_parameters(const ProblemType* p)
 {
@@ -1760,9 +1047,6 @@ void gsap_encoding::initialize_parameters(const ProblemType* p)
 
 /**
  * \brief clear encoding parameters
- *
- * \author deong
- * \date 01/22/2009
  */
 void gsap_encoding::clear_parameters()
 {
@@ -1772,9 +1056,6 @@ void gsap_encoding::clear_parameters()
 
 /*!
  * \brief print the encoded data
- *
- * \author deong
- * \date 05/09/2007
  */
 ostream& operator<<(ostream& s, const boolean_encoding& e)
 {
@@ -1788,9 +1069,6 @@ ostream& operator<<(ostream& s, const boolean_encoding& e)
 
 /*!
  * \brief read in an encoded chromosome
- *
- * \author deong@acm.org
- * \date 10/14/2008
  */
 istream& operator>>(istream& s, boolean_encoding& e)
 {
@@ -1806,9 +1084,6 @@ istream& operator>>(istream& s, boolean_encoding& e)
 
 /*!
  * \brief print the encoded data
- *
- * \author deong
- * \date 05/09/2007
  */
 ostream& operator<<(ostream& s, const binary_encoding& e)
 {
@@ -1822,9 +1097,6 @@ ostream& operator<<(ostream& s, const binary_encoding& e)
 
 /*!
  * \brief read in an encoded value
- *
- * \author deong@acm.org
- * \date 10/14/2008
  */
 istream& operator>>(istream& s, binary_encoding& e)
 {
@@ -1841,9 +1113,6 @@ istream& operator>>(istream& s, binary_encoding& e)
 
 /*!
  * \brief print the encoded data
- *
- * \author deong
- * \date 05/09/2007
  */
 ostream& operator<<(ostream& s, const real_encoding& e)
 {
@@ -1858,9 +1127,6 @@ ostream& operator<<(ostream& s, const real_encoding& e)
 
 /*!
  * \brief read in an encoded value
- *
- * \author deong@acm.org
- * \date 10/14/2008
  */
 istream& operator>>(istream& s, real_encoding& e)
 {
@@ -1874,9 +1140,6 @@ istream& operator>>(istream& s, real_encoding& e)
 
 /*!
  * \brief print the encoded data
- *
- * \author deong
- * \date 05/09/2007
  */
 ostream& operator<<(ostream& s, const permutation_encoding& e)
 {
@@ -1891,9 +1154,6 @@ ostream& operator<<(ostream& s, const permutation_encoding& e)
 
 /*!
  * \brief read in an encoded value
- *
- * \author deong@acm.org
- * \date 10/14/2008
  */
 istream& operator>>(istream& s, permutation_encoding& e)
 {
@@ -1907,9 +1167,6 @@ istream& operator>>(istream& s, permutation_encoding& e)
 
 /*!
  * \brief print the encoded data
- *
- * \author deong
- * \date 05/09/2007
  */
 ostream& operator<<(ostream& s, const integer_encoding& e)
 {
@@ -1924,9 +1181,6 @@ ostream& operator<<(ostream& s, const integer_encoding& e)
 
 /*!
  * \brief read in an encoded value
- *
- * \author deong@acm.org
- * \date 10/14/2008
  */
 istream& operator>>(istream& s, integer_encoding& e)
 {
@@ -1939,14 +1193,6 @@ istream& operator>>(istream& s, integer_encoding& e)
 
 /*!
  * \brief print the encoded data
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 ostream& operator<<(ostream& s, const gap_encoding& e)
 {
@@ -1961,9 +1207,6 @@ ostream& operator<<(ostream& s, const gap_encoding& e)
 
 /*!
  * \brief read in an encoded value
- *
- * \author deong@acm.org
- * \date 10/14/2008
  */
 istream& operator>>(istream& s, gap_encoding& e)
 {
@@ -1976,9 +1219,6 @@ istream& operator>>(istream& s, gap_encoding& e)
 
 /*!
  * \brief print the encoded data
- *
- * \author deong
- * \date 01/22/2009
  */
 ostream& operator<<(ostream& s, const gsap_encoding& e)
 {
@@ -1993,9 +1233,6 @@ ostream& operator<<(ostream& s, const gsap_encoding& e)
 
 /*!
  * \brief read in an encoded value
- *
- * \author deong@acm.org
- * \date 01/22/2009
  */
 istream& operator>>(istream& s, gsap_encoding& e)
 {

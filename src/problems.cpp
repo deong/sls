@@ -5,7 +5,7 @@
  * algorithms
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #define _USE_MATH_DEFINES
@@ -31,14 +31,6 @@ using namespace std;
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 problem::problem()
 {
@@ -46,14 +38,6 @@ problem::problem()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 problem::~problem()
 {
@@ -61,14 +45,6 @@ problem::~problem()
 
 /*!
  * \brief override to perform problem specific initialization
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 void problem::initialize()
 {
@@ -76,14 +52,6 @@ void problem::initialize()
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 numeric_problem::numeric_problem()
 {
@@ -91,14 +59,6 @@ numeric_problem::numeric_problem()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 numeric_problem::~numeric_problem()
 {
@@ -106,14 +66,6 @@ numeric_problem::~numeric_problem()
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 bit_string_problem::bit_string_problem()
 {
@@ -121,14 +73,6 @@ bit_string_problem::bit_string_problem()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 bit_string_problem::~bit_string_problem() 
 {
@@ -136,14 +80,6 @@ bit_string_problem::~bit_string_problem()
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 permutation_problem::permutation_problem()
 {
@@ -151,14 +87,6 @@ permutation_problem::permutation_problem()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 permutation_problem::~permutation_problem()
 {
@@ -166,14 +94,6 @@ permutation_problem::~permutation_problem()
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 integer_problem::integer_problem()
 {
@@ -181,14 +101,6 @@ integer_problem::integer_problem()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 integer_problem::~integer_problem()
 {
@@ -196,14 +108,6 @@ integer_problem::~integer_problem()
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 qap_problem::qap_problem() :
     mqap_flow(0),
@@ -216,14 +120,6 @@ qap_problem::qap_problem() :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 qap_problem::~qap_problem()
 {
@@ -249,14 +145,6 @@ qap_problem::~qap_problem()
 
 /*!
  * \brief read qap problem instance from data file
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 void qap_problem::initialize()
 {
@@ -332,14 +220,6 @@ void qap_problem::initialize()
 
 /*!
  * \brief return the size of the problem instance
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 unsigned int qap_problem::dimensions() const
 {
@@ -348,14 +228,6 @@ unsigned int qap_problem::dimensions() const
 
 /*!
  * \brief return the number of objectives
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 unsigned int qap_problem::objectives() const
 {
@@ -364,14 +236,6 @@ unsigned int qap_problem::objectives() const
 
 /*!
  * \brief compute delta_f (change in fitness) given a potential swap
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 void qap_problem::compute_delta(vector<int>& p, int i, int j)
 {
@@ -398,14 +262,6 @@ void qap_problem::compute_delta(vector<int>& p, int i, int j)
 
 /*!
  * \brief compute fast delta
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 void qap_problem::compute_delta_part(vector<int>& p, int i, int j, int r, int s)
 {
@@ -423,14 +279,6 @@ void qap_problem::compute_delta_part(vector<int>& p, int i, int j, int r, int s)
 
 /*!
  * \brief compute the fitness of the given permutation
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 bool qap_problem::evaluate(const vector<int>& p, vector<permutation_problem::FitnessType>& fit) const
 {
@@ -450,14 +298,6 @@ bool qap_problem::evaluate(const vector<int>& p, vector<permutation_problem::Fit
 
 /*!
  * \brief update the delta matrix after accepting a move
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 void qap_problem::update(vector<int>& p, int pos1, int pos2)
 {
@@ -479,14 +319,6 @@ void qap_problem::update(vector<int>& p, int pos1, int pos2)
 
 /*!
  * \brief return the delta_f given a potential move
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 void qap_problem::get_delta(int i, int j, vector<permutation_problem::FitnessType>& del)
 {
@@ -498,14 +330,6 @@ void qap_problem::get_delta(int i, int j, vector<permutation_problem::FitnessTyp
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 gap_problem::gap_problem() :
     agents(0),
@@ -519,14 +343,6 @@ gap_problem::gap_problem() :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 gap_problem::~gap_problem()
 {
@@ -550,14 +366,6 @@ gap_problem::~gap_problem()
 
 /*!
  * \brief initialize the gap instance from a data file
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 void gap_problem::initialize()
 {
@@ -618,14 +426,6 @@ void gap_problem::initialize()
 
 /*!
  * \brief return the number of tasks in the instance
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 unsigned int gap_problem::dimensions() const
 {
@@ -634,14 +434,6 @@ unsigned int gap_problem::dimensions() const
 
 /*!
  * \brief return the number of objectives
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 unsigned int gap_problem::objectives() const
 {
@@ -650,14 +442,6 @@ unsigned int gap_problem::objectives() const
 
 /*!
  * \brief get list of acceptable values for a given allele 
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 void gap_problem::legal_values(unsigned int index, vector<int>& val) const
 {
@@ -670,14 +454,6 @@ void gap_problem::legal_values(unsigned int index, vector<int>& val) const
 
 /*!
  * \brief evaluate the fitness of a candidate solution
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 bool gap_problem::evaluate(const vector<int>& p, vector<int>& fit) const
 {
@@ -713,9 +489,6 @@ bool gap_problem::evaluate(const vector<int>& p, vector<int>& fit) const
 
 /*!
  * \brief constructor
- *
- * \author deong@acm.org
- * \date 11/03/2008
  */
 gsap_problem::gsap_problem() :
     gsap_obj(0),
@@ -728,9 +501,6 @@ gsap_problem::gsap_problem() :
 
 /*!
  * \brief destructor
- *
- * \author deong@acm.org
- * \date 11/03/2008
  */
 gsap_problem::~gsap_problem()
 {
@@ -759,9 +529,6 @@ gsap_problem::~gsap_problem()
 
 /**
  * \brief return number of task elements
- *
- * \author deong
- * \date 01/22/2009
  */
 unsigned int gsap_problem::dimensions() const
 {
@@ -770,9 +537,6 @@ unsigned int gsap_problem::dimensions() const
 
 /**
  * \brief return the number of objectives
- *
- * \author deong
- * \date 01/22/2009
  */
 unsigned int gsap_problem::objectives() const
 {
@@ -781,9 +545,6 @@ unsigned int gsap_problem::objectives() const
 
 /**
  * \brief return the number of agents in the problem
- *
- * \author deong
- * \date 01/22/2009
  */
 unsigned int gsap_problem::agents() const
 {
@@ -792,9 +553,6 @@ unsigned int gsap_problem::agents() const
 
 /**
  * \brief return the number of tasks in the problem
- *
- * \author deong
- * \date 01/22/2009
  */
 unsigned int gsap_problem::tasks() const
 {
@@ -803,9 +561,6 @@ unsigned int gsap_problem::tasks() const
 
 /*!
  * \brief initialize the problem from a given data file
- *
- * \author deong@acm.org
- * \date 11/03/2008
  */
 void gsap_problem::initialize()
 {
@@ -897,9 +652,6 @@ void gsap_problem::initialize()
 
 /**
  * \brief get the list of task elements
- *
- * \author deong
- * \date 01/22/2009
  */
 const vector<gsap_problem::task_element>& gsap_problem::get_elements() const
 {
@@ -908,9 +660,6 @@ const vector<gsap_problem::task_element>& gsap_problem::get_elements() const
 
 /**
  * \brief return the lists of agents for each task
- *
- * \author deong
- * \date 01/22/2009
  */
 const vector<vector<int> >& gsap_problem::get_agent_task_map() const
 {
@@ -919,9 +668,6 @@ const vector<vector<int> >& gsap_problem::get_agent_task_map() const
 
 /**
  * \brief return a vector of time slot boundaries
- *
- * \author deong
- * \date 01/23/2009
  */
 const vector<unsigned int>& gsap_problem::time_slot_boundaries() const
 {
@@ -930,9 +676,6 @@ const vector<unsigned int>& gsap_problem::time_slot_boundaries() const
 
 /*!
  * \brief return the capacity vector
- *
- * \author deong@acm.org
- * \date 01/25/2009
  */
 const vector<unsigned int>& gsap_problem::capacities() const
 {
@@ -941,9 +684,6 @@ const vector<unsigned int>& gsap_problem::capacities() const
 
 /*!
  * \brief return the resource matrix
- *
- * \author deong@acm.org
- * \date 01/25/2009
  */
 const vector<vector<unsigned int> >& gsap_problem::resources() const
 {
@@ -952,9 +692,6 @@ const vector<vector<unsigned int> >& gsap_problem::resources() const
 
 /**
  * \brief return list of agents who can perform a given task
- *
- * \author deong
- * \date 01/22/2009
  */
 void gsap_problem::legal_values(unsigned int index, vector<int>& agts) const
 {
@@ -967,9 +704,6 @@ void gsap_problem::legal_values(unsigned int index, vector<int>& agts) const
  * \brief evaluate a candidate solution to the gsap problem
  *
  * \todo handle constraints
- * 
- * \author deong
- * \date 01/22/2009
  */
 bool gsap_problem::evaluate(const vector<int>& p, vector<int>& fit) const
 {
@@ -1007,9 +741,6 @@ bool gsap_problem::evaluate(const vector<int>& p, vector<int>& fit) const
 
 /*!
  * \brief constructor
- *
- * \author deong@acm.org
- * \date 09/22/2008
  */
 knapsack_problem::knapsack_problem() :
     ks_obj(0),
@@ -1020,9 +751,6 @@ knapsack_problem::knapsack_problem() :
 
 /*!
  * \brief destructor
- *
- * \author deong@acm.org
- * \date 09/22/2008
  */
 knapsack_problem::~knapsack_problem()
 {
@@ -1030,9 +758,6 @@ knapsack_problem::~knapsack_problem()
 
 /*!
  * \brief initialize the knapsack problem instance
- *
- * \author deong@acm.org
- * \date 09/22/2008
  */
 void knapsack_problem::initialize()
 {
@@ -1070,9 +795,6 @@ void knapsack_problem::initialize()
 
 /*!
  * \brief return the number of objectives
- *
- * \author deong@acm.org
- * \date 09/22/2008
  */
 unsigned int knapsack_problem::objectives() const
 {
@@ -1081,9 +803,6 @@ unsigned int knapsack_problem::objectives() const
 
 /*!
  * \brief return the number of possible items 
- *
- * \author deong@acm.org
- * \date 09/22/2008
  */
 unsigned int knapsack_problem::dimensions() const
 {
@@ -1095,9 +814,6 @@ unsigned int knapsack_problem::dimensions() const
  *
  * Note that all objective function values are negated so that minimization
  * is appropriate.
- *
- * \author deong@acm.org
- * \date 09/22/2008
  */
 bool knapsack_problem::evaluate(const vector<int>& p, vector<int>& fit) const
 {
@@ -1118,14 +834,6 @@ bool knapsack_problem::evaluate(const vector<int>& p, vector<int>& fit) const
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 onemax_problem::onemax_problem() :
     onemax_dim(0)
@@ -1134,14 +842,6 @@ onemax_problem::onemax_problem() :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 onemax_problem::~onemax_problem()
 {
@@ -1149,14 +849,6 @@ onemax_problem::~onemax_problem()
 
 /*!
  * \brief initialize the number of bits in the problem
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 void onemax_problem::initialize()
 {
@@ -1165,14 +857,6 @@ void onemax_problem::initialize()
 
 /*!
  * \brief return the problem size
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 unsigned int onemax_problem::dimensions() const
 {
@@ -1181,14 +865,6 @@ unsigned int onemax_problem::dimensions() const
 
 /*!
  * \brief onemax is a single objective problem
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 unsigned int onemax_problem::objectives() const
 {
@@ -1197,14 +873,6 @@ unsigned int onemax_problem::objectives() const
 
 /*!
  * \brief evaluate the fitness of a candidate solution
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 bool onemax_problem::evaluate(const vector<int>& p, vector<int>& fit) const
 {
@@ -1219,14 +887,6 @@ bool onemax_problem::evaluate(const vector<int>& p, vector<int>& fit) const
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 lotz_problem::lotz_problem() :
     lotz_dim(0)
@@ -1235,14 +895,6 @@ lotz_problem::lotz_problem() :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 lotz_problem::~lotz_problem()
 {
@@ -1250,14 +902,6 @@ lotz_problem::~lotz_problem()
 
 /*!
  * \brief initialize the problem size
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 void lotz_problem::initialize()
 {
@@ -1266,14 +910,6 @@ void lotz_problem::initialize()
 
 /*!
  * \brief return the number of bits in the problem
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 unsigned int lotz_problem::dimensions() const
 {
@@ -1282,14 +918,6 @@ unsigned int lotz_problem::dimensions() const
 
 /*!
  * \brief lotz is a bi-objective problem
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 unsigned int lotz_problem::objectives() const
 {
@@ -1298,14 +926,6 @@ unsigned int lotz_problem::objectives() const
 
 /*!
  * \brief evaluate the fitness of a candidate solution
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 bool lotz_problem::evaluate(const vector<int>& p, vector<int>& fit) const
 {
@@ -1661,14 +1281,6 @@ bool f5_problem::evaluate(const vector<double>& p, vector<double>& fit) const
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 kur_problem::kur_problem()
 {
@@ -1676,14 +1288,6 @@ kur_problem::kur_problem()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 kur_problem::~kur_problem()
 {
@@ -1691,14 +1295,6 @@ kur_problem::~kur_problem()
 
 /*!
  * \brief kursawe's function is defined to be 3-dimensional
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 unsigned int kur_problem::dimensions() const
 {
@@ -1707,14 +1303,6 @@ unsigned int kur_problem::dimensions() const
 
 /*!
  * \brief kursawe's function is bi-objective
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 unsigned int kur_problem::objectives() const
 {
@@ -1723,14 +1311,6 @@ unsigned int kur_problem::objectives() const
 
 /*!
  * \brief bound the legal parameter values
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 pair<double,double> kur_problem::parameter_range(unsigned int index) const
 {
@@ -1739,14 +1319,6 @@ pair<double,double> kur_problem::parameter_range(unsigned int index) const
 
 /*!
  * \brief evaluate the fitness of a candidate solution
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 bool kur_problem::evaluate(const vector<double>& p, vector<double>& fit) const
 {
@@ -1762,14 +1334,6 @@ bool kur_problem::evaluate(const vector<double>& p, vector<double>& fit) const
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 sch_problem::sch_problem()
 {
@@ -1777,14 +1341,6 @@ sch_problem::sch_problem()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 sch_problem::~sch_problem()
 {
@@ -1792,14 +1348,6 @@ sch_problem::~sch_problem()
 
 /*!
  * \brief defined to be 1-dimensional
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 unsigned int sch_problem::dimensions() const
 {
@@ -1808,14 +1356,6 @@ unsigned int sch_problem::dimensions() const
 
 /*!
  * \brief defined as bi-objective function
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 unsigned int sch_problem::objectives() const
 {
@@ -1824,14 +1364,6 @@ unsigned int sch_problem::objectives() const
 
 /*!
  * \brief bound the legal parameter values
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 pair<double,double> sch_problem::parameter_range(unsigned int index) const
 {
@@ -1840,14 +1372,6 @@ pair<double,double> sch_problem::parameter_range(unsigned int index) const
 
 /*!
  * \brief evaluate the fitness of a candidate solution
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 bool sch_problem::evaluate(const vector<double>& p, vector<double>& fit) const
 {
@@ -1858,14 +1382,6 @@ bool sch_problem::evaluate(const vector<double>& p, vector<double>& fit) const
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 zdt1_problem::zdt1_problem()
 {
@@ -1873,14 +1389,6 @@ zdt1_problem::zdt1_problem()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 zdt1_problem::~zdt1_problem()
 {
@@ -1888,14 +1396,6 @@ zdt1_problem::~zdt1_problem()
 
 /*!
  * \brief defined as a 30-dimensional problem
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 unsigned int zdt1_problem::dimensions() const
 {
@@ -1904,14 +1404,6 @@ unsigned int zdt1_problem::dimensions() const
 
 /*!
  * \brief defined as bi-objective problem
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 unsigned int zdt1_problem::objectives() const
 {
@@ -1920,14 +1412,6 @@ unsigned int zdt1_problem::objectives() const
 
 /*!
  * \brief bound the legal parameter values
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 pair<double,double> zdt1_problem::parameter_range(unsigned int index) const
 {
@@ -1936,14 +1420,6 @@ pair<double,double> zdt1_problem::parameter_range(unsigned int index) const
 
 /*!
  * \brief evaluate the fitness of a candidate solution
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 bool zdt1_problem::evaluate(const vector<double>& p, vector<double>& fit) const
 {
@@ -1960,14 +1436,6 @@ bool zdt1_problem::evaluate(const vector<double>& p, vector<double>& fit) const
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 zdt2_problem::zdt2_problem()
 {
@@ -1975,14 +1443,6 @@ zdt2_problem::zdt2_problem()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 zdt2_problem::~zdt2_problem()
 {
@@ -1990,14 +1450,6 @@ zdt2_problem::~zdt2_problem()
 
 /*!
  * \brief defined as a 30-dimensional problem
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 unsigned int zdt2_problem::dimensions() const
 {
@@ -2006,14 +1458,6 @@ unsigned int zdt2_problem::dimensions() const
 
 /*!
  * \brief defined as a bi-objective problem
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 unsigned int zdt2_problem::objectives() const
 {
@@ -2022,14 +1466,6 @@ unsigned int zdt2_problem::objectives() const
 
 /*!
  * \brief bound the legal parameter values
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 pair<double,double> zdt2_problem::parameter_range(unsigned int index) const
 {
@@ -2038,14 +1474,6 @@ pair<double,double> zdt2_problem::parameter_range(unsigned int index) const
 
 /*!
  * \brief evaluate the fitness of a candidate solution
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 bool zdt2_problem::evaluate(const vector<double>& p, vector<double>& fit) const
 {
@@ -2062,14 +1490,6 @@ bool zdt2_problem::evaluate(const vector<double>& p, vector<double>& fit) const
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 zdt3_problem::zdt3_problem()
 {
@@ -2077,14 +1497,6 @@ zdt3_problem::zdt3_problem()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 zdt3_problem::~zdt3_problem()
 {
@@ -2092,14 +1504,6 @@ zdt3_problem::~zdt3_problem()
 
 /*!
  * \brief defined as a 30-dimensional problem
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 unsigned int zdt3_problem::dimensions() const
 {
@@ -2108,14 +1512,6 @@ unsigned int zdt3_problem::dimensions() const
 
 /*!
  * \brief defined as a bi-objective problem
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 unsigned int zdt3_problem::objectives() const
 {
@@ -2124,14 +1520,6 @@ unsigned int zdt3_problem::objectives() const
 
 /*!
  * \brief bound the legal parameter values
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 pair<double,double> zdt3_problem::parameter_range(unsigned int index) const
 {
@@ -2140,14 +1528,6 @@ pair<double,double> zdt3_problem::parameter_range(unsigned int index) const
 
 /*!
  * \brief evaluate the fitness of a candidate solution
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 bool zdt3_problem::evaluate(const vector<double>& p, vector<double>& fit) const
 {
@@ -2164,14 +1544,6 @@ bool zdt3_problem::evaluate(const vector<double>& p, vector<double>& fit) const
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 zdt4_problem::zdt4_problem()
 {
@@ -2179,14 +1551,6 @@ zdt4_problem::zdt4_problem()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 zdt4_problem::~zdt4_problem()
 {
@@ -2194,14 +1558,6 @@ zdt4_problem::~zdt4_problem()
 
 /*!
  * \brief defined as a 10-dimensional problem
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 unsigned int zdt4_problem::dimensions() const
 {
@@ -2210,14 +1566,6 @@ unsigned int zdt4_problem::dimensions() const
 
 /*!
  * \brief defined as a bi-objective problem
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 unsigned int zdt4_problem::objectives() const
 {
@@ -2226,14 +1574,6 @@ unsigned int zdt4_problem::objectives() const
 
 /*!
  * \brief bound the legal parameter values
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 pair<double,double> zdt4_problem::parameter_range(unsigned int index) const
 {
@@ -2249,14 +1589,6 @@ pair<double,double> zdt4_problem::parameter_range(unsigned int index) const
 
 /*!
  * \brief evaluate the fitness of a candidate solution
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 bool zdt4_problem::evaluate(const vector<double>& p, vector<double>& fit) const
 {
@@ -2275,14 +1607,6 @@ bool zdt4_problem::evaluate(const vector<double>& p, vector<double>& fit) const
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 zdt6_problem::zdt6_problem()
 {
@@ -2290,14 +1614,6 @@ zdt6_problem::zdt6_problem()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 zdt6_problem::~zdt6_problem()
 {
@@ -2305,14 +1621,6 @@ zdt6_problem::~zdt6_problem()
 
 /*!
  * \brief defined as a 10-dimensional problem
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 unsigned int zdt6_problem::dimensions() const
 {
@@ -2321,14 +1629,6 @@ unsigned int zdt6_problem::dimensions() const
 
 /*!
  * \brief defined as a bi-objective problem
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 unsigned int zdt6_problem::objectives() const
 {
@@ -2337,14 +1637,6 @@ unsigned int zdt6_problem::objectives() const
 
 /*!
  * \brief bound the legal parameter values
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 pair<double,double> zdt6_problem::parameter_range(unsigned int index) const
 {
@@ -2353,14 +1645,6 @@ pair<double,double> zdt6_problem::parameter_range(unsigned int index) const
 
 /*!
  * \brief evaluate the fitness of a candidate solution
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 bool zdt6_problem::evaluate(const vector<double>& p, vector<double>& fit) const
 {
@@ -2377,14 +1661,6 @@ bool zdt6_problem::evaluate(const vector<double>& p, vector<double>& fit) const
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 dtlz1_problem::dtlz1_problem() :
     dtlz1_dim(0),
@@ -2394,14 +1670,6 @@ dtlz1_problem::dtlz1_problem() :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 dtlz1_problem::~dtlz1_problem()
 {
@@ -2409,14 +1677,6 @@ dtlz1_problem::~dtlz1_problem()
 
 /*!
  * \brief return the dimensionality of the problem instance
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 unsigned int dtlz1_problem::dimensions() const
 {
@@ -2425,14 +1685,6 @@ unsigned int dtlz1_problem::dimensions() const
 
 /*!
  * \brief return the number of objectives in the problem instance
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 unsigned int dtlz1_problem::objectives() const
 {
@@ -2441,14 +1693,6 @@ unsigned int dtlz1_problem::objectives() const
 
 /*!
  * \brief initialize the problem instance
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 void dtlz1_problem::initialize()
 {
@@ -2460,14 +1704,6 @@ void dtlz1_problem::initialize()
 
 /*!
  * \brief bound the legal parameter values
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 pair<double,double> dtlz1_problem::parameter_range(unsigned int index) const
 {
@@ -2476,14 +1712,6 @@ pair<double,double> dtlz1_problem::parameter_range(unsigned int index) const
 
 /*!
  * \brief evaluate the fitness of a candidate solution
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 bool dtlz1_problem::evaluate(const vector<double>& p, vector<double>& fit) const
 {
@@ -2575,14 +1803,6 @@ bool rana_problem::evaluate(const vector<double>& p, vector<double>& fit) const
 
 /*!
  * \brief create a permutation problem
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 permutation_problem* permutation_problem_factory::construct()
 {
@@ -2605,14 +1825,6 @@ permutation_problem* permutation_problem_factory::construct()
 
 /*!
  * \brief create an integer problem
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 integer_problem* integer_problem_factory::construct()
 {
@@ -2633,14 +1845,6 @@ integer_problem* integer_problem_factory::construct()
 
 /*!
  * \brief create a generalized assignment problem instance
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 gap_problem* gap_problem_factory::construct()
 {
@@ -2663,9 +1867,6 @@ gap_problem* gap_problem_factory::construct()
 
 /*!
  * \brief create a generalized sailor assignment problem instance
- *
- * \author deong
- * \date 01/22/2009
  */
 gsap_problem* gsap_problem_factory::construct()
 {
@@ -2688,14 +1889,6 @@ gsap_problem* gsap_problem_factory::construct()
 
 /*!
  * \brief create a binary problem
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 bit_string_problem* bit_string_problem_factory::construct()
 {
@@ -2730,14 +1923,6 @@ bit_string_problem* bit_string_problem_factory::construct()
 
 /*!
  * \brief create a numeric problem
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 numeric_problem* numeric_problem_factory::construct()
 {

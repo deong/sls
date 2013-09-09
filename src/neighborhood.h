@@ -4,7 +4,7 @@
  * Defines neighborhood operators for the various encodings
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #ifndef _NEIGHBORHOOD_H_
@@ -18,9 +18,6 @@
  * \class neighborhood
  *
  * provides iterator-like functionality over a local search neighborhood
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class neighborhood
@@ -54,9 +51,6 @@ public:
  * \class hamming_neighborhood_impl
  *
  * all solutions reachable in a single bit-flip from a seed value
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class hamming_neighborhood_impl : public neighborhood<Chromosome,Encoding>
@@ -85,9 +79,6 @@ public:
  * \class hamming_neighborhood
  *
  * interface to hamming_neighborhood_impl
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding> class hamming_neighborhood;
 template <template <typename> class Chromosome>
@@ -100,9 +91,6 @@ class hamming_neighborhood<Chromosome,binary_encoding> :
  * \class hamming_neighborhood
  *
  * interface to hamming_neighborhood_impl
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome>
 class hamming_neighborhood<Chromosome,boolean_encoding> :
@@ -114,9 +102,6 @@ class hamming_neighborhood<Chromosome,boolean_encoding> :
  * \class swap_neighborhood_impl
  *
  * all solutions reachable in a single swap from a seed value
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class swap_neighborhood_impl : public neighborhood<Chromosome,Encoding>
@@ -151,9 +136,6 @@ public:
  * \class swap_neighborhood
  *
  * interface to swap_neighborhood_impl
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding> class swap_neighborhood;
 template <template <typename> class Chromosome>
@@ -166,9 +148,6 @@ class swap_neighborhood<Chromosome,permutation_encoding> :
  * \class hamming_neighborhood
  *
  * interface to hamming_neighborhood_impl
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome>
 class swap_neighborhood<Chromosome,boolean_encoding> :
@@ -180,9 +159,6 @@ class swap_neighborhood<Chromosome,boolean_encoding> :
  * \class hamming_neighborhood
  *
  * interface to hamming_neighborhood_impl
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome>
 class swap_neighborhood<Chromosome,binary_encoding> :
@@ -194,9 +170,6 @@ class swap_neighborhood<Chromosome,binary_encoding> :
  * \class swap_neighborhood
  *
  * interface to swap_neighborhood_impl
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome>
 class swap_neighborhood<Chromosome,gap_encoding> :
@@ -208,9 +181,6 @@ class swap_neighborhood<Chromosome,gap_encoding> :
  * \class swap_neighborhood
  *
  * interface to swap_neighborhood_impl
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome>
 class swap_neighborhood<Chromosome,gsap_encoding> :
@@ -222,9 +192,6 @@ class swap_neighborhood<Chromosome,gsap_encoding> :
  * \class shift_neighborhood_impl
  *
  * all solutions reachable with a single gap shift operation
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class shift_neighborhood_impl : public neighborhood<Chromosome,Encoding>
@@ -255,9 +222,6 @@ public:
  * \class shift_neighborhood
  *
  * interface to shift_neighborhood_impl
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding> class shift_neighborhood;
 template <template <typename> class Chromosome>
@@ -275,9 +239,6 @@ class shift_neighborhood<Chromosome,gsap_encoding> :
  * \class sss_neighborhood_impl
  *
  * implements "shift and subsequent swap" neighborhood
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class sss_neighborhood_impl : public neighborhood<Chromosome,Encoding>
@@ -306,9 +267,6 @@ public:
  * \class sss_neighborhood
  *
  * interface to sss_neighborhood_impl
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding> class sss_neighborhood;
 template <template <typename> class Chromosome>
@@ -324,9 +282,6 @@ class sss_neighborhood<Chromosome,gsap_encoding> :
 
 /*!
  * \class permutation_neighborhood_factory
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class permutation_neighborhood_factory
@@ -337,9 +292,6 @@ public:
 
 /*!
  * \class bit_neighborhood_factory
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class bit_neighborhood_factory
@@ -350,9 +302,6 @@ public:
 
 /*!
  * \class gap_neighborhood_factory
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class gap_neighborhood_factory
@@ -363,9 +312,6 @@ public:
 
 /*!
  * \class gsap_neighborhood_factory
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class gsap_neighborhood_factory
@@ -376,9 +322,6 @@ public:
 
 /*!
  * \class neighborhood_factory
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class neighborhood_factory
@@ -389,9 +332,6 @@ public:
 
 /*!
  * \class neighborhood_factory
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome>
 class neighborhood_factory<Chromosome,binary_encoding> :
@@ -401,9 +341,6 @@ class neighborhood_factory<Chromosome,binary_encoding> :
 
 /*!
  * \class neighborhood_factory
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome>
 class neighborhood_factory<Chromosome,boolean_encoding> :
@@ -413,9 +350,6 @@ class neighborhood_factory<Chromosome,boolean_encoding> :
 
 /*!
  * \class neighborhood_factory
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome>
 class neighborhood_factory<Chromosome,permutation_encoding>
@@ -425,9 +359,6 @@ class neighborhood_factory<Chromosome,permutation_encoding>
 
 /*!
  * \class neighborhood_factory
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome>
 class neighborhood_factory<Chromosome,gap_encoding>
@@ -437,9 +368,6 @@ class neighborhood_factory<Chromosome,gap_encoding>
 
 /*!
  * \class neighborhood_factory
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome>
 class neighborhood_factory<Chromosome,gsap_encoding>

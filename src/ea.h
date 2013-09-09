@@ -8,7 +8,7 @@
  * of evolutionary algorithms.
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #ifndef _EA_H_
@@ -27,9 +27,6 @@ using namespace std;
  * \class ea
  *
  * base class for evolutionary algorithms
- *
- * \author deong
- * \date 05/09/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class ea : virtual public sls<Chromosome,Encoding>

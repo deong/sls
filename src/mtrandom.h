@@ -6,7 +6,7 @@
  * modified to include additional features by Deon Garrett.
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #ifndef _MTRANDOM_H_
@@ -21,9 +21,6 @@ using namespace std;
 
 /*!
  * \class mtrandom
- *
- * \author deong
- * \date 05/10/2007
  */
 class mtrandom 
 {

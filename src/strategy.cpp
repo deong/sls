@@ -4,7 +4,7 @@
  * how to apply a local search operator
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #include <cstdlib>
@@ -16,14 +16,6 @@ using namespace std;
 
 /*!
  * \brief return a local search strategy
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 strategy strategy_factory::construct()
 {

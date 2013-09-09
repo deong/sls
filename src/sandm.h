@@ -1,12 +1,12 @@
-#ifndef _SANDM_H_
-#define _SANDM_H_
-
 /**
  * \file sandm.h
  *
- * \author deong@acm.org
- * \date 01/17/2008
+ * Deon Garrett
+ * jdgarrett@gmail.com
  */
+
+#ifndef _SANDM_H_
+#define _SANDM_H_
 
 #include "sls.h"
 #include "pfront.h"
@@ -15,9 +15,6 @@
 /**
  * \class sandm
  * \brief sample and mutate search algorithm
- *
- * \author deong@acm.org
- * \date 01/17/2008
  */
 template <template <typename> class Chromosome, typename Encoding>
 class sandm : public sls<Chromosome,Encoding>

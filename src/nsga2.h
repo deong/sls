@@ -4,7 +4,7 @@
  * implementation of Deb's nondominated sorting genetic algorithm, version 2
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #ifndef _NSGA2_H_
@@ -25,9 +25,6 @@ using namespace std;
  * \class nsga2_chromosome
  *
  * adds crowding distance and rank to standard chromosomes
- *
- * \author deong
- * \date 05/10/2007
  */
 template <typename Encoding>
 class nsga2_chromosome : public chromosome<Encoding>
@@ -51,9 +48,6 @@ public:
  * \class crowded_comparator
  *
  * used to compare two nsga2 chromosomes
- * 
- * \author deong
- * \date 05/10/2007
  */
 template <typename Encoding>
 class crowded_comparator : public comparator<nsga2_chromosome,Encoding>
@@ -70,9 +64,6 @@ public:
  * \class nsga2
  *
  * Deb et. al.'s Nondominated Sorting Genetic Algorithm
- *
- * \author deong
- * \date 05/10/2007
  */
 template <typename Encoding>
 class nsga2 : public ea<nsga2_chromosome,Encoding>

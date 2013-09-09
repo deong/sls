@@ -10,7 +10,7 @@
  * one at a time.  These classes provide both behaviours.
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #ifndef _REPLACEMENT_H_
@@ -24,9 +24,6 @@ using namespace std;
 
 /*!
  * \class replacement_scheme
- *
- * \author deong
- * \date 05/11/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class replacement_scheme
@@ -56,9 +53,6 @@ public:
  * \class generational_replacement
  *
  * replace entire populations with their offspring
- *
- * \author deong
- * \date 05/11/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class generational_replacement : public replacement_scheme<Chromosome,Encoding>
@@ -82,9 +76,6 @@ public:
  *
  * replace entire population with offspring, but keep a small number of the best
  * parents in favor of the worst offspring.
- *
- * \author deong
- * \date 05/11/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class elitist_replacement : public generational_replacement<Chromosome,Encoding>
@@ -112,9 +103,6 @@ public:
  *
  * very strongly elitist, takes the best N of the union of parents and
  * offspring
- *
- * \author deong
- * \date 05/11/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class truncation_replacement : public replacement_scheme<Chromosome,Encoding>
@@ -137,9 +125,6 @@ public:
  * \class steady_state_replacement
  *
  * replace one chromosome at a time
- *
- * \author deong
- * \date 05/11/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class steady_state_replacement : public replacement_scheme<Chromosome,Encoding>
@@ -162,9 +147,6 @@ public:
  * \class replace_worst
  *
  * steady state method in which the worst population member is replaced
- *
- * \author deong
- * \date 05/11/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class replace_worst : public steady_state_replacement<Chromosome,Encoding>
@@ -185,9 +167,6 @@ public:
 
 /*!
  * \class replacement_scheme_factory
- *
- * \author deong
- * \date 05/11/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class replacement_scheme_factory

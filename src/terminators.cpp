@@ -7,7 +7,7 @@
  * can be halted.
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #include <list>
@@ -24,14 +24,6 @@ using namespace std;
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 terminator<Chromosome,Encoding>::terminator()
@@ -40,14 +32,6 @@ terminator<Chromosome,Encoding>::terminator()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 terminator<Chromosome,Encoding>::~terminator()
@@ -56,14 +40,6 @@ terminator<Chromosome,Encoding>::~terminator()
 
 /*!
  * \brief initialize the terminator components
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void terminator<Chromosome,Encoding>::initialize(const string& prefix)
@@ -73,14 +49,6 @@ void terminator<Chromosome,Encoding>::initialize(const string& prefix)
 
 /*!
  * \brief notify of chromosome evaluation
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void terminator<Chromosome,Encoding>::chromosome_evaluated(const Chromosome<Encoding>& sol)
@@ -89,14 +57,6 @@ void terminator<Chromosome,Encoding>::chromosome_evaluated(const Chromosome<Enco
 
 /*!
  * \brief notify of generation completion
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void terminator<Chromosome,Encoding>::generation_completed()
@@ -105,14 +65,6 @@ void terminator<Chromosome,Encoding>::generation_completed()
 
 /*!
  * \brief notify of generation completion
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void terminator<Chromosome,Encoding>::generation_completed(const population<Chromosome,Encoding>& pop)
@@ -121,14 +73,6 @@ void terminator<Chromosome,Encoding>::generation_completed(const population<Chro
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 evaluation_limit<Chromosome,Encoding>::evaluation_limit() :
@@ -139,14 +83,6 @@ evaluation_limit<Chromosome,Encoding>::evaluation_limit() :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 evaluation_limit<Chromosome,Encoding>::~evaluation_limit()
@@ -155,14 +91,6 @@ evaluation_limit<Chromosome,Encoding>::~evaluation_limit()
 
 /*!
  * \brief initialize the maximum number of allowed evaluations
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void evaluation_limit<Chromosome,Encoding>::initialize(const string& prefix)
@@ -173,9 +101,6 @@ void evaluation_limit<Chromosome,Encoding>::initialize(const string& prefix)
 
 /*!
  * \brief reset the eval counter
- *
- * \author deong
- * \date 07/06/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 void evaluation_limit<Chromosome,Encoding>::reset()
@@ -185,14 +110,6 @@ void evaluation_limit<Chromosome,Encoding>::reset()
 
 /*!
  * \brief increment the evaluation count
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void evaluation_limit<Chromosome,Encoding>::chromosome_evaluated(const Chromosome<Encoding>& sol)
@@ -202,14 +119,6 @@ void evaluation_limit<Chromosome,Encoding>::chromosome_evaluated(const Chromosom
 
 /*!
  * \brief return true if the evaluation count exceeds the maximum allowed
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 bool evaluation_limit<Chromosome,Encoding>::terminate() const
@@ -219,14 +128,6 @@ bool evaluation_limit<Chromosome,Encoding>::terminate() const
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 generation_limit<Chromosome,Encoding>::generation_limit() :
@@ -237,14 +138,6 @@ generation_limit<Chromosome,Encoding>::generation_limit() :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 generation_limit<Chromosome,Encoding>::~generation_limit()
@@ -253,14 +146,6 @@ generation_limit<Chromosome,Encoding>::~generation_limit()
 
 /*!
  * \brief initialize the maximum allowable number of generations
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void generation_limit<Chromosome,Encoding>::initialize(const string& prefix)
@@ -271,9 +156,6 @@ void generation_limit<Chromosome,Encoding>::initialize(const string& prefix)
 
 /*!
  * \brief reset the generation count
- *
- * \author deong
- * \date 07/06/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 void generation_limit<Chromosome,Encoding>::reset()
@@ -283,14 +165,6 @@ void generation_limit<Chromosome,Encoding>::reset()
 
 /*!
  * \brief increment the generation count
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void generation_limit<Chromosome,Encoding>::generation_completed()
@@ -300,14 +174,6 @@ void generation_limit<Chromosome,Encoding>::generation_completed()
 
 /*!
  * \brief increment the generation count
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void generation_limit<Chromosome,Encoding>::generation_completed(const population<Chromosome,Encoding>& pop)
@@ -317,14 +183,6 @@ void generation_limit<Chromosome,Encoding>::generation_completed(const populatio
 
 /*!
  * \brief return true if the generation count exceeds the maximum allowed
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 bool generation_limit<Chromosome,Encoding>::terminate() const
@@ -334,14 +192,6 @@ bool generation_limit<Chromosome,Encoding>::terminate() const
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 null_terminator<Chromosome,Encoding>::null_terminator()
@@ -350,14 +200,6 @@ null_terminator<Chromosome,Encoding>::null_terminator()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 null_terminator<Chromosome,Encoding>::~null_terminator()
@@ -366,9 +208,6 @@ null_terminator<Chromosome,Encoding>::~null_terminator()
 
 /*!
  * \brief reset of null terminator does nothing
- *
- * \author deong
- * \date 07/06/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 void null_terminator<Chromosome,Encoding>::reset()
@@ -379,14 +218,6 @@ void null_terminator<Chromosome,Encoding>::reset()
  * \brief always return false
  *
  * useful for algorithms with implicitly defined termination conditions
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 bool null_terminator<Chromosome,Encoding>::terminate() const
@@ -396,14 +227,6 @@ bool null_terminator<Chromosome,Encoding>::terminate() const
 
 /*!
  * \brief return a list of initialized terminators
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 list<terminator<Chromosome,Encoding>*> terminator_factory<Chromosome,Encoding>::construct()

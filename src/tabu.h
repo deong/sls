@@ -4,7 +4,7 @@
  * tabu search algorithms
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #ifndef _TABU_H_
@@ -25,9 +25,6 @@ using namespace std;
 
 /*!
  * \class tabu_list
- *
- * \author deong
- * \date 05/12/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class tabu_list
@@ -53,9 +50,6 @@ private:
 
 /*!
  * \class tabu_search
- *
- * \author deong
- * \date 05/12/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class tabu_search : public local_search<Chromosome,Encoding>

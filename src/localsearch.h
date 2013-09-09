@@ -4,7 +4,7 @@
  * local search algorithms
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #ifndef _LOCALSEARCH_H_
@@ -22,9 +22,6 @@
 
 /*!
  * \class local_search
- *
- * \author deong
- * \date 05/09/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class local_search
@@ -59,9 +56,6 @@ public:
 
 /*!
  * \class next_descent
- *
- * \author deong
- * \date 05/09/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class next_descent : public local_search<Chromosome,Encoding>
@@ -82,9 +76,6 @@ public:
 
 /*!
  * \class steepest_descent
- *
- * \author deong
- * \date 05/09/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class steepest_descent : public local_search<Chromosome,Encoding>
@@ -105,9 +96,6 @@ public:
 
 /*!
  * \class local_search_factory
- *
- * \author deong
- * \date 05/09/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class local_search_factory : public factory

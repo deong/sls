@@ -4,7 +4,7 @@
  * Zitzler et.al.'s Strength Pareto Evolutionary Algorithm 2
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #include <cfloat>
@@ -27,14 +27,6 @@ using namespace std;
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 spea2_chromosome<Encoding>::spea2_chromosome() :
@@ -46,14 +38,6 @@ spea2_chromosome<Encoding>::spea2_chromosome() :
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 spea2_chromosome<Encoding>::spea2_chromosome(const typename Encoding::ProblemType* prob) :
@@ -65,14 +49,6 @@ spea2_chromosome<Encoding>::spea2_chromosome(const typename Encoding::ProblemTyp
 
 /*!
  * \brief copy constructor
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 spea2_chromosome<Encoding>::spea2_chromosome(const spea2_chromosome& that) :
@@ -85,14 +61,6 @@ spea2_chromosome<Encoding>::spea2_chromosome(const spea2_chromosome& that) :
 
 /*!
  * \brief assignment operator
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 spea2_chromosome<Encoding>& spea2_chromosome<Encoding>::operator=(const spea2_chromosome& that)
@@ -106,14 +74,6 @@ spea2_chromosome<Encoding>& spea2_chromosome<Encoding>::operator=(const spea2_ch
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 spea2_chromosome<Encoding>::~spea2_chromosome()
@@ -122,14 +82,6 @@ spea2_chromosome<Encoding>::~spea2_chromosome()
 
 /*!
  * \brief compute distance to another chromosome
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 double spea2_chromosome<Encoding>::distance_to(const spea2_chromosome& other) const
@@ -144,14 +96,6 @@ double spea2_chromosome<Encoding>::distance_to(const spea2_chromosome& other) co
 
 /*!
  * \brief initialize the neighbor list
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 void spea2_chromosome<Encoding>::init_neighbors(unsigned int size)
@@ -162,14 +106,6 @@ void spea2_chromosome<Encoding>::init_neighbors(unsigned int size)
 
 /*!
  * \brief sort the neighbor list by distance
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 void spea2_chromosome<Encoding>::sort_neighbors()
@@ -179,14 +115,6 @@ void spea2_chromosome<Encoding>::sort_neighbors()
 
 /*!
  * \brief remove a neighbor from the list
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 void spea2_chromosome<Encoding>::remove_neighbor(int dest)
@@ -203,14 +131,6 @@ void spea2_chromosome<Encoding>::remove_neighbor(int dest)
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 spea2_comparator<Encoding>::spea2_comparator()
@@ -219,14 +139,6 @@ spea2_comparator<Encoding>::spea2_comparator()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 spea2_comparator<Encoding>::~spea2_comparator()
@@ -235,14 +147,6 @@ spea2_comparator<Encoding>::~spea2_comparator()
 
 /*!
  * \brief compare chromosomes by spea2 fitness values
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 inline int spea2_comparator<Encoding>::compare(const spea2_chromosome<Encoding>& c1,
@@ -264,14 +168,6 @@ inline int spea2_comparator<Encoding>::compare(const spea2_chromosome<Encoding>&
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 spea2<Encoding>::spea2() :
@@ -285,14 +181,6 @@ spea2<Encoding>::spea2() :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 spea2<Encoding>::~spea2()
@@ -306,14 +194,6 @@ spea2<Encoding>::~spea2()
 
 /*!
  * \brief compute the strength of all population and archive members
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 void spea2<Encoding>::compute_strength()
@@ -366,14 +246,6 @@ void spea2<Encoding>::compute_strength()
 
 /*!
  * \brief compute the fitness of all population and archive members
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 void spea2<Encoding>::compute_fitness()
@@ -423,14 +295,6 @@ void spea2<Encoding>::compute_fitness()
 
 /*!
  * \brief compute the density measure for each chromosome
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 void spea2<Encoding>::compute_density()
@@ -482,14 +346,6 @@ void spea2<Encoding>::compute_density()
 
 /*!
  * \brief construct the next archive from the population and current archive
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 void spea2<Encoding>::construct_archive()
@@ -546,14 +402,6 @@ void spea2<Encoding>::construct_archive()
 
 /*!
  * \brief reduce archive size to acceptable levels
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 void spea2<Encoding>::truncate_archive()
@@ -630,14 +478,6 @@ void spea2<Encoding>::truncate_archive()
 
 /*!
  * \brief initialize the algorithm components
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 void spea2<Encoding>::initialize()
@@ -682,14 +522,6 @@ void spea2<Encoding>::initialize()
 
 /*!
  * \brief run the spea2 algorithm
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 void spea2<Encoding>::run()
@@ -720,14 +552,6 @@ void spea2<Encoding>::run()
 
 /*!
  * \brief run one generation of the spea2 algorithm
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 void spea2<Encoding>::run_one_generation()
@@ -781,14 +605,6 @@ void spea2<Encoding>::run_one_generation()
 
 /*!
  * \brief optimize entire population via local search method
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 void spea2<Encoding>::optimize_population(population<spea2_chromosome,Encoding>& pop)

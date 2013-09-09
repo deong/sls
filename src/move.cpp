@@ -4,7 +4,7 @@
  * attempt to abstract away the notion of a local search move
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #include <utility>
@@ -18,14 +18,6 @@ using namespace std;
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 move<Chromosome,Encoding>::move()
@@ -34,14 +26,6 @@ move<Chromosome,Encoding>::move()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 move<Chromosome,Encoding>::~move()
@@ -54,14 +38,6 @@ move<Chromosome,Encoding>::~move()
  * if method=ANY, then moves are equal if they put any single allele value
  * in the same state.  if method=ALL, then all alleles must be assigned the
  * same values for the moves to be equivalent.
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 bool move<Chromosome,Encoding>::operator==(const move<Chromosome,Encoding>& that) const
@@ -84,14 +60,6 @@ bool move<Chromosome,Encoding>::operator==(const move<Chromosome,Encoding>& that
 
 /*!
  * \brief return a specified move component
- *
- * \author deong
- * \date 05/17/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 pair<unsigned int,typename Encoding::Genotype>& move<Chromosome,Encoding>::operator[](unsigned int i)
@@ -101,14 +69,6 @@ pair<unsigned int,typename Encoding::Genotype>& move<Chromosome,Encoding>::opera
 
 /*!
  * \brief return a specified move component
- *
- * \author deong
- * \date 05/17/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 const pair<unsigned int,typename Encoding::Genotype>& move<Chromosome,Encoding>::operator[](unsigned int i) const
@@ -118,14 +78,6 @@ const pair<unsigned int,typename Encoding::Genotype>& move<Chromosome,Encoding>:
 
 /*!
  * \brief return the number of components in the move
- *
- * \author deong
- * \date 05/02/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 unsigned int move<Chromosome,Encoding>::length() const
@@ -135,14 +87,6 @@ unsigned int move<Chromosome,Encoding>::length() const
 
 /*!
  * \brief return an iterator to the front of the move
- *
- * \author deong
- * \date 05/15/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 typename move<Chromosome,Encoding>::iterator move<Chromosome,Encoding>::begin()
@@ -152,14 +96,6 @@ typename move<Chromosome,Encoding>::iterator move<Chromosome,Encoding>::begin()
 
 /*!
  * \brief return an iterator to the end of the move
- *
- * \author deong
- * \date 05/15/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 typename move<Chromosome,Encoding>::iterator move<Chromosome,Encoding>::end()
@@ -169,14 +105,6 @@ typename move<Chromosome,Encoding>::iterator move<Chromosome,Encoding>::end()
 
 /*!
  * \brief return a const_iterator to the front of the move
- *
- * \author deong
- * \date 05/15/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 typename move<Chromosome,Encoding>::const_iterator move<Chromosome,Encoding>::begin() const
@@ -186,14 +114,6 @@ typename move<Chromosome,Encoding>::const_iterator move<Chromosome,Encoding>::be
 
 /*!
  * \brief return a const_iterator to the end of the list
- *
- * \author deong
- * \date 05/15/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 typename move<Chromosome,Encoding>::const_iterator move<Chromosome,Encoding>::end() const
@@ -206,14 +126,6 @@ typename move<Chromosome,Encoding>::const_iterator move<Chromosome,Encoding>::en
  *
  * adds the component in sorted order by index, overwriting any previous
  * assignment of the given position
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void move<Chromosome,Encoding>::add_component(unsigned int pos, typename Encoding::Genotype val)
@@ -245,14 +157,6 @@ void move<Chromosome,Encoding>::add_component(unsigned int pos, typename Encodin
 
 /*!
  * \brief remove a component from the move
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void move<Chromosome,Encoding>::remove_component(unsigned int pos, typename Encoding::Genotype val)
@@ -268,14 +172,6 @@ void move<Chromosome,Encoding>::remove_component(unsigned int pos, typename Enco
 
 /*!
  * \brief clear out all move components
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void move<Chromosome,Encoding>::reset()
@@ -285,14 +181,6 @@ void move<Chromosome,Encoding>::reset()
 
 /*!
  * \brief apply the move to a chromosome
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void move<Chromosome,Encoding>::apply(Chromosome<Encoding>& chr) const
@@ -308,14 +196,6 @@ void move<Chromosome,Encoding>::apply(Chromosome<Encoding>& chr) const
  * \brief print a human-readable representation of the move
  *
  * useful for debugging purposes
- *
- * \author deong
- * \date 05/02/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 ostream& operator<<(ostream& ostr, const move<Chromosome,Encoding>& m)

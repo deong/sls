@@ -4,7 +4,7 @@
  * base class for stochastic local search algorithms
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #ifndef _SLS_H_
@@ -24,9 +24,6 @@ using namespace std;
  * \class sls
  *
  * base class for all stochastic local search algorithms
- *
- * \author deong
- * \date 05/11/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class sls 

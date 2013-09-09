@@ -5,8 +5,7 @@
  * such as printing warnings and errors.
  *
  * Deon Garrett
- * University of Memphis
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #ifndef _UTILITIES_H_

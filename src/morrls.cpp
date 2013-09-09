@@ -4,7 +4,7 @@
  * random restarts local search
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #include "morrls.h"
@@ -16,14 +16,6 @@ using namespace std;
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 morrls<Chromosome,Encoding>::morrls() :
@@ -36,14 +28,6 @@ morrls<Chromosome,Encoding>::morrls() :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 morrls<Chromosome,Encoding>::~morrls()
@@ -53,14 +37,6 @@ morrls<Chromosome,Encoding>::~morrls()
 
 /*!
  * \brief notify of generation completion
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void morrls<Chromosome,Encoding>::generation_completed()
@@ -70,14 +46,6 @@ void morrls<Chromosome,Encoding>::generation_completed()
 
 /*!
  * \brief initialize local search components
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void morrls<Chromosome,Encoding>::initialize()
@@ -96,14 +64,6 @@ void morrls<Chromosome,Encoding>::initialize()
 
 /*!
  * \brief iteratively run the local search until termination
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void morrls<Chromosome,Encoding>::run()

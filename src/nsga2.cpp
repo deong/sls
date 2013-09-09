@@ -4,7 +4,7 @@
  * implementation of Deb's nondominated sorting genetic algorithm, version 2
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #include <cmath>
@@ -25,14 +25,6 @@ using namespace std;
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 nsga2_chromosome<Encoding>::nsga2_chromosome() :
@@ -44,14 +36,6 @@ nsga2_chromosome<Encoding>::nsga2_chromosome() :
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 nsga2_chromosome<Encoding>::nsga2_chromosome(const typename Encoding::ProblemType* prob) :
@@ -63,14 +47,6 @@ nsga2_chromosome<Encoding>::nsga2_chromosome(const typename Encoding::ProblemTyp
 
 /*!
  * \brief copy constructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 nsga2_chromosome<Encoding>::nsga2_chromosome(const nsga2_chromosome& that) :
@@ -82,14 +58,6 @@ nsga2_chromosome<Encoding>::nsga2_chromosome(const nsga2_chromosome& that) :
 
 /*!
  * \brief assignment operator
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 nsga2_chromosome<Encoding>& nsga2_chromosome<Encoding>::operator=(const nsga2_chromosome& that)
@@ -102,14 +70,6 @@ nsga2_chromosome<Encoding>& nsga2_chromosome<Encoding>::operator=(const nsga2_ch
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 nsga2_chromosome<Encoding>::~nsga2_chromosome()
@@ -118,14 +78,6 @@ nsga2_chromosome<Encoding>::~nsga2_chromosome()
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 crowded_comparator<Encoding>::crowded_comparator()
@@ -134,14 +86,6 @@ crowded_comparator<Encoding>::crowded_comparator()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 crowded_comparator<Encoding>::~crowded_comparator()
@@ -153,14 +97,6 @@ crowded_comparator<Encoding>::~crowded_comparator()
  *
  * A is better than B if A has lower rank or if both have the same rank
  * and A has a lower crowding distance than B.
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 int crowded_comparator<Encoding>::compare(const nsga2_chromosome<Encoding>& c1,
@@ -193,14 +129,6 @@ int crowded_comparator<Encoding>::compare(const nsga2_chromosome<Encoding>& c1,
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 nsga2<Encoding>::nsga2() :
@@ -213,14 +141,6 @@ nsga2<Encoding>::nsga2() :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 nsga2<Encoding>::~nsga2()
@@ -233,14 +153,6 @@ nsga2<Encoding>::~nsga2()
 
 /*!
  * \brief initialize the algorithm components
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 void nsga2<Encoding>::initialize()
@@ -271,14 +183,6 @@ void nsga2<Encoding>::initialize()
 
 /*!
  * \brief find all nondominated points in the current population
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 void nsga2<Encoding>::find_nondominated_front(population<nsga2_chromosome,Encoding>& pop,
@@ -301,14 +205,6 @@ void nsga2<Encoding>::find_nondominated_front(population<nsga2_chromosome,Encodi
 
 /*!
  * \brief sort the population into non-overlapping fronts
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 void nsga2<Encoding>::nondominated_sort(population<nsga2_chromosome,Encoding>& pop,
@@ -335,14 +231,6 @@ void nsga2<Encoding>::nondominated_sort(population<nsga2_chromosome,Encoding>& p
 
 /*!
  * \brief compute the crowding distance for each chromosome in the given front
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 void nsga2<Encoding>::compute_crowding_distances(pareto_front<nsga2_chromosome,Encoding>& pop)
@@ -372,14 +260,6 @@ void nsga2<Encoding>::compute_crowding_distances(pareto_front<nsga2_chromosome,E
 
 /*!
  * \brief run the nsga2 algorithm
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 void nsga2<Encoding>::run()
@@ -398,14 +278,6 @@ void nsga2<Encoding>::run()
 
 /*!
  * \brief run one generation of the nsga2 algorithm
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 void nsga2<Encoding>::run_one_generation()

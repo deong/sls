@@ -5,7 +5,7 @@
  * ranking for parent selection
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #include <iostream>
@@ -26,14 +26,6 @@ using namespace std;
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 genitor<Chromosome,Encoding>::genitor() :
@@ -47,14 +39,6 @@ genitor<Chromosome,Encoding>::genitor() :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 genitor<Chromosome,Encoding>::~genitor()
@@ -68,14 +52,6 @@ genitor<Chromosome,Encoding>::~genitor()
 
 /*!
  * \brief initialize the algorithm components
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void genitor<Chromosome,Encoding>::initialize()
@@ -109,14 +85,6 @@ void genitor<Chromosome,Encoding>::initialize()
 
 /*!
  * \brief run the genitor algorithm
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void genitor<Chromosome,Encoding>::run()
@@ -132,14 +100,6 @@ void genitor<Chromosome,Encoding>::run()
 
 /*!
  * \brief run one generation of the genitor algorithm
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void genitor<Chromosome,Encoding>::run_one_generation()

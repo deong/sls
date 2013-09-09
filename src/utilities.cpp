@@ -5,7 +5,7 @@
  * such as printing warnings and errors.
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #define _DEBUG_
@@ -21,14 +21,6 @@ using namespace std;
 
 /*!
  * \brief print a warning message
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 void warning(const string& msg)
 {
@@ -37,14 +29,6 @@ void warning(const string& msg)
 
 /*!
  * \brief print an error message and exit
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 void error(const string& msg)
 {
@@ -54,14 +38,6 @@ void error(const string& msg)
 
 /*!
  * \brief print a debug message if debugging is enabled
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 void debug(const string& msg)
 {
@@ -72,14 +48,6 @@ void debug(const string& msg)
 
 /*!
  * \brief compare items for sorting
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 int sort_compare(const double* item1, const double* item2)
 {
@@ -99,14 +67,6 @@ int sort_compare(const double* item1, const double* item2)
 
 /*!
  * \brief compare two vectors for equality
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 bool operator==(const vector<int>& v1, const vector<int>& v2)
 {
@@ -127,14 +87,6 @@ bool operator==(const vector<int>& v1, const vector<int>& v2)
 
 /*!
  * \brief compute correlation coefficient
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 double compute_pearson_correlation(const vector<pair<double,double> >& points)
 {

@@ -4,7 +4,7 @@
  * Simulated Annealing algorithm
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #ifndef _SIMANNEAL_H_
@@ -19,9 +19,6 @@
 
 /*!
  * \class simulated_annealing
- *
- * \author deong
- * \date 06/20/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class simulated_annealing : public local_search<Chromosome,Encoding>

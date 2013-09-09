@@ -6,7 +6,7 @@
  * performing this selection.
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #include <string>
@@ -24,14 +24,6 @@ using namespace std;
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 selection_scheme<Chromosome,Encoding>::selection_scheme()
@@ -40,14 +32,6 @@ selection_scheme<Chromosome,Encoding>::selection_scheme()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 selection_scheme<Chromosome,Encoding>::~selection_scheme()
@@ -56,14 +40,6 @@ selection_scheme<Chromosome,Encoding>::~selection_scheme()
 
 /*!
  * \brief set the mating pool from the current population
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void selection_scheme<Chromosome,Encoding>::set_population(const population<Chromosome,Encoding>* pop)
@@ -73,14 +49,6 @@ void selection_scheme<Chromosome,Encoding>::set_population(const population<Chro
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 tournament_selection<Chromosome,Encoding>::tournament_selection() :
@@ -91,14 +59,6 @@ tournament_selection<Chromosome,Encoding>::tournament_selection() :
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 tournament_selection<Chromosome,Encoding>::tournament_selection(comparator<Chromosome,Encoding>* comp)
@@ -109,14 +69,6 @@ tournament_selection<Chromosome,Encoding>::tournament_selection(comparator<Chrom
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 tournament_selection<Chromosome,Encoding>::~tournament_selection()
@@ -129,14 +81,6 @@ tournament_selection<Chromosome,Encoding>::~tournament_selection()
 
 /*!
  * \brief initialize the selection comparator object
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void tournament_selection<Chromosome,Encoding>::initialize()
@@ -148,14 +92,6 @@ void tournament_selection<Chromosome,Encoding>::initialize()
 
 /*!
  * \brief select a parent from the gene pool
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 Chromosome<Encoding>& tournament_selection<Chromosome,Encoding>::select_parent() const
@@ -177,14 +113,6 @@ Chromosome<Encoding>& tournament_selection<Chromosome,Encoding>::select_parent()
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 ranking_selection<Chromosome,Encoding>::ranking_selection() :
@@ -194,14 +122,6 @@ ranking_selection<Chromosome,Encoding>::ranking_selection() :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 ranking_selection<Chromosome,Encoding>::~ranking_selection()
@@ -210,14 +130,6 @@ ranking_selection<Chromosome,Encoding>::~ranking_selection()
 
 /*!
  * \brief initialize the linear bias
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void ranking_selection<Chromosome,Encoding>::initialize()
@@ -227,14 +139,6 @@ void ranking_selection<Chromosome,Encoding>::initialize()
         
 /*!
  * \brief select a parent from the gene pool
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 Chromosome<Encoding>& ranking_selection<Chromosome,Encoding>::select_parent() const
@@ -249,14 +153,6 @@ Chromosome<Encoding>& ranking_selection<Chromosome,Encoding>::select_parent() co
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 random_selection<Chromosome,Encoding>::random_selection()
@@ -265,14 +161,6 @@ random_selection<Chromosome,Encoding>::random_selection()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 random_selection<Chromosome,Encoding>::~random_selection()
@@ -281,14 +169,6 @@ random_selection<Chromosome,Encoding>::~random_selection()
 
 /*!
  * \brief select a parent at random from the gene pool
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 Chromosome<Encoding>& random_selection<Chromosome,Encoding>::select_parent() const
@@ -299,14 +179,6 @@ Chromosome<Encoding>& random_selection<Chromosome,Encoding>::select_parent() con
 
 /*!
  * \brief create and return an initialized selection scheme
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 selection_scheme<Chromosome,Encoding>* selection_scheme_factory<Chromosome,Encoding>::construct()

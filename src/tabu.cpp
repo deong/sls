@@ -4,7 +4,7 @@
  * tabu search algorithms
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #include <iostream>
@@ -26,14 +26,6 @@ using namespace std;
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 tabu_list<Chromosome,Encoding>::tabu_list()
@@ -42,14 +34,6 @@ tabu_list<Chromosome,Encoding>::tabu_list()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 tabu_list<Chromosome,Encoding>::~tabu_list()
@@ -58,9 +42,6 @@ tabu_list<Chromosome,Encoding>::~tabu_list()
 
 /**
  * \brief set the configuration prefix
- *
- * \author deong
- * \date 09/20/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 void tabu_list<Chromosome,Encoding>::set_prefix(const string& prefix)
@@ -70,14 +51,6 @@ void tabu_list<Chromosome,Encoding>::set_prefix(const string& prefix)
 
 /*!
  * \brief initialize the tabu list
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void tabu_list<Chromosome,Encoding>::initialize()
@@ -89,14 +62,6 @@ void tabu_list<Chromosome,Encoding>::initialize()
 
 /*!
  * \brief erase all items from the tabu list
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void tabu_list<Chromosome,Encoding>::clear()
@@ -106,14 +71,6 @@ void tabu_list<Chromosome,Encoding>::clear()
 
 /*!
  * \brief update the tabu list with an accepted move
- *
- * \author deong
- * \date 05/20/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void tabu_list<Chromosome,Encoding>::accept_move(const Chromosome<Encoding>& chr,
@@ -144,14 +101,6 @@ void tabu_list<Chromosome,Encoding>::accept_move(const Chromosome<Encoding>& chr
 
 /*!
  * \brief determine if a move is tabu at the given generation
- *
- * \author deong
- * \date 05/20/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 bool tabu_list<Chromosome,Encoding>::tabu(const move<Chromosome,Encoding>& m, unsigned int iter) const
@@ -180,14 +129,6 @@ bool tabu_list<Chromosome,Encoding>::tabu(const move<Chromosome,Encoding>& m, un
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 tabu_search<Chromosome,Encoding>::tabu_search()
@@ -197,14 +138,6 @@ tabu_search<Chromosome,Encoding>::tabu_search()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 tabu_search<Chromosome,Encoding>::~tabu_search()
@@ -214,9 +147,6 @@ tabu_search<Chromosome,Encoding>::~tabu_search()
 
 /**
  * \brief set the configuration prefix
- *
- * \author deong
- * \date 09/20/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 void tabu_search<Chromosome,Encoding>::set_prefix(const string& prefix)
@@ -227,14 +157,6 @@ void tabu_search<Chromosome,Encoding>::set_prefix(const string& prefix)
 
 /*!
  * \brief initialize the tabu search components
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void tabu_search<Chromosome,Encoding>::initialize()
@@ -245,9 +167,6 @@ void tabu_search<Chromosome,Encoding>::initialize()
 
 /*!
  * \brief reset the algorithm parameters
- *
- * \author deong
- * \date 07/07/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 void tabu_search<Chromosome,Encoding>::reset()
@@ -259,14 +178,6 @@ void tabu_search<Chromosome,Encoding>::reset()
 
 /*!
  * \brief optimize the given individual via tabu search
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void tabu_search<Chromosome,Encoding>::improve(Chromosome<Encoding>& chr,

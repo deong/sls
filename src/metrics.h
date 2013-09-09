@@ -6,7 +6,7 @@
  * useful metrics for stochastic local search.
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #ifndef _METRICS_H_
@@ -26,9 +26,6 @@ using namespace std;
 
 /*!
  * \class metric
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class metric
@@ -52,9 +49,6 @@ public:
 
 /*!
  * \class evaluation_counter
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class evaluation_counter : public metric<Chromosome,Encoding>
@@ -76,9 +70,6 @@ public:
 
 /*!
  * \class best_solution
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class best_solution : public metric<Chromosome,Encoding>
@@ -106,9 +97,6 @@ public:
 
 /*!
  * \class generation_counter
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class generation_counter : public metric<Chromosome,Encoding>
@@ -131,9 +119,6 @@ public:
 
 /*!
  * \class hypervolume
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class hypervolume : public metric<Chromosome,Encoding>
@@ -165,11 +150,8 @@ public:
 };
 
 /**
- * @class population_entropy
- * @brief measures the average entropy in the population over all genes
- *
- * @author deong
- * @date 11/17/2012
+ * \class population_entropy
+ * \brief measures the average entropy in the population over all genes
  */
 template <template <typename> class Chromosome, typename Encoding>
 class population_entropy : public metric<Chromosome,Encoding>
@@ -193,9 +175,6 @@ private:
 
 /*!
  * \class metric_factory
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class metric_factory : public factory

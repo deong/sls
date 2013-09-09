@@ -2,7 +2,6 @@
  * \file keywords.h
  *
  * Deon Garrett
- * University of Memphis
  * jdgarrett@gmail.com
  *
  * Defines the known keywords in the system.  Provides a singleton
@@ -19,9 +18,6 @@ using namespace std;
 
 /*!
  * \class store the available keywords/values for sls configuration
- *
- * \author deong
- * \date 05/09/2007
  */
 class keywords
 {

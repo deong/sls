@@ -6,7 +6,7 @@
  * modified to include additional features by Deon Garrett.
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #include <vector>
@@ -55,14 +55,6 @@ static int           mti = N+1; /* mti==N+1 means mt[N] is not initialized */
 
 /*!
  * \brief return the seed used for the generator
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 unsigned long mtrandom::seed()
 {
@@ -77,14 +69,6 @@ unsigned long mtrandom::seed()
 
 /*!
  * \brief initialize the seed for the generator
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 bool mtrandom::initialize()
 {
@@ -123,14 +107,6 @@ bool mtrandom::initialize()
  *
  * if no instance has been created previously, seeds the generator using the
  * system clock
- * 
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 mtrandom::mtrandom()
 {
@@ -158,14 +134,6 @@ mtrandom::mtrandom()
 
 /*!
  * \brief seed the generator with a user defined seed
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 void mtrandom::seed_random(unsigned long n) 
 { 
@@ -183,14 +151,6 @@ void mtrandom::seed_random(unsigned long n)
 
 /*!
  * \brief forces the next invocation to reseed from the clock
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 void mtrandom::reseed()
 {
@@ -199,14 +159,6 @@ void mtrandom::reseed()
 
 /*!
  * \brief return the seed for the generator
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 unsigned long mtrandom::get_seed()
 {
@@ -215,14 +167,6 @@ unsigned long mtrandom::get_seed()
 
 /*!
  * \brief return a random number in the range [0,1)
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 double mtrandom::random()
 {
@@ -267,14 +211,6 @@ double mtrandom::random()
 
 /*!
  * \brief return a random integer in the range [0,ub)
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 int mtrandom::random(int ub)
 {
@@ -283,14 +219,6 @@ int mtrandom::random(int ub)
 
 /*!
  * \brief return a random integer in the range [lb,ub)
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 int mtrandom::random(int lb, int ub)
 {
@@ -300,14 +228,6 @@ int mtrandom::random(int lb, int ub)
 
 /*!
  * \brief return a random double in the range [lb,ub)
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 double mtrandom::random(double lb, double ub)
 {
@@ -317,14 +237,6 @@ double mtrandom::random(double lb, double ub)
 
 /*!
  * \brief return a biased random number in the range [0,range)
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 double mtrandom::bias_random(int range, double bias)
 { 
@@ -338,14 +250,6 @@ double mtrandom::bias_random(int range, double bias)
 
 /*!
  * \brief return a normally distributed number with mu=0, sigma=1
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 double mtrandom::gaussian()
 {  
@@ -372,14 +276,6 @@ double mtrandom::gaussian()
 
 /*!
  * \brief return a normally distributed number with specified mu, sigma
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 double mtrandom::gaussian(double mean, double stddev)
 {
@@ -406,14 +302,6 @@ double mtrandom::gaussian(double mean, double stddev)
 
 /*!
  * \brief return a random permutation of the numbers [0,n)
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 vector<int> mtrandom::permutation(int n)
 {
@@ -439,14 +327,6 @@ vector<int> mtrandom::permutation(int n)
 
 /*!
  * \brief randomly permute the elements of the given vector
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 void mtrandom::shuffle(vector<int>& v)
 {

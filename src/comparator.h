@@ -5,7 +5,7 @@
  * to one another by fitness.
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #ifndef _COMPARATOR_H_
@@ -16,9 +16,6 @@
 
 /*!
  * \class comparator
- *
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class comparator
@@ -36,9 +33,6 @@ public:
  *
  * compare chromosomes by value of first objective function.  used to fake
  * single objective optimization.
- * 
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class fitness_comparator : public comparator<Chromosome,Encoding>
@@ -52,9 +46,6 @@ public:
 
 /*!
  * \class pareto_dominance_comparator
- *
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class pareto_dominance_comparator : public comparator<Chromosome,Encoding>
@@ -68,9 +59,6 @@ public:
 
 /*!
  * \class scalarizing_comparator
- *
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class scalarizing_comparator : public comparator<Chromosome,Encoding>
@@ -91,9 +79,6 @@ public:
 
 /*!
  * \class weak_dominance_comparator
- *
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class weak_dominance_comparator : public comparator<Chromosome,Encoding>
@@ -107,9 +92,6 @@ public:
 
 /*!
  * \class strong_dominance_comparator
- *
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class strong_dominance_comparator : public comparator<Chromosome,Encoding>
@@ -123,9 +105,6 @@ public:
 
 /*!
  * \class epsilon_dominance_comparator
- *
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class epsilon_dominance_comparator : public comparator<Chromosome,Encoding>
@@ -146,9 +125,6 @@ public:
  *
  * more general case of fitness_comparator where client can specify on which
  * objective function to base the comparison
- *
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class single_objective_comparator : public comparator<Chromosome,Encoding>
@@ -165,9 +141,6 @@ public:
 
 /*!
  * \class comparator_factory
- *
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class comparator_factory : public factory

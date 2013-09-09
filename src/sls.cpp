@@ -4,7 +4,7 @@
  * base class for all stochastic local search algorithms
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #include <list>
@@ -29,14 +29,6 @@ bool sls<Chromosome,Encoding>::m_print_every_generation;
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 sls<Chromosome,Encoding>::sls() :
@@ -47,14 +39,6 @@ sls<Chromosome,Encoding>::sls() :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 sls<Chromosome,Encoding>::~sls()
@@ -81,14 +65,6 @@ sls<Chromosome,Encoding>::~sls()
 
 /*!
  * \brief notify metrics and terminators of new chromosome evaluation
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void sls<Chromosome,Encoding>::chromosome_evaluated(const Chromosome<Encoding>& chr)
@@ -109,14 +85,6 @@ void sls<Chromosome,Encoding>::chromosome_evaluated(const Chromosome<Encoding>& 
 
 /*!
  * \brief notify metrics and terminators of generation completion
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void sls<Chromosome,Encoding>::generation_completed()
@@ -142,14 +110,6 @@ void sls<Chromosome,Encoding>::generation_completed()
 
 /*!
  * \brief notify metrics and terminators of new generation completion
- *
- * \author deong
- * \date 05/12/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void sls<Chromosome,Encoding>::generation_completed(const population<Chromosome,Encoding>& pop)
@@ -175,9 +135,6 @@ void sls<Chromosome,Encoding>::generation_completed(const population<Chromosome,
 
 /*!
  * \brief determine whether or not to terminate the algorithm
- *
- * \author deong
- * \date 06/25/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 bool sls<Chromosome,Encoding>::terminate()
@@ -196,14 +153,6 @@ bool sls<Chromosome,Encoding>::terminate()
 
 /*!
  * \brief compute all performance metrics
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void sls<Chromosome,Encoding>::compute_metrics()
@@ -218,14 +167,6 @@ void sls<Chromosome,Encoding>::compute_metrics()
 
 /*!
  * \brief print out all performance metrics
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void sls<Chromosome,Encoding>::report_metrics(ostream& ostr)
@@ -240,14 +181,6 @@ void sls<Chromosome,Encoding>::report_metrics(ostream& ostr)
 
 /*!
  * \brief initialize the sls components
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void sls<Chromosome,Encoding>::initialize()

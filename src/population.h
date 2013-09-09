@@ -6,7 +6,7 @@
  * algorithms.
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #ifndef _POPULATION_H_
@@ -28,9 +28,6 @@ istream& operator>>(istream& s, population<Chromosome,Encoding>& p);
 
 /*!
  * \class population
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class population
@@ -104,9 +101,6 @@ public:
 
 /*!
  * \class bridge comparator used for sorting of population
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class sorting_comparator

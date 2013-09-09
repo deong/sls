@@ -6,7 +6,7 @@
  * elitist replacement.
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #include <iostream>
@@ -27,14 +27,6 @@ using namespace std;
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 simple_ga<Chromosome,Encoding>::simple_ga() :
@@ -48,14 +40,6 @@ simple_ga<Chromosome,Encoding>::simple_ga() :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 simple_ga<Chromosome,Encoding>::~simple_ga()
@@ -69,14 +53,6 @@ simple_ga<Chromosome,Encoding>::~simple_ga()
 
 /*!
  * \brief initialize the simple ga components
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void simple_ga<Chromosome,Encoding>::initialize()
@@ -107,14 +83,6 @@ void simple_ga<Chromosome,Encoding>::initialize()
 
 /*!
  * \brief run the simple ga
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void simple_ga<Chromosome,Encoding>::run()
@@ -130,14 +98,6 @@ void simple_ga<Chromosome,Encoding>::run()
 
 /*!
  * \brief run one generation of the simple ga
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void simple_ga<Chromosome,Encoding>::run_one_generation()

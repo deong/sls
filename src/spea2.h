@@ -4,7 +4,7 @@
  * Zitzler et.al.'s Strength Pareto Evolutionary Algorithm 2
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #ifndef _SPEA2_H_
@@ -35,9 +35,6 @@ typedef struct
  * \class neighbor_comparator
  *
  * order neighbors by increasing order of distance
- *
- * \author deong
- * \date 05/12/2007
  */
 class neighbor_comparator
 {
@@ -50,9 +47,6 @@ public:
 
 /*!
  * \class spea2_chromosome
- *
- * \author deong
- * \date 05/12/2007
  */
 template <typename Encoding>
 class spea2_chromosome : public chromosome<Encoding>
@@ -77,9 +71,6 @@ public:
 
 /*!
  * \class spea2_comparator
- *
- * \author deong
- * \date 05/12/2007
  */
 template <typename Encoding>
 class spea2_comparator : public comparator<spea2_chromosome,Encoding>
@@ -96,9 +87,6 @@ public:
  * \class spea2
  *
  * The Strength Pareto Evolutionary Algorithm
- *
- * \author deong
- * \date 05/12/2007
  */
 template <typename Encoding>
 class spea2 : public ea<spea2_chromosome,Encoding>

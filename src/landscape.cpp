@@ -2,7 +2,7 @@
  * \file landscape.cpp
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #include <iostream>
@@ -23,14 +23,6 @@ using namespace std;
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 landscape<Chromosome,Encoding>::landscape() :
@@ -40,14 +32,6 @@ landscape<Chromosome,Encoding>::landscape() :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 landscape<Chromosome,Encoding>::~landscape()
@@ -57,14 +41,6 @@ landscape<Chromosome,Encoding>::~landscape()
 
 /*!
  * \brief initialize the landscape components
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void landscape<Chromosome,Encoding>::initialize()
@@ -82,14 +58,6 @@ void landscape<Chromosome,Encoding>::initialize()
 
 /*!
  * \brief search neighborhood of nondominated solutions
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void perturbation_search<Chromosome,Encoding>::run()
@@ -165,14 +133,6 @@ void perturbation_search<Chromosome,Encoding>::run()
 
 /*!
  * \brief compute fitness distance correlation 
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void fitness_distance_correlation<Chromosome,Encoding>::run()
@@ -226,14 +186,6 @@ void fitness_distance_correlation<Chromosome,Encoding>::run()
 
 /*!
  * \brief perform a random walk from nondominated solutions
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void random_walk<Chromosome,Encoding>::run()
@@ -295,14 +247,6 @@ void random_walk<Chromosome,Encoding>::run()
 
 /*!
  * \brief perform a random walk from one nondominated solution to another
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void random_walk_between_optima<Chromosome,Encoding>::run()
@@ -378,14 +322,6 @@ void random_walk_between_optima<Chromosome,Encoding>::run()
 /*!
  * \brief compute autocorrelation along random walk 
  * 
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void ruggedness<Chromosome,Encoding>::run()
@@ -438,14 +374,6 @@ void ruggedness<Chromosome,Encoding>::run()
 
 /*!
  * \brief compute ruggedness along path between pareto optima
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void ruggedness_between_optima<Chromosome,Encoding>::run()
@@ -508,14 +436,6 @@ void ruggedness_between_optima<Chromosome,Encoding>::run()
 
 /*!
  * \brief compute fraction of paths around local optima that are infeasible
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void infeasibility_region<Chromosome,Encoding>::run()
@@ -572,14 +492,6 @@ void infeasibility_region<Chromosome,Encoding>::run()
 
 /*!
  * \brief override to prevent initialization of useless landscape components
- *
- * \author deong
- * \date 06/06/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void hypervolume_analysis<Chromosome,Encoding>::initialize()
@@ -593,14 +505,6 @@ void hypervolume_analysis<Chromosome,Encoding>::initialize()
 
 /*!
  * \brief compute the hypervolume of a set of pareto fronts after the fact
- *
- * \author deong
- * \date 06/06/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void hypervolume_analysis<Chromosome,Encoding>::run()
@@ -621,9 +525,6 @@ void hypervolume_analysis<Chromosome,Encoding>::run()
 
 /*!
  * \brief initialize the plateau tool
- *
- * \author deong@acm.org
- * \date 10/14/2008
  */
 template <template <typename> class Chromosome, typename Encoding>
 void pareto_plateaus<Chromosome,Encoding>::initialize()
@@ -632,9 +533,6 @@ void pareto_plateaus<Chromosome,Encoding>::initialize()
 
 /*!
  * \brief sort the population into nonoverlapping fronts
- *
- * \author deong@acm.org
- * \date 10/15/2008
  */
 template <template <typename> class Chromosome, typename Encoding>
 void pareto_plateaus<Chromosome,Encoding>::nondominated_sort(population<Chromosome,Encoding>& pop,
@@ -660,9 +558,6 @@ void pareto_plateaus<Chromosome,Encoding>::nondominated_sort(population<Chromoso
 
 /*!
  * \brief run the plateaus tool
- *
- * \author deong@acm.org
- * \date 10/14/2008
  */
 template <template <typename> class Chromosome, typename Encoding>
 void pareto_plateaus<Chromosome,Encoding>::run()
@@ -773,14 +668,6 @@ void pareto_plateaus<Chromosome,Encoding>::run()
 
 /*!
  * \brief create and return initialized landscape operators
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 landscape<Chromosome,Encoding>* landscape_factory<Chromosome,Encoding>::construct()

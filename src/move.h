@@ -5,7 +5,7 @@
  * algorithm
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #ifndef _MOVE_H_
@@ -24,9 +24,6 @@ ostream& operator<<(ostream& ostr, const move<Chromosome,Encoding>& m);
 
 /*!
  * \class move
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class move

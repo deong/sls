@@ -4,7 +4,7 @@
  * random restarts local search
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #include "rrls.h"
@@ -15,14 +15,6 @@ using namespace std;
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 rrls<Chromosome,Encoding>::rrls() :
@@ -34,14 +26,6 @@ rrls<Chromosome,Encoding>::rrls() :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 rrls<Chromosome,Encoding>::~rrls()
@@ -52,14 +36,6 @@ rrls<Chromosome,Encoding>::~rrls()
 
 /*!
  * \brief initialize the local search components
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void rrls<Chromosome,Encoding>::initialize()
@@ -79,14 +55,6 @@ void rrls<Chromosome,Encoding>::initialize()
 
 /*!
  * \brief run the random restart local search until termination
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void rrls<Chromosome,Encoding>::run()

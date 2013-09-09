@@ -4,7 +4,7 @@
  * Deb et. al.'s epsilon multiobjective evolutionary algorithm
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #include <algorithm>
@@ -26,14 +26,6 @@ using namespace std;
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 emoea_chromosome<Encoding>::emoea_chromosome() :
@@ -43,14 +35,6 @@ emoea_chromosome<Encoding>::emoea_chromosome() :
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 emoea_chromosome<Encoding>::emoea_chromosome(const typename Encoding::ProblemType* prob) :
@@ -61,14 +45,6 @@ emoea_chromosome<Encoding>::emoea_chromosome(const typename Encoding::ProblemTyp
 
 /*!
  * \brief copy constructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 emoea_chromosome<Encoding>::emoea_chromosome(const emoea_chromosome& that) :
@@ -80,14 +56,6 @@ emoea_chromosome<Encoding>::emoea_chromosome(const emoea_chromosome& that) :
 
 /*!
  * \brief assignment operator
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 emoea_chromosome<Encoding>& emoea_chromosome<Encoding>::operator=(const emoea_chromosome& that)
@@ -100,14 +68,6 @@ emoea_chromosome<Encoding>& emoea_chromosome<Encoding>::operator=(const emoea_ch
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 emoea_chromosome<Encoding>::~emoea_chromosome()
@@ -116,14 +76,6 @@ emoea_chromosome<Encoding>::~emoea_chromosome()
 
 /*!
  * \brief compute the box containing the chromosome
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 void emoea_chromosome<Encoding>::compute_box(const vector<double>& eps)
@@ -139,14 +91,6 @@ void emoea_chromosome<Encoding>::compute_box(const vector<double>& eps)
  *
  * \bug why isn't this using the epsilon_dominance_comparator?
  * \sa epsilon_dominance_comparator
- * 
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 bool emoea_chromosome<Encoding>::eps_dominates(const emoea_chromosome<Encoding>& other) const
@@ -168,14 +112,6 @@ bool emoea_chromosome<Encoding>::eps_dominates(const emoea_chromosome<Encoding>&
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 emoea<Encoding>::emoea() :
@@ -189,14 +125,6 @@ emoea<Encoding>::emoea() :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 emoea<Encoding>::~emoea()
@@ -211,14 +139,6 @@ emoea<Encoding>::~emoea()
 
 /*!
  * \brief initialize the emoea components
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 void emoea<Encoding>::initialize()
@@ -270,14 +190,6 @@ void emoea<Encoding>::initialize()
 
 /*!
  * \brief check a chromosome for acceptance into a population
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 void emoea<Encoding>::population_acceptance(const emoea_chromosome<Encoding>& chr)
@@ -317,14 +229,6 @@ void emoea<Encoding>::population_acceptance(const emoea_chromosome<Encoding>& ch
 
 /*!
  * \brief check a chromosome for acceptance into the archive
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 void emoea<Encoding>::archive_acceptance(const emoea_chromosome<Encoding>& chr)
@@ -395,14 +299,6 @@ void emoea<Encoding>::archive_acceptance(const emoea_chromosome<Encoding>& chr)
 
 /*!
  * \brief intensify the search using a targeted local search run
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 void emoea<Encoding>::intensify(emoea_chromosome<Encoding>& chr)
@@ -424,14 +320,6 @@ void emoea<Encoding>::intensify(emoea_chromosome<Encoding>& chr)
 
 /*!
  * \brief diversify the search using "randomly" seeded local search runs
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 void emoea<Encoding>::diversify(emoea_chromosome<Encoding>& chr)
@@ -465,14 +353,6 @@ void emoea<Encoding>::diversify(emoea_chromosome<Encoding>& chr)
 
 /*!
  * \brief run the epsilon MOEA
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 void emoea<Encoding>::run()
@@ -520,14 +400,6 @@ void emoea<Encoding>::run()
 
 /*!
  * \brief run one generation of the epsilon MOEA
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <typename Encoding>
 void emoea<Encoding>::run_one_generation()

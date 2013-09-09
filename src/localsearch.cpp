@@ -4,7 +4,7 @@
  * local search algorithms
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #include "chromosome.h"
@@ -24,14 +24,6 @@ using namespace std;
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 local_search<Chromosome,Encoding>::local_search() :
@@ -43,14 +35,6 @@ local_search<Chromosome,Encoding>::local_search() :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 local_search<Chromosome,Encoding>::~local_search()
@@ -78,14 +62,6 @@ local_search<Chromosome,Encoding>::~local_search()
 
 /*!
  * \brief initialize local search components
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void local_search<Chromosome,Encoding>::initialize()
@@ -109,9 +85,6 @@ void local_search<Chromosome,Encoding>::initialize()
 
 /*!
  * \brief reset the terminators and metrics for the algorithm
- *
- * \author deong
- * \date 07/06/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 void local_search<Chromosome,Encoding>::reset()
@@ -132,14 +105,6 @@ void local_search<Chromosome,Encoding>::reset()
 
 /*!
  * \brief return the local search neighborhood operator
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 neighborhood<Chromosome,Encoding>* local_search<Chromosome,Encoding>::get_neighborhood()
@@ -149,14 +114,6 @@ neighborhood<Chromosome,Encoding>* local_search<Chromosome,Encoding>::get_neighb
 
 /*!
  * \brief notify of new chromosome evaluation
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void local_search<Chromosome,Encoding>::chromosome_evaluated(const Chromosome<Encoding>& chr)
@@ -182,14 +139,6 @@ void local_search<Chromosome,Encoding>::chromosome_evaluated(const Chromosome<En
  *
  * Note that a generation is basically defined as all moves leading
  * up to an accepted move.
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void local_search<Chromosome,Encoding>::generation_completed()
@@ -221,9 +170,6 @@ void local_search<Chromosome,Encoding>::generation_completed()
 
 /**
  * \brief set the configuration prefix for the local search algorithm
- *
- * \author deong
- * \date 09/20/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 void local_search<Chromosome,Encoding>::set_prefix(const string& prefix)
@@ -233,9 +179,6 @@ void local_search<Chromosome,Encoding>::set_prefix(const string& prefix)
 
 /*!
  * \brief determine whether to terminate the local search procedure
- *
- * \author deong
- * \date 06/25/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 bool local_search<Chromosome,Encoding>::terminate() const
@@ -260,14 +203,6 @@ bool local_search<Chromosome,Encoding>::terminate() const
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 next_descent<Chromosome,Encoding>::next_descent()
@@ -276,14 +211,6 @@ next_descent<Chromosome,Encoding>::next_descent()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 next_descent<Chromosome,Encoding>::~next_descent()
@@ -292,14 +219,6 @@ next_descent<Chromosome,Encoding>::~next_descent()
 
 /*!
  * \brief improve a given chromosome using next descent local search
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void next_descent<Chromosome,Encoding>::improve(Chromosome<Encoding>& chr,
@@ -338,14 +257,6 @@ void next_descent<Chromosome,Encoding>::improve(Chromosome<Encoding>& chr,
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 steepest_descent<Chromosome,Encoding>::steepest_descent()
@@ -354,14 +265,6 @@ steepest_descent<Chromosome,Encoding>::steepest_descent()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 steepest_descent<Chromosome,Encoding>::~steepest_descent()
@@ -370,14 +273,6 @@ steepest_descent<Chromosome,Encoding>::~steepest_descent()
 
 /*!
  * \brief improve a chromosome using steepest descent local search
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void steepest_descent<Chromosome,Encoding>::improve(Chromosome<Encoding>& chr,
@@ -413,14 +308,6 @@ void steepest_descent<Chromosome,Encoding>::improve(Chromosome<Encoding>& chr,
 
 /*!
  * \brief create and return an initialized local search operator
- *
- * \author deong
- * \date 05/09/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 local_search<Chromosome,Encoding>*

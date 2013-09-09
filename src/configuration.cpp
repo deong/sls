@@ -6,8 +6,7 @@
  * available hash table mapping keywords to values.
  *
  * Deon Garrett
- * University of Memphis
- * deong@acm.org
+ * jdgarrett@gmail.com
  *
  */
 
@@ -31,14 +30,6 @@ map<string,list<string> > configuration::m_db;
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 configuration::configuration()
 {
@@ -46,14 +37,6 @@ configuration::configuration()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 configuration::~configuration()
 {
@@ -62,14 +45,6 @@ configuration::~configuration()
 
 /*!
  * \brief erase all stored configuration data
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 void configuration::clear()
 {
@@ -78,14 +53,6 @@ void configuration::clear()
 
 /*!
  * \brief parse a given configuration file
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 bool configuration::read_configuration_file(const string& filename)
 {
@@ -163,14 +130,6 @@ bool configuration::read_configuration_file(const string& filename)
  * \brief add a new keyword/value pair
  *
  * if keyword already exists, add the value onto the keyword's list
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 int configuration::add_value(const string &keyword,const string &value)
 {
@@ -198,14 +157,6 @@ int configuration::add_value(const string &keyword,const string &value)
  * if the keyword does not exist, do nothing.  if removing the
  * value from the keyword results in an empty value list, remove
  * the keyword entry from the database
- * 
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 int configuration::remove_value(const string &keyword,const string &value)
 {
@@ -237,14 +188,6 @@ int configuration::remove_value(const string &keyword,const string &value)
 
 /*!
  * \brief check to see if a keyword is in the database
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 bool configuration::keyword_exists(const string &keyword)
 {
@@ -259,14 +202,6 @@ bool configuration::keyword_exists(const string &keyword)
 
 /*!
  * \brief check to see if a keyword is mapped to a single unique value
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 bool configuration::has_unique_value(const string &keyword)
 {
@@ -287,14 +222,6 @@ bool configuration::has_unique_value(const string &keyword)
 
 /*!
  * \brief return the list of values associated with a keyword
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 list<string> configuration::values(const string &keyword)
 {
@@ -308,14 +235,6 @@ list<string> configuration::values(const string &keyword)
 
 /*!
  * \brief return the first value associated with a keyword
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 string configuration::value(const string &keyword)
 {
@@ -336,14 +255,6 @@ string configuration::value(const string &keyword)
 
 /*!
  * \brief get the primary value as a string
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 bool configuration::string_parameter(const string &keyword, string& res, bool required)
 {
@@ -370,14 +281,6 @@ bool configuration::string_parameter(const string &keyword, string& res, bool re
 
 /*!
  * \brief get the primary value as an integer
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 bool configuration::integer_parameter(const string& keyword, int& res, bool required)
 {
@@ -404,14 +307,6 @@ bool configuration::integer_parameter(const string& keyword, int& res, bool requ
 
 /*!
  * \brief get the primary value as an unsigned integer
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 bool configuration::unsigned_integer_parameter(const string& keyword, unsigned int& res, bool required)
 {
@@ -438,14 +333,6 @@ bool configuration::unsigned_integer_parameter(const string& keyword, unsigned i
 
 /*!
  * \brief get the primary value as a double
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 bool configuration::double_parameter(const string& keyword, double& res, bool required)
 {
@@ -472,14 +359,6 @@ bool configuration::double_parameter(const string& keyword, double& res, bool re
 
 /*!
  * \brief get the primary value as a bool
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 bool configuration::boolean_parameter(const string& keyword, bool& res, bool required)
 {
@@ -518,14 +397,6 @@ bool configuration::boolean_parameter(const string& keyword, bool& res, bool req
 
 /*!
  * \brief get the list of all values (as strings)
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 bool configuration::list_parameter(const string& keyword, list<string>& res, bool required)
 {
@@ -550,14 +421,6 @@ bool configuration::list_parameter(const string& keyword, list<string>& res, boo
 
 /*!
  * \brief display the contents of the configuration database
- *
- * \author deong
- * \date 05/08/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 void configuration::dump_contents(ostream &ostr)
 {

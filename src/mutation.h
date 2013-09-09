@@ -4,7 +4,7 @@
  * evolutionary algorithm mutation operators
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #ifndef _MUTATION_H_
@@ -15,9 +15,6 @@
 
 /*!
  * \class mutation_operator
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class mutation_operator
@@ -39,9 +36,6 @@ public:
  * \class bitwise_mutation_impl
  *
  * implementation for bitflip mutation operator
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class bitwise_mutation_impl : public mutation_operator<Chromosome,Encoding>
@@ -66,9 +60,6 @@ public:
  * \class bitwise_mutation
  *
  * interface to bitwise_mutation_impl
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding> class bitwise_mutation;
 template <template <typename> class Chromosome>
@@ -81,9 +72,6 @@ class bitwise_mutation<Chromosome,boolean_encoding> :
  * \class bitwise_mutation
  *
  * interface to bitwise_mutation_impl
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome>
 class bitwise_mutation<Chromosome,binary_encoding> :
@@ -93,9 +81,6 @@ class bitwise_mutation<Chromosome,binary_encoding> :
 
 /*!
  * \class swap_mutation_impl
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class swap_mutation_impl : public mutation_operator<Chromosome,Encoding>
@@ -120,9 +105,6 @@ public:
  * \class swap_mutation
  *
  * interface to swap_mutation_impl
- * 
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding> class swap_mutation;
 template <template <typename> class Chromosome>
@@ -135,9 +117,6 @@ class swap_mutation<Chromosome,permutation_encoding> :
  * \class swap_mutation
  *
  * interface to swap_mutation_impl
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome>
 class swap_mutation<Chromosome,gap_encoding> :
@@ -149,9 +128,6 @@ class swap_mutation<Chromosome,gap_encoding> :
  * \class swap_mutation
  *
  * interface to swap_mutation_impl
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome>
 class swap_mutation<Chromosome,gsap_encoding> :
@@ -163,9 +139,6 @@ class swap_mutation<Chromosome,gsap_encoding> :
  * \class gaussian_mutation_impl
  *
  * mutate real valued chromosome via gaussian randomness
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class gaussian_mutation_impl : public mutation_operator<Chromosome,Encoding>
@@ -192,9 +165,6 @@ public:
  * \class gaussian_mutation
  *
  * interface to gaussian_mutation_impl
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding> class gaussian_mutation;
 template <template <typename> class Chromosome>
@@ -207,9 +177,6 @@ class gaussian_mutation<Chromosome,real_encoding> :
  * \class polynomial_mutation_impl
  *
  * polynomial mutation for real valued chromosomes
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class polynomial_mutation_impl : public mutation_operator<Chromosome,Encoding>
@@ -235,9 +202,6 @@ public:
  * \class polynomial_mutation
  *
  * interface to polynomial_mutation_impl
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding> class polynomial_mutation;
 template <template <typename> class Chromosome>
@@ -250,9 +214,6 @@ class polynomial_mutation<Chromosome,real_encoding> :
  * \class shift_mutation_impl
  *
  * for gap chromosomes, shift a job to another agent
- * 
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class shift_mutation_impl : public mutation_operator<Chromosome,Encoding>
@@ -277,9 +238,6 @@ public:
  * \class shift_mutation
  *
  * interface to shift_mutation_impl
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding> class shift_mutation;
 template <template <typename> class Chromosome>
@@ -292,9 +250,6 @@ class shift_mutation<Chromosome,gap_encoding> :
  * \class shift_mutation
  *
  * interface to shift_mutation_impl
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome>
 class shift_mutation<Chromosome,gsap_encoding> :
@@ -306,9 +261,6 @@ class shift_mutation<Chromosome,gsap_encoding> :
  * \class sss_mutation_impl
  *
  * for gap chromosomes, randomly choose between shift and swap mutations
- *
- * \author deong
- * \date 06/11/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class sss_mutation_impl : public mutation_operator<Chromosome,Encoding>
@@ -332,9 +284,6 @@ public:
  * \class sss_mutation
  *
  * interface to sss_mutation_impl
- *
- * \author deong
- * \date 06/11/2007
  */
 template <template <typename> class Chromosome, typename Encoding> class sss_mutation;
 template <template <typename> class Chromosome>
@@ -347,9 +296,6 @@ class sss_mutation<Chromosome,gap_encoding> :
  * \class sss_mutation
  *
  * interface to sss_mutation_impl
- *
- * \author deong
- * \date 06/11/2007
  */
 template <template <typename> class Chromosome>
 class sss_mutation<Chromosome,gsap_encoding> :
@@ -359,9 +305,6 @@ class sss_mutation<Chromosome,gsap_encoding> :
 
 /*!
  * \class bit_mutation_operator_factory
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class bit_mutation_operator_factory
@@ -372,9 +315,6 @@ public:
 
 /*!
  * \class permutation_mutation_operator_factory
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class permutation_mutation_operator_factory
@@ -385,9 +325,6 @@ public:
 
 /*!
  * \class real_mutation_operator_factory
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class real_mutation_operator_factory
@@ -398,9 +335,6 @@ public:
 
 /*!
  * \class integer_mutation_operator_factory
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class integer_mutation_operator_factory
@@ -411,9 +345,6 @@ public:
 
 /*!
  * \class gap_mutation_operator_factory
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class gap_mutation_operator_factory
@@ -424,9 +355,6 @@ public:
 
 /*!
  * \class gap_mutation_operator_factory
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class gsap_mutation_operator_factory
@@ -437,17 +365,11 @@ public:
 
 /*!
  * \class mutation_operator_factory
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding> class mutation_operator_factory;
 
 /*!
  * \class mutation_operator_factory
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome>
 class mutation_operator_factory<Chromosome,boolean_encoding> :
@@ -457,9 +379,6 @@ class mutation_operator_factory<Chromosome,boolean_encoding> :
 
 /*!
  * \class mutation_operator_factory
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome>
 class mutation_operator_factory<Chromosome,binary_encoding> :
@@ -469,9 +388,6 @@ class mutation_operator_factory<Chromosome,binary_encoding> :
 
 /*!
  * \class mutation_operator_factory
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome>
 class mutation_operator_factory<Chromosome,real_encoding> :
@@ -481,9 +397,6 @@ class mutation_operator_factory<Chromosome,real_encoding> :
 
 /*!
  * \class mutation_operator_factory
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome>
 class mutation_operator_factory<Chromosome,permutation_encoding> :
@@ -493,9 +406,6 @@ class mutation_operator_factory<Chromosome,permutation_encoding> :
 
 /*!
  * \class mutation_operator_factory
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome>
 class mutation_operator_factory<Chromosome,integer_encoding> :
@@ -505,9 +415,6 @@ class mutation_operator_factory<Chromosome,integer_encoding> :
 
 /*!
  * \class mutation_operator_factory
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome>
 class mutation_operator_factory<Chromosome,gap_encoding> :
@@ -517,9 +424,6 @@ class mutation_operator_factory<Chromosome,gap_encoding> :
 
 /*!
  * \class mutation_operator_factory
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome>
 class mutation_operator_factory<Chromosome,gsap_encoding> :

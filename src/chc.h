@@ -4,7 +4,7 @@
  * Simple Genetic Algorithm (generational ga)
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #ifndef _CHC_H_
@@ -22,9 +22,6 @@
  * \class chc
  *
  * Eshelman's CHC genetic algorithm
- *
- * \author deong
- * \date 05/08/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class chc : public ea<Chromosome,Encoding>

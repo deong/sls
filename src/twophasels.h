@@ -4,7 +4,7 @@
  * two-phase local search
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #ifndef _TWOPHASELS_H_
@@ -21,9 +21,6 @@ using namespace std;
  * \class twophasels
  *
  * multiobjective random restarts local search
- *
- * \author deong
- * \date 05/10/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class twophasels : virtual public sls<Chromosome,Encoding>

@@ -10,7 +10,7 @@
  * one at a time.  These classes provide both behaviours.
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #include <iostream>
@@ -27,14 +27,6 @@ using namespace std;
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 replacement_scheme<Chromosome,Encoding>::replacement_scheme()
@@ -43,14 +35,6 @@ replacement_scheme<Chromosome,Encoding>::replacement_scheme()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 replacement_scheme<Chromosome,Encoding>::~replacement_scheme()
@@ -60,14 +44,6 @@ replacement_scheme<Chromosome,Encoding>::~replacement_scheme()
 
 /*!
  * \brief initialize the replacement scheme
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void replacement_scheme<Chromosome,Encoding>::initialize()
@@ -81,14 +57,6 @@ void replacement_scheme<Chromosome,Encoding>::initialize()
  *
  * empty method defined so subclasses can choose whether to operate on
  * a population basis or an individual chromosome basis
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void replacement_scheme<Chromosome,Encoding>::merge_populations(population<Chromosome,Encoding>& parents,
@@ -102,14 +70,6 @@ void replacement_scheme<Chromosome,Encoding>::merge_populations(population<Chrom
  *
  * empty method defined so subclasses can choose whether to operate on
  * a population basis or an individual chromosome basis
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void replacement_scheme<Chromosome,Encoding>::merge_individual(Chromosome<Encoding>& sol,
@@ -120,14 +80,6 @@ void replacement_scheme<Chromosome,Encoding>::merge_individual(Chromosome<Encodi
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 generational_replacement<Chromosome,Encoding>::generational_replacement()
@@ -136,14 +88,6 @@ generational_replacement<Chromosome,Encoding>::generational_replacement()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 generational_replacement<Chromosome,Encoding>::~generational_replacement()
@@ -152,14 +96,6 @@ generational_replacement<Chromosome,Encoding>::~generational_replacement()
 
 /*!
  * \brief overwrite old parent population with offspring
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void generational_replacement<Chromosome,Encoding>::merge_populations(population<Chromosome,Encoding>& parents,
@@ -171,14 +107,6 @@ void generational_replacement<Chromosome,Encoding>::merge_populations(population
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 elitist_replacement<Chromosome,Encoding>::elitist_replacement()
@@ -187,14 +115,6 @@ elitist_replacement<Chromosome,Encoding>::elitist_replacement()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 elitist_replacement<Chromosome,Encoding>::~elitist_replacement()
@@ -203,14 +123,6 @@ elitist_replacement<Chromosome,Encoding>::~elitist_replacement()
 
 /*!
  * \brief initialize the number of elites to keep each generation
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void elitist_replacement<Chromosome,Encoding>::initialize()
@@ -222,14 +134,6 @@ void elitist_replacement<Chromosome,Encoding>::initialize()
 
 /*!
  * \brief overwrite parents with offspring but keep best N parents
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void elitist_replacement<Chromosome,Encoding>::merge_populations(population<Chromosome,Encoding>& parents,
@@ -267,14 +171,6 @@ void elitist_replacement<Chromosome,Encoding>::merge_populations(population<Chro
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 truncation_replacement<Chromosome,Encoding>::truncation_replacement()
@@ -283,14 +179,6 @@ truncation_replacement<Chromosome,Encoding>::truncation_replacement()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 truncation_replacement<Chromosome,Encoding>::~truncation_replacement()
@@ -299,14 +187,6 @@ truncation_replacement<Chromosome,Encoding>::~truncation_replacement()
 
 /*!
  * \brief take best N of parents+offspring
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void truncation_replacement<Chromosome,Encoding>::merge_populations(population<Chromosome,Encoding>& parents,
@@ -341,14 +221,6 @@ void truncation_replacement<Chromosome,Encoding>::merge_populations(population<C
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 steady_state_replacement<Chromosome,Encoding>::steady_state_replacement()
@@ -357,14 +229,6 @@ steady_state_replacement<Chromosome,Encoding>::steady_state_replacement()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 steady_state_replacement<Chromosome,Encoding>::~steady_state_replacement()
@@ -373,14 +237,6 @@ steady_state_replacement<Chromosome,Encoding>::~steady_state_replacement()
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 replace_worst<Chromosome,Encoding>::replace_worst()
@@ -389,14 +245,6 @@ replace_worst<Chromosome,Encoding>::replace_worst()
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 replace_worst<Chromosome,Encoding>::~replace_worst()
@@ -405,14 +253,6 @@ replace_worst<Chromosome,Encoding>::~replace_worst()
 
 /*!
  * \brief replace worst individual in the population
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void replace_worst<Chromosome,Encoding>::merge_individual(Chromosome<Encoding>& sol,
@@ -438,14 +278,6 @@ void replace_worst<Chromosome,Encoding>::merge_individual(Chromosome<Encoding>& 
 
 /*!
  * \brief create and initialize a replacement scheme
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY	DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 replacement_scheme<Chromosome,Encoding>* replacement_scheme_factory<Chromosome,Encoding>::construct()

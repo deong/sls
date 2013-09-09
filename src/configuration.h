@@ -6,7 +6,7 @@
  * object in existence.
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #ifndef _CONFIGURATION_H_
@@ -29,9 +29,6 @@ using namespace std;
  * This class implements the singleton design
  * pattern.  It simply loads, stores, and provides access to
  * keyword-value pairs, which represent configuration parameters.
- *
- * \author deong
- * \date 05/08/2007
  */
 class configuration
 {
@@ -66,14 +63,6 @@ public:
 
     /*!
      * \brief retrieve parameter values as a vector of a specified type
-     *
-     * \author deong
-     * \date 05/08/2007
-     *
-     * \code
-     * Modification History
-     * MM/DD/YYYY	DESCRIPTION
-     * \endcode
      */
     template <class T>
     static bool vector_parameter(const string& keyword, vector<T>& v, bool required = false)

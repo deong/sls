@@ -4,7 +4,7 @@
  * two phase local search
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #include "twophasels.h"
@@ -16,14 +16,6 @@ using namespace std;
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 twophasels<Chromosome,Encoding>::twophasels() :
@@ -36,14 +28,6 @@ twophasels<Chromosome,Encoding>::twophasels() :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 twophasels<Chromosome,Encoding>::~twophasels()
@@ -54,14 +38,6 @@ twophasels<Chromosome,Encoding>::~twophasels()
 
 /*!
  * \brief notify of generation completion
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void twophasels<Chromosome,Encoding>::generation_completed()
@@ -71,14 +47,6 @@ void twophasels<Chromosome,Encoding>::generation_completed()
 
 /*!
  * \brief initialize local search components
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void twophasels<Chromosome,Encoding>::initialize()
@@ -101,14 +69,6 @@ void twophasels<Chromosome,Encoding>::initialize()
 
 /*!
  * \brief iteratively run the local search until termination
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void twophasels<Chromosome,Encoding>::run()

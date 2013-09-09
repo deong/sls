@@ -6,7 +6,7 @@
  * algorithms.
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #include <deque>
@@ -25,14 +25,6 @@ using namespace std;
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 population<Chromosome,Encoding>::population() :
@@ -42,14 +34,6 @@ population<Chromosome,Encoding>::population() :
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 population<Chromosome,Encoding>::population(unsigned int n) :
@@ -60,14 +44,6 @@ population<Chromosome,Encoding>::population(unsigned int n) :
 
 /*!
  * \brief copy constructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 population<Chromosome,Encoding>::population(const population& that)
@@ -78,14 +54,6 @@ population<Chromosome,Encoding>::population(const population& that)
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 population<Chromosome,Encoding>::~population()
@@ -94,14 +62,6 @@ population<Chromosome,Encoding>::~population()
 
 /*!
  * \brief assignment operator
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 population<Chromosome,Encoding>& population<Chromosome,Encoding>::operator=(const population& that)
@@ -116,14 +76,6 @@ population<Chromosome,Encoding>& population<Chromosome,Encoding>::operator=(cons
  *
  * \bug only works if both populations contain the same chromosomes in
  * the same order
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 bool population<Chromosome,Encoding>::operator==(const population& that) const
@@ -147,14 +99,6 @@ bool population<Chromosome,Encoding>::operator==(const population& that) const
  *
  * \bug incorrect if the two populations have the same chromosomes
  * in different orders
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 bool population<Chromosome,Encoding>::operator!=(const population& that) const
@@ -175,14 +119,6 @@ bool population<Chromosome,Encoding>::operator!=(const population& that) const
     
 /*!
  * \brief return the number of chromosomes in the population
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 inline unsigned int population<Chromosome,Encoding>::size() const
@@ -192,14 +128,6 @@ inline unsigned int population<Chromosome,Encoding>::size() const
 
 /*!
  * \brief construct the union of two populations (with duplicates)
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 population<Chromosome,Encoding>
@@ -215,14 +143,6 @@ population<Chromosome,Encoding>::operator+(const population<Chromosome,Encoding>
 
 /*!
  * \brief construct set difference between two populations (with duplicates)
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 population<Chromosome,Encoding>
@@ -238,14 +158,6 @@ population<Chromosome,Encoding>::operator-(const population<Chromosome,Encoding>
 
 /*!
  * \brief add in elements of a given population to the current population
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 population<Chromosome,Encoding>
@@ -257,14 +169,6 @@ population<Chromosome,Encoding>::operator+=(const population<Chromosome,Encoding
 
 /*!
  * \brief subtract elements of a given population from the current population
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 population<Chromosome,Encoding>
@@ -276,14 +180,6 @@ population<Chromosome,Encoding>::operator-=(const population<Chromosome,Encoding
 
 /*!
  * \brief retrieve chromosomes by index
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 inline Chromosome<Encoding>& population<Chromosome,Encoding>::operator[](unsigned int i)
@@ -293,14 +189,6 @@ inline Chromosome<Encoding>& population<Chromosome,Encoding>::operator[](unsigne
 
 /*!
  * \brief retrieve chromosomes by index
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 inline const Chromosome<Encoding>& population<Chromosome,Encoding>::operator[](unsigned int i) const
@@ -310,14 +198,6 @@ inline const Chromosome<Encoding>& population<Chromosome,Encoding>::operator[](u
 
 /*!
  * \brief resize the population
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void population<Chromosome,Encoding>::resize(unsigned int sz)
@@ -327,14 +207,6 @@ void population<Chromosome,Encoding>::resize(unsigned int sz)
 
 /*!
  * \brief add an individual to the population
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 bool population<Chromosome,Encoding>::add(const Chromosome<Encoding>& ind)
@@ -355,14 +227,6 @@ bool population<Chromosome,Encoding>::add(const Chromosome<Encoding>& ind)
  * \brief remove an individual from the population
  *
  * if more than one copy is present, the first one is removed
- * 
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void population<Chromosome,Encoding>::remove(const Chromosome<Encoding>& ind)
@@ -380,14 +244,6 @@ void population<Chromosome,Encoding>::remove(const Chromosome<Encoding>& ind)
 
 /*!
  * \brief remove an individual by index
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void population<Chromosome,Encoding>::remove_at(unsigned int index)
@@ -398,14 +254,6 @@ void population<Chromosome,Encoding>::remove_at(unsigned int index)
 
 /*!
  * \brief clear all individuals from the population
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void population<Chromosome,Encoding>::clear()
@@ -416,14 +264,6 @@ void population<Chromosome,Encoding>::clear()
 
 /*!
  * \brief return an iterator to the beginning of the population
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 typename population<Chromosome,Encoding>::iterator population<Chromosome,Encoding>::begin()
@@ -433,14 +273,6 @@ typename population<Chromosome,Encoding>::iterator population<Chromosome,Encodin
 
 /*!
  * \brief return an iterator to the end of the population
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 typename population<Chromosome,Encoding>::iterator population<Chromosome,Encoding>::end()
@@ -450,14 +282,6 @@ typename population<Chromosome,Encoding>::iterator population<Chromosome,Encodin
 
 /*!
  * \brief return a const_iterator to the beginning of the population
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 typename population<Chromosome,Encoding>::const_iterator population<Chromosome,Encoding>::begin() const
@@ -467,14 +291,6 @@ typename population<Chromosome,Encoding>::const_iterator population<Chromosome,E
 
 /*!
  * \brief return a const_iterator to the end of the population
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 typename population<Chromosome,Encoding>::const_iterator population<Chromosome,Encoding>::end() const
@@ -484,14 +300,6 @@ typename population<Chromosome,Encoding>::const_iterator population<Chromosome,E
 
 /*!
  * \brief sort the population using the specified comparator
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 void population<Chromosome,Encoding>::sort(comparator<Chromosome,Encoding>* comp)
@@ -502,14 +310,6 @@ void population<Chromosome,Encoding>::sort(comparator<Chromosome,Encoding>* comp
 
 /*!
  * \brief print the individuals in the population
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 ostream& operator<<(ostream& s, const population<Chromosome,Encoding>& p)
@@ -524,9 +324,6 @@ ostream& operator<<(ostream& s, const population<Chromosome,Encoding>& p)
 
 /*!
  * \brief read the population from a file
- *
- * \author deong@acm.org
- * \date 10/13/2008
  */
 template <template <typename> class Chromosome, typename Encoding>
 istream& operator>>(istream& istr, population<Chromosome,Encoding>& p)
@@ -548,14 +345,6 @@ istream& operator>>(istream& istr, population<Chromosome,Encoding>& p)
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 sorting_comparator<Chromosome,Encoding>::sorting_comparator(comparator<Chromosome,Encoding>* comp) :
@@ -565,14 +354,6 @@ sorting_comparator<Chromosome,Encoding>::sorting_comparator(comparator<Chromosom
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 sorting_comparator<Chromosome,Encoding>::~sorting_comparator()
@@ -581,14 +362,6 @@ sorting_comparator<Chromosome,Encoding>::~sorting_comparator()
 
 /*!
  * \brief compare chromosomes using the specified comparator
- *
- * \author deong
- * \date 05/10/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 template <template <typename> class Chromosome, typename Encoding>
 bool sorting_comparator<Chromosome,Encoding>::operator()(const Chromosome<Encoding>& c1,

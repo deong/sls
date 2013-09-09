@@ -5,8 +5,7 @@
  * instance which is used to access the keywords.
  *
  * Deon Garrett
- * University of Memphis
- * deong@acm.org
+ * jdgarrett@gmail.com
  *
  */
 

@@ -7,7 +7,7 @@
  * can be halted.
  *
  * Deon Garrett
- * deong@acm.org
+ * jdgarrett@gmail.com
  */
 
 #ifndef _TERMINATORS_H_
@@ -25,9 +25,6 @@ using namespace std;
  * \class terminator
  *
  * basic class representing a criteria for halting a search algorithm
- *
- * \author deong
- * \date 05/12/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class terminator
@@ -54,9 +51,6 @@ public:
 
 /*!
  * \class evaluation_limit
- *
- * \author deong
- * \date 05/12/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class evaluation_limit : public terminator<Chromosome,Encoding>
@@ -80,9 +74,6 @@ public:
 
 /*!
  * \class generation_limit
- *
- * \author deong
- * \date 05/12/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class generation_limit : public terminator<Chromosome,Encoding>
@@ -107,9 +98,6 @@ public:
 
 /*!
  * \class null_terminator
- *
- * \author deong
- * \date 05/12/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class null_terminator : public terminator<Chromosome,Encoding>
@@ -124,9 +112,6 @@ public:
 
 /*!
  * \class terminator_factory
- *
- * \author deong
- * \date 05/12/2007
  */
 template <template <typename> class Chromosome, typename Encoding>
 class terminator_factory : public factory
