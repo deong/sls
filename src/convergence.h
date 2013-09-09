@@ -23,18 +23,18 @@ template <template <typename> class Chromosome, typename Encoding>
 class convergence
 {
 private:
-    // disable copying of convergence measures
-    convergence(const convergence& that);
-    convergence& operator=(const convergence& that);
+	// disable copying of convergence measures
+	convergence(const convergence& that);
+	convergence& operator=(const convergence& that);
 
 public:
-    convergence();
-    virtual ~convergence();
+	convergence();
+	virtual ~convergence();
 
-    virtual void chromosome_evaluated(const Chromosome<Encoding>& sol);
-    virtual void generation_completed(const population<Chromosome,Encoding>& pop);
+	virtual void chromosome_evaluated(const Chromosome<Encoding>& sol);
+	virtual void generation_completed(const population<Chromosome,Encoding>& pop);
 
-    virtual bool converged() const = 0;
+	virtual bool converged() const = 0;
 };
 
 /*!
@@ -44,7 +44,7 @@ template <template <typename> class Chromosome, typename Encoding>
 class convergence_factory
 {
 public:
-    static list<convergence<Chromosome,Encoding>*> construct();
+	static list<convergence<Chromosome,Encoding>*> construct();
 };
 
 #include "convergence.cpp"

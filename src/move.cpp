@@ -42,20 +42,17 @@ move<Chromosome,Encoding>::~move()
 template <template <typename> class Chromosome, typename Encoding>
 bool move<Chromosome,Encoding>::operator==(const move<Chromosome,Encoding>& that) const
 {
-    if(m_components.size()!=that.m_components.size())
-    {
-	return false;
-    }
-
-    for(unsigned int i=0; i<m_components.size(); i++)
-    {
-	if(m_components[i].first!=that.m_components[i].first ||
-	   m_components[i].second!=that.m_components[i].second)
-	{
-	    return false;
+	if(m_components.size()!=that.m_components.size()) {
+		return false;
 	}
-    }
-    return true;
+
+	for(unsigned int i=0; i<m_components.size(); i++) {
+		if(m_components[i].first!=that.m_components[i].first ||
+		        m_components[i].second!=that.m_components[i].second) {
+			return false;
+		}
+	}
+	return true;
 }
 
 /*!
@@ -64,7 +61,7 @@ bool move<Chromosome,Encoding>::operator==(const move<Chromosome,Encoding>& that
 template <template <typename> class Chromosome, typename Encoding>
 pair<unsigned int,typename Encoding::Genotype>& move<Chromosome,Encoding>::operator[](unsigned int i)
 {
-    return m_components[i];
+	return m_components[i];
 }
 
 /*!
@@ -73,7 +70,7 @@ pair<unsigned int,typename Encoding::Genotype>& move<Chromosome,Encoding>::opera
 template <template <typename> class Chromosome, typename Encoding>
 const pair<unsigned int,typename Encoding::Genotype>& move<Chromosome,Encoding>::operator[](unsigned int i) const
 {
-    return m_components[i];
+	return m_components[i];
 }
 
 /*!
@@ -82,7 +79,7 @@ const pair<unsigned int,typename Encoding::Genotype>& move<Chromosome,Encoding>:
 template <template <typename> class Chromosome, typename Encoding>
 unsigned int move<Chromosome,Encoding>::length() const
 {
-    return m_components.size();
+	return m_components.size();
 }
 
 /*!
@@ -91,7 +88,7 @@ unsigned int move<Chromosome,Encoding>::length() const
 template <template <typename> class Chromosome, typename Encoding>
 typename move<Chromosome,Encoding>::iterator move<Chromosome,Encoding>::begin()
 {
-    return m_components.begin();
+	return m_components.begin();
 }
 
 /*!
@@ -100,7 +97,7 @@ typename move<Chromosome,Encoding>::iterator move<Chromosome,Encoding>::begin()
 template <template <typename> class Chromosome, typename Encoding>
 typename move<Chromosome,Encoding>::iterator move<Chromosome,Encoding>::end()
 {
-    return m_components.end();
+	return m_components.end();
 }
 
 /*!
@@ -109,7 +106,7 @@ typename move<Chromosome,Encoding>::iterator move<Chromosome,Encoding>::end()
 template <template <typename> class Chromosome, typename Encoding>
 typename move<Chromosome,Encoding>::const_iterator move<Chromosome,Encoding>::begin() const
 {
-    return m_components.begin();
+	return m_components.begin();
 }
 
 /*!
@@ -118,7 +115,7 @@ typename move<Chromosome,Encoding>::const_iterator move<Chromosome,Encoding>::be
 template <template <typename> class Chromosome, typename Encoding>
 typename move<Chromosome,Encoding>::const_iterator move<Chromosome,Encoding>::end() const
 {
-    return m_components.end();
+	return m_components.end();
 }
 
 /*!
@@ -130,29 +127,28 @@ typename move<Chromosome,Encoding>::const_iterator move<Chromosome,Encoding>::en
 template <template <typename> class Chromosome, typename Encoding>
 void move<Chromosome,Encoding>::add_component(unsigned int pos, typename Encoding::Genotype val)
 {
-    unsigned int i=0;
+	unsigned int i=0;
 
-    // find the position in the list where the new item should go
-    while(i<m_components.size() && m_components[i].first<pos)
-	i++;
+	// find the position in the list where the new item should go
+	while(i<m_components.size() && m_components[i].first<pos) {
+		i++;
+	}
 
-    // if at end of list, append it
-    if(i==m_components.size())
-    {
-	m_components.push_back(make_pair<unsigned int,typename Encoding::Genotype>(pos,val));
-	return;
-    }
+	// if at end of list, append it
+	if(i==m_components.size()) {
+		m_components.push_back(make_pair<unsigned int,typename Encoding::Genotype>(pos,val));
+		return;
+	}
 
-    // if there is already an item there, overwrite it
-    if(m_components[i].first==pos)
-    {
-	m_components[i].second=val;
-	return;
-    }
+	// if there is already an item there, overwrite it
+	if(m_components[i].first==pos) {
+		m_components[i].second=val;
+		return;
+	}
 
-    // otherwise, insert the new item at position i
-    m_components.insert(m_components.begin()+i,
-			make_pair<unsigned int,typename Encoding::Genotype>(pos, val));
+	// otherwise, insert the new item at position i
+	m_components.insert(m_components.begin()+i,
+	                    make_pair<unsigned int,typename Encoding::Genotype>(pos, val));
 }
 
 /*!
@@ -161,13 +157,12 @@ void move<Chromosome,Encoding>::add_component(unsigned int pos, typename Encodin
 template <template <typename> class Chromosome, typename Encoding>
 void move<Chromosome,Encoding>::remove_component(unsigned int pos, typename Encoding::Genotype val)
 {
-    typename deque<pair<unsigned int, typename Encoding::Genotype> >::iterator it;
-    
-    while((it=find(m_components.begin(),m_components.end(),
-		   make_pair<unsigned int, typename Encoding::Genotype>(pos,val)))!=m_components.end())
-    {
-	m_components.erase(it);
-    }
+	typename deque<pair<unsigned int, typename Encoding::Genotype> >::iterator it;
+
+	while((it=find(m_components.begin(),m_components.end(),
+	               make_pair<unsigned int, typename Encoding::Genotype>(pos,val)))!=m_components.end()) {
+		m_components.erase(it);
+	}
 }
 
 /*!
@@ -176,7 +171,7 @@ void move<Chromosome,Encoding>::remove_component(unsigned int pos, typename Enco
 template <template <typename> class Chromosome, typename Encoding>
 void move<Chromosome,Encoding>::reset()
 {
-    m_components.clear();
+	m_components.clear();
 }
 
 /*!
@@ -185,11 +180,10 @@ void move<Chromosome,Encoding>::reset()
 template <template <typename> class Chromosome, typename Encoding>
 void move<Chromosome,Encoding>::apply(Chromosome<Encoding>& chr) const
 {
-    for(unsigned int i=0; i<m_components.size(); i++)
-    {
-	pair<unsigned int, typename Encoding::Genotype> com=m_components[i];
-	chr[com.first] = com.second;
-    }
+	for(unsigned int i=0; i<m_components.size(); i++) {
+		pair<unsigned int, typename Encoding::Genotype> com=m_components[i];
+		chr[com.first] = com.second;
+	}
 }
 
 /*!
@@ -200,10 +194,9 @@ void move<Chromosome,Encoding>::apply(Chromosome<Encoding>& chr) const
 template <template <typename> class Chromosome, typename Encoding>
 ostream& operator<<(ostream& ostr, const move<Chromosome,Encoding>& m)
 {
-    ostr << "move: ";
-    for(unsigned int i=0; i<m._comp.size(); i++)
-    {
-	ostr << "<" << m._comp[i].first << "," << m._comp[i].second << "> ";
-    }
-    return ostr;
+	ostr << "move: ";
+	for(unsigned int i=0; i<m._comp.size(); i++) {
+		ostr << "<" << m._comp[i].first << "," << m._comp[i].second << "> ";
+	}
+	return ostr;
 }

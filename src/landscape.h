@@ -26,25 +26,24 @@ template <template <typename> class Chromosome, typename Encoding>
 class landscape : public sls<Chromosome,Encoding>
 {
 public:
-    enum landscape_tool
-    {
-        PERTURB_WEIGHT_VECTOR,
-        FITNESS_DISTANCE_CORRELATION,
-        RANDOM_WALK,
-        RANDOM_WALK_BETWEEN_OPTIMA,
-        PARETO_PLATEAUS
-    };
+	enum landscape_tool {
+	    PERTURB_WEIGHT_VECTOR,
+	    FITNESS_DISTANCE_CORRELATION,
+	    RANDOM_WALK,
+	    RANDOM_WALK_BETWEEN_OPTIMA,
+	    PARETO_PLATEAUS
+	};
 
 protected:
-    local_search<Chromosome,Encoding>* m_hc;
-    unsigned int m_lsiter;
+	local_search<Chromosome,Encoding>* m_hc;
+	unsigned int m_lsiter;
 
 public:
-    landscape();
-    virtual ~landscape();
+	landscape();
+	virtual ~landscape();
 
-    virtual void initialize();
-    virtual void run() = 0;
+	virtual void initialize();
+	virtual void run() = 0;
 };
 
 /*!
@@ -54,7 +53,7 @@ template <template <typename> class Chromosome, typename Encoding>
 class fitness_distance_correlation : public landscape<Chromosome,Encoding>
 {
 public:
-    virtual void run();
+	virtual void run();
 };
 
 /*!
@@ -64,7 +63,7 @@ template <template <typename> class Chromosome, typename Encoding>
 class random_walk : public landscape<Chromosome,Encoding>
 {
 public:
-    virtual void run();
+	virtual void run();
 };
 
 /*!
@@ -74,7 +73,7 @@ template <template <typename> class Chromosome, typename Encoding>
 class random_walk_between_optima : public landscape<Chromosome,Encoding>
 {
 public:
-    virtual void run();
+	virtual void run();
 };
 
 /*!
@@ -84,7 +83,7 @@ template <template <typename> class Chromosome, typename Encoding>
 class ruggedness : public landscape<Chromosome,Encoding>
 {
 public:
-    virtual void run();
+	virtual void run();
 };
 
 /*!
@@ -94,7 +93,7 @@ template <template <typename> class Chromosome, typename Encoding>
 class ruggedness_between_optima : public landscape<Chromosome,Encoding>
 {
 public:
-    virtual void run();
+	virtual void run();
 };
 
 /*!
@@ -104,7 +103,7 @@ template <template <typename> class Chromosome, typename Encoding>
 class perturbation_search : public landscape<Chromosome,Encoding>
 {
 public:
-    virtual void run();
+	virtual void run();
 };
 
 /*!
@@ -114,7 +113,7 @@ template <template <typename> class Chromosome, typename Encoding>
 class infeasibility_region : public landscape<Chromosome,Encoding>
 {
 public:
-    virtual void run();
+	virtual void run();
 };
 
 /*!
@@ -124,8 +123,8 @@ template <template <typename> class Chromosome, typename Encoding>
 class hypervolume_analysis : public landscape<Chromosome,Encoding>
 {
 public:
-    virtual void initialize();
-    virtual void run();
+	virtual void initialize();
+	virtual void run();
 };
 
 /*!
@@ -136,11 +135,11 @@ template <template <typename> class Chromosome, typename Encoding>
 class pareto_plateaus : public landscape<Chromosome,Encoding>
 {
 public:
-    virtual void initialize();
-    virtual void run();
+	virtual void initialize();
+	virtual void run();
 protected:
-    void nondominated_sort(population<Chromosome,Encoding>& pop,
-                           vector<pareto_front<Chromosome,Encoding> >& fronts);
+	void nondominated_sort(population<Chromosome,Encoding>& pop,
+	                       vector<pareto_front<Chromosome,Encoding> >& fronts);
 };
 
 /*!
@@ -150,11 +149,11 @@ template <template <typename> class Chromosome, typename Encoding>
 class landscape_factory
 {
 public:
-    static landscape<Chromosome,Encoding>* construct();
+	static landscape<Chromosome,Encoding>* construct();
 };
 
 #include "landscape.cpp"
 
 #endif
 
-    
+

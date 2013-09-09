@@ -92,7 +92,7 @@ void metric<Chromosome,Encoding>::compute()
  */
 template <template <typename> class Chromosome, typename Encoding>
 evaluation_counter<Chromosome,Encoding>::evaluation_counter() :
-    m_num_evals(0)
+	m_num_evals(0)
 {
 }
 
@@ -110,7 +110,7 @@ evaluation_counter<Chromosome,Encoding>::~evaluation_counter()
 template <template <typename> class Chromosome, typename Encoding>
 void evaluation_counter<Chromosome,Encoding>::reset()
 {
-    m_num_evals=0;
+	m_num_evals=0;
 }
 
 /*!
@@ -119,7 +119,7 @@ void evaluation_counter<Chromosome,Encoding>::reset()
 template <template <typename> class Chromosome, typename Encoding>
 void evaluation_counter<Chromosome,Encoding>::chromosome_evaluated(const Chromosome<Encoding>& sol)
 {
-    this->m_num_evals++;
+	this->m_num_evals++;
 }
 
 /*!
@@ -128,7 +128,7 @@ void evaluation_counter<Chromosome,Encoding>::chromosome_evaluated(const Chromos
 template <template <typename> class Chromosome, typename Encoding>
 void evaluation_counter<Chromosome,Encoding>::report(ostream& ostr) const
 {
-    ostr << "evaluations: " << this->m_num_evals << endl;
+	ostr << "evaluations: " << this->m_num_evals << endl;
 }
 
 /*!
@@ -136,8 +136,8 @@ void evaluation_counter<Chromosome,Encoding>::report(ostream& ostr) const
  */
 template <template <typename> class Chromosome, typename Encoding>
 best_solution<Chromosome,Encoding>::best_solution() :
-    m_num_evals(0),
-    m_evals_to_best(0),
+	m_num_evals(0),
+	m_evals_to_best(0),
 	m_report_all_best(false)
 {
 }
@@ -148,7 +148,7 @@ best_solution<Chromosome,Encoding>::best_solution() :
 template <template <typename> class Chromosome, typename Encoding>
 best_solution<Chromosome,Encoding>::~best_solution()
 {
-    delete m_comp;
+	delete m_comp;
 }
 
 /*!
@@ -158,9 +158,9 @@ template <template <typename> class Chromosome, typename Encoding>
 void best_solution<Chromosome,Encoding>::initialize(const string& prefix)
 {
 	configuration::boolean_parameter(keywords::REPORT_ALL_BEST, m_report_all_best, false);
-    comparator_factory<Chromosome,Encoding> cf;
-    cf.set_prefix(prefix);
-    m_comp = cf.construct();
+	comparator_factory<Chromosome,Encoding> cf;
+	cf.set_prefix(prefix);
+	m_comp = cf.construct();
 }
 
 /*!
@@ -169,7 +169,7 @@ void best_solution<Chromosome,Encoding>::initialize(const string& prefix)
 template <template <typename> class Chromosome, typename Encoding>
 void best_solution<Chromosome,Encoding>::initialize()
 {
-    this->initialize("");
+	this->initialize("");
 }
 
 /*!
@@ -178,8 +178,8 @@ void best_solution<Chromosome,Encoding>::initialize()
 template <template <typename> class Chromosome, typename Encoding>
 void best_solution<Chromosome,Encoding>::reset()
 {
-    m_num_evals=0;
-    m_evals_to_best=0;
+	m_num_evals=0;
+	m_evals_to_best=0;
 }
 
 /*!
@@ -188,25 +188,22 @@ void best_solution<Chromosome,Encoding>::reset()
 template <template <typename> class Chromosome, typename Encoding>
 void best_solution<Chromosome,Encoding>::chromosome_evaluated(const Chromosome<Encoding>& sol)
 {
-    if(this->m_num_evals == 0)
-    {
-        this->m_best = sol;
-        this->m_num_evals++;
-        return;
-    }
-    
-    this->m_num_evals++;
+	if(this->m_num_evals == 0) {
+		this->m_best = sol;
+		this->m_num_evals++;
+		return;
+	}
 
-    if(m_comp->compare(sol,this->m_best) == -1)
-    {
-        this->m_best = sol;
-        this->m_evals_to_best = this->m_num_evals;
-		if(this->m_report_all_best)
-		{
+	this->m_num_evals++;
+
+	if(m_comp->compare(sol,this->m_best) == -1) {
+		this->m_best = sol;
+		this->m_evals_to_best = this->m_num_evals;
+		if(this->m_report_all_best) {
 			this->report(cout);
 			cout << endl;
 		}
-    }
+	}
 }
 
 /*!
@@ -215,8 +212,8 @@ void best_solution<Chromosome,Encoding>::chromosome_evaluated(const Chromosome<E
 template <template <typename> class Chromosome, typename Encoding>
 void best_solution<Chromosome,Encoding>::report(ostream& ostr) const
 {
-    ostr << "best_solution:\n" << this->m_best << endl;
-    ostr << "evaluations_to_best: " << this->m_evals_to_best << endl;
+	ostr << "best_solution:\n" << this->m_best << endl;
+	ostr << "evaluations_to_best: " << this->m_evals_to_best << endl;
 }
 
 /*!
@@ -224,7 +221,7 @@ void best_solution<Chromosome,Encoding>::report(ostream& ostr) const
  */
 template <template <typename> class Chromosome, typename Encoding>
 generation_counter<Chromosome,Encoding>::generation_counter() :
-    m_num_gens(0)
+	m_num_gens(0)
 {
 }
 
@@ -242,7 +239,7 @@ generation_counter<Chromosome,Encoding>::~generation_counter()
 template <template <typename> class Chromosome, typename Encoding>
 void generation_counter<Chromosome,Encoding>::reset()
 {
-    m_num_gens=0;
+	m_num_gens=0;
 }
 
 /*!
@@ -251,7 +248,7 @@ void generation_counter<Chromosome,Encoding>::reset()
 template <template <typename> class Chromosome, typename Encoding>
 void generation_counter<Chromosome,Encoding>::generation_completed(const population<Chromosome,Encoding>& pop)
 {
-    this->m_num_gens++;
+	this->m_num_gens++;
 }
 
 /*!
@@ -260,7 +257,7 @@ void generation_counter<Chromosome,Encoding>::generation_completed(const populat
 template <template <typename> class Chromosome, typename Encoding>
 void generation_counter<Chromosome,Encoding>::generation_completed()
 {
-    this->m_num_gens++;
+	this->m_num_gens++;
 }
 
 /*!
@@ -269,7 +266,7 @@ void generation_counter<Chromosome,Encoding>::generation_completed()
 template <template <typename> class Chromosome, typename Encoding>
 void generation_counter<Chromosome,Encoding>::report(ostream& ostr) const
 {
-    ostr << "generations: " << this->m_num_gens << endl;
+	ostr << "generations: " << this->m_num_gens << endl;
 }
 
 /*!
@@ -277,7 +274,7 @@ void generation_counter<Chromosome,Encoding>::report(ostream& ostr) const
  */
 template <template <typename> class Chromosome, typename Encoding>
 hypervolume<Chromosome,Encoding>::hypervolume() :
-    m_hypervolume(0)
+	m_hypervolume(0)
 {
 }
 
@@ -295,8 +292,8 @@ hypervolume<Chromosome,Encoding>::~hypervolume()
 template <template <typename> class Chromosome, typename Encoding>
 void hypervolume<Chromosome,Encoding>::initialize(const string& prefix)
 {
-    configuration::vector_parameter<typename Encoding::FitnessType>(prefix+keywords::REFERENCE_POINT,
-								    m_ref_point, true);
+	configuration::vector_parameter<typename Encoding::FitnessType>(prefix+keywords::REFERENCE_POINT,
+	        m_ref_point, true);
 }
 
 /*!
@@ -305,7 +302,7 @@ void hypervolume<Chromosome,Encoding>::initialize(const string& prefix)
 template <template <typename> class Chromosome, typename Encoding>
 void hypervolume<Chromosome,Encoding>::initialize()
 {
-    this->initialize("");
+	this->initialize("");
 }
 
 /*!
@@ -314,7 +311,7 @@ void hypervolume<Chromosome,Encoding>::initialize()
 template <template <typename> class Chromosome, typename Encoding>
 void hypervolume<Chromosome,Encoding>::reset()
 {
-    m_hypervolume=0;
+	m_hypervolume=0;
 }
 
 /*!
@@ -326,7 +323,7 @@ void hypervolume<Chromosome,Encoding>::reset()
 template <template <typename> class Chromosome, typename Encoding>
 void hypervolume<Chromosome,Encoding>::generation_completed(const population<Chromosome,Encoding>& pop)
 {
-    m_pop = pop;
+	m_pop = pop;
 }
 
 /*!
@@ -335,7 +332,7 @@ void hypervolume<Chromosome,Encoding>::generation_completed(const population<Chr
 template <template <typename> class Chromosome, typename Encoding>
 void hypervolume<Chromosome,Encoding>::report(ostream& ostr) const
 {
-    ostr << "hypervolume: " << m_hypervolume << endl;
+	ostr << "hypervolume: " << m_hypervolume << endl;
 }
 
 /*!
@@ -344,73 +341,62 @@ void hypervolume<Chromosome,Encoding>::report(ostream& ostr) const
 template <template <typename> class Chromosome, typename Encoding>
 void hypervolume<Chromosome,Encoding>::compute()
 {
-    m_hypervolume = 0;
-    deque<vector<typename Encoding::FitnessType> > ps;
+	m_hypervolume = 0;
+	deque<vector<typename Encoding::FitnessType> > ps;
 
-    // push all fitness vectors onto the stack
-    for(unsigned int i=0; i<m_pop.size(); i++)
-    {
-        ps.push_front(m_pop[i].fitness);
-    }
-    
-    while(!ps.empty())
-    {
-        vector<typename Encoding::FitnessType> p = ps.front();
-        ps.pop_front();
+	// push all fitness vectors onto the stack
+	for(unsigned int i=0; i<m_pop.size(); i++) {
+		ps.push_front(m_pop[i].fitness);
+	}
 
-        // for each point, compute the possible spawns
-        vector<typename Encoding::FitnessType> oppcorner(p.size());
-        for(unsigned int obj=0; obj<p.size(); obj++)
-        {
-            typename Encoding::FitnessType infimum = m_ref_point[obj];
-            typename deque<vector<typename Encoding::FitnessType> >::iterator it;
-            for(it=ps.begin(); it!=ps.end(); it++)
-            {
-                if((*it)[obj] >= p[obj] && (*it)[obj] < infimum)
-                {
-                    infimum = (*it)[obj];
-                }
-            }
-            oppcorner[obj] = infimum;
-        }
-        
-        // add the hypervolue of the hypercube bounded by the current
-        // point and its opposite corner to the total hypervolume
-        double curr_hv = 1;
-        for(unsigned int i=0; i<p.size(); i++)
-        {
-            curr_hv *= (oppcorner[i] - p[i]);
-        }
-        m_hypervolume += curr_hv;
+	while(!ps.empty()) {
+		vector<typename Encoding::FitnessType> p = ps.front();
+		ps.pop_front();
 
-        // delete any weakly dominated individuals from the pareto set
-        // NOTE: shouldn't need to do this after changing > to >= in the
-        // loop above computing the opposite corner, but it doesn't hurt
-        // anything to leave it here
-        for(int i=int(ps.size()-1); i>=0; i--)
-        {
-            if(weakly_dominated(ps[i],p))
-            {
-                ps.erase(ps.begin()+i);
-            }
-        }
-        
-        
-        // now we know the opposite corner, we can compute the possible spawns
-        for(unsigned int i=0; i<oppcorner.size(); i++)
-        {
-            if(oppcorner[i] != m_ref_point[i])
-            {
-                vector<typename Encoding::FitnessType> pprime = p;
-                pprime[i] = oppcorner[i];
-                
-                if(!weakly_dominated_by_archive(pprime,ps))
-                {
-                    ps.push_front(pprime);
-                }
-            }
-        }
-    }
+		// for each point, compute the possible spawns
+		vector<typename Encoding::FitnessType> oppcorner(p.size());
+		for(unsigned int obj=0; obj<p.size(); obj++) {
+			typename Encoding::FitnessType infimum = m_ref_point[obj];
+			typename deque<vector<typename Encoding::FitnessType> >::iterator it;
+			for(it=ps.begin(); it!=ps.end(); it++) {
+				if((*it)[obj] >= p[obj] && (*it)[obj] < infimum) {
+					infimum = (*it)[obj];
+				}
+			}
+			oppcorner[obj] = infimum;
+		}
+
+		// add the hypervolue of the hypercube bounded by the current
+		// point and its opposite corner to the total hypervolume
+		double curr_hv = 1;
+		for(unsigned int i=0; i<p.size(); i++) {
+			curr_hv *= (oppcorner[i] - p[i]);
+		}
+		m_hypervolume += curr_hv;
+
+		// delete any weakly dominated individuals from the pareto set
+		// NOTE: shouldn't need to do this after changing > to >= in the
+		// loop above computing the opposite corner, but it doesn't hurt
+		// anything to leave it here
+		for(int i=int(ps.size()-1); i>=0; i--) {
+			if(weakly_dominated(ps[i],p)) {
+				ps.erase(ps.begin()+i);
+			}
+		}
+
+
+		// now we know the opposite corner, we can compute the possible spawns
+		for(unsigned int i=0; i<oppcorner.size(); i++) {
+			if(oppcorner[i] != m_ref_point[i]) {
+				vector<typename Encoding::FitnessType> pprime = p;
+				pprime[i] = oppcorner[i];
+
+				if(!weakly_dominated_by_archive(pprime,ps)) {
+					ps.push_front(pprime);
+				}
+			}
+		}
+	}
 }
 
 /*!
@@ -418,16 +404,14 @@ void hypervolume<Chromosome,Encoding>::compute()
  */
 template <template <typename> class Chromosome, typename Encoding>
 bool hypervolume<Chromosome,Encoding>::weakly_dominated(const vector<typename Encoding::FitnessType>& p1,
-							const vector<typename Encoding::FitnessType>& p2) const
+        const vector<typename Encoding::FitnessType>& p2) const
 {
-    for(unsigned int i=0; i<p1.size(); i++)
-    {
-        if(p1[i] < p2[i])
-        {
-            return false;
-        }
-    }
-    return true;
+	for(unsigned int i=0; i<p1.size(); i++) {
+		if(p1[i] < p2[i]) {
+			return false;
+		}
+	}
+	return true;
 }
 
 /*!
@@ -435,16 +419,14 @@ bool hypervolume<Chromosome,Encoding>::weakly_dominated(const vector<typename En
  */
 template <template <typename> class Chromosome, typename Encoding>
 bool hypervolume<Chromosome,Encoding>::weakly_dominated_by_archive(const vector<typename Encoding::FitnessType>& p,
-                                                                        deque<vector<typename Encoding::FitnessType> >& ps) const
+        deque<vector<typename Encoding::FitnessType> >& ps) const
 {
-    for(typename deque<vector<typename Encoding::FitnessType> >::iterator it=ps.begin(); it!=ps.end(); it++)
-    {
-        if(weakly_dominated(p,*it))
-        {
-            return true;
-        }
-    }
-    return false;
+	for(typename deque<vector<typename Encoding::FitnessType> >::iterator it=ps.begin(); it!=ps.end(); it++) {
+		if(weakly_dominated(p,*it)) {
+			return true;
+		}
+	}
+	return false;
 }
 
 /**
@@ -460,7 +442,7 @@ population_entropy<Chromosome,Encoding>::population_entropy() :
  * \brief destructor
  */
 template <template <typename> class Chromosome, typename Encoding>
-population_entropy<Chromosome,Encoding>::~population_entropy() 
+population_entropy<Chromosome,Encoding>::~population_entropy()
 {
 }
 
@@ -468,7 +450,7 @@ population_entropy<Chromosome,Encoding>::~population_entropy()
  * \brief reset the entropy counter to 0
  */
 template <template <typename> class Chromosome, typename Encoding>
-void population_entropy<Chromosome,Encoding>::reset() 
+void population_entropy<Chromosome,Encoding>::reset()
 {
 	m_avg_entropy = 0.0;
 }
@@ -481,23 +463,17 @@ void population_entropy<Chromosome,Encoding>::generation_completed(const populat
 {
 	m_avg_entropy = 0.0;
 	unsigned int N = pop[0].length();
-	for(unsigned int i=0; i<N; ++i)
-	{
+	for(unsigned int i=0; i<N; ++i) {
 		map<typename Encoding::Genotype, unsigned int> alleles;
-		for(unsigned int j=0; j<pop.size(); ++j) 
-		{
-			if(alleles.count(pop[j][i]) == 0) 
-			{
+		for(unsigned int j=0; j<pop.size(); ++j) {
+			if(alleles.count(pop[j][i]) == 0) {
 				alleles[pop[j][i]] = 1;
-			}
-			else 
-			{
+			} else {
 				alleles[pop[j][i]]++;
 			}
 		}
 		double allele_entropy = 0.0;
-		for(typename map<typename Encoding::Genotype, unsigned int>::const_iterator it=alleles.begin(); it!=alleles.end(); it++) 
-		{
+		for(typename map<typename Encoding::Genotype, unsigned int>::const_iterator it=alleles.begin(); it!=alleles.end(); it++) {
 			double p = (double)(it->second) / pop.size();
 			allele_entropy += -p * log2(p);
 		}
@@ -510,7 +486,7 @@ void population_entropy<Chromosome,Encoding>::generation_completed(const populat
  * \brief report the entropy value
  */
 template <template <typename> class Chromosome, typename Encoding>
-void population_entropy<Chromosome,Encoding>::report(ostream& ostr) const 
+void population_entropy<Chromosome,Encoding>::report(ostream& ostr) const
 {
 	ostr << "average_entropy: " << m_avg_entropy << endl;
 }
@@ -521,44 +497,32 @@ void population_entropy<Chromosome,Encoding>::report(ostream& ostr) const
 template <template <typename> class Chromosome, typename Encoding>
 list<metric<Chromosome,Encoding>*> metric_factory<Chromosome,Encoding>::construct()
 {
-    list<metric<Chromosome,Encoding>*> metlist;
-    list<string> mets;
+	list<metric<Chromosome,Encoding>*> metlist;
+	list<string> mets;
 
-    configuration::list_parameter(this->m_prefix+keywords::METRIC, mets, false);
-    for(list<string>::iterator it=mets.begin(); it!=mets.end(); it++)
-    {
-        string curr = (*it);
-        if(curr==keywords::EVALUATION_COUNTER)
-        {
-            evaluation_counter<Chromosome,Encoding>* m = new evaluation_counter<Chromosome,Encoding>;
-            metlist.push_back(m);
-        }
-        else if(curr==keywords::GENERATION_COUNTER)
-        {
-            generation_counter<Chromosome,Encoding>* m = new generation_counter<Chromosome,Encoding>;
-            metlist.push_back(m);
-        }
-        else if(curr==keywords::BEST_SOLUTION)
-        {
-            best_solution<Chromosome,Encoding>* m = new best_solution<Chromosome,Encoding>;
-            m->initialize(this->m_prefix);
-            metlist.push_back(m);
-        }
-        else if(curr==keywords::HYPERVOLUME)
-        {
-            hypervolume<Chromosome,Encoding>* lm = new hypervolume<Chromosome,Encoding>;
-            lm->initialize(this->m_prefix);
-            metlist.push_back(lm);
-        }
-		else if(curr==keywords::POPULATION_ENTROPY)
-		{
+	configuration::list_parameter(this->m_prefix+keywords::METRIC, mets, false);
+	for(list<string>::iterator it=mets.begin(); it!=mets.end(); it++) {
+		string curr = (*it);
+		if(curr==keywords::EVALUATION_COUNTER) {
+			evaluation_counter<Chromosome,Encoding>* m = new evaluation_counter<Chromosome,Encoding>;
+			metlist.push_back(m);
+		} else if(curr==keywords::GENERATION_COUNTER) {
+			generation_counter<Chromosome,Encoding>* m = new generation_counter<Chromosome,Encoding>;
+			metlist.push_back(m);
+		} else if(curr==keywords::BEST_SOLUTION) {
+			best_solution<Chromosome,Encoding>* m = new best_solution<Chromosome,Encoding>;
+			m->initialize(this->m_prefix);
+			metlist.push_back(m);
+		} else if(curr==keywords::HYPERVOLUME) {
+			hypervolume<Chromosome,Encoding>* lm = new hypervolume<Chromosome,Encoding>;
+			lm->initialize(this->m_prefix);
+			metlist.push_back(lm);
+		} else if(curr==keywords::POPULATION_ENTROPY) {
 			population_entropy<Chromosome,Encoding>* m = new population_entropy<Chromosome,Encoding>;
 			metlist.push_back(m);
+		} else {
+			error("invalid metric specified: " + curr);
 		}
-        else
-        {
-            error("invalid metric specified: " + curr);
-        }
-    }
-    return metlist;
+	}
+	return metlist;
 }

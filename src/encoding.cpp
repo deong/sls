@@ -50,7 +50,7 @@ encoding<G,P>::encoding()
  */
 template <typename G, typename P>
 encoding<G,P>::encoding(const problem* p) :
-    m_phenotype(p->dimensions(), 0)
+	m_phenotype(p->dimensions(), 0)
 {
 }
 
@@ -68,9 +68,9 @@ encoding<G,P>::~encoding()
 template <typename G, typename P>
 encoding<G,P>& encoding<G,P>::operator=(const encoding<G,P>& that)
 {
-    m_genotype = that.m_genotype;
-    m_phenotype = that.m_phenotype;
-    return *this;
+	m_genotype = that.m_genotype;
+	m_phenotype = that.m_phenotype;
+	return *this;
 }
 
 /*!
@@ -79,7 +79,7 @@ encoding<G,P>& encoding<G,P>::operator=(const encoding<G,P>& that)
 template <typename G, typename P>
 bool encoding<G,P>::operator==(const encoding<G,P>& that)
 {
-    return this->m_genotype == that.m_genotype;
+	return this->m_genotype == that.m_genotype;
 }
 
 /*!
@@ -88,7 +88,7 @@ bool encoding<G,P>::operator==(const encoding<G,P>& that)
 template <typename G, typename P>
 inline G& encoding<G,P>::operator[](unsigned int index)
 {
-    return this->m_genotype[index];
+	return this->m_genotype[index];
 }
 
 /*!
@@ -97,7 +97,7 @@ inline G& encoding<G,P>::operator[](unsigned int index)
 template <typename G, typename P>
 inline const G& encoding<G,P>::operator[](unsigned int index) const
 {
-    return this->m_genotype[index];
+	return this->m_genotype[index];
 }
 
 /*!
@@ -106,7 +106,7 @@ inline const G& encoding<G,P>::operator[](unsigned int index) const
 template <typename G, typename P>
 vector<G>& encoding<G,P>::genotype()
 {
-    return m_genotype;
+	return m_genotype;
 }
 
 /*!
@@ -115,7 +115,7 @@ vector<G>& encoding<G,P>::genotype()
 template <typename G, typename P>
 const vector<G>& encoding<G,P>::genotype() const
 {
-    return this->m_genotype;
+	return this->m_genotype;
 }
 
 /*!
@@ -124,7 +124,7 @@ const vector<G>& encoding<G,P>::genotype() const
 template <typename G, typename P>
 vector<P>& encoding<G,P>::phenotype()
 {
-    return this->m_phenotype;
+	return this->m_phenotype;
 }
 
 /*!
@@ -133,7 +133,7 @@ vector<P>& encoding<G,P>::phenotype()
 template <typename G, typename P>
 const vector<P>& encoding<G,P>::phenotype() const
 {
-    return this->m_phenotype;
+	return this->m_phenotype;
 }
 
 /*!
@@ -142,7 +142,7 @@ const vector<P>& encoding<G,P>::phenotype() const
 template <typename G, typename P>
 inline unsigned int encoding<G,P>::length() const
 {
-    return this->m_genotype.size();
+	return this->m_genotype.size();
 }
 
 /*!
@@ -158,7 +158,7 @@ bit_vector_encoding<P>::bit_vector_encoding()
  */
 template <typename P>
 bit_vector_encoding<P>::bit_vector_encoding(const problem* p) :
-    encoding<int,P>::encoding(p)
+	encoding<int,P>::encoding(p)
 {
 }
 
@@ -176,7 +176,7 @@ bit_vector_encoding<P>::~bit_vector_encoding()
 template <typename P>
 typename bit_vector_encoding<P>::iterator bit_vector_encoding<P>::begin()
 {
-    return this->m_genotype.begin();
+	return this->m_genotype.begin();
 }
 
 /*!
@@ -185,7 +185,7 @@ typename bit_vector_encoding<P>::iterator bit_vector_encoding<P>::begin()
 template <typename P>
 typename bit_vector_encoding<P>::const_iterator bit_vector_encoding<P>::begin() const
 {
-    return this->m_genotype.begin();
+	return this->m_genotype.begin();
 }
 
 /*!
@@ -194,7 +194,7 @@ typename bit_vector_encoding<P>::const_iterator bit_vector_encoding<P>::begin() 
 template <typename P>
 typename bit_vector_encoding<P>::iterator bit_vector_encoding<P>::end()
 {
-    return this->m_genotype.end();
+	return this->m_genotype.end();
 }
 
 /*!
@@ -203,7 +203,7 @@ typename bit_vector_encoding<P>::iterator bit_vector_encoding<P>::end()
 template <typename P>
 typename bit_vector_encoding<P>::const_iterator bit_vector_encoding<P>::end() const
 {
-    return this->m_genotype.end();
+	return this->m_genotype.end();
 }
 
 /*!
@@ -212,11 +212,10 @@ typename bit_vector_encoding<P>::const_iterator bit_vector_encoding<P>::end() co
 template <typename P>
 void bit_vector_encoding<P>::randomize()
 {
-    mtrandom mt;
-    for(unsigned int i=0; i<this->m_genotype.size(); i++)
-    {
-        this->m_genotype[i] = mt.random(2);
-    }
+	mtrandom mt;
+	for(unsigned int i=0; i<this->m_genotype.size(); i++) {
+		this->m_genotype[i] = mt.random(2);
+	}
 }
 
 /*!
@@ -230,9 +229,9 @@ boolean_encoding::boolean_encoding()
  * \brief constructor
  */
 boolean_encoding::boolean_encoding(const bit_string_problem* p) :
-    bit_vector_encoding<int>::bit_vector_encoding(p)
+	bit_vector_encoding<int>::bit_vector_encoding(p)
 {
-    m_genotype.resize(p->dimensions());
+	m_genotype.resize(p->dimensions());
 }
 
 /*!
@@ -261,18 +260,17 @@ void boolean_encoding::clear_parameters()
  */
 inline void boolean_encoding::encode(unsigned int p)
 {
-    unsigned int num_bits=this->length();
-    
-    // convert the integer to binary
-    vector<int> result(num_bits);
-    for(unsigned int b=0; b<num_bits; ++b)
-    {
-        result[b]=p%2;
-        p/=2;
-    }
-    
-    // insert the bits into the correct spot in the encoding
-    copy(result.begin(),result.end(),m_genotype.begin());
+	unsigned int num_bits=this->length();
+
+	// convert the integer to binary
+	vector<int> result(num_bits);
+	for(unsigned int b=0; b<num_bits; ++b) {
+		result[b]=p%2;
+		p/=2;
+	}
+
+	// insert the bits into the correct spot in the encoding
+	copy(result.begin(),result.end(),m_genotype.begin());
 }
 
 /*!
@@ -280,10 +278,9 @@ inline void boolean_encoding::encode(unsigned int p)
  */
 inline void boolean_encoding::decode()
 {
-    for(unsigned int i=0; i<m_genotype.size(); i++)
-    {
-        m_phenotype[i] = m_genotype[i];
-    }
+	for(unsigned int i=0; i<m_genotype.size(); i++) {
+		m_phenotype[i] = m_genotype[i];
+	}
 }
 
 /*!
@@ -305,12 +302,11 @@ numeric_encoding::~numeric_encoding()
  */
 void numeric_parameters::initialize_parameters(const numeric_problem* p)
 {
-    unsigned int d = p->dimensions();
-    for(unsigned int i=0; i<d; i++)
-    {
-        pair<double,double> range = p->parameter_range(i);
-        numeric_encoding::m_range.push_back(range);
-    }
+	unsigned int d = p->dimensions();
+	for(unsigned int i=0; i<d; i++) {
+		pair<double,double> range = p->parameter_range(i);
+		numeric_encoding::m_range.push_back(range);
+	}
 }
 
 /*!
@@ -318,7 +314,7 @@ void numeric_parameters::initialize_parameters(const numeric_problem* p)
  */
 void numeric_parameters::cleanup()
 {
-    numeric_encoding::m_range.clear();
+	numeric_encoding::m_range.clear();
 }
 
 /*!
@@ -326,7 +322,7 @@ void numeric_parameters::cleanup()
  */
 const pair<double,double>& numeric_encoding::parameter_range(int pnum)
 {
-    return m_range[pnum];
+	return m_range[pnum];
 }
 
 /*!
@@ -340,9 +336,9 @@ binary_encoding::binary_encoding()
  * \brief constructor
  */
 binary_encoding::binary_encoding(const numeric_problem* p) :
-    bit_vector_encoding<double>::bit_vector_encoding(p)
+	bit_vector_encoding<double>::bit_vector_encoding(p)
 {
-    m_genotype.resize(m_len);
+	m_genotype.resize(m_len);
 }
 
 /*!
@@ -357,8 +353,8 @@ binary_encoding::~binary_encoding()
  */
 void binary_encoding::initialize_parameters(const numeric_problem* p)
 {
-    numeric_parameters::initialize_parameters(p);
-    binary_parameters::initialize_parameters(p);
+	numeric_parameters::initialize_parameters(p);
+	binary_parameters::initialize_parameters(p);
 }
 
 /*!
@@ -366,44 +362,40 @@ void binary_encoding::initialize_parameters(const numeric_problem* p)
  */
 void binary_encoding::clear_parameters()
 {
-    numeric_parameters::cleanup();
-    binary_parameters::cleanup();
+	numeric_parameters::cleanup();
+	binary_parameters::cleanup();
 }
 
 inline void binary_encoding::encode(const vector<double>& params)
 {
-    unsigned int start=0;
+	unsigned int start=0;
 
-    for(unsigned int param=0; param<params.size(); ++param)
-    {
-        unsigned int num_bits = m_bpp[param];
-        
-        // map the double onto the appropriate integer range
-        pair<double,double> prange=m_range[param];
-        double range=prange.second-prange.first;
-        double max_bit_val=pow(2.0,static_cast<double>(num_bits))-1;
-        int int_val=static_cast<int>((params[param]-prange.first)*max_bit_val/range+0.5);
-        
-        // convert the integer to binary
-        vector<int> result(m_bpp[param]);
-        for(unsigned int b=0; b<num_bits; ++b)
-        {
-            result[b]=int_val%2;
-            int_val/=2;
-        }
+	for(unsigned int param=0; param<params.size(); ++param) {
+		unsigned int num_bits = m_bpp[param];
 
-        if(m_gray[param])
-        {
-            for(unsigned int b=0; b<num_bits-1; ++b)
-            {
-                result[b]=!(result[b]==result[b+1]);
-            }
-        }
-        
-        // insert the bits into the correct spot in the encoding
-        copy(result.begin(),result.end(),m_genotype.begin()+start);
-        start+=num_bits;
-    }
+		// map the double onto the appropriate integer range
+		pair<double,double> prange=m_range[param];
+		double range=prange.second-prange.first;
+		double max_bit_val=pow(2.0,static_cast<double>(num_bits))-1;
+		int int_val=static_cast<int>((params[param]-prange.first)*max_bit_val/range+0.5);
+
+		// convert the integer to binary
+		vector<int> result(m_bpp[param]);
+		for(unsigned int b=0; b<num_bits; ++b) {
+			result[b]=int_val%2;
+			int_val/=2;
+		}
+
+		if(m_gray[param]) {
+			for(unsigned int b=0; b<num_bits-1; ++b) {
+				result[b]=!(result[b]==result[b+1]);
+			}
+		}
+
+		// insert the bits into the correct spot in the encoding
+		copy(result.begin(),result.end(),m_genotype.begin()+start);
+		start+=num_bits;
+	}
 }
 
 /*!
@@ -411,42 +403,36 @@ inline void binary_encoding::encode(const vector<double>& params)
  */
 inline void binary_encoding::decode()
 {
-    unsigned int start = 0;
-    
-    // for each parameter
-    for(unsigned int param=0; param<m_bpp.size(); param++)
-    {
-        unsigned int num_bits = m_bpp[param];
-        unsigned int intval = 0;
-        if(m_gray[param])
-        {
-            // convert from gray to binary
-            vector<int> binary(num_bits);
-            binary[num_bits-1] = m_genotype[start+num_bits-1];
-            intval = binary[num_bits-1];
-            for(int i=num_bits-2; i>=0; i--)
-            {
-                binary[i] = !(binary[i+1] == m_genotype[start+i]);
-                intval += intval + binary[i];
-            }
-        }
-        else
-        {
-            // convert from binary encoding to integer
-            for(int i=num_bits-1; i>=0; i--)
-            {
-                intval += intval + m_genotype[start+i];
-            }
-        }
-        
-        // convert from integer to double in the appropriate range
-        pair<double,double> prange = m_range[param];
-        double range = prange.second - prange.first;
-        double m = range / (pow(2.0,double(num_bits)) - 1.0);
-        m_phenotype[param] = m * double(intval) + prange.first;
-        
-        start += num_bits;
-    }
+	unsigned int start = 0;
+
+	// for each parameter
+	for(unsigned int param=0; param<m_bpp.size(); param++) {
+		unsigned int num_bits = m_bpp[param];
+		unsigned int intval = 0;
+		if(m_gray[param]) {
+			// convert from gray to binary
+			vector<int> binary(num_bits);
+			binary[num_bits-1] = m_genotype[start+num_bits-1];
+			intval = binary[num_bits-1];
+			for(int i=num_bits-2; i>=0; i--) {
+				binary[i] = !(binary[i+1] == m_genotype[start+i]);
+				intval += intval + binary[i];
+			}
+		} else {
+			// convert from binary encoding to integer
+			for(int i=num_bits-1; i>=0; i--) {
+				intval += intval + m_genotype[start+i];
+			}
+		}
+
+		// convert from integer to double in the appropriate range
+		pair<double,double> prange = m_range[param];
+		double range = prange.second - prange.first;
+		double m = range / (pow(2.0,double(num_bits)) - 1.0);
+		m_phenotype[param] = m * double(intval) + prange.first;
+
+		start += num_bits;
+	}
 }
 
 /*!
@@ -466,34 +452,29 @@ inline void binary_encoding::decode()
  */
 void binary_parameters::initialize_parameters(const numeric_problem* p)
 {
-    unsigned int dim = p->dimensions();
-    unsigned int totallen = 0;
-    if(configuration::keyword_exists("parameter_length"))
-    {
-        unsigned int plen;
-        configuration::unsigned_integer_parameter("parameter_length", plen, true);
-        for(unsigned int i=0; i<dim; i++)
-        {
-            binary_encoding::m_bpp.push_back(plen);
-        }
-        totallen = plen * dim;
-    }
-    else
-    {
-        for(unsigned int i=0; i<dim; i++)
-        {
+	unsigned int dim = p->dimensions();
+	unsigned int totallen = 0;
+	if(configuration::keyword_exists("parameter_length")) {
+		unsigned int plen;
+		configuration::unsigned_integer_parameter("parameter_length", plen, true);
+		for(unsigned int i=0; i<dim; i++) {
+			binary_encoding::m_bpp.push_back(plen);
+		}
+		totallen = plen * dim;
+	} else {
+		for(unsigned int i=0; i<dim; i++) {
 			ostringstream s;
-            s << "parameter_" << i << "_length";
-            string pname = s.str();
-            unsigned int plen = 0;
-            configuration::unsigned_integer_parameter(pname, plen, true);
-            totallen += plen;
-            binary_encoding::m_bpp.push_back(plen);
-        }
-    }
-    binary_encoding::m_len = totallen;
+			s << "parameter_" << i << "_length";
+			string pname = s.str();
+			unsigned int plen = 0;
+			configuration::unsigned_integer_parameter(pname, plen, true);
+			totallen += plen;
+			binary_encoding::m_bpp.push_back(plen);
+		}
+	}
+	binary_encoding::m_len = totallen;
 
-    bool gray_coded = false;
+	bool gray_coded = false;
 	if(configuration::keyword_exists("parameter_encoding")) {
 		string enc;
 		configuration::string_parameter("parameter_encoding", enc, false);
@@ -514,8 +495,8 @@ void binary_parameters::initialize_parameters(const numeric_problem* p)
 			bool gray_coded = false;
 			string enc;
 			ostringstream s;
-            s << "parameter_" << i << "_encoding";
-            string pname = s.str();
+			s << "parameter_" << i << "_encoding";
+			string pname = s.str();
 
 			if(!configuration::keyword_exists(pname)) {
 				binary_encoding::m_gray.push_back(false);
@@ -541,9 +522,9 @@ void binary_parameters::initialize_parameters(const numeric_problem* p)
  */
 void binary_parameters::cleanup()
 {
-    binary_encoding::m_bpp.clear();
-    binary_encoding::m_len = 0;
-    binary_encoding::m_gray.clear();
+	binary_encoding::m_bpp.clear();
+	binary_encoding::m_len = 0;
+	binary_encoding::m_gray.clear();
 }
 
 /*!
@@ -557,9 +538,9 @@ real_encoding::real_encoding()
  * \brief constructor
  */
 real_encoding::real_encoding(const numeric_problem* p) :
-    encoding<double,double>::encoding(p)
+	encoding<double,double>::encoding(p)
 {
-    m_genotype.resize(p->dimensions());
+	m_genotype.resize(p->dimensions());
 }
 
 /*!
@@ -574,7 +555,7 @@ real_encoding::~real_encoding()
  */
 real_encoding::iterator real_encoding::begin()
 {
-    return this->m_genotype.begin();
+	return this->m_genotype.begin();
 }
 
 /*!
@@ -582,7 +563,7 @@ real_encoding::iterator real_encoding::begin()
  */
 real_encoding::const_iterator real_encoding::begin() const
 {
-    return this->m_genotype.begin();
+	return this->m_genotype.begin();
 }
 
 /*!
@@ -590,7 +571,7 @@ real_encoding::const_iterator real_encoding::begin() const
  */
 real_encoding::iterator real_encoding::end()
 {
-    return this->m_genotype.end();
+	return this->m_genotype.end();
 }
 
 /*!
@@ -598,7 +579,7 @@ real_encoding::iterator real_encoding::end()
  */
 real_encoding::const_iterator real_encoding::end() const
 {
-    return this->m_genotype.end();
+	return this->m_genotype.end();
 }
 
 /*!
@@ -606,7 +587,7 @@ real_encoding::const_iterator real_encoding::end() const
  */
 void real_encoding::initialize_parameters(const numeric_problem* p)
 {
-    numeric_parameters::initialize_parameters(p);
+	numeric_parameters::initialize_parameters(p);
 }
 
 /*!
@@ -614,7 +595,7 @@ void real_encoding::initialize_parameters(const numeric_problem* p)
  */
 void real_encoding::clear_parameters()
 {
-    numeric_parameters::cleanup();
+	numeric_parameters::cleanup();
 }
 
 /*!
@@ -622,12 +603,11 @@ void real_encoding::clear_parameters()
  */
 void real_encoding::randomize()
 {
-    mtrandom mt;
-    for(unsigned int i=0; i<m_genotype.size(); i++)
-    {
-        pair<double,double> rng = m_range[i];
-        m_genotype[i] = mt.random(rng.first, rng.second);
-    }
+	mtrandom mt;
+	for(unsigned int i=0; i<m_genotype.size(); i++) {
+		pair<double,double> rng = m_range[i];
+		m_genotype[i] = mt.random(rng.first, rng.second);
+	}
 }
 
 /*!
@@ -635,10 +615,9 @@ void real_encoding::randomize()
  */
 inline void real_encoding::decode()
 {
-    for(unsigned int i=0; i<m_genotype.size(); i++)
-    {
-        m_phenotype[i] = m_genotype[i];
-    }
+	for(unsigned int i=0; i<m_genotype.size(); i++) {
+		m_phenotype[i] = m_genotype[i];
+	}
 }
 
 /*!
@@ -652,9 +631,9 @@ permutation_encoding::permutation_encoding()
  * \brief constructor
  */
 permutation_encoding::permutation_encoding(const permutation_problem* p) :
-    encoding<int,int>::encoding(p)
+	encoding<int,int>::encoding(p)
 {
-    m_genotype.resize(p->dimensions());
+	m_genotype.resize(p->dimensions());
 }
 
 /*!
@@ -669,7 +648,7 @@ permutation_encoding::~permutation_encoding()
  */
 permutation_encoding::iterator permutation_encoding::begin()
 {
-    return this->m_genotype.begin();
+	return this->m_genotype.begin();
 }
 
 /*!
@@ -677,7 +656,7 @@ permutation_encoding::iterator permutation_encoding::begin()
  */
 permutation_encoding::const_iterator permutation_encoding::begin() const
 {
-    return this->m_genotype.begin();
+	return this->m_genotype.begin();
 }
 
 /*!
@@ -685,7 +664,7 @@ permutation_encoding::const_iterator permutation_encoding::begin() const
  */
 permutation_encoding::iterator permutation_encoding::end()
 {
-    return this->m_genotype.end();
+	return this->m_genotype.end();
 }
 
 /*!
@@ -693,7 +672,7 @@ permutation_encoding::iterator permutation_encoding::end()
  */
 permutation_encoding::const_iterator permutation_encoding::end() const
 {
-    return this->m_genotype.end();
+	return this->m_genotype.end();
 }
 
 /*!
@@ -715,8 +694,8 @@ void permutation_encoding::clear_parameters()
  */
 void permutation_encoding::randomize()
 {
-    mtrandom mt;
-    m_genotype = mt.permutation(m_genotype.size());
+	mtrandom mt;
+	m_genotype = mt.permutation(m_genotype.size());
 }
 
 /*!
@@ -724,10 +703,9 @@ void permutation_encoding::randomize()
  */
 inline void permutation_encoding::decode()
 {
-    for(unsigned int i=0; i<m_genotype.size(); i++)
-    {
-        m_phenotype[i] = m_genotype[i];
-    }
+	for(unsigned int i=0; i<m_genotype.size(); i++) {
+		m_phenotype[i] = m_genotype[i];
+	}
 }
 
 /*!
@@ -741,9 +719,9 @@ integer_encoding::integer_encoding()
  * \brief constructor
  */
 integer_encoding::integer_encoding(const integer_problem* p) :
-    encoding<int,int>::encoding(p)
+	encoding<int,int>::encoding(p)
 {
-    m_genotype.resize(p->dimensions());
+	m_genotype.resize(p->dimensions());
 }
 
 /*!
@@ -758,7 +736,7 @@ integer_encoding::~integer_encoding()
  */
 integer_encoding::iterator integer_encoding::begin()
 {
-    return this->m_genotype.begin();
+	return this->m_genotype.begin();
 }
 
 /*!
@@ -766,7 +744,7 @@ integer_encoding::iterator integer_encoding::begin()
  */
 integer_encoding::const_iterator integer_encoding::begin() const
 {
-    return this->m_genotype.begin();
+	return this->m_genotype.begin();
 }
 
 /*!
@@ -774,7 +752,7 @@ integer_encoding::const_iterator integer_encoding::begin() const
  */
 integer_encoding::iterator integer_encoding::end()
 {
-    return this->m_genotype.end();
+	return this->m_genotype.end();
 }
 
 /*!
@@ -782,7 +760,7 @@ integer_encoding::iterator integer_encoding::end()
  */
 integer_encoding::const_iterator integer_encoding::end() const
 {
-    return this->m_genotype.end();
+	return this->m_genotype.end();
 }
 
 /*!
@@ -790,12 +768,11 @@ integer_encoding::const_iterator integer_encoding::end() const
  */
 void integer_encoding::initialize_parameters(const integer_problem* p)
 {
-    for(unsigned int i=0; i<p->dimensions(); i++)
-    {
-        vector<int> vals;
-        p->legal_values(i, vals);
-        m_legal_values.push_back(vals);
-    }
+	for(unsigned int i=0; i<p->dimensions(); i++) {
+		vector<int> vals;
+		p->legal_values(i, vals);
+		m_legal_values.push_back(vals);
+	}
 }
 
 /*!
@@ -803,11 +780,10 @@ void integer_encoding::initialize_parameters(const integer_problem* p)
  */
 void integer_encoding::clear_parameters()
 {
-    for(unsigned int i=0; i<m_legal_values.size(); i++)
-    {
-        m_legal_values[i].clear();
-    }
-    m_legal_values.clear();
+	for(unsigned int i=0; i<m_legal_values.size(); i++) {
+		m_legal_values[i].clear();
+	}
+	m_legal_values.clear();
 }
 
 /*!
@@ -815,7 +791,7 @@ void integer_encoding::clear_parameters()
  */
 const vector<int>& integer_encoding::legal_values(unsigned int index) const
 {
-    return m_legal_values[index];
+	return m_legal_values[index];
 }
 
 /*!
@@ -823,11 +799,10 @@ const vector<int>& integer_encoding::legal_values(unsigned int index) const
  */
 void integer_encoding::randomize()
 {
-    mtrandom mt;
-    for(unsigned int i=0; i<m_genotype.size(); i++)
-    {
-        m_genotype[i] = m_legal_values[i][mt.random(m_legal_values[i].size())];
-    }
+	mtrandom mt;
+	for(unsigned int i=0; i<m_genotype.size(); i++) {
+		m_genotype[i] = m_legal_values[i][mt.random(m_legal_values[i].size())];
+	}
 }
 
 /*!
@@ -835,10 +810,9 @@ void integer_encoding::randomize()
  */
 void integer_encoding::decode()
 {
-    for(unsigned int i=0; i<m_genotype.size(); i++)
-    {
-        m_phenotype[i] = m_genotype[i];
-    }
+	for(unsigned int i=0; i<m_genotype.size(); i++) {
+		m_phenotype[i] = m_genotype[i];
+	}
 }
 
 /*!
@@ -852,9 +826,9 @@ gap_encoding::gap_encoding()
  * \brief constructor
  */
 gap_encoding::gap_encoding(const gap_problem* p) :
-    encoding<int,int>::encoding(p)
+	encoding<int,int>::encoding(p)
 {
-    m_genotype.resize(p->dimensions());
+	m_genotype.resize(p->dimensions());
 }
 
 /*!
@@ -869,7 +843,7 @@ gap_encoding::~gap_encoding()
  */
 unsigned int gap_encoding::agents() const
 {
-    return m_agents;
+	return m_agents;
 }
 
 /*!
@@ -877,7 +851,7 @@ unsigned int gap_encoding::agents() const
  */
 unsigned int gap_encoding::tasks() const
 {
-    return m_tasks;
+	return m_tasks;
 }
 
 /*!
@@ -885,7 +859,7 @@ unsigned int gap_encoding::tasks() const
  */
 gap_encoding::iterator gap_encoding::begin()
 {
-    return this->m_genotype.begin();
+	return this->m_genotype.begin();
 }
 
 /*!
@@ -893,7 +867,7 @@ gap_encoding::iterator gap_encoding::begin()
  */
 gap_encoding::const_iterator gap_encoding::begin() const
 {
-    return this->m_genotype.begin();
+	return this->m_genotype.begin();
 }
 
 /*!
@@ -901,7 +875,7 @@ gap_encoding::const_iterator gap_encoding::begin() const
  */
 gap_encoding::iterator gap_encoding::end()
 {
-    return this->m_genotype.end();
+	return this->m_genotype.end();
 }
 
 /*!
@@ -909,7 +883,7 @@ gap_encoding::iterator gap_encoding::end()
  */
 gap_encoding::const_iterator gap_encoding::end() const
 {
-    return this->m_genotype.end();
+	return this->m_genotype.end();
 }
 
 /*!
@@ -917,12 +891,12 @@ gap_encoding::const_iterator gap_encoding::end() const
  */
 void gap_encoding::initialize_parameters(const gap_problem* p)
 {
-    m_agents = p->agents;
-    m_tasks = p->tasks;
+	m_agents = p->agents;
+	m_tasks = p->tasks;
 
-    double pen;
-    configuration::double_parameter(keywords::PENALIZATION_FACTOR, pen, true);
-    m_alpha.assign(p->dimensions(), pen);
+	double pen;
+	configuration::double_parameter(keywords::PENALIZATION_FACTOR, pen, true);
+	m_alpha.assign(p->dimensions(), pen);
 }
 
 /*!
@@ -930,7 +904,7 @@ void gap_encoding::initialize_parameters(const gap_problem* p)
  */
 void gap_encoding::clear_parameters()
 {
-    m_agents = m_tasks = 0;
+	m_agents = m_tasks = 0;
 }
 
 /*!
@@ -938,11 +912,10 @@ void gap_encoding::clear_parameters()
  */
 void gap_encoding::randomize()
 {
-    mtrandom mt;
-    for(unsigned int i=0; i<m_genotype.size(); i++)
-    {
-        m_genotype[i] = mt.random(m_agents);
-    }
+	mtrandom mt;
+	for(unsigned int i=0; i<m_genotype.size(); i++) {
+		m_genotype[i] = mt.random(m_agents);
+	}
 }
 
 /*!
@@ -950,10 +923,9 @@ void gap_encoding::randomize()
  */
 void gap_encoding::decode()
 {
-    for(unsigned int i=0; i<m_genotype.size(); i++)
-    {
-        m_phenotype[i] = m_genotype[i];
-    }
+	for(unsigned int i=0; i<m_genotype.size(); i++) {
+		m_phenotype[i] = m_genotype[i];
+	}
 }
 
 /**
@@ -967,9 +939,9 @@ gsap_encoding::gsap_encoding()
  * \brief constructor
  */
 gsap_encoding::gsap_encoding(const ProblemType* p) :
-    encoding<int,int>::encoding(p)
+	encoding<int,int>::encoding(p)
 {
-    m_genotype.resize(p->dimensions());
+	m_genotype.resize(p->dimensions());
 }
 
 /**
@@ -984,7 +956,7 @@ gsap_encoding::~gsap_encoding()
  */
 gsap_encoding::iterator gsap_encoding::begin()
 {
-    return m_genotype.begin();
+	return m_genotype.begin();
 }
 
 /**
@@ -992,7 +964,7 @@ gsap_encoding::iterator gsap_encoding::begin()
  */
 gsap_encoding::iterator gsap_encoding::end()
 {
-    return m_genotype.end();
+	return m_genotype.end();
 }
 
 /**
@@ -1000,7 +972,7 @@ gsap_encoding::iterator gsap_encoding::end()
  */
 gsap_encoding::const_iterator gsap_encoding::begin() const
 {
-    return m_genotype.begin();
+	return m_genotype.begin();
 }
 
 /**
@@ -1008,7 +980,7 @@ gsap_encoding::const_iterator gsap_encoding::begin() const
  */
 gsap_encoding::const_iterator gsap_encoding::end() const
 {
-    return m_genotype.end();
+	return m_genotype.end();
 }
 
 /**
@@ -1018,12 +990,11 @@ gsap_encoding::const_iterator gsap_encoding::end() const
  */
 void gsap_encoding::randomize()
 {
-    mtrandom mt;
-    for(unsigned int i=0; i<m_genotype.size(); ++i)
-    {
-        int taskid = elements[i].task;
-        m_genotype[i] = agents_for_task[taskid][mt.random(mt.random(agents_for_task[taskid].size()))];
-    }
+	mtrandom mt;
+	for(unsigned int i=0; i<m_genotype.size(); ++i) {
+		int taskid = elements[i].task;
+		m_genotype[i] = agents_for_task[taskid][mt.random(mt.random(agents_for_task[taskid].size()))];
+	}
 }
 
 /**
@@ -1031,7 +1002,7 @@ void gsap_encoding::randomize()
  */
 void gsap_encoding::decode()
 {
-    copy(m_genotype.begin(),m_genotype.end(),m_phenotype.begin());
+	copy(m_genotype.begin(),m_genotype.end(),m_phenotype.begin());
 }
 
 /**
@@ -1039,10 +1010,10 @@ void gsap_encoding::decode()
  */
 void gsap_encoding::initialize_parameters(const ProblemType* p)
 {
-    configuration::integer_parameter(keywords::UNASSIGNED_PENALTY,m_unass_pen,true);
-    configuration::integer_parameter(keywords::CAPACITY_PENALTY,m_cap_pen,true);
-    elements=p->get_elements();
-    agents_for_task = p->get_agent_task_map();
+	configuration::integer_parameter(keywords::UNASSIGNED_PENALTY,m_unass_pen,true);
+	configuration::integer_parameter(keywords::CAPACITY_PENALTY,m_cap_pen,true);
+	elements=p->get_elements();
+	agents_for_task = p->get_agent_task_map();
 }
 
 /**
@@ -1050,8 +1021,8 @@ void gsap_encoding::initialize_parameters(const ProblemType* p)
  */
 void gsap_encoding::clear_parameters()
 {
-    elements.clear();
-    agents_for_task.clear();
+	elements.clear();
+	agents_for_task.clear();
 }
 
 /*!
@@ -1059,12 +1030,11 @@ void gsap_encoding::clear_parameters()
  */
 ostream& operator<<(ostream& s, const boolean_encoding& e)
 {
-    for(unsigned int i=0; i<e.m_genotype.size(); i++)
-    {
-        s << e.m_genotype[i];
-    }
-    
-    return s;
+	for(unsigned int i=0; i<e.m_genotype.size(); i++) {
+		s << e.m_genotype[i];
+	}
+
+	return s;
 }
 
 /*!
@@ -1072,14 +1042,13 @@ ostream& operator<<(ostream& s, const boolean_encoding& e)
  */
 istream& operator>>(istream& s, boolean_encoding& e)
 {
-    for(unsigned int i=0; i<e.m_genotype.size(); i++)
-    {
-        char c;
-        s >> c;
-        e.m_genotype[i]=(c=='0'?0:1);
-    }
-    
-    return s;
+	for(unsigned int i=0; i<e.m_genotype.size(); i++) {
+		char c;
+		s >> c;
+		e.m_genotype[i]=(c=='0'?0:1);
+	}
+
+	return s;
 }
 
 /*!
@@ -1087,12 +1056,11 @@ istream& operator>>(istream& s, boolean_encoding& e)
  */
 ostream& operator<<(ostream& s, const binary_encoding& e)
 {
-    for(unsigned int i=0; i<e.m_genotype.size(); i++)
-    {
-        s << e.m_genotype[i];
-    }
-    
-    return s;
+	for(unsigned int i=0; i<e.m_genotype.size(); i++) {
+		s << e.m_genotype[i];
+	}
+
+	return s;
 }
 
 /*!
@@ -1100,14 +1068,13 @@ ostream& operator<<(ostream& s, const binary_encoding& e)
  */
 istream& operator>>(istream& s, binary_encoding& e)
 {
-    for(unsigned int i=0; i<e.m_genotype.size(); i++)
-    {
-        char c;
-        s >> c;
-        e.m_genotype[i]=(c=='0'?0:1);
-    }
-    
-    return s;
+	for(unsigned int i=0; i<e.m_genotype.size(); i++) {
+		char c;
+		s >> c;
+		e.m_genotype[i]=(c=='0'?0:1);
+	}
+
+	return s;
 }
 
 
@@ -1116,13 +1083,12 @@ istream& operator>>(istream& s, binary_encoding& e)
  */
 ostream& operator<<(ostream& s, const real_encoding& e)
 {
-    for(unsigned int i=0; i<e.m_genotype.size()-1; i++)
-    {
-        s << e.m_genotype[i] << " ";
-    }
-    s << e.m_genotype[e.m_genotype.size()-1];
-    
-    return s;
+	for(unsigned int i=0; i<e.m_genotype.size()-1; i++) {
+		s << e.m_genotype[i] << " ";
+	}
+	s << e.m_genotype[e.m_genotype.size()-1];
+
+	return s;
 }
 
 /*!
@@ -1130,12 +1096,11 @@ ostream& operator<<(ostream& s, const real_encoding& e)
  */
 istream& operator>>(istream& s, real_encoding& e)
 {
-    for(unsigned int i=0; i<e.m_genotype.size(); i++)
-    {
-        s >> e.m_genotype[i];
-    }
+	for(unsigned int i=0; i<e.m_genotype.size(); i++) {
+		s >> e.m_genotype[i];
+	}
 
-    return s;
+	return s;
 }
 
 /*!
@@ -1143,13 +1108,12 @@ istream& operator>>(istream& s, real_encoding& e)
  */
 ostream& operator<<(ostream& s, const permutation_encoding& e)
 {
-    for(unsigned int i=0; i<e.m_genotype.size()-1; i++)
-    {
-        s << e.m_genotype[i] << " ";
-    }
-    s << e.m_genotype[e.m_genotype.size()-1];
-    
-    return s;
+	for(unsigned int i=0; i<e.m_genotype.size()-1; i++) {
+		s << e.m_genotype[i] << " ";
+	}
+	s << e.m_genotype[e.m_genotype.size()-1];
+
+	return s;
 }
 
 /*!
@@ -1157,12 +1121,11 @@ ostream& operator<<(ostream& s, const permutation_encoding& e)
  */
 istream& operator>>(istream& s, permutation_encoding& e)
 {
-    for(unsigned int i=0; i<e.m_genotype.size(); i++)
-    {
-        s >> e.m_genotype[i];
-    }
+	for(unsigned int i=0; i<e.m_genotype.size(); i++) {
+		s >> e.m_genotype[i];
+	}
 
-    return s;
+	return s;
 }
 
 /*!
@@ -1170,13 +1133,12 @@ istream& operator>>(istream& s, permutation_encoding& e)
  */
 ostream& operator<<(ostream& s, const integer_encoding& e)
 {
-    for(unsigned int i=0; i<e.m_genotype.size()-1; i++)
-    {
-        s << e.m_genotype[i] << " ";
-    }
-    s << e.m_genotype[e.m_genotype.size()-1];
+	for(unsigned int i=0; i<e.m_genotype.size()-1; i++) {
+		s << e.m_genotype[i] << " ";
+	}
+	s << e.m_genotype[e.m_genotype.size()-1];
 
-    return s;
+	return s;
 }
 
 /*!
@@ -1184,11 +1146,10 @@ ostream& operator<<(ostream& s, const integer_encoding& e)
  */
 istream& operator>>(istream& s, integer_encoding& e)
 {
-    for(unsigned int i=0; i<e.m_genotype.size(); ++i)
-    {
-        s >> e.m_genotype[i];
-    }
-    return s;
+	for(unsigned int i=0; i<e.m_genotype.size(); ++i) {
+		s >> e.m_genotype[i];
+	}
+	return s;
 }
 
 /*!
@@ -1196,13 +1157,12 @@ istream& operator>>(istream& s, integer_encoding& e)
  */
 ostream& operator<<(ostream& s, const gap_encoding& e)
 {
-    for(unsigned int i=0; i<e.m_genotype.size()-1; i++)
-    {
-        s << e.m_genotype[i] << " ";
-    }
-    s << e.m_genotype[e.m_genotype.size()-1];
+	for(unsigned int i=0; i<e.m_genotype.size()-1; i++) {
+		s << e.m_genotype[i] << " ";
+	}
+	s << e.m_genotype[e.m_genotype.size()-1];
 
-    return s;
+	return s;
 }
 
 /*!
@@ -1210,11 +1170,10 @@ ostream& operator<<(ostream& s, const gap_encoding& e)
  */
 istream& operator>>(istream& s, gap_encoding& e)
 {
-    for(unsigned int i=0; i<e.m_genotype.size(); ++i)
-    {
-        s >> e.m_genotype[i];
-    }
-    return s;
+	for(unsigned int i=0; i<e.m_genotype.size(); ++i) {
+		s >> e.m_genotype[i];
+	}
+	return s;
 }
 
 /*!
@@ -1222,13 +1181,12 @@ istream& operator>>(istream& s, gap_encoding& e)
  */
 ostream& operator<<(ostream& s, const gsap_encoding& e)
 {
-    for(unsigned int i=0; i<e.m_genotype.size()-1; i++)
-    {
-        s << e.m_genotype[i] << " ";
-    }
-    s << e.m_genotype[e.m_genotype.size()-1];
+	for(unsigned int i=0; i<e.m_genotype.size()-1; i++) {
+		s << e.m_genotype[i] << " ";
+	}
+	s << e.m_genotype[e.m_genotype.size()-1];
 
-    return s;
+	return s;
 }
 
 /*!
@@ -1236,9 +1194,8 @@ ostream& operator<<(ostream& s, const gsap_encoding& e)
  */
 istream& operator>>(istream& s, gsap_encoding& e)
 {
-    for(unsigned int i=0; i<e.m_genotype.size(); ++i)
-    {
-        s >> e.m_genotype[i];
-    }
-    return s;
+	for(unsigned int i=0; i<e.m_genotype.size(); ++i) {
+		s >> e.m_genotype[i];
+	}
+	return s;
 }

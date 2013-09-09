@@ -32,38 +32,38 @@ template <template <typename> class Chromosome, typename Encoding>
 class ea : virtual public sls<Chromosome,Encoding>
 {
 private:
-    // disable copying of heavyweight class
-    ea(const ea& that);
-    ea& operator=(const ea& that);
-    
+	// disable copying of heavyweight class
+	ea(const ea& that);
+	ea& operator=(const ea& that);
+
 protected:
-    // store the individuals in the population
-    population<Chromosome,Encoding> m_population;
+	// store the individuals in the population
+	population<Chromosome,Encoding> m_population;
 
-    // maintain a list of convergence criteria
-    list<convergence<Chromosome,Encoding>*> m_convergence;
-    
+	// maintain a list of convergence criteria
+	list<convergence<Chromosome,Encoding>*> m_convergence;
+
 public:
-    ea();
-    virtual ~ea();
+	ea();
+	virtual ~ea();
 
-    // update the performance metrics and termination criteria
-    virtual void chromosome_evaluated(const Chromosome<Encoding>& sol);
-    virtual void generation_completed(const population<Chromosome,Encoding>& pop);
+	// update the performance metrics and termination criteria
+	virtual void chromosome_evaluated(const Chromosome<Encoding>& sol);
+	virtual void generation_completed(const population<Chromosome,Encoding>& pop);
 
-    // determine whether or not the algorithm has converged
-    virtual bool converged() const;
-    
-    // set up the ea parameters
-    virtual void initialize();
+	// determine whether or not the algorithm has converged
+	virtual bool converged() const;
 
-    // run the evolutionary algorithm
-    virtual void run() = 0;
+	// set up the ea parameters
+	virtual void initialize();
 
-    // run one generation of the evolutionary algorithm
-    virtual void run_one_generation() = 0;
+	// run the evolutionary algorithm
+	virtual void run() = 0;
+
+	// run one generation of the evolutionary algorithm
+	virtual void run_one_generation() = 0;
 };
 
 #include "ea.cpp"
 
-#endif    
+#endif

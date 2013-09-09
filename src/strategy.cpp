@@ -19,33 +19,22 @@ using namespace std;
  */
 strategy strategy_factory::construct()
 {
-    string strname;
-    configuration::string_parameter(keywords::HC_STRATEGY, strname, true);
-    if(strname == keywords::STRATEGY_ALL)
-    {
-        return STRATEGY_ALL;
-    }
-    else if(strname == keywords::STRATEGY_RANDOM)
-    {
-        return STRATEGY_RANDOM;
-    }
-    else if(strname == keywords::STRATEGY_BEST)
-    {
-        return STRATEGY_BEST;
-    }
-    else if(strname == keywords::STRATEGY_WORST)
-    {
-        return STRATEGY_WORST;
-    }
-    else if(strname == keywords::STRATEGY_NONE)
-    {
-        return STRATEGY_NONE;
-    }
-    else
-    {
-        cerr << "invalid strategy specified: " << strname << endl;
-        exit(1);
-    }
+	string strname;
+	configuration::string_parameter(keywords::HC_STRATEGY, strname, true);
+	if(strname == keywords::STRATEGY_ALL) {
+		return STRATEGY_ALL;
+	} else if(strname == keywords::STRATEGY_RANDOM) {
+		return STRATEGY_RANDOM;
+	} else if(strname == keywords::STRATEGY_BEST) {
+		return STRATEGY_BEST;
+	} else if(strname == keywords::STRATEGY_WORST) {
+		return STRATEGY_WORST;
+	} else if(strname == keywords::STRATEGY_NONE) {
+		return STRATEGY_NONE;
+	} else {
+		cerr << "invalid strategy specified: " << strname << endl;
+		exit(1);
+	}
 }
 
-    
+

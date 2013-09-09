@@ -10,8 +10,7 @@
 #ifndef _STRATEGY_H_
 #define _STRATEGY_H_
 
-typedef enum
-{
+typedef enum {
     STRATEGY_ALL,
     STRATEGY_RANDOM,
     STRATEGY_BEST,
@@ -25,7 +24,7 @@ typedef enum
 class strategy_factory
 {
 public:
-    static strategy construct();
+	static strategy construct();
 };
 
 #endif

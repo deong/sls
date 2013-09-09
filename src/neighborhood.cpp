@@ -42,7 +42,7 @@ neighborhood<Chromosome,Encoding>::~neighborhood()
 template <template <typename> class Chromosome, typename Encoding>
 void neighborhood<Chromosome,Encoding>::initialize(const Chromosome<Encoding>& sol)
 {
-    m_base = sol;
+	m_base = sol;
 }
 
 /*!
@@ -66,17 +66,15 @@ hamming_neighborhood_impl<Chromosome,Encoding>::~hamming_neighborhood_impl()
  */
 template <template <typename> class Chromosome, typename Encoding>
 typename Encoding::Genotype hamming_neighborhood_impl<Chromosome,Encoding>::distance_between(const Chromosome<Encoding>& c1,
-                                                                                             const Chromosome<Encoding>& c2) const
+        const Chromosome<Encoding>& c2) const
 {
-    typename Encoding::Genotype d = 0;
-    for(unsigned int i=0; i<c1.length(); i++)
-    {
-        if(c1[i] != c2[i])
-        {
-            d++;
-        }
-    }
-    return d;
+	typename Encoding::Genotype d = 0;
+	for(unsigned int i=0; i<c1.length(); i++) {
+		if(c1[i] != c2[i]) {
+			d++;
+		}
+	}
+	return d;
 }
 
 /*!
@@ -84,28 +82,25 @@ typename Encoding::Genotype hamming_neighborhood_impl<Chromosome,Encoding>::dist
  */
 template <template <typename> class Chromosome, typename Encoding>
 void hamming_neighborhood_impl<Chromosome,Encoding>::feasible_distance_between(const Chromosome<Encoding>& c1,
-                                                                               const Chromosome<Encoding>& c2,
-                                                                               typename Encoding::Genotype& dist,
-                                                                               typename Encoding::Genotype& infeas,
-                                                                               const typename Encoding::ProblemType* prob) const
+        const Chromosome<Encoding>& c2,
+        typename Encoding::Genotype& dist,
+        typename Encoding::Genotype& infeas,
+        const typename Encoding::ProblemType* prob) const
 {
-    dist = 0;
-    infeas = 0;
-    Chromosome<Encoding> temp(c1);
-    for(unsigned int i=0; i<c1.length(); i++)
-    {
-        if(temp[i] != c2[i])
-        {
-            temp[i] = c2[i];
-            temp.evaluate(prob);
+	dist = 0;
+	infeas = 0;
+	Chromosome<Encoding> temp(c1);
+	for(unsigned int i=0; i<c1.length(); i++) {
+		if(temp[i] != c2[i]) {
+			temp[i] = c2[i];
+			temp.evaluate(prob);
 
-            dist++;
-            if(!temp.feasible())
-            {
-                infeas++;
-            }
-        }
-    }
+			dist++;
+			if(!temp.feasible()) {
+				infeas++;
+			}
+		}
+	}
 }
 
 /*!
@@ -114,11 +109,11 @@ void hamming_neighborhood_impl<Chromosome,Encoding>::feasible_distance_between(c
 template <template <typename> class Chromosome, typename Encoding>
 void hamming_neighborhood_impl<Chromosome,Encoding>::initialize(const Chromosome<Encoding>& sol)
 {
-    neighborhood<Chromosome,Encoding>::initialize(sol);
+	neighborhood<Chromosome,Encoding>::initialize(sol);
 
-    mtrandom mt;
-    order = mt.permutation(sol.length());
-    index = 0;
+	mtrandom mt;
+	order = mt.permutation(sol.length());
+	index = 0;
 }
 
 /*!
@@ -127,7 +122,7 @@ void hamming_neighborhood_impl<Chromosome,Encoding>::initialize(const Chromosome
 template <template <typename> class Chromosome, typename Encoding>
 bool hamming_neighborhood_impl<Chromosome,Encoding>::has_more_neighbors() const
 {
-   return index < this->m_base.length();
+	return index < this->m_base.length();
 }
 
 /*!
@@ -136,12 +131,12 @@ bool hamming_neighborhood_impl<Chromosome,Encoding>::has_more_neighbors() const
 template <template <typename> class Chromosome, typename Encoding>
 move<Chromosome,Encoding> hamming_neighborhood_impl<Chromosome,Encoding>::next_neighbor()
 {
-    this->m_current= this->m_base;
-    move<Chromosome,Encoding> mv;
-    mv.add_component(order[index],!this->m_current[order[index]]);
-    mv.apply(this->m_current);
-    index++;
-    return mv;
+	this->m_current= this->m_base;
+	move<Chromosome,Encoding> mv;
+	mv.add_component(order[index],!this->m_current[order[index]]);
+	mv.apply(this->m_current);
+	index++;
+	return mv;
 }
 
 /*!
@@ -165,21 +160,19 @@ swap_neighborhood_impl<Chromosome,Encoding>::~swap_neighborhood_impl()
  */
 template <template <typename> class Chromosome, typename Encoding>
 typename Encoding::Genotype swap_neighborhood_impl<Chromosome,Encoding>::distance_between(const Chromosome<Encoding>& c1,
-                                                                                          const Chromosome<Encoding>& c2) const
+        const Chromosome<Encoding>& c2) const
 {
-    typename Encoding::Genotype dist = 0;
-    Chromosome<Encoding> temp(c1);
-    for(int i=0; i<int(temp.length()); i++)
-    {
-        typename Chromosome<Encoding>::iterator it = find(temp.begin(), temp.end(), c2[i]);
-        int pos = int(it - temp.begin());
-        if(pos != i)
-        {
-            swap(temp[i],temp[pos]);
-            dist++;
-        }
-    }
-    return dist;
+	typename Encoding::Genotype dist = 0;
+	Chromosome<Encoding> temp(c1);
+	for(int i=0; i<int(temp.length()); i++) {
+		typename Chromosome<Encoding>::iterator it = find(temp.begin(), temp.end(), c2[i]);
+		int pos = int(it - temp.begin());
+		if(pos != i) {
+			swap(temp[i],temp[pos]);
+			dist++;
+		}
+	}
+	return dist;
 }
 
 /*!
@@ -187,30 +180,27 @@ typename Encoding::Genotype swap_neighborhood_impl<Chromosome,Encoding>::distanc
  */
 template <template <typename> class Chromosome, typename Encoding>
 void swap_neighborhood_impl<Chromosome,Encoding>::feasible_distance_between(const Chromosome<Encoding>& c1,
-                                                                            const Chromosome<Encoding>& c2,
-                                                                            typename Encoding::Genotype& dist,
-                                                                            typename Encoding::Genotype& infeas,
-                                                                            const typename Encoding::ProblemType* prob) const
+        const Chromosome<Encoding>& c2,
+        typename Encoding::Genotype& dist,
+        typename Encoding::Genotype& infeas,
+        const typename Encoding::ProblemType* prob) const
 {
-    dist = 0;
-    infeas = 0;
-    Chromosome<Encoding> temp(c1);
-    for(int i=0; i<int(temp.length()); i++)
-    {
-        typename Chromosome<Encoding>::iterator it = find(temp.begin(), temp.end(), c2[i]);
-        int pos = int(it - temp.begin());
-        if(pos != i)
-        {
-            swap(temp[i],temp[pos]);
-            temp.evaluate(prob);
-            
-            dist++;
-            if(!temp.feasible())
-            {
-                infeas++;
-            }
-        }
-    }
+	dist = 0;
+	infeas = 0;
+	Chromosome<Encoding> temp(c1);
+	for(int i=0; i<int(temp.length()); i++) {
+		typename Chromosome<Encoding>::iterator it = find(temp.begin(), temp.end(), c2[i]);
+		int pos = int(it - temp.begin());
+		if(pos != i) {
+			swap(temp[i],temp[pos]);
+			temp.evaluate(prob);
+
+			dist++;
+			if(!temp.feasible()) {
+				infeas++;
+			}
+		}
+	}
 }
 
 /*!
@@ -219,12 +209,12 @@ void swap_neighborhood_impl<Chromosome,Encoding>::feasible_distance_between(cons
 template <template <typename> class Chromosome, typename Encoding>
 void swap_neighborhood_impl<Chromosome,Encoding>::initialize(const Chromosome<Encoding>& sol)
 {
-    neighborhood<Chromosome,Encoding>::initialize(sol);
+	neighborhood<Chromosome,Encoding>::initialize(sol);
 
-    mtrandom mt;
-    order = mt.permutation(sol.length());
-    i = 0;
-    j = 1;
+	mtrandom mt;
+	order = mt.permutation(sol.length());
+	i = 0;
+	j = 1;
 }
 
 /*!
@@ -233,7 +223,7 @@ void swap_neighborhood_impl<Chromosome,Encoding>::initialize(const Chromosome<En
 template <template <typename> class Chromosome, typename Encoding>
 bool swap_neighborhood_impl<Chromosome,Encoding>::has_more_neighbors() const
 {
-    return i != this->m_base.length() - 1;
+	return i != this->m_base.length() - 1;
 }
 
 /*!
@@ -242,16 +232,15 @@ bool swap_neighborhood_impl<Chromosome,Encoding>::has_more_neighbors() const
 template <template <typename> class Chromosome, typename Encoding>
 move<Chromosome,Encoding> swap_neighborhood_impl<Chromosome,Encoding>::next_neighbor()
 {
-    this->m_current= this->m_base;
-    move<Chromosome,Encoding> m;
-    m.add_component(order[i],this->m_current[order[j]]);
-    m.add_component(order[j++],this->m_current[order[i]]);
-    if(j == this->m_base.length())
-    {
-        i++;
-        j = i+1;
-    }
-    return m;
+	this->m_current= this->m_base;
+	move<Chromosome,Encoding> m;
+	m.add_component(order[i],this->m_current[order[j]]);
+	m.add_component(order[j++],this->m_current[order[i]]);
+	if(j == this->m_base.length()) {
+		i++;
+		j = i+1;
+	}
+	return m;
 }
 
 /*!
@@ -275,17 +264,15 @@ shift_neighborhood_impl<Chromosome,Encoding>::~shift_neighborhood_impl()
  */
 template <template <typename> class Chromosome, typename Encoding>
 typename Encoding::Genotype shift_neighborhood_impl<Chromosome,Encoding>::distance_between(const Chromosome<Encoding>& c1,
-                                                                                           const Chromosome<Encoding>& c2) const
+        const Chromosome<Encoding>& c2) const
 {
-    typename Encoding::Genotype dist = 0;
-    for(unsigned int i=0; i<c1.length(); i++)
-    {
-        if(c1[i] != c2[i])
-        {
-            dist++;
-        }
-    }
-    return dist;
+	typename Encoding::Genotype dist = 0;
+	for(unsigned int i=0; i<c1.length(); i++) {
+		if(c1[i] != c2[i]) {
+			dist++;
+		}
+	}
+	return dist;
 }
 
 /*!
@@ -293,28 +280,25 @@ typename Encoding::Genotype shift_neighborhood_impl<Chromosome,Encoding>::distan
  */
 template <template <typename> class Chromosome, typename Encoding>
 void shift_neighborhood_impl<Chromosome,Encoding>::feasible_distance_between(const Chromosome<Encoding>& c1,
-                                                                             const Chromosome<Encoding>& c2,
-                                                                             typename Encoding::Genotype& dist,
-                                                                             typename Encoding::Genotype& infeas,
-                                                                             const typename Encoding::ProblemType* prob) const
+        const Chromosome<Encoding>& c2,
+        typename Encoding::Genotype& dist,
+        typename Encoding::Genotype& infeas,
+        const typename Encoding::ProblemType* prob) const
 {
-    dist = 0;
-    infeas = 0;
-    Chromosome<Encoding> temp(c1);
-    for(unsigned int i=0; i<c1.length(); i++)
-    {
-        if(temp[i] != c2[i])
-        {
-            temp[i] = c2[i];
-            temp.evaluate(prob);
-            
-            dist++;
-            if(!temp.feasible())
-            {
-                infeas++;
-            }
-        }
-    }
+	dist = 0;
+	infeas = 0;
+	Chromosome<Encoding> temp(c1);
+	for(unsigned int i=0; i<c1.length(); i++) {
+		if(temp[i] != c2[i]) {
+			temp[i] = c2[i];
+			temp.evaluate(prob);
+
+			dist++;
+			if(!temp.feasible()) {
+				infeas++;
+			}
+		}
+	}
 }
 
 /*!
@@ -323,13 +307,13 @@ void shift_neighborhood_impl<Chromosome,Encoding>::feasible_distance_between(con
 template <template <typename> class Chromosome, typename Encoding>
 void shift_neighborhood_impl<Chromosome,Encoding>::initialize(const Chromosome<Encoding>& sol)
 {
-    neighborhood<Chromosome,Encoding>::initialize(sol);
-    
-    mtrandom mt;
-    task_index = 0;
-    agent_index = 0;
-    task_order = mt.permutation(sol.tasks());
-    agent_order = mt.permutation(sol.agents());
+	neighborhood<Chromosome,Encoding>::initialize(sol);
+
+	mtrandom mt;
+	task_index = 0;
+	agent_index = 0;
+	task_order = mt.permutation(sol.tasks());
+	agent_order = mt.permutation(sol.agents());
 }
 
 /*!
@@ -338,7 +322,7 @@ void shift_neighborhood_impl<Chromosome,Encoding>::initialize(const Chromosome<E
 template <template <typename> class Chromosome, typename Encoding>
 bool shift_neighborhood_impl<Chromosome,Encoding>::has_more_neighbors() const
 {
-    return task_index != this->m_base.tasks();
+	return task_index != this->m_base.tasks();
 }
 
 /*!
@@ -347,17 +331,16 @@ bool shift_neighborhood_impl<Chromosome,Encoding>::has_more_neighbors() const
 template <template <typename> class Chromosome, typename Encoding>
 move<Chromosome,Encoding> shift_neighborhood_impl<Chromosome,Encoding>::next_neighbor()
 {
-    this->m_current= this->m_base;
-    move<Chromosome,Encoding> m;
-    m.add_component(task_order[task_index],agent_order[agent_index++]);
-    if(agent_index == this->m_base.agents())
-    {
-        mtrandom mt;
-        agent_index = 0;
-        agent_order = mt.permutation(this->m_base.agents());
-        task_index++;
-    }
-    return m;
+	this->m_current= this->m_base;
+	move<Chromosome,Encoding> m;
+	m.add_component(task_order[task_index],agent_order[agent_index++]);
+	if(agent_index == this->m_base.agents()) {
+		mtrandom mt;
+		agent_index = 0;
+		agent_order = mt.permutation(this->m_base.agents());
+		task_index++;
+	}
+	return m;
 }
 
 /*!
@@ -381,54 +364,45 @@ sss_neighborhood_impl<Chromosome,Encoding>::~sss_neighborhood_impl()
  */
 template <template <typename> class Chromosome, typename Encoding>
 typename Encoding::Genotype sss_neighborhood_impl<Chromosome,Encoding>::distance_between(const Chromosome<Encoding>& c1,
-                                                                                         const Chromosome<Encoding>& c2) const
+        const Chromosome<Encoding>& c2) const
 {
-    typename Encoding::Genotype dist = 0;
-    Chromosome<Encoding> temp(c1);
-    for(unsigned int i=0; i<temp.length(); i++)
-    {
-        // check if the two chromosomes differ in the given location
-        if(temp[i] != c2[i])
-        {
-            // if so, then we need to figure out whether an appropriate swap exists as follows:
-            // we must change c1[i] to c2[i] to move c1 one step closer to c2.  However,
-            // if another element of c1 is equal to c2[i], then we can swap c1[i] and c1[other]
-            // and kill two birds with one move
-            typename Chromosome<Encoding>::iterator it = find(temp.begin()+i, temp.end(), c2[i]);
-            int pos = 0;
-            while(it != temp.end())
-            {
-                pos = static_cast<int>(it - temp.begin());
-                if(c2[pos] == temp[i])
-                {
-                    // if there exists an element of c1 equal to c2[pos], then we can
-                    // do a swap of c1[i] and c1[pos]
-                    break;
-                }
-                else
-                {
-                    // otherwise, find the next element of c1 equal to c2[i]
-                    it = find(it+1, temp.end(), c2[i]);
-                }
-            }
+	typename Encoding::Genotype dist = 0;
+	Chromosome<Encoding> temp(c1);
+	for(unsigned int i=0; i<temp.length(); i++) {
+		// check if the two chromosomes differ in the given location
+		if(temp[i] != c2[i]) {
+			// if so, then we need to figure out whether an appropriate swap exists as follows:
+			// we must change c1[i] to c2[i] to move c1 one step closer to c2.  However,
+			// if another element of c1 is equal to c2[i], then we can swap c1[i] and c1[other]
+			// and kill two birds with one move
+			typename Chromosome<Encoding>::iterator it = find(temp.begin()+i, temp.end(), c2[i]);
+			int pos = 0;
+			while(it != temp.end()) {
+				pos = static_cast<int>(it - temp.begin());
+				if(c2[pos] == temp[i]) {
+					// if there exists an element of c1 equal to c2[pos], then we can
+					// do a swap of c1[i] and c1[pos]
+					break;
+				} else {
+					// otherwise, find the next element of c1 equal to c2[i]
+					it = find(it+1, temp.end(), c2[i]);
+				}
+			}
 
-            if(it != temp.end())
-            {
-                // if we broke out of the loop before it == temp.end(), then a good
-                // swap was found
-                swap(temp[i], temp[pos]);
-            }
-            else
-            {
-                // otherwise, no swap does any good, so we just perform a shift
-                temp[i] = c2[i];
-            }
+			if(it != temp.end()) {
+				// if we broke out of the loop before it == temp.end(), then a good
+				// swap was found
+				swap(temp[i], temp[pos]);
+			} else {
+				// otherwise, no swap does any good, so we just perform a shift
+				temp[i] = c2[i];
+			}
 
-            // increment the number of moves regardless of what type of move was made
-            dist++;
-        }
-    }
-    return dist;
+			// increment the number of moves regardless of what type of move was made
+			dist++;
+		}
+	}
+	return dist;
 }
 
 /*!
@@ -436,63 +410,53 @@ typename Encoding::Genotype sss_neighborhood_impl<Chromosome,Encoding>::distance
  */
 template <template <typename> class Chromosome, typename Encoding>
 void sss_neighborhood_impl<Chromosome,Encoding>::feasible_distance_between(const Chromosome<Encoding>& c1,
-                                                                           const Chromosome<Encoding>& c2,
-                                                                           typename Encoding::Genotype& dist,
-                                                                           typename Encoding::Genotype& infeas,
-                                                                           const typename Encoding::ProblemType* prob) const
+        const Chromosome<Encoding>& c2,
+        typename Encoding::Genotype& dist,
+        typename Encoding::Genotype& infeas,
+        const typename Encoding::ProblemType* prob) const
 {
-    dist = 0;
-    infeas = 0;
-    Chromosome<Encoding> temp(c1);
-    for(unsigned int i=0; i<temp.length(); i++)
-    {
-        // check if the two chromosomes differ in the given location
-        if(temp[i] != c2[i])
-        {
-            // if so, then we need to figure out whether an appropriate swap exists as follows:
-            // we must change c1[i] to c2[i] to move c1 one step closer to c2.  However,
-            // if another element of c1 is equal to c2[i], then we can swap c1[i] and c1[other]
-            // and kill two birds with one move
-            typename Chromosome<Encoding>::iterator it = find(temp.begin()+i, temp.end(), c2[i]);
-            int pos = 0;
-            while(it != temp.end())
-            {
-                pos = static_cast<int>(it - temp.begin());
-                if(c2[pos] == temp[i])
-                {
-                    // if there exists an element of c1 equal to c2[pos], then we can
-                    // do a swap of c1[i] and c1[pos]
-                    break;
-                }
-                else
-                {
-                    // otherwise, find the next element of c1 equal to c2[i]
-                    it = find(it+1, temp.end(), c2[i]);
-                }
-            }
+	dist = 0;
+	infeas = 0;
+	Chromosome<Encoding> temp(c1);
+	for(unsigned int i=0; i<temp.length(); i++) {
+		// check if the two chromosomes differ in the given location
+		if(temp[i] != c2[i]) {
+			// if so, then we need to figure out whether an appropriate swap exists as follows:
+			// we must change c1[i] to c2[i] to move c1 one step closer to c2.  However,
+			// if another element of c1 is equal to c2[i], then we can swap c1[i] and c1[other]
+			// and kill two birds with one move
+			typename Chromosome<Encoding>::iterator it = find(temp.begin()+i, temp.end(), c2[i]);
+			int pos = 0;
+			while(it != temp.end()) {
+				pos = static_cast<int>(it - temp.begin());
+				if(c2[pos] == temp[i]) {
+					// if there exists an element of c1 equal to c2[pos], then we can
+					// do a swap of c1[i] and c1[pos]
+					break;
+				} else {
+					// otherwise, find the next element of c1 equal to c2[i]
+					it = find(it+1, temp.end(), c2[i]);
+				}
+			}
 
-            if(it != temp.end())
-            {
-                // if we broke out of the loop before it == temp.end(), then a good
-                // swap was found
-                swap(temp[i], temp[pos]);
-            }
-            else
-            {
-                // otherwise, no swap does any good, so we just perform a shift
-                temp[i] = c2[i];
-            }
+			if(it != temp.end()) {
+				// if we broke out of the loop before it == temp.end(), then a good
+				// swap was found
+				swap(temp[i], temp[pos]);
+			} else {
+				// otherwise, no swap does any good, so we just perform a shift
+				temp[i] = c2[i];
+			}
 
-            // check if the move is feasible
-            temp.evaluate(prob);
+			// check if the move is feasible
+			temp.evaluate(prob);
 
-            dist++;
-            if(!temp.feasible())
-            {
-                infeas++;
-            }
-        }
-    }
+			dist++;
+			if(!temp.feasible()) {
+				infeas++;
+			}
+		}
+	}
 }
 
 /*!
@@ -501,8 +465,8 @@ void sss_neighborhood_impl<Chromosome,Encoding>::feasible_distance_between(const
 template <template <typename> class Chromosome, typename Encoding>
 void sss_neighborhood_impl<Chromosome,Encoding>::initialize(const Chromosome<Encoding>& sol)
 {
-    shift_part.initialize(sol);
-    swap_part.initialize(sol);
+	shift_part.initialize(sol);
+	swap_part.initialize(sol);
 }
 
 /*!
@@ -511,7 +475,7 @@ void sss_neighborhood_impl<Chromosome,Encoding>::initialize(const Chromosome<Enc
 template <template <typename> class Chromosome, typename Encoding>
 bool sss_neighborhood_impl<Chromosome,Encoding>::has_more_neighbors() const
 {
-    return (swap_part.has_more_neighbors() || shift_part.has_more_neighbors());
+	return (swap_part.has_more_neighbors() || shift_part.has_more_neighbors());
 }
 
 /*!
@@ -520,30 +484,21 @@ bool sss_neighborhood_impl<Chromosome,Encoding>::has_more_neighbors() const
 template <template <typename> class Chromosome, typename Encoding>
 move<Chromosome,Encoding> sss_neighborhood_impl<Chromosome,Encoding>::next_neighbor()
 {
-    mtrandom mt;
+	mtrandom mt;
 
-    if(mt.random() < 0.5)
-    {
-        if(shift_part.has_more_neighbors())
-        {
-            return shift_part.next_neighbor();
-        }
-        else
-        {
-            return swap_part.next_neighbor();
-        }
-    }
-    else
-    {
-        if(swap_part.has_more_neighbors())
-        {
-            return swap_part.next_neighbor();
-        }
-        else
-        {
-            return shift_part.next_neighbor();
-        }
-    }
+	if(mt.random() < 0.5) {
+		if(shift_part.has_more_neighbors()) {
+			return shift_part.next_neighbor();
+		} else {
+			return swap_part.next_neighbor();
+		}
+	} else {
+		if(swap_part.has_more_neighbors()) {
+			return swap_part.next_neighbor();
+		} else {
+			return shift_part.next_neighbor();
+		}
+	}
 }
 
 /*!
@@ -552,24 +507,19 @@ move<Chromosome,Encoding> sss_neighborhood_impl<Chromosome,Encoding>::next_neigh
 template <template <typename> class Chromosome, typename Encoding>
 neighborhood<Chromosome,Encoding>* bit_neighborhood_factory<Chromosome,Encoding>::construct()
 {
-    string op;
-    configuration::string_parameter(keywords::NEIGHBORHOOD, op, true);
-    if(op == keywords::HAMMING_NEIGHBORHOOD)
-    {
-        hamming_neighborhood<Chromosome,Encoding>* n = new hamming_neighborhood<Chromosome,Encoding>;
-        return n;
-    }
-    else if(op == keywords::SWAP_NEIGHBORHOOD)
-    {
-        swap_neighborhood<Chromosome,Encoding>* n = new swap_neighborhood<Chromosome,Encoding>;
-        return n;
-    }
-    else
-    {
-        cerr << "illegal neighborhood operator: " << op << " specified" << endl;
-        exit(1);
-        return 0;
-    }
+	string op;
+	configuration::string_parameter(keywords::NEIGHBORHOOD, op, true);
+	if(op == keywords::HAMMING_NEIGHBORHOOD) {
+		hamming_neighborhood<Chromosome,Encoding>* n = new hamming_neighborhood<Chromosome,Encoding>;
+		return n;
+	} else if(op == keywords::SWAP_NEIGHBORHOOD) {
+		swap_neighborhood<Chromosome,Encoding>* n = new swap_neighborhood<Chromosome,Encoding>;
+		return n;
+	} else {
+		cerr << "illegal neighborhood operator: " << op << " specified" << endl;
+		exit(1);
+		return 0;
+	}
 }
 
 /*!
@@ -578,19 +528,16 @@ neighborhood<Chromosome,Encoding>* bit_neighborhood_factory<Chromosome,Encoding>
 template <template <typename> class Chromosome, typename Encoding>
 neighborhood<Chromosome,Encoding>* permutation_neighborhood_factory<Chromosome,Encoding>::construct()
 {
-    string op;
-    configuration::string_parameter(keywords::NEIGHBORHOOD, op, true);
-    if(op == keywords::SWAP_NEIGHBORHOOD)
-    {
-        swap_neighborhood<Chromosome,Encoding>* n = new swap_neighborhood<Chromosome,Encoding>;
-        return n;
-    }
-    else
-    {
-        cerr << "illegal neighborhood operator specified: " << op << endl;
-        exit(1);
-        return 0;
-    }
+	string op;
+	configuration::string_parameter(keywords::NEIGHBORHOOD, op, true);
+	if(op == keywords::SWAP_NEIGHBORHOOD) {
+		swap_neighborhood<Chromosome,Encoding>* n = new swap_neighborhood<Chromosome,Encoding>;
+		return n;
+	} else {
+		cerr << "illegal neighborhood operator specified: " << op << endl;
+		exit(1);
+		return 0;
+	}
 }
 
 /*!
@@ -599,29 +546,22 @@ neighborhood<Chromosome,Encoding>* permutation_neighborhood_factory<Chromosome,E
 template <template <typename> class Chromosome, typename Encoding>
 neighborhood<Chromosome,Encoding>* gap_neighborhood_factory<Chromosome,Encoding>::construct()
 {
-    string op;
-    configuration::string_parameter(keywords::NEIGHBORHOOD, op, true);
-    if(op == keywords::SWAP_NEIGHBORHOOD)
-    {
-        swap_neighborhood<Chromosome,Encoding>* n = new swap_neighborhood<Chromosome,Encoding>;
-        return n;
-    }
-    else if(op == keywords::SHIFT_NEIGHBORHOOD)
-    {
-        shift_neighborhood<Chromosome,Encoding>* n = new shift_neighborhood<Chromosome,Encoding>;
-        return n;
-    }
-    else if(op == keywords::SSS_NEIGHBORHOOD)
-    {
-        sss_neighborhood<Chromosome,Encoding>* n = new sss_neighborhood<Chromosome,Encoding>;
-        return n;
-    }
-    else
-    {
-        cerr << "illegal neighborhood operator specified: " << op << endl;
-        exit(1);
-        return 0;
-    }
+	string op;
+	configuration::string_parameter(keywords::NEIGHBORHOOD, op, true);
+	if(op == keywords::SWAP_NEIGHBORHOOD) {
+		swap_neighborhood<Chromosome,Encoding>* n = new swap_neighborhood<Chromosome,Encoding>;
+		return n;
+	} else if(op == keywords::SHIFT_NEIGHBORHOOD) {
+		shift_neighborhood<Chromosome,Encoding>* n = new shift_neighborhood<Chromosome,Encoding>;
+		return n;
+	} else if(op == keywords::SSS_NEIGHBORHOOD) {
+		sss_neighborhood<Chromosome,Encoding>* n = new sss_neighborhood<Chromosome,Encoding>;
+		return n;
+	} else {
+		cerr << "illegal neighborhood operator specified: " << op << endl;
+		exit(1);
+		return 0;
+	}
 }
 
 /*!
@@ -630,29 +570,22 @@ neighborhood<Chromosome,Encoding>* gap_neighborhood_factory<Chromosome,Encoding>
 template <template <typename> class Chromosome, typename Encoding>
 neighborhood<Chromosome,Encoding>* gsap_neighborhood_factory<Chromosome,Encoding>::construct()
 {
-    string op;
-    configuration::string_parameter(keywords::NEIGHBORHOOD, op, true);
-    if(op == keywords::SWAP_NEIGHBORHOOD)
-    {
-        swap_neighborhood<Chromosome,Encoding>* n = new swap_neighborhood<Chromosome,Encoding>;
-        return n;
-    }
-    else if(op == keywords::SHIFT_NEIGHBORHOOD)
-    {
-        shift_neighborhood<Chromosome,Encoding>* n = new shift_neighborhood<Chromosome,Encoding>;
-        return n;
-    }
-    else if(op == keywords::SSS_NEIGHBORHOOD)
-    {
-        sss_neighborhood<Chromosome,Encoding>* n = new sss_neighborhood<Chromosome,Encoding>;
-        return n;
-    }
-    else
-    {
-        cerr << "illegal neighborhood operator specified: " << op << endl;
-        exit(1);
-        return 0;
-    }
+	string op;
+	configuration::string_parameter(keywords::NEIGHBORHOOD, op, true);
+	if(op == keywords::SWAP_NEIGHBORHOOD) {
+		swap_neighborhood<Chromosome,Encoding>* n = new swap_neighborhood<Chromosome,Encoding>;
+		return n;
+	} else if(op == keywords::SHIFT_NEIGHBORHOOD) {
+		shift_neighborhood<Chromosome,Encoding>* n = new shift_neighborhood<Chromosome,Encoding>;
+		return n;
+	} else if(op == keywords::SSS_NEIGHBORHOOD) {
+		sss_neighborhood<Chromosome,Encoding>* n = new sss_neighborhood<Chromosome,Encoding>;
+		return n;
+	} else {
+		cerr << "illegal neighborhood operator specified: " << op << endl;
+		exit(1);
+		return 0;
+	}
 }
 
 /*!
@@ -661,8 +594,8 @@ neighborhood<Chromosome,Encoding>* gsap_neighborhood_factory<Chromosome,Encoding
 template <template <typename> class Chromosome, typename Encoding>
 neighborhood<Chromosome,Encoding>* neighborhood_factory<Chromosome,Encoding>::construct()
 {
-    cerr << "neighborhood not implemented" << endl;
-    exit(1);
-    return 0;
+	cerr << "neighborhood not implemented" << endl;
+	exit(1);
+	return 0;
 }
 

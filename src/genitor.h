@@ -26,42 +26,42 @@ template <template <typename> class Chromosome, typename Encoding>
 class genitor : public ea<Chromosome,Encoding>
 {
 private:
-    // disable copying of heavyweight class
-    genitor(const genitor& that);
-    genitor& operator=(const genitor& that);
+	// disable copying of heavyweight class
+	genitor(const genitor& that);
+	genitor& operator=(const genitor& that);
 
 protected:
-    // utilize the ranking selection scheme
-    ranking_selection<Chromosome,Encoding>* m_sel_scheme;
+	// utilize the ranking selection scheme
+	ranking_selection<Chromosome,Encoding>* m_sel_scheme;
 
-    // utilize a replace-worst environment selection scheme
-    replace_worst<Chromosome,Encoding>* m_rep_scheme;
+	// utilize a replace-worst environment selection scheme
+	replace_worst<Chromosome,Encoding>* m_rep_scheme;
 
-    // allow whatever crossover operator we see fit
-    crossover_operator<Chromosome,Encoding>* m_cross_op;
-    double m_cross_rate;
+	// allow whatever crossover operator we see fit
+	crossover_operator<Chromosome,Encoding>* m_cross_op;
+	double m_cross_rate;
 
-    // allow whatever mutation operator we see fit
-    mutation_operator<Chromosome,Encoding>* m_mut_op;
+	// allow whatever mutation operator we see fit
+	mutation_operator<Chromosome,Encoding>* m_mut_op;
 
-    // define a comparator
-    comparator<Chromosome,Encoding>* m_comp;
-    
+	// define a comparator
+	comparator<Chromosome,Encoding>* m_comp;
+
 public:
-    // ctors and dtor
-    genitor();
-    virtual ~genitor();
+	// ctors and dtor
+	genitor();
+	virtual ~genitor();
 
-    // initialize the genitor algorithm
-    virtual void initialize();
+	// initialize the genitor algorithm
+	virtual void initialize();
 
-    // run the genitor algorithm
-    virtual void run();
+	// run the genitor algorithm
+	virtual void run();
 
-    // run a single generation of the genitor algorithm
-    virtual void run_one_generation();
+	// run a single generation of the genitor algorithm
+	virtual void run_one_generation();
 };
 
 #include "genitor.cpp"
 
-#endif 
+#endif

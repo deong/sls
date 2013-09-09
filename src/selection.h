@@ -24,18 +24,18 @@ template <template <typename> class Chromosome, typename Encoding>
 class selection_scheme
 {
 private:
-    // disable copying of functional classes
-    selection_scheme(const selection_scheme& that);
-    selection_scheme& operator=(const selection_scheme& that);
-    
+	// disable copying of functional classes
+	selection_scheme(const selection_scheme& that);
+	selection_scheme& operator=(const selection_scheme& that);
+
 protected:
-    population<Chromosome,Encoding>* m_population;
+	population<Chromosome,Encoding>* m_population;
 
 public:
-    selection_scheme();
-    virtual ~selection_scheme();
-    virtual void set_population(const population<Chromosome,Encoding>* pop);
-    virtual Chromosome<Encoding>& select_parent() const = 0;
+	selection_scheme();
+	virtual ~selection_scheme();
+	virtual void set_population(const population<Chromosome,Encoding>* pop);
+	virtual Chromosome<Encoding>& select_parent() const = 0;
 };
 
 /*!
@@ -45,23 +45,23 @@ template <template <typename> class Chromosome, typename Encoding>
 class tournament_selection : public selection_scheme<Chromosome,Encoding>
 {
 private:
-    // disable copying of functional classes
-    tournament_selection(const tournament_selection& that);
-    tournament_selection& operator=(const tournament_selection& that);
+	// disable copying of functional classes
+	tournament_selection(const tournament_selection& that);
+	tournament_selection& operator=(const tournament_selection& that);
 
-    // comparison method for chromosomes
-    comparator<Chromosome,Encoding>* m_comp;
+	// comparison method for chromosomes
+	comparator<Chromosome,Encoding>* m_comp;
 
-    // determine whether to delete the comparator in the destructor
-    bool m_delete_comp;
-    
+	// determine whether to delete the comparator in the destructor
+	bool m_delete_comp;
+
 public:
-    tournament_selection();
-    tournament_selection(comparator<Chromosome,Encoding>* comp);
-    virtual ~tournament_selection();
+	tournament_selection();
+	tournament_selection(comparator<Chromosome,Encoding>* comp);
+	virtual ~tournament_selection();
 
-    virtual void initialize();
-    virtual Chromosome<Encoding>& select_parent() const;
+	virtual void initialize();
+	virtual Chromosome<Encoding>& select_parent() const;
 };
 
 /*!
@@ -71,19 +71,19 @@ template <template <typename> class Chromosome, typename Encoding>
 class ranking_selection : public selection_scheme<Chromosome,Encoding>
 {
 private:
-    // disable copying of functional classes
-    ranking_selection(const ranking_selection& that);
-    ranking_selection& operator=(const ranking_selection& that);
+	// disable copying of functional classes
+	ranking_selection(const ranking_selection& that);
+	ranking_selection& operator=(const ranking_selection& that);
 
 protected:
-    double m_bias;
-    
-public:
-    ranking_selection();
-    virtual ~ranking_selection();
+	double m_bias;
 
-    virtual void initialize();
-    virtual Chromosome<Encoding>& select_parent() const;
+public:
+	ranking_selection();
+	virtual ~ranking_selection();
+
+	virtual void initialize();
+	virtual Chromosome<Encoding>& select_parent() const;
 };
 
 /*!
@@ -93,15 +93,15 @@ template <template <typename> class Chromosome, typename Encoding>
 class random_selection : public selection_scheme<Chromosome,Encoding>
 {
 private:
-    // disable copying of functional classes
-    random_selection(const random_selection& that);
-    random_selection& operator=(const random_selection& that);
+	// disable copying of functional classes
+	random_selection(const random_selection& that);
+	random_selection& operator=(const random_selection& that);
 
 public:
-    random_selection();
-    virtual ~random_selection();
+	random_selection();
+	virtual ~random_selection();
 
-    virtual Chromosome<Encoding>& select_parent() const;
+	virtual Chromosome<Encoding>& select_parent() const;
 };
 
 /*!
@@ -111,10 +111,10 @@ template <template <typename> class Chromosome, typename Encoding>
 class selection_scheme_factory
 {
 public:
-    static selection_scheme<Chromosome,Encoding>* construct();
+	static selection_scheme<Chromosome,Encoding>* construct();
 };
 
 #include "selection.cpp"
 
 #endif
-    
+

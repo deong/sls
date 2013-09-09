@@ -42,7 +42,7 @@ long mtrandom::m_ir[98];
 #define UPPER_MASK 0x80000000
 #define LOWER_MASK 0x7fffffff
 
-/* Tempering parameters */   
+/* Tempering parameters */
 #define TEMPERING_MASK_B      0x9d2c5680
 #define TEMPERING_MASK_C      0xefc60000
 #define TEMPERING_SHIFT_U(y)  (y >> 11)
@@ -58,13 +58,13 @@ static int           mti = N+1; /* mti==N+1 means mt[N] is not initialized */
  */
 unsigned long mtrandom::seed()
 {
-    // creating a dummy instance of the class forces the
-    // random number seed to be initialized, if it wasn't already.
-    mtrandom rn;
+	// creating a dummy instance of the class forces the
+	// random number seed to be initialized, if it wasn't already.
+	mtrandom rn;
 
-    (void) rn.get_seed(); // a dummy to get rid of the 'un-used variable' compiler warning
+	(void) rn.get_seed(); // a dummy to get rid of the 'un-used variable' compiler warning
 
-    return m_seed;
+	return m_seed;
 }
 
 /*!
@@ -72,34 +72,27 @@ unsigned long mtrandom::seed()
  */
 bool mtrandom::initialize()
 {
-    unsigned int seed;
-    if(configuration::keyword_exists(keywords::RANDOM_SEED))
-    {
-        if(configuration::unsigned_integer_parameter(keywords::RANDOM_SEED,seed))
-        {
-            cerr << "Failed to read value for keyword " << keywords::RANDOM_SEED << endl;
-            return false;
-        }
-        m_seed = static_cast<unsigned long>(seed);
-        m_first_time = false;
-    }
-    else
-    {
-	// try to read from /dev/random; if that fails, use the system time
-	int fd=open("/dev/random",O_RDONLY|O_NONBLOCK);
-	if((fd!=-1) && (read(fd,&m_seed,sizeof(unsigned long))==sizeof(unsigned long)))
-	{
-	    m_seed=static_cast<unsigned long>(m_seed);
+	unsigned int seed;
+	if(configuration::keyword_exists(keywords::RANDOM_SEED)) {
+		if(configuration::unsigned_integer_parameter(keywords::RANDOM_SEED,seed)) {
+			cerr << "Failed to read value for keyword " << keywords::RANDOM_SEED << endl;
+			return false;
+		}
+		m_seed = static_cast<unsigned long>(seed);
+		m_first_time = false;
+	} else {
+		// try to read from /dev/random; if that fails, use the system time
+		int fd=open("/dev/random",O_RDONLY|O_NONBLOCK);
+		if((fd!=-1) && (read(fd,&m_seed,sizeof(unsigned long))==sizeof(unsigned long))) {
+			m_seed=static_cast<unsigned long>(m_seed);
+		} else {
+			cerr << "failed to read random bytes from /dev/random...falling back to system clock" << endl;
+			m_seed = static_cast<unsigned long>(time(NULL));
+		}
+		m_first_time=false;
 	}
-	else
-	{
-	    cerr << "failed to read random bytes from /dev/random...falling back to system clock" << endl;
-	    m_seed = static_cast<unsigned long>(time(NULL));
-    	}
-	m_first_time=false;
-    }
 
-    return true;
+	return true;
 }
 
 /*!
@@ -110,43 +103,38 @@ bool mtrandom::initialize()
  */
 mtrandom::mtrandom()
 {
-    if(m_first_time == true)
-    {
-	// try to read from /dev/random; if that fails, use the system time
-	int fd=open("/dev/random",O_RDONLY|O_NONBLOCK);
-	if((fd!=-1) && (read(fd,&m_seed,sizeof(unsigned long))==sizeof(unsigned long)))
-	{
-	    m_seed=static_cast<unsigned long>(m_seed);
-	}
-	else
-	{
-	    cerr << "failed to read random bytes from /dev/random...falling back to system clock" << endl;
-	    m_seed = static_cast<unsigned long>(time(NULL));
-    	}
+	if(m_first_time == true) {
+		// try to read from /dev/random; if that fails, use the system time
+		int fd=open("/dev/random",O_RDONLY|O_NONBLOCK);
+		if((fd!=-1) && (read(fd,&m_seed,sizeof(unsigned long))==sizeof(unsigned long))) {
+			m_seed=static_cast<unsigned long>(m_seed);
+		} else {
+			cerr << "failed to read random bytes from /dev/random...falling back to system clock" << endl;
+			m_seed = static_cast<unsigned long>(time(NULL));
+		}
 
-	m_first_time = false;
-	//m_seed = static_cast<unsigned long>(time(NULL));
-        //m_seed = ((m_seed>0) ? -m_seed : m_seed);
-        seed_random(m_seed);
-        m_iset=0;
-    }
+		m_first_time = false;
+		//m_seed = static_cast<unsigned long>(time(NULL));
+		//m_seed = ((m_seed>0) ? -m_seed : m_seed);
+		seed_random(m_seed);
+		m_iset=0;
+	}
 }
 
 /*!
  * \brief seed the generator with a user defined seed
  */
-void mtrandom::seed_random(unsigned long n) 
-{ 
-    int i;
-    unsigned long seedValue = static_cast<unsigned long>(n);
-    for(i=0; i<N; i++) 
-    {
-        mt[i] = seedValue & 0xffff0000;
-        seedValue = 69069 * seedValue + 1;
-        mt[i] |= (seedValue & 0xffff0000) >> 16;
-        seedValue = 69069 * seedValue + 1;
-    }
-    mti = N;
+void mtrandom::seed_random(unsigned long n)
+{
+	int i;
+	unsigned long seedValue = static_cast<unsigned long>(n);
+	for(i=0; i<N; i++) {
+		mt[i] = seedValue & 0xffff0000;
+		seedValue = 69069 * seedValue + 1;
+		mt[i] |= (seedValue & 0xffff0000) >> 16;
+		seedValue = 69069 * seedValue + 1;
+	}
+	mti = N;
 }
 
 /*!
@@ -154,7 +142,7 @@ void mtrandom::seed_random(unsigned long n)
  */
 void mtrandom::reseed()
 {
-    m_first_time = true;
+	m_first_time = true;
 }
 
 /*!
@@ -162,7 +150,7 @@ void mtrandom::reseed()
  */
 unsigned long mtrandom::get_seed()
 {
-    return m_seed; 
+	return m_seed;
 }
 
 /*!
@@ -170,43 +158,39 @@ unsigned long mtrandom::get_seed()
  */
 double mtrandom::random()
 {
-    unsigned long y;
-    static unsigned long mag01[2] = {0x0, MATRIX_A};
-    /* mag01[x] = x * MATRIX_A  for x=0,1 */
+	unsigned long y;
+	static unsigned long mag01[2] = {0x0, MATRIX_A};
+	/* mag01[x] = x * MATRIX_A  for x=0,1 */
 
-    if(mti >= N) /* generate N words at one time */
-    { 
-        int kk;
+	if(mti >= N) { /* generate N words at one time */
+		int kk;
 
-        if(mti == N+1)        /* if sgenrand() has not been called, */
-        {
-            seed_random(4357); /* a default initial seed is used   */
-        }
+		if(mti == N+1) {      /* if sgenrand() has not been called, */
+			seed_random(4357); /* a default initial seed is used   */
+		}
 
-        for(kk=0; kk<N-M; kk++) 
-        {
-            y = (mt[kk] & UPPER_MASK) | (mt[kk+1] & LOWER_MASK);
-            mt[kk] = mt[kk+M] ^ (y >> 1) ^ mag01[y & 0x1];
-        }
-        for(; kk<N-1; kk++) 
-        {
-            y = (mt[kk] & UPPER_MASK) | (mt[kk+1] & LOWER_MASK);
-            mt[kk] = mt[kk+(M-N)] ^ (y >> 1) ^ mag01[y & 0x1];
-        }
-        y = (mt[N-1] & UPPER_MASK) | (mt[0] & LOWER_MASK);
-        mt[N-1] = mt[M-1] ^ (y >> 1) ^ mag01[y & 0x1];
+		for(kk=0; kk<N-M; kk++) {
+			y = (mt[kk] & UPPER_MASK) | (mt[kk+1] & LOWER_MASK);
+			mt[kk] = mt[kk+M] ^ (y >> 1) ^ mag01[y & 0x1];
+		}
+		for(; kk<N-1; kk++) {
+			y = (mt[kk] & UPPER_MASK) | (mt[kk+1] & LOWER_MASK);
+			mt[kk] = mt[kk+(M-N)] ^ (y >> 1) ^ mag01[y & 0x1];
+		}
+		y = (mt[N-1] & UPPER_MASK) | (mt[0] & LOWER_MASK);
+		mt[N-1] = mt[M-1] ^ (y >> 1) ^ mag01[y & 0x1];
 
-        mti = 0;
-    }
-  
-    y = mt[mti++];
-    y ^= TEMPERING_SHIFT_U(y);
-    y ^= TEMPERING_SHIFT_S(y) & TEMPERING_MASK_B;
-    y ^= TEMPERING_SHIFT_T(y) & TEMPERING_MASK_C;
-    y ^= TEMPERING_SHIFT_L(y);
+		mti = 0;
+	}
 
-    return ((double) y * 2.3283064365386963e-10); /* reals: [0,1)-interval */
-    /* return y; */ /* for integer generation */
+	y = mt[mti++];
+	y ^= TEMPERING_SHIFT_U(y);
+	y ^= TEMPERING_SHIFT_S(y) & TEMPERING_MASK_B;
+	y ^= TEMPERING_SHIFT_T(y) & TEMPERING_MASK_C;
+	y ^= TEMPERING_SHIFT_L(y);
+
+	return ((double) y * 2.3283064365386963e-10); /* reals: [0,1)-interval */
+	/* return y; */ /* for integer generation */
 }
 
 /*!
@@ -214,7 +198,7 @@ double mtrandom::random()
  */
 int mtrandom::random(int ub)
 {
-    return random(0, ub);
+	return random(0, ub);
 }
 
 /*!
@@ -222,8 +206,8 @@ int mtrandom::random(int ub)
  */
 int mtrandom::random(int lb, int ub)
 {
-    assert(ub>=lb);
-    return (int(floor(this->random() * double(ub-lb))) + lb);
+	assert(ub>=lb);
+	return (int(floor(this->random() * double(ub-lb))) + lb);
 }
 
 /*!
@@ -231,47 +215,44 @@ int mtrandom::random(int lb, int ub)
  */
 double mtrandom::random(double lb, double ub)
 {
-    assert(ub>=lb);
-    return (double(this->random() * (ub-lb)) + lb);
+	assert(ub>=lb);
+	return (double(this->random() * (ub-lb)) + lb);
 }
 
 /*!
  * \brief return a biased random number in the range [0,range)
  */
 double mtrandom::bias_random(int range, double bias)
-{ 
-    if(bias > 1.0)
-        return double(double(range) * 
-                      (bias - sqrt(bias * bias - 4.0 * (bias-1) * random())) / 
-                      2.0/(bias-1.0));
-    else
-        return(double (range) * random());
+{
+	if(bias > 1.0)
+		return double(double(range) *
+		              (bias - sqrt(bias * bias - 4.0 * (bias-1) * random())) /
+		              2.0/(bias-1.0));
+	else {
+		return(double (range) * random());
+	}
 }
 
 /*!
  * \brief return a normally distributed number with mu=0, sigma=1
  */
 double mtrandom::gaussian()
-{  
-    if(m_iset == 0) 
-    {
-        do 
-        {
-            m_v1 = 2.0 * this->random() - 1.0;
-            m_v2 = 2.0 * this->random() - 1.0;
-            m_r  = m_v1 * m_v1 + m_v2 * m_v2;
-        } while(m_r >= 1.0);
-          
-        m_fac  = sqrt(-2.0 * log(m_r) / m_r);
-        m_gset = m_v1 * m_fac;
-        m_iset = 1;
-        return(m_v2 * m_fac);
-    } 
-    else 
-    {
-        m_iset = 0;
-        return(m_gset);
-    }
+{
+	if(m_iset == 0) {
+		do {
+			m_v1 = 2.0 * this->random() - 1.0;
+			m_v2 = 2.0 * this->random() - 1.0;
+			m_r  = m_v1 * m_v1 + m_v2 * m_v2;
+		} while(m_r >= 1.0);
+
+		m_fac  = sqrt(-2.0 * log(m_r) / m_r);
+		m_gset = m_v1 * m_fac;
+		m_iset = 1;
+		return(m_v2 * m_fac);
+	} else {
+		m_iset = 0;
+		return(m_gset);
+	}
 }
 
 /*!
@@ -279,25 +260,21 @@ double mtrandom::gaussian()
  */
 double mtrandom::gaussian(double mean, double stddev)
 {
-    if(m_iset == 0) 
-    {
-        do 
-        {
-            m_v1 = 2.0 * this->random() - 1.0;
-            m_v2 = 2.0 * this->random() - 1.0;
-            m_r  = m_v1 * m_v1 + m_v2 * m_v2;
-        } while(m_r >= 1.0);
-    
-        m_fac  = sqrt(-2.0 * log(m_r) / m_r);
-        m_gset = m_v1 * m_fac;
-        m_iset = 1;
-        return((m_v2*m_fac) * stddev + mean);
-    } 
-    else 
-    {
-        m_iset = 0;
-        return(m_gset * stddev + mean);
-    }
+	if(m_iset == 0) {
+		do {
+			m_v1 = 2.0 * this->random() - 1.0;
+			m_v2 = 2.0 * this->random() - 1.0;
+			m_r  = m_v1 * m_v1 + m_v2 * m_v2;
+		} while(m_r >= 1.0);
+
+		m_fac  = sqrt(-2.0 * log(m_r) / m_r);
+		m_gset = m_v1 * m_fac;
+		m_iset = 1;
+		return((m_v2*m_fac) * stddev + mean);
+	} else {
+		m_iset = 0;
+		return(m_gset * stddev + mean);
+	}
 }
 
 /*!
@@ -305,24 +282,22 @@ double mtrandom::gaussian(double mean, double stddev)
  */
 vector<int> mtrandom::permutation(int n)
 {
-    vector<int> temp(n);
-    vector<int> result(n);
+	vector<int> temp(n);
+	vector<int> result(n);
 
-    for(int i=0; i<n; i++)
-    {
-        temp[i] = i;
-    }
+	for(int i=0; i<n; i++) {
+		temp[i] = i;
+	}
 
-    int ub = n - 1;
-    for(int i=0; i<n; i++) 
-    {
-        int next   = random(0,ub);
-        result[i]  = temp[next];
-        temp[next] = temp[ub];
-        ub--;
-    }
+	int ub = n - 1;
+	for(int i=0; i<n; i++) {
+		int next   = random(0,ub);
+		result[i]  = temp[next];
+		temp[next] = temp[ub];
+		ub--;
+	}
 
-    return result;
+	return result;
 }
 
 /*!
@@ -330,12 +305,11 @@ vector<int> mtrandom::permutation(int n)
  */
 void mtrandom::shuffle(vector<int>& v)
 {
-    int ub = (int)v.size()-1;
+	int ub = (int)v.size()-1;
 
-    for(unsigned int i=0; i<v.size(); i++)
-    {
-        int next = random(0,ub--);
-        swap(v[i],v[next]);
-    }
+	for(unsigned int i=0; i<v.size(); i++) {
+		int next = random(0,ub--);
+		swap(v[i],v[next]);
+	}
 }
 

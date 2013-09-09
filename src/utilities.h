@@ -28,15 +28,13 @@ double compute_pearson_correlation(const vector<pair<double,double> >& points);
 template <typename T>
 ostream& operator<<(ostream& ostr, const vector<T>& v)
 {
-    for(int i=0; i<int(v.size()); i++)
-    {
-        ostr << v[i];
-        if(i!=int(v.size())-1)
-        {
-            ostr << " ";
-        }
-    }
-    return ostr;
+	for(int i=0; i<int(v.size()); i++) {
+		ostr << v[i];
+		if(i!=int(v.size())-1) {
+			ostr << " ";
+		}
+	}
+	return ostr;
 }
 
 bool operator==(const vector<int>& v1, const vector<int>& v2);

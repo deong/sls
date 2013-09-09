@@ -29,24 +29,24 @@ template <template <typename> class Chromosome, typename Encoding>
 class replacement_scheme
 {
 private:
-    // disable copying of functional classes
-    replacement_scheme(const replacement_scheme& that);
-    replacement_scheme& operator=(const replacement_scheme& that);
+	// disable copying of functional classes
+	replacement_scheme(const replacement_scheme& that);
+	replacement_scheme& operator=(const replacement_scheme& that);
 
 protected:
-    comparator<Chromosome,Encoding>* m_comp;
-    
-public:
-    replacement_scheme();
-    virtual ~replacement_scheme();
+	comparator<Chromosome,Encoding>* m_comp;
 
-    virtual void initialize();
-    virtual void merge_populations(population<Chromosome,Encoding>& parents,
-                                   population<Chromosome,Encoding>& offspring,
-                                   population<Chromosome,Encoding>& next) const;
-    virtual void merge_individual(Chromosome<Encoding>& sol,
-                                  population<Chromosome,Encoding>& pop,
-                                  population<Chromosome,Encoding>& next) const;
+public:
+	replacement_scheme();
+	virtual ~replacement_scheme();
+
+	virtual void initialize();
+	virtual void merge_populations(population<Chromosome,Encoding>& parents,
+	                               population<Chromosome,Encoding>& offspring,
+	                               population<Chromosome,Encoding>& next) const;
+	virtual void merge_individual(Chromosome<Encoding>& sol,
+	                              population<Chromosome,Encoding>& pop,
+	                              population<Chromosome,Encoding>& next) const;
 };
 
 /*!
@@ -58,17 +58,17 @@ template <template <typename> class Chromosome, typename Encoding>
 class generational_replacement : public replacement_scheme<Chromosome,Encoding>
 {
 private:
-    // disable copying of functional class
-    generational_replacement(const generational_replacement& that);
-    generational_replacement& operator=(const generational_replacement& that);
+	// disable copying of functional class
+	generational_replacement(const generational_replacement& that);
+	generational_replacement& operator=(const generational_replacement& that);
 
 public:
-    generational_replacement();
-    virtual ~generational_replacement();
+	generational_replacement();
+	virtual ~generational_replacement();
 
-    virtual void merge_populations(population<Chromosome,Encoding>& parents,
-                                   population<Chromosome,Encoding>& offspring,
-                                   population<Chromosome,Encoding>& next) const;
+	virtual void merge_populations(population<Chromosome,Encoding>& parents,
+	                               population<Chromosome,Encoding>& offspring,
+	                               population<Chromosome,Encoding>& next) const;
 };
 
 /*!
@@ -81,21 +81,21 @@ template <template <typename> class Chromosome, typename Encoding>
 class elitist_replacement : public generational_replacement<Chromosome,Encoding>
 {
 private:
-    // disable copying of functional class
-    elitist_replacement(const elitist_replacement& that);
-    elitist_replacement& operator=(const elitist_replacement& that);
+	// disable copying of functional class
+	elitist_replacement(const elitist_replacement& that);
+	elitist_replacement& operator=(const elitist_replacement& that);
 
 protected:
-    unsigned int m_elites;
-    
-public:
-    elitist_replacement();
-    virtual ~elitist_replacement();
+	unsigned int m_elites;
 
-    virtual void initialize();
-    virtual void merge_populations(population<Chromosome,Encoding>& parents,
-                                   population<Chromosome,Encoding>& offspring,
-                                   population<Chromosome,Encoding>& next) const;
+public:
+	elitist_replacement();
+	virtual ~elitist_replacement();
+
+	virtual void initialize();
+	virtual void merge_populations(population<Chromosome,Encoding>& parents,
+	                               population<Chromosome,Encoding>& offspring,
+	                               population<Chromosome,Encoding>& next) const;
 };
 
 /*!
@@ -108,17 +108,17 @@ template <template <typename> class Chromosome, typename Encoding>
 class truncation_replacement : public replacement_scheme<Chromosome,Encoding>
 {
 private:
-    // disable copying
-    truncation_replacement(const truncation_replacement& that);
-    truncation_replacement& operator=(const truncation_replacement& that);
+	// disable copying
+	truncation_replacement(const truncation_replacement& that);
+	truncation_replacement& operator=(const truncation_replacement& that);
 
 public:
-    truncation_replacement();
-    virtual ~truncation_replacement();
+	truncation_replacement();
+	virtual ~truncation_replacement();
 
-    virtual void merge_populations(population<Chromosome,Encoding>& parents,
-                                   population<Chromosome,Encoding>& offspring,
-                                   population<Chromosome,Encoding>& next) const;
+	virtual void merge_populations(population<Chromosome,Encoding>& parents,
+	                               population<Chromosome,Encoding>& offspring,
+	                               population<Chromosome,Encoding>& next) const;
 };
 
 /*!
@@ -130,17 +130,17 @@ template <template <typename> class Chromosome, typename Encoding>
 class steady_state_replacement : public replacement_scheme<Chromosome,Encoding>
 {
 private:
-    // disable copying of functional class
-    steady_state_replacement(const steady_state_replacement& that);
-    steady_state_replacement& operator=(const steady_state_replacement& that);
+	// disable copying of functional class
+	steady_state_replacement(const steady_state_replacement& that);
+	steady_state_replacement& operator=(const steady_state_replacement& that);
 
 public:
-    steady_state_replacement();
-    virtual ~steady_state_replacement();
+	steady_state_replacement();
+	virtual ~steady_state_replacement();
 
-    virtual void merge_individual(Chromosome<Encoding>& sol,
-                                  population<Chromosome,Encoding>& pop,
-                                  population<Chromosome,Encoding>& next) const = 0;
+	virtual void merge_individual(Chromosome<Encoding>& sol,
+	                              population<Chromosome,Encoding>& pop,
+	                              population<Chromosome,Encoding>& next) const = 0;
 };
 
 /*!
@@ -152,17 +152,17 @@ template <template <typename> class Chromosome, typename Encoding>
 class replace_worst : public steady_state_replacement<Chromosome,Encoding>
 {
 private:
-    // disable copying functional class
-    replace_worst(const replace_worst& that);
-    replace_worst& operator=(const replace_worst& that);
+	// disable copying functional class
+	replace_worst(const replace_worst& that);
+	replace_worst& operator=(const replace_worst& that);
 
 public:
-    replace_worst();
-    virtual ~replace_worst();
+	replace_worst();
+	virtual ~replace_worst();
 
-    virtual void merge_individual(Chromosome<Encoding>& sol,
-                                  population<Chromosome,Encoding>& pop,
-                                  population<Chromosome,Encoding>& next) const;
+	virtual void merge_individual(Chromosome<Encoding>& sol,
+	                              population<Chromosome,Encoding>& pop,
+	                              population<Chromosome,Encoding>& next) const;
 };
 
 /*!
@@ -172,7 +172,7 @@ template <template <typename> class Chromosome, typename Encoding>
 class replacement_scheme_factory
 {
 public:
-    static replacement_scheme<Chromosome,Encoding>* construct();
+	static replacement_scheme<Chromosome,Encoding>* construct();
 };
 
 #include "replacement.cpp"

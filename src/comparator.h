@@ -1,4 +1,4 @@
-/*! 
+/*!
  * \file comparator.h
  *
  * defines classes which determine how chromosomes are compared
@@ -21,11 +21,11 @@ template <template <typename> class Chromosome, typename Encoding>
 class comparator
 {
 public:
-    comparator();
-    virtual ~comparator();
-    virtual void initialize();
-    inline bool operator()(const Chromosome<Encoding>& c1, const Chromosome<Encoding>& c2) const;
-    virtual int compare(const Chromosome<Encoding>& c1, const Chromosome<Encoding>& c2) const = 0;
+	comparator();
+	virtual ~comparator();
+	virtual void initialize();
+	inline bool operator()(const Chromosome<Encoding>& c1, const Chromosome<Encoding>& c2) const;
+	virtual int compare(const Chromosome<Encoding>& c1, const Chromosome<Encoding>& c2) const = 0;
 };
 
 /*!
@@ -38,10 +38,10 @@ template <template <typename> class Chromosome, typename Encoding>
 class fitness_comparator : public comparator<Chromosome,Encoding>
 {
 public:
-    fitness_comparator();
-    virtual ~fitness_comparator();
+	fitness_comparator();
+	virtual ~fitness_comparator();
 
-    inline virtual int compare(const Chromosome<Encoding>& c1, const Chromosome<Encoding>& c2) const;
+	inline virtual int compare(const Chromosome<Encoding>& c1, const Chromosome<Encoding>& c2) const;
 };
 
 /*!
@@ -51,10 +51,10 @@ template <template <typename> class Chromosome, typename Encoding>
 class pareto_dominance_comparator : public comparator<Chromosome,Encoding>
 {
 public:
-    pareto_dominance_comparator();
-    virtual ~pareto_dominance_comparator();
+	pareto_dominance_comparator();
+	virtual ~pareto_dominance_comparator();
 
-    inline virtual int compare(const Chromosome<Encoding>& c1, const Chromosome<Encoding>& c2) const;
+	inline virtual int compare(const Chromosome<Encoding>& c1, const Chromosome<Encoding>& c2) const;
 };
 
 /*!
@@ -64,17 +64,17 @@ template <template <typename> class Chromosome, typename Encoding>
 class scalarizing_comparator : public comparator<Chromosome,Encoding>
 {
 public:
-    vector<double> weights;
+	vector<double> weights;
 
 public:
-    scalarizing_comparator();
-    virtual ~scalarizing_comparator();
+	scalarizing_comparator();
+	virtual ~scalarizing_comparator();
 
-    void randomize_weights(unsigned int nobj);
-    virtual void initialize(const string& prefix);
-    virtual void initialize();
-    inline virtual int compare(const Chromosome<Encoding>& c1, const Chromosome<Encoding>& c2) const;
-    inline double difference(const Chromosome<Encoding>& c1, const Chromosome<Encoding>& c2) const;
+	void randomize_weights(unsigned int nobj);
+	virtual void initialize(const string& prefix);
+	virtual void initialize();
+	inline virtual int compare(const Chromosome<Encoding>& c1, const Chromosome<Encoding>& c2) const;
+	inline double difference(const Chromosome<Encoding>& c1, const Chromosome<Encoding>& c2) const;
 };
 
 /*!
@@ -84,10 +84,10 @@ template <template <typename> class Chromosome, typename Encoding>
 class weak_dominance_comparator : public comparator<Chromosome,Encoding>
 {
 public:
-    weak_dominance_comparator();
-    virtual ~weak_dominance_comparator();
+	weak_dominance_comparator();
+	virtual ~weak_dominance_comparator();
 
-    inline virtual int compare(const Chromosome<Encoding>& c1, const Chromosome<Encoding>& c2) const;
+	inline virtual int compare(const Chromosome<Encoding>& c1, const Chromosome<Encoding>& c2) const;
 };
 
 /*!
@@ -97,10 +97,10 @@ template <template <typename> class Chromosome, typename Encoding>
 class strong_dominance_comparator : public comparator<Chromosome,Encoding>
 {
 public:
-    strong_dominance_comparator();
-    virtual ~strong_dominance_comparator();
+	strong_dominance_comparator();
+	virtual ~strong_dominance_comparator();
 
-    inline virtual int compare(const Chromosome<Encoding>& c1, const Chromosome<Encoding>& c2) const;
+	inline virtual int compare(const Chromosome<Encoding>& c1, const Chromosome<Encoding>& c2) const;
 };
 
 /*!
@@ -110,14 +110,14 @@ template <template <typename> class Chromosome, typename Encoding>
 class epsilon_dominance_comparator : public comparator<Chromosome,Encoding>
 {
 protected:
-    vector<double> m_epsilon;
-    
+	vector<double> m_epsilon;
+
 public:
-    epsilon_dominance_comparator();
-    virtual ~epsilon_dominance_comparator();
-    virtual void initialize(const string& prefix);
-    virtual void initialize();
-    inline virtual int compare(const Chromosome<Encoding>& c1, const Chromosome<Encoding>& c2) const;
+	epsilon_dominance_comparator();
+	virtual ~epsilon_dominance_comparator();
+	virtual void initialize(const string& prefix);
+	virtual void initialize();
+	inline virtual int compare(const Chromosome<Encoding>& c1, const Chromosome<Encoding>& c2) const;
 };
 
 /*!
@@ -130,13 +130,13 @@ template <template <typename> class Chromosome, typename Encoding>
 class single_objective_comparator : public comparator<Chromosome,Encoding>
 {
 protected:
-    unsigned int m_obj;
+	unsigned int m_obj;
 
 public:
-    single_objective_comparator(unsigned int objnum);
-    virtual ~single_objective_comparator();
+	single_objective_comparator(unsigned int objnum);
+	virtual ~single_objective_comparator();
 
-    inline virtual int compare(const Chromosome<Encoding>& c1, const Chromosome<Encoding>& c2) const;
+	inline virtual int compare(const Chromosome<Encoding>& c1, const Chromosome<Encoding>& c2) const;
 };
 
 /*!
@@ -146,7 +146,7 @@ template <template <typename> class Chromosome, typename Encoding>
 class comparator_factory : public factory
 {
 public:
-    comparator<Chromosome,Encoding>* construct();
+	comparator<Chromosome,Encoding>* construct();
 };
 
 #include "comparator.cpp"

@@ -18,9 +18,9 @@ using namespace std;
  */
 template <template <typename> class Chromosome, typename Encoding>
 rrls<Chromosome,Encoding>::rrls() :
-    sls<Chromosome,Encoding>::sls(),
-    m_hc(0),
-    m_comp(0)
+	sls<Chromosome,Encoding>::sls(),
+	m_hc(0),
+	m_comp(0)
 {
 }
 
@@ -30,8 +30,8 @@ rrls<Chromosome,Encoding>::rrls() :
 template <template <typename> class Chromosome, typename Encoding>
 rrls<Chromosome,Encoding>::~rrls()
 {
-    delete m_hc;
-    delete m_comp;
+	delete m_hc;
+	delete m_comp;
 }
 
 /*!
@@ -40,17 +40,17 @@ rrls<Chromosome,Encoding>::~rrls()
 template <template <typename> class Chromosome, typename Encoding>
 void rrls<Chromosome,Encoding>::initialize()
 {
-    // initialize the stochastic local search components
-    sls<Chromosome,Encoding>::initialize();
+	// initialize the stochastic local search components
+	sls<Chromosome,Encoding>::initialize();
 
-    // initialize the comparator
-    comparator_factory<Chromosome,Encoding> cf;
-    m_comp = cf.construct();
-    
-    // initialize the local search components
-    local_search_factory<Chromosome,Encoding> lsf;
-    lsf.set_prefix("ls_");
-    m_hc = lsf.construct();
+	// initialize the comparator
+	comparator_factory<Chromosome,Encoding> cf;
+	m_comp = cf.construct();
+
+	// initialize the local search components
+	local_search_factory<Chromosome,Encoding> lsf;
+	lsf.set_prefix("ls_");
+	m_hc = lsf.construct();
 }
 
 /*!
@@ -59,16 +59,15 @@ void rrls<Chromosome,Encoding>::initialize()
 template <template <typename> class Chromosome, typename Encoding>
 void rrls<Chromosome,Encoding>::run()
 {
-    while(!this->terminate())
-    {
-        Chromosome<Encoding> chr(this->m_fitfunc);
-        chr.randomize();
-        chr.evaluate(this->m_fitfunc);
-        this->chromosome_evaluated(chr);
-        m_hc->improve(chr, m_comp, this->m_fitfunc);
-        this->generation_completed();
-    }
-    this->compute_metrics();
-    this->report_metrics(cout);
+	while(!this->terminate()) {
+		Chromosome<Encoding> chr(this->m_fitfunc);
+		chr.randomize();
+		chr.evaluate(this->m_fitfunc);
+		this->chromosome_evaluated(chr);
+		m_hc->improve(chr, m_comp, this->m_fitfunc);
+		this->generation_completed();
+	}
+	this->compute_metrics();
+	this->report_metrics(cout);
 }
 

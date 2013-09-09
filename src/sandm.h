@@ -20,15 +20,15 @@ template <template <typename> class Chromosome, typename Encoding>
 class sandm : public sls<Chromosome,Encoding>
 {
 public:
-    sandm();
-    virtual ~sandm();
-    virtual void initialize();
-    virtual void run();
+	sandm();
+	virtual ~sandm();
+	virtual void initialize();
+	virtual void run();
 
 protected:
-    unsigned int m_sample_size;
-    pareto_front<Chromosome,Encoding> m_front;
-    mutation_operator<Chromosome,Encoding>* m_mut_op;
+	unsigned int m_sample_size;
+	pareto_front<Chromosome,Encoding> m_front;
+	mutation_operator<Chromosome,Encoding>* m_mut_op;
 };
 
 #include "sandm.cpp"

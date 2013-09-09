@@ -32,8 +32,8 @@ bool sls<Chromosome,Encoding>::m_print_every_generation;
  */
 template <template <typename> class Chromosome, typename Encoding>
 sls<Chromosome,Encoding>::sls() :
-    m_fitfunc(0),
-    m_repair(0)
+	m_fitfunc(0),
+	m_repair(0)
 {
 }
 
@@ -43,24 +43,24 @@ sls<Chromosome,Encoding>::sls() :
 template <template <typename> class Chromosome, typename Encoding>
 sls<Chromosome,Encoding>::~sls()
 {
-    if(this->m_fitfunc)
+	if(this->m_fitfunc) {
 		delete this->m_fitfunc;
-    if(this->m_repair)
+	}
+	if(this->m_repair) {
 		delete this->m_repair;
-    
-    Encoding::clear_parameters();
-    for(typename list<terminator<Chromosome,Encoding>*>::iterator it=this->m_terminators.begin();
-        it!=this->m_terminators.end();
-        it++)
-    {
-        delete *it;
-    }
-    for(typename list<metric<Chromosome,Encoding>*>::iterator it=this->m_metrics.begin();
-        it!=this->m_metrics.end();
-        it++)
-    {
-        delete *it;
-    }
+	}
+
+	Encoding::clear_parameters();
+	for(typename list<terminator<Chromosome,Encoding>*>::iterator it=this->m_terminators.begin();
+	        it!=this->m_terminators.end();
+	        it++) {
+		delete *it;
+	}
+	for(typename list<metric<Chromosome,Encoding>*>::iterator it=this->m_metrics.begin();
+	        it!=this->m_metrics.end();
+	        it++) {
+		delete *it;
+	}
 }
 
 /*!
@@ -69,18 +69,16 @@ sls<Chromosome,Encoding>::~sls()
 template <template <typename> class Chromosome, typename Encoding>
 void sls<Chromosome,Encoding>::chromosome_evaluated(const Chromosome<Encoding>& chr)
 {
-    for(typename list<terminator<Chromosome,Encoding>*>::iterator it=m_terminators.begin();
-        it!=m_terminators.end();
-        it++)
-    {
-        (*it)->chromosome_evaluated(chr);
-    }
-    for(typename list<metric<Chromosome,Encoding>*>::iterator it=m_metrics.begin();
-        it!=m_metrics.end();
-        it++)
-    {
-        (*it)->chromosome_evaluated(chr);
-    }
+	for(typename list<terminator<Chromosome,Encoding>*>::iterator it=m_terminators.begin();
+	        it!=m_terminators.end();
+	        it++) {
+		(*it)->chromosome_evaluated(chr);
+	}
+	for(typename list<metric<Chromosome,Encoding>*>::iterator it=m_metrics.begin();
+	        it!=m_metrics.end();
+	        it++) {
+		(*it)->chromosome_evaluated(chr);
+	}
 }
 
 /*!
@@ -89,20 +87,17 @@ void sls<Chromosome,Encoding>::chromosome_evaluated(const Chromosome<Encoding>& 
 template <template <typename> class Chromosome, typename Encoding>
 void sls<Chromosome,Encoding>::generation_completed()
 {
-    for(typename list<terminator<Chromosome,Encoding>*>::iterator it=m_terminators.begin();
-        it!=m_terminators.end();
-        it++)
-    {
-        (*it)->generation_completed();
-    }
-    for(typename list<metric<Chromosome,Encoding>*>::iterator it=m_metrics.begin();
-        it!=m_metrics.end();
-        it++)
-    {
-        (*it)->generation_completed();
-    }
-	if(m_print_every_generation)
-	{
+	for(typename list<terminator<Chromosome,Encoding>*>::iterator it=m_terminators.begin();
+	        it!=m_terminators.end();
+	        it++) {
+		(*it)->generation_completed();
+	}
+	for(typename list<metric<Chromosome,Encoding>*>::iterator it=m_metrics.begin();
+	        it!=m_metrics.end();
+	        it++) {
+		(*it)->generation_completed();
+	}
+	if(m_print_every_generation) {
 		report_metrics(cout);
 		cout << endl;
 	}
@@ -114,20 +109,17 @@ void sls<Chromosome,Encoding>::generation_completed()
 template <template <typename> class Chromosome, typename Encoding>
 void sls<Chromosome,Encoding>::generation_completed(const population<Chromosome,Encoding>& pop)
 {
-    for(typename list<terminator<Chromosome,Encoding>*>::iterator it=m_terminators.begin();
-        it!=m_terminators.end();
-        it++)
-    {
-        (*it)->generation_completed(pop);
-    }
-    for(typename list<metric<Chromosome,Encoding>*>::iterator it=m_metrics.begin();
-        it!=m_metrics.end();
-        it++)
-    {
-        (*it)->generation_completed(pop);
-    }
-	if(m_print_every_generation)
-	{
+	for(typename list<terminator<Chromosome,Encoding>*>::iterator it=m_terminators.begin();
+	        it!=m_terminators.end();
+	        it++) {
+		(*it)->generation_completed(pop);
+	}
+	for(typename list<metric<Chromosome,Encoding>*>::iterator it=m_metrics.begin();
+	        it!=m_metrics.end();
+	        it++) {
+		(*it)->generation_completed(pop);
+	}
+	if(m_print_every_generation) {
 		report_metrics(cout);
 		cout << endl;
 	}
@@ -139,16 +131,14 @@ void sls<Chromosome,Encoding>::generation_completed(const population<Chromosome,
 template <template <typename> class Chromosome, typename Encoding>
 bool sls<Chromosome,Encoding>::terminate()
 {
-    for(typename list<terminator<Chromosome,Encoding>*>::const_iterator it=m_terminators.begin();
-		it != m_terminators.end();
-		it++)
-    {
-		if((*it)->terminate())
-		{
+	for(typename list<terminator<Chromosome,Encoding>*>::const_iterator it=m_terminators.begin();
+	        it != m_terminators.end();
+	        it++) {
+		if((*it)->terminate()) {
 			return true;
 		}
-    }
-    return false;
+	}
+	return false;
 }
 
 /*!
@@ -157,12 +147,11 @@ bool sls<Chromosome,Encoding>::terminate()
 template <template <typename> class Chromosome, typename Encoding>
 void sls<Chromosome,Encoding>::compute_metrics()
 {
-    for(typename list<metric<Chromosome,Encoding>*>::iterator it=m_metrics.begin();
-        it != m_metrics.end();
-        it++)
-    {
-        (*it)->compute();
-    }
+	for(typename list<metric<Chromosome,Encoding>*>::iterator it=m_metrics.begin();
+	        it != m_metrics.end();
+	        it++) {
+		(*it)->compute();
+	}
 }
 
 /*!
@@ -171,12 +160,11 @@ void sls<Chromosome,Encoding>::compute_metrics()
 template <template <typename> class Chromosome, typename Encoding>
 void sls<Chromosome,Encoding>::report_metrics(ostream& ostr)
 {
-    for(typename list<metric<Chromosome,Encoding>*>::const_iterator it=m_metrics.begin();
-        it!=m_metrics.end();
-        it++)
-    {
-        (*it)->report(ostr);
-    }
+	for(typename list<metric<Chromosome,Encoding>*>::const_iterator it=m_metrics.begin();
+	        it!=m_metrics.end();
+	        it++) {
+		(*it)->report(ostr);
+	}
 }
 
 /*!
@@ -185,26 +173,25 @@ void sls<Chromosome,Encoding>::report_metrics(ostream& ostr)
 template <template <typename> class Chromosome, typename Encoding>
 void sls<Chromosome,Encoding>::initialize()
 {
-    // read in the objective function information
-    this->m_fitfunc = Encoding::ProblemFactoryType::construct();
-    
-    // initialize the encoding parameters
-    Encoding::initialize_parameters(m_fitfunc);
-    
-    // get and construct the termination criteria
-    terminator_factory<Chromosome,Encoding> tf;
-    m_terminators = tf.construct();
-    
-    // initialize the performance metrics
-    metric_factory<Chromosome,Encoding> mf;
-    m_metrics = mf.construct();
+	// read in the objective function information
+	this->m_fitfunc = Encoding::ProblemFactoryType::construct();
 
-    // configure the repair operator
-    if(configuration::keyword_exists(keywords::REPAIR_OPERATOR))
-    {
+	// initialize the encoding parameters
+	Encoding::initialize_parameters(m_fitfunc);
+
+	// get and construct the termination criteria
+	terminator_factory<Chromosome,Encoding> tf;
+	m_terminators = tf.construct();
+
+	// initialize the performance metrics
+	metric_factory<Chromosome,Encoding> mf;
+	m_metrics = mf.construct();
+
+	// configure the repair operator
+	if(configuration::keyword_exists(keywords::REPAIR_OPERATOR)) {
 		repair_factory<Chromosome,Encoding> rof;
 		this->m_repair=rof.construct();
-    }
+	}
 
 	// verbose logging
 	m_print_every_generation = false;

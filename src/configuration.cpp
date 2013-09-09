@@ -40,7 +40,7 @@ configuration::configuration()
  */
 configuration::~configuration()
 {
-    // no dynamic memory to worry about
+	// no dynamic memory to worry about
 }
 
 /*!
@@ -48,7 +48,7 @@ configuration::~configuration()
  */
 void configuration::clear()
 {
-    m_db.erase(m_db.begin(), m_db.end());
+	m_db.erase(m_db.begin(), m_db.end());
 }
 
 /*!
@@ -56,74 +56,68 @@ void configuration::clear()
  */
 bool configuration::read_configuration_file(const string& filename)
 {
-    ifstream in(filename.c_str());
-    if(!in)
-    {
-        error("failed to open configuration file: " + filename);
-    }
+	ifstream in(filename.c_str());
+	if(!in) {
+		error("failed to open configuration file: " + filename);
+	}
 
-    //bool lengthFound = false;
-    int lineno=0;
-    string line;
-    while(!getline(in, line).eof())
-    {
-        // update the line number
-        lineno++;
+	//bool lengthFound = false;
+	int lineno=0;
+	string line;
+	while(!getline(in, line).eof()) {
+		// update the line number
+		lineno++;
 
-        // remove any comments
-        int hashpos = (int)line.find("#", 0);
-        if(hashpos != (int)string::npos)
-        {
-            line = line.erase(hashpos);
-        }
+		// remove any comments
+		int hashpos = (int)line.find("#", 0);
+		if(hashpos != (int)string::npos) {
+			line = line.erase(hashpos);
+		}
 
-        // if the line is (now) blank, just go to the next line
-        if(line == "")
-        {
-            continue;
-        }
-      
-        // parse the line into keyword and values
-        // first, find the delimiter
-        int delimiterpos = (int)line.find(":", 0);
+		// if the line is (now) blank, just go to the next line
+		if(line == "") {
+			continue;
+		}
 
-        // if there was no ":" delimiter, try an "="
-        if(delimiterpos == (int)string::npos)
-        {
-            delimiterpos = (int)line.find("=", 0);
-        }
+		// parse the line into keyword and values
+		// first, find the delimiter
+		int delimiterpos = (int)line.find(":", 0);
 
-        // if still no delimiter, declare an error
-        if(delimiterpos == (int)string::npos)
-        {
-            ostringstream mystr;
-            mystr << "error in " << filename << " (" << lineno <<  "): "
-                  << line << endl;
-            error(mystr.str());
-        }
+		// if there was no ":" delimiter, try an "="
+		if(delimiterpos == (int)string::npos) {
+			delimiterpos = (int)line.find("=", 0);
+		}
 
-        // now we have the left hand side and right hand side
-        string thekeyword = line.substr(0, delimiterpos);
-        string thevalue   = line.substr(delimiterpos+1);
+		// if still no delimiter, declare an error
+		if(delimiterpos == (int)string::npos) {
+			ostringstream mystr;
+			mystr << "error in " << filename << " (" << lineno <<  "): "
+			      << line << endl;
+			error(mystr.str());
+		}
 
-        // trim any leading or trailing spaces from the keyword
-        int first_non_space;
-        int last_non_space;
-        first_non_space = (int)thekeyword.find_first_not_of(" \t");
-        last_non_space = (int)thekeyword.find_last_not_of(" \t");
-        int tokenlen = last_non_space - first_non_space + 1;
-        thekeyword = thekeyword.substr(first_non_space, tokenlen);
+		// now we have the left hand side and right hand side
+		string thekeyword = line.substr(0, delimiterpos);
+		string thevalue   = line.substr(delimiterpos+1);
 
-        // trim any leading or trailing spaces from the value
-        first_non_space = (int)thevalue.find_first_not_of(" \t");
-        last_non_space = (int)thevalue.find_last_not_of(" \t");
-        tokenlen = last_non_space - first_non_space + 1;
-        thevalue = thevalue.substr(first_non_space, tokenlen);
+		// trim any leading or trailing spaces from the keyword
+		int first_non_space;
+		int last_non_space;
+		first_non_space = (int)thekeyword.find_first_not_of(" \t");
+		last_non_space = (int)thekeyword.find_last_not_of(" \t");
+		int tokenlen = last_non_space - first_non_space + 1;
+		thekeyword = thekeyword.substr(first_non_space, tokenlen);
 
-        // add the mapping to the database
-        add_value(thekeyword, thevalue);
-    }
-    return true;
+		// trim any leading or trailing spaces from the value
+		first_non_space = (int)thevalue.find_first_not_of(" \t");
+		last_non_space = (int)thevalue.find_last_not_of(" \t");
+		tokenlen = last_non_space - first_non_space + 1;
+		thevalue = thevalue.substr(first_non_space, tokenlen);
+
+		// add the mapping to the database
+		add_value(thekeyword, thevalue);
+	}
+	return true;
 }
 
 /*!
@@ -133,22 +127,19 @@ bool configuration::read_configuration_file(const string& filename)
  */
 int configuration::add_value(const string &keyword,const string &value)
 {
-    if(!keyword_exists(keyword))
-    {
-        list<string> valueList;
-        valueList.push_back(value);
+	if(!keyword_exists(keyword)) {
+		list<string> valueList;
+		valueList.push_back(value);
 
-        m_db[keyword]=valueList;
-        return 1;
-    }
-    else
-    {
-        map<string,list<string> >::iterator mapIter;
-        mapIter=m_db.find(keyword);      
+		m_db[keyword]=valueList;
+		return 1;
+	} else {
+		map<string,list<string> >::iterator mapIter;
+		mapIter=m_db.find(keyword);
 
-        ((*mapIter).second).push_back(value);
-        return (int)((*mapIter).second).size();
-    }
+		((*mapIter).second).push_back(value);
+		return (int)((*mapIter).second).size();
+	}
 }
 
 /*!
@@ -160,30 +151,26 @@ int configuration::add_value(const string &keyword,const string &value)
  */
 int configuration::remove_value(const string &keyword,const string &value)
 {
-    assert(keyword_exists(keyword));
+	assert(keyword_exists(keyword));
 
-    map<string,list<string> >::iterator mapIter;
-    mapIter=m_db.find(keyword);
+	map<string,list<string> >::iterator mapIter;
+	mapIter=m_db.find(keyword);
 
-    list<string> &valueList=(*mapIter).second;
-    list<string>::iterator valueIter;
+	list<string> &valueList=(*mapIter).second;
+	list<string>::iterator valueIter;
 
-    valueIter=find(valueList.begin(),valueList.end(),value);
-    if(valueIter==valueList.end())
-    {
-        return 0;
-    }
-    (void)valueList.erase(valueIter);
+	valueIter=find(valueList.begin(),valueList.end(),value);
+	if(valueIter==valueList.end()) {
+		return 0;
+	}
+	(void)valueList.erase(valueIter);
 
-    if(valueList.size()==0)
-    {
-        m_db.erase(mapIter);
-        return 0;
-    }
-    else
-    {
-        return (int)valueList.size();
-    }
+	if(valueList.size()==0) {
+		m_db.erase(mapIter);
+		return 0;
+	} else {
+		return (int)valueList.size();
+	}
 }
 
 /*!
@@ -191,13 +178,12 @@ int configuration::remove_value(const string &keyword,const string &value)
  */
 bool configuration::keyword_exists(const string &keyword)
 {
-    map<string,list<string> >::const_iterator iter;
-    iter=m_db.find(keyword);
-    if(iter==m_db.end())
-    {
-        return false;
-    }
-    return true;
+	map<string,list<string> >::const_iterator iter;
+	iter=m_db.find(keyword);
+	if(iter==m_db.end()) {
+		return false;
+	}
+	return true;
 }
 
 /*!
@@ -205,19 +191,18 @@ bool configuration::keyword_exists(const string &keyword)
  */
 bool configuration::has_unique_value(const string &keyword)
 {
-    assert(keyword_exists(keyword));
+	assert(keyword_exists(keyword));
 
-    map<string,list<string> >::const_iterator iter;
-    iter=m_db.find(keyword);
+	map<string,list<string> >::const_iterator iter;
+	iter=m_db.find(keyword);
 
-    const list<string> &valueList=(*iter).second;
+	const list<string> &valueList=(*iter).second;
 
-    if(valueList.size()!=1)
-    {
-        return false;
-    }
+	if(valueList.size()!=1) {
+		return false;
+	}
 
-    return true;  
+	return true;
 }
 
 /*!
@@ -225,12 +210,12 @@ bool configuration::has_unique_value(const string &keyword)
  */
 list<string> configuration::values(const string &keyword)
 {
-    assert(keyword_exists(keyword));
+	assert(keyword_exists(keyword));
 
-    map<string,list<string> >::const_iterator iter;
-    iter=m_db.find(keyword);
+	map<string,list<string> >::const_iterator iter;
+	iter=m_db.find(keyword);
 
-    return (*iter).second;
+	return (*iter).second;
 }
 
 /*!
@@ -238,19 +223,18 @@ list<string> configuration::values(const string &keyword)
  */
 string configuration::value(const string &keyword)
 {
-    assert(keyword_exists(keyword));
+	assert(keyword_exists(keyword));
 
-    map<string,list<string> >::const_iterator iter;
-    iter=m_db.find(keyword);
+	map<string,list<string> >::const_iterator iter;
+	iter=m_db.find(keyword);
 
-    const list<string> &values=(*iter).second;
+	const list<string> &values=(*iter).second;
 
-    if(values.size()!=1)
-    {
-        return string();
-    }
+	if(values.size()!=1) {
+		return string();
+	}
 
-    return values.front();
+	return values.front();
 }
 
 /*!
@@ -258,25 +242,20 @@ string configuration::value(const string &keyword)
  */
 bool configuration::string_parameter(const string &keyword, string& res, bool required)
 {
-    if(!keyword_exists(keyword))
-    {
-        if(required)
-        {
-            error("required keyword: " + keyword + " not specified.");
-        }
-        else
-        {
-            return false;
-        }
-    }
+	if(!keyword_exists(keyword)) {
+		if(required) {
+			error("required keyword: " + keyword + " not specified.");
+		} else {
+			return false;
+		}
+	}
 
-    if(!has_unique_value(keyword))
-    {
-        error("keyword " + keyword + " has multiple values.");
-    }
+	if(!has_unique_value(keyword)) {
+		error("keyword " + keyword + " has multiple values.");
+	}
 
-    res=value(keyword);
-    return true;
+	res=value(keyword);
+	return true;
 }
 
 /*!
@@ -284,25 +263,20 @@ bool configuration::string_parameter(const string &keyword, string& res, bool re
  */
 bool configuration::integer_parameter(const string& keyword, int& res, bool required)
 {
-    if(!keyword_exists(keyword))
-    {
-        if(required)
-        {
-            error("required keyword: " + keyword + " not specified.");
-        }
-        else
-        {
-            return false;
-        }
-    }
-    if(!has_unique_value(keyword))
-    {
-        error("keyword " + keyword + " has multiple values.");
-    }
+	if(!keyword_exists(keyword)) {
+		if(required) {
+			error("required keyword: " + keyword + " not specified.");
+		} else {
+			return false;
+		}
+	}
+	if(!has_unique_value(keyword)) {
+		error("keyword " + keyword + " has multiple values.");
+	}
 
-    string temp=value(keyword);
-    res=atoi(temp.c_str());
-    return true;
+	string temp=value(keyword);
+	res=atoi(temp.c_str());
+	return true;
 }
 
 /*!
@@ -310,25 +284,20 @@ bool configuration::integer_parameter(const string& keyword, int& res, bool requ
  */
 bool configuration::unsigned_integer_parameter(const string& keyword, unsigned int& res, bool required)
 {
-    if(!keyword_exists(keyword))
-    {
-        if(required)
-        {
-            error("required keyword: " + keyword + " not specified.");
-        }
-        else
-        {
-            return false;
-        }
-    }
-    if(!has_unique_value(keyword))
-    {
-        error("keyword " + keyword + " has multiple values.");
-    }
+	if(!keyword_exists(keyword)) {
+		if(required) {
+			error("required keyword: " + keyword + " not specified.");
+		} else {
+			return false;
+		}
+	}
+	if(!has_unique_value(keyword)) {
+		error("keyword " + keyword + " has multiple values.");
+	}
 
-    string temp=value(keyword);
-    res=(unsigned int)atoi(temp.c_str());
-    return true;
+	string temp=value(keyword);
+	res=(unsigned int)atoi(temp.c_str());
+	return true;
 }
 
 /*!
@@ -336,25 +305,20 @@ bool configuration::unsigned_integer_parameter(const string& keyword, unsigned i
  */
 bool configuration::double_parameter(const string& keyword, double& res, bool required)
 {
-    if(!keyword_exists(keyword))
-    {
-        if(required)
-        {
-            error("required keyword: " + keyword + " not specified.");
-        }
-        else
-        {
-            return false;
-        }
-    }
-    if(!has_unique_value(keyword))
-    {
-        error("keyword " + keyword + " has multiple values.");
-    }
+	if(!keyword_exists(keyword)) {
+		if(required) {
+			error("required keyword: " + keyword + " not specified.");
+		} else {
+			return false;
+		}
+	}
+	if(!has_unique_value(keyword)) {
+		error("keyword " + keyword + " has multiple values.");
+	}
 
-    string temp=value(keyword);
-    res=atof(temp.c_str());
-    return true;
+	string temp=value(keyword);
+	res=atof(temp.c_str());
+	return true;
 }
 
 /*!
@@ -362,37 +326,27 @@ bool configuration::double_parameter(const string& keyword, double& res, bool re
  */
 bool configuration::boolean_parameter(const string& keyword, bool& res, bool required)
 {
-    if(!keyword_exists(keyword))
-    {
-        if(required)
-        {
-            error("required keyword: " + keyword + " not specified.");
-        }
-        else
-        {
-            return false;
-        }
-    }
-    if(!has_unique_value(keyword))
-    {
-        error("keyword " + keyword + " has multiple values.");
-    }
+	if(!keyword_exists(keyword)) {
+		if(required) {
+			error("required keyword: " + keyword + " not specified.");
+		} else {
+			return false;
+		}
+	}
+	if(!has_unique_value(keyword)) {
+		error("keyword " + keyword + " has multiple values.");
+	}
 
-    string temp = value(keyword);
-    if(temp == "true" || temp == "yes")
-    {
-        res = true;
-    }
-    else if(temp == "false" || temp == "no")
-    {
-        res = false;
-    }
-    else
-    {
-        warning("keyword " + keyword + " should be specified as true or false.");
-        return false;
-    }
-    return true;
+	string temp = value(keyword);
+	if(temp == "true" || temp == "yes") {
+		res = true;
+	} else if(temp == "false" || temp == "no") {
+		res = false;
+	} else {
+		warning("keyword " + keyword + " should be specified as true or false.");
+		return false;
+	}
+	return true;
 }
 
 /*!
@@ -400,23 +354,17 @@ bool configuration::boolean_parameter(const string& keyword, bool& res, bool req
  */
 bool configuration::list_parameter(const string& keyword, list<string>& res, bool required)
 {
-    if(keyword_exists(keyword))
-    {
-        res = configuration::values(keyword);
-        return true;
-    }
-    else
-    {
-        if(required)
-        {
-            error("required keyword: " + keyword + " not specified.");
-        }
-        else
-        {
-            return true;
-        }
-    }
-    return false;
+	if(keyword_exists(keyword)) {
+		res = configuration::values(keyword);
+		return true;
+	} else {
+		if(required) {
+			error("required keyword: " + keyword + " not specified.");
+		} else {
+			return true;
+		}
+	}
+	return false;
 }
 
 /*!
@@ -424,19 +372,17 @@ bool configuration::list_parameter(const string& keyword, list<string>& res, boo
  */
 void configuration::dump_contents(ostream &ostr)
 {
-    map<string,list<string> >::const_iterator mapIter;  
-    for(mapIter=m_db.begin(); mapIter!=m_db.end(); mapIter++)
-    {
-        ostr << "Keyword: " << (*mapIter).first << "  |  ";
-        const list<string> &values=(*mapIter).second;
-        list<string>::const_iterator valueIter;
-        ostr << "Values: ";
-        for(valueIter=values.begin();
-            valueIter!=values.end();
-            valueIter++)
-        {
-            ostr << *valueIter << " ";
-        }
-        ostr << endl;
-    }
+	map<string,list<string> >::const_iterator mapIter;
+	for(mapIter=m_db.begin(); mapIter!=m_db.end(); mapIter++) {
+		ostr << "Keyword: " << (*mapIter).first << "  |  ";
+		const list<string> &values=(*mapIter).second;
+		list<string>::const_iterator valueIter;
+		ostr << "Values: ";
+		for(valueIter=values.begin();
+		        valueIter!=values.end();
+		        valueIter++) {
+			ostr << *valueIter << " ";
+		}
+		ostr << endl;
+	}
 }

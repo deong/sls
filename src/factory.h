@@ -22,12 +22,12 @@ using std::string;
 class factory
 {
 public:
-    factory();
-    virtual ~factory();
-    void set_prefix(const string& prefix);
+	factory();
+	virtual ~factory();
+	void set_prefix(const string& prefix);
 
 protected:
-    string m_prefix;
+	string m_prefix;
 };
 
 #endif

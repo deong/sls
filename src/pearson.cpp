@@ -17,22 +17,20 @@ using namespace std;
 
 int main(int argc, char** argv)
 {
-    if(argc != 2)
-    {
-        cerr << "usage: pearson <datafile>" << endl;
-        exit(1);
-    }
+	if(argc != 2) {
+		cerr << "usage: pearson <datafile>" << endl;
+		exit(1);
+	}
 
-    vector<pair<double,double> > points;
-    
-    ifstream in(argv[1]);
-    while(!in.eof())
-    {
-        double x, y, z;
-        in >> x >> y >> z;
-        points.push_back(make_pair<double,double>(x, z));
-    }
+	vector<pair<double,double> > points;
 
-    cout << compute_pearson_correlation(points) << endl;
-    return 0;
+	ifstream in(argv[1]);
+	while(!in.eof()) {
+		double x, y, z;
+		in >> x >> y >> z;
+		points.push_back(make_pair<double,double>(x, z));
+	}
+
+	cout << compute_pearson_correlation(points) << endl;
+	return 0;
 }

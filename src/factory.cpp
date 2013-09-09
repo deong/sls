@@ -12,7 +12,7 @@
  */
 factory::factory()
 {
-    m_prefix="";
+	m_prefix="";
 }
 
 /*!
@@ -27,5 +27,5 @@ factory::~factory()
  */
 void factory::set_prefix(const string& prefix)
 {
-    m_prefix=prefix;
+	m_prefix=prefix;
 }

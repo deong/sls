@@ -26,32 +26,32 @@ using namespace std;
  * base class for all stochastic local search algorithms
  */
 template <template <typename> class Chromosome, typename Encoding>
-class sls 
+class sls
 {
 private:
-    // disable copying of heavyweight class
-    sls(const sls& that);
-    sls& operator=(const sls& that);
+	// disable copying of heavyweight class
+	sls(const sls& that);
+	sls& operator=(const sls& that);
 
 	static bool m_print_every_generation;
-	
+
 protected:
-    typename Encoding::ProblemType* m_fitfunc;
-    repair_operator<Chromosome,Encoding>* m_repair;
-    static list<metric<Chromosome,Encoding>*> m_metrics;
-    static list<terminator<Chromosome,Encoding>*> m_terminators;
-    
+	typename Encoding::ProblemType* m_fitfunc;
+	repair_operator<Chromosome,Encoding>* m_repair;
+	static list<metric<Chromosome,Encoding>*> m_metrics;
+	static list<terminator<Chromosome,Encoding>*> m_terminators;
+
 public:
-    sls();
-    virtual ~sls();
-    static void chromosome_evaluated(const Chromosome<Encoding>& sol);
-    static void generation_completed();
-    static void generation_completed(const population<Chromosome,Encoding>& pop);
-    static void compute_metrics();
-    static void report_metrics(ostream& ostr);
-    static bool terminate();
-    virtual void initialize();
-    virtual void run() = 0;
+	sls();
+	virtual ~sls();
+	static void chromosome_evaluated(const Chromosome<Encoding>& sol);
+	static void generation_completed();
+	static void generation_completed(const population<Chromosome,Encoding>& pop);
+	static void compute_metrics();
+	static void report_metrics(ostream& ostr);
+	static bool terminate();
+	virtual void initialize();
+	virtual void run() = 0;
 };
 
 #include "sls.cpp"

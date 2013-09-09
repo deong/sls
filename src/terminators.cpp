@@ -44,7 +44,7 @@ terminator<Chromosome,Encoding>::~terminator()
 template <template <typename> class Chromosome, typename Encoding>
 void terminator<Chromosome,Encoding>::initialize(const string& prefix)
 {
-    m_prefix=prefix;
+	m_prefix=prefix;
 }
 
 /*!
@@ -76,8 +76,8 @@ void terminator<Chromosome,Encoding>::generation_completed(const population<Chro
  */
 template <template <typename> class Chromosome, typename Encoding>
 evaluation_limit<Chromosome,Encoding>::evaluation_limit() :
-    m_evals(0),
-    m_max_evals(0)
+	m_evals(0),
+	m_max_evals(0)
 {
 }
 
@@ -95,8 +95,8 @@ evaluation_limit<Chromosome,Encoding>::~evaluation_limit()
 template <template <typename> class Chromosome, typename Encoding>
 void evaluation_limit<Chromosome,Encoding>::initialize(const string& prefix)
 {
-    terminator<Chromosome,Encoding>::initialize(prefix);
-    configuration::unsigned_integer_parameter(prefix+keywords::MAX_EVALUATIONS, m_max_evals, true);
+	terminator<Chromosome,Encoding>::initialize(prefix);
+	configuration::unsigned_integer_parameter(prefix+keywords::MAX_EVALUATIONS, m_max_evals, true);
 }
 
 /*!
@@ -105,7 +105,7 @@ void evaluation_limit<Chromosome,Encoding>::initialize(const string& prefix)
 template <template <typename> class Chromosome, typename Encoding>
 void evaluation_limit<Chromosome,Encoding>::reset()
 {
-    m_evals=0;
+	m_evals=0;
 }
 
 /*!
@@ -114,7 +114,7 @@ void evaluation_limit<Chromosome,Encoding>::reset()
 template <template <typename> class Chromosome, typename Encoding>
 void evaluation_limit<Chromosome,Encoding>::chromosome_evaluated(const Chromosome<Encoding>& sol)
 {
-    m_evals++;
+	m_evals++;
 }
 
 /*!
@@ -123,7 +123,7 @@ void evaluation_limit<Chromosome,Encoding>::chromosome_evaluated(const Chromosom
 template <template <typename> class Chromosome, typename Encoding>
 bool evaluation_limit<Chromosome,Encoding>::terminate() const
 {
-    return m_evals >= m_max_evals;
+	return m_evals >= m_max_evals;
 }
 
 /*!
@@ -131,8 +131,8 @@ bool evaluation_limit<Chromosome,Encoding>::terminate() const
  */
 template <template <typename> class Chromosome, typename Encoding>
 generation_limit<Chromosome,Encoding>::generation_limit() :
-    m_gens(0),
-    m_max_gens(0)
+	m_gens(0),
+	m_max_gens(0)
 {
 }
 
@@ -150,8 +150,8 @@ generation_limit<Chromosome,Encoding>::~generation_limit()
 template <template <typename> class Chromosome, typename Encoding>
 void generation_limit<Chromosome,Encoding>::initialize(const string& prefix)
 {
-    configuration::unsigned_integer_parameter(prefix+keywords::MAX_GENERATIONS,
-					      m_max_gens, true);
+	configuration::unsigned_integer_parameter(prefix+keywords::MAX_GENERATIONS,
+	        m_max_gens, true);
 }
 
 /*!
@@ -160,7 +160,7 @@ void generation_limit<Chromosome,Encoding>::initialize(const string& prefix)
 template <template <typename> class Chromosome, typename Encoding>
 void generation_limit<Chromosome,Encoding>::reset()
 {
-    m_gens=0;
+	m_gens=0;
 }
 
 /*!
@@ -169,7 +169,7 @@ void generation_limit<Chromosome,Encoding>::reset()
 template <template <typename> class Chromosome, typename Encoding>
 void generation_limit<Chromosome,Encoding>::generation_completed()
 {
-    m_gens++;
+	m_gens++;
 }
 
 /*!
@@ -178,7 +178,7 @@ void generation_limit<Chromosome,Encoding>::generation_completed()
 template <template <typename> class Chromosome, typename Encoding>
 void generation_limit<Chromosome,Encoding>::generation_completed(const population<Chromosome,Encoding>& pop)
 {
-    m_gens++;
+	m_gens++;
 }
 
 /*!
@@ -187,7 +187,7 @@ void generation_limit<Chromosome,Encoding>::generation_completed(const populatio
 template <template <typename> class Chromosome, typename Encoding>
 bool generation_limit<Chromosome,Encoding>::terminate() const
 {
-    return m_gens >= m_max_gens;
+	return m_gens >= m_max_gens;
 }
 
 /*!
@@ -222,7 +222,7 @@ void null_terminator<Chromosome,Encoding>::reset()
 template <template <typename> class Chromosome, typename Encoding>
 bool null_terminator<Chromosome,Encoding>::terminate() const
 {
-    return false;
+	return false;
 }
 
 /*!
@@ -231,35 +231,27 @@ bool null_terminator<Chromosome,Encoding>::terminate() const
 template <template <typename> class Chromosome, typename Encoding>
 list<terminator<Chromosome,Encoding>*> terminator_factory<Chromosome,Encoding>::construct()
 {
-    list<terminator<Chromosome,Encoding>*> termlist;
-    
-    list<string> tnames;
-    configuration::list_parameter(this->m_prefix+keywords::TERMINATOR, tnames, true);
+	list<terminator<Chromosome,Encoding>*> termlist;
 
-    for(list<string>::iterator it=tnames.begin(); it!=tnames.end(); it++)
-    {
-        string tname = (*it);
-        if(tname == keywords::EVALUATION_LIMIT)
-        {
-            evaluation_limit<Chromosome,Encoding>* term = new evaluation_limit<Chromosome,Encoding>;
-            term->initialize(this->m_prefix);
-            termlist.push_back(term);
-        }
-        else if(tname == keywords::GENERATION_LIMIT)
-        {
-            generation_limit<Chromosome,Encoding>* term = new generation_limit<Chromosome,Encoding>;
-            term->initialize(this->m_prefix);
-            termlist.push_back(term);
-        }
-        else if(tname == keywords::NULL_TERMINATOR)
-        {
-            null_terminator<Chromosome,Encoding>* term = new null_terminator<Chromosome,Encoding>;
-            termlist.push_back(term);
-        }
-        else
-        {
-            error("illegal terminator specified: " + tname);
-        }
-    }
-    return termlist;
+	list<string> tnames;
+	configuration::list_parameter(this->m_prefix+keywords::TERMINATOR, tnames, true);
+
+	for(list<string>::iterator it=tnames.begin(); it!=tnames.end(); it++) {
+		string tname = (*it);
+		if(tname == keywords::EVALUATION_LIMIT) {
+			evaluation_limit<Chromosome,Encoding>* term = new evaluation_limit<Chromosome,Encoding>;
+			term->initialize(this->m_prefix);
+			termlist.push_back(term);
+		} else if(tname == keywords::GENERATION_LIMIT) {
+			generation_limit<Chromosome,Encoding>* term = new generation_limit<Chromosome,Encoding>;
+			term->initialize(this->m_prefix);
+			termlist.push_back(term);
+		} else if(tname == keywords::NULL_TERMINATOR) {
+			null_terminator<Chromosome,Encoding>* term = new null_terminator<Chromosome,Encoding>;
+			termlist.push_back(term);
+		} else {
+			error("illegal terminator specified: " + tname);
+		}
+	}
+	return termlist;
 }

@@ -40,9 +40,9 @@ comparator<Chromosome,Encoding>::~comparator()
  */
 template <template <typename> class Chromosome, typename Encoding>
 inline bool comparator<Chromosome,Encoding>::operator()(const Chromosome<Encoding>& c1,
-                                                        const Chromosome<Encoding>& c2) const
+        const Chromosome<Encoding>& c2) const
 {
-    return compare(c1,c2) == -1;
+	return compare(c1,c2) == -1;
 }
 
 /*!
@@ -77,20 +77,15 @@ fitness_comparator<Chromosome,Encoding>::~fitness_comparator()
  */
 template <template <typename> class Chromosome, typename Encoding>
 inline int fitness_comparator<Chromosome,Encoding>::compare(const Chromosome<Encoding>& c1,
-                                                            const Chromosome<Encoding>& c2) const
+        const Chromosome<Encoding>& c2) const
 {
-    if(c1.fitness[0] < c2.fitness[0])
-    {
-        return -1;
-    }
-    else if(c1.fitness[0] > c2.fitness[0])
-    {
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
+	if(c1.fitness[0] < c2.fitness[0]) {
+		return -1;
+	} else if(c1.fitness[0] > c2.fitness[0]) {
+		return 1;
+	} else {
+		return 0;
+	}
 }
 
 /*!
@@ -114,35 +109,25 @@ pareto_dominance_comparator<Chromosome,Encoding>::~pareto_dominance_comparator()
  */
 template <template <typename> class Chromosome, typename Encoding>
 inline int pareto_dominance_comparator<Chromosome,Encoding>::compare(const Chromosome<Encoding>& c1,
-                                                                     const Chromosome<Encoding>& c2) const
+        const Chromosome<Encoding>& c2) const
 {
-    int res = 0;
-    for(unsigned int i=0; i<c1.fitness.size(); i++)
-    {
-        if(c1.fitness[i] > c2.fitness[i])
-        {
-            if(res == -1)
-            {
-                return 0;
-            }
-            else
-            {
-                res = 1;
-            }
-        }
-        else if(c1.fitness[i] < c2.fitness[i])
-        {
-            if(res == 1)
-            {
-                return 0;
-            }
-            else
-            {
-                res = -1;
-            }
-        }
-    }
-    return res;
+	int res = 0;
+	for(unsigned int i=0; i<c1.fitness.size(); i++) {
+		if(c1.fitness[i] > c2.fitness[i]) {
+			if(res == -1) {
+				return 0;
+			} else {
+				res = 1;
+			}
+		} else if(c1.fitness[i] < c2.fitness[i]) {
+			if(res == 1) {
+				return 0;
+			} else {
+				res = -1;
+			}
+		}
+	}
+	return res;
 }
 
 /*!
@@ -167,11 +152,10 @@ scalarizing_comparator<Chromosome,Encoding>::~scalarizing_comparator()
 template <template <typename> class Chromosome, typename Encoding>
 void scalarizing_comparator<Chromosome,Encoding>::initialize(const string& prefix)
 {
-    string keyword=prefix+keywords::WEIGHT_VECTOR;
-    if(configuration::keyword_exists(keyword))
-    {
-        configuration::vector_parameter<double>(keyword,weights,true);
-    }
+	string keyword=prefix+keywords::WEIGHT_VECTOR;
+	if(configuration::keyword_exists(keyword)) {
+		configuration::vector_parameter<double>(keyword,weights,true);
+	}
 }
 
 /*!
@@ -180,7 +164,7 @@ void scalarizing_comparator<Chromosome,Encoding>::initialize(const string& prefi
 template <template <typename> class Chromosome, typename Encoding>
 void scalarizing_comparator<Chromosome,Encoding>::initialize()
 {
-    this->initialize("");
+	this->initialize("");
 }
 
 /*!
@@ -189,17 +173,16 @@ void scalarizing_comparator<Chromosome,Encoding>::initialize()
 template <template <typename> class Chromosome, typename Encoding>
 void scalarizing_comparator<Chromosome,Encoding>::randomize_weights(unsigned int nobj)
 {
-    weights.clear();
-    weights.resize(nobj);
-    
-    mtrandom mt;
-    double remainder = 1.0;
-    for(unsigned int i=0; i<nobj-1; i++)
-    {
-        weights[i] = mt.random(0.0, remainder);
-        remainder -= weights[i];
-    }
-    weights[nobj-1] = remainder;
+	weights.clear();
+	weights.resize(nobj);
+
+	mtrandom mt;
+	double remainder = 1.0;
+	for(unsigned int i=0; i<nobj-1; i++) {
+		weights[i] = mt.random(0.0, remainder);
+		remainder -= weights[i];
+	}
+	weights[nobj-1] = remainder;
 }
 
 /*!
@@ -207,29 +190,23 @@ void scalarizing_comparator<Chromosome,Encoding>::randomize_weights(unsigned int
  */
 template <template <typename> class Chromosome, typename Encoding>
 inline int scalarizing_comparator<Chromosome,Encoding>::compare(const Chromosome<Encoding>& c1,
-                                                                const Chromosome<Encoding>& c2) const
+        const Chromosome<Encoding>& c2) const
 {
-    double val1 = 0;
-    double val2 = 0;
+	double val1 = 0;
+	double val2 = 0;
 
-    for(unsigned int i=0; i<c1.fitness.size(); i++)
-    {
-        val1 += weights[i] * c1.fitness[i];
-        val2 += weights[i] * c2.fitness[i];
-    }
+	for(unsigned int i=0; i<c1.fitness.size(); i++) {
+		val1 += weights[i] * c1.fitness[i];
+		val2 += weights[i] * c2.fitness[i];
+	}
 
-    if(val1 < val2)
-    {
-        return -1;
-    }
-    else if (val1 > val2)
-    {
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
+	if(val1 < val2) {
+		return -1;
+	} else if (val1 > val2) {
+		return 1;
+	} else {
+		return 0;
+	}
 }
 
 /*!
@@ -237,18 +214,17 @@ inline int scalarizing_comparator<Chromosome,Encoding>::compare(const Chromosome
  */
 template <template <typename> class Chromosome, typename Encoding>
 inline double scalarizing_comparator<Chromosome,Encoding>::difference(const Chromosome<Encoding>& c1,
-								      const Chromosome<Encoding>& c2) const
+        const Chromosome<Encoding>& c2) const
 {
-    double val1=0;
-    double val2=0;
+	double val1=0;
+	double val2=0;
 
-    for(unsigned int i=0; i<c1.fitness.size(); i++)
-    {
-	val1+=weights[i]*c1.fitness[i];
-	val2+=weights[i]*c2.fitness[i];
-    }
+	for(unsigned int i=0; i<c1.fitness.size(); i++) {
+		val1+=weights[i]*c1.fitness[i];
+		val2+=weights[i]*c2.fitness[i];
+	}
 
-    return val1-val2;
+	return val1-val2;
 }
 
 /*!
@@ -272,43 +248,34 @@ weak_dominance_comparator<Chromosome,Encoding>::~weak_dominance_comparator()
  */
 template <template <typename> class Chromosome, typename Encoding>
 inline int weak_dominance_comparator<Chromosome,Encoding>::compare(const Chromosome<Encoding>& c1,
-                                                                   const Chromosome<Encoding>& c2) const
+        const Chromosome<Encoding>& c2) const
 {
-    // look at the first element of the fitness vector to determine
-    // which state we're in (see the documentation for a description
-    // of the finite state machine that implements weak dominance)
-    // note that weak dominance is ambiguous in that if two vectors
-    // are identical then each weakly dominates the other.  In that
-    // case, I return the -1 (indicating the first weakly dominates
-    // the second)
-    int state = 0;
-    if(c1.fitness[0] <= c2.fitness[0])
-    {
-        state = -1;
-    }
-    else
-    {
-        state = 1;
-    }
-    
-    for(unsigned int i=1; i<c1.fitness.size(); i++)
-    {
-        if(state == 1)
-        {
-            if(c1.fitness[i] < c2.fitness[i])
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            if(c1.fitness[i] > c2.fitness[i])
-            {
-                return 0;
-            }
-        }
-    }
-    return state;
+	// look at the first element of the fitness vector to determine
+	// which state we're in (see the documentation for a description
+	// of the finite state machine that implements weak dominance)
+	// note that weak dominance is ambiguous in that if two vectors
+	// are identical then each weakly dominates the other.  In that
+	// case, I return the -1 (indicating the first weakly dominates
+	// the second)
+	int state = 0;
+	if(c1.fitness[0] <= c2.fitness[0]) {
+		state = -1;
+	} else {
+		state = 1;
+	}
+
+	for(unsigned int i=1; i<c1.fitness.size(); i++) {
+		if(state == 1) {
+			if(c1.fitness[i] < c2.fitness[i]) {
+				return 0;
+			}
+		} else {
+			if(c1.fitness[i] > c2.fitness[i]) {
+				return 0;
+			}
+		}
+	}
+	return state;
 }
 
 /*!
@@ -332,47 +299,34 @@ strong_dominance_comparator<Chromosome,Encoding>::~strong_dominance_comparator()
  */
 template <template <typename> class Chromosome, typename Encoding>
 inline int strong_dominance_comparator<Chromosome,Encoding>::compare(const Chromosome<Encoding>& c1,
-                                                                     const Chromosome<Encoding>& c2) const
+        const Chromosome<Encoding>& c2) const
 {
-    // look at the first element of the fitness vector to determine
-    // which state we're in (see the documentation for a description
-    // of the finite state machine that implements strong dominance)
-    int state = 0;
-    if(c1.fitness[0] == c2.fitness[0])
-    {
-        return 0;
-    }
-    else if(c1.fitness[0] < c2.fitness[0])
-    {
-        state = -1;
-    }
-    else
-    {
-        state = 1;
-    }
-    
-    for(unsigned int i=1; i<c1.fitness.size(); i++)
-    {
-        if(c1.fitness[i] == c2.fitness[i])
-        {
-            return 0;
-        }
-        else if(c1.fitness[i] < c2.fitness[i])
-        {
-            if(state == 1)
-            {
-                return 0;
-            }
-        }
-        else if(c1.fitness[i] > c2.fitness[i])
-        {
-            if(state == -1)
-            {
-                return 0;
-            }
-        }
-    }
-    return state;
+	// look at the first element of the fitness vector to determine
+	// which state we're in (see the documentation for a description
+	// of the finite state machine that implements strong dominance)
+	int state = 0;
+	if(c1.fitness[0] == c2.fitness[0]) {
+		return 0;
+	} else if(c1.fitness[0] < c2.fitness[0]) {
+		state = -1;
+	} else {
+		state = 1;
+	}
+
+	for(unsigned int i=1; i<c1.fitness.size(); i++) {
+		if(c1.fitness[i] == c2.fitness[i]) {
+			return 0;
+		} else if(c1.fitness[i] < c2.fitness[i]) {
+			if(state == 1) {
+				return 0;
+			}
+		} else if(c1.fitness[i] > c2.fitness[i]) {
+			if(state == -1) {
+				return 0;
+			}
+		}
+	}
+	return state;
 }
 
 /*!
@@ -399,7 +353,7 @@ epsilon_dominance_comparator<Chromosome,Encoding>::~epsilon_dominance_comparator
 template <template <typename> class Chromosome, typename Encoding>
 void epsilon_dominance_comparator<Chromosome,Encoding>::initialize(const string& prefix)
 {
-    configuration::vector_parameter<double>(prefix+keywords::EPSILON, m_epsilon, true);
+	configuration::vector_parameter<double>(prefix+keywords::EPSILON, m_epsilon, true);
 }
 
 /*!
@@ -408,7 +362,7 @@ void epsilon_dominance_comparator<Chromosome,Encoding>::initialize(const string&
 template <template <typename> class Chromosome, typename Encoding>
 void epsilon_dominance_comparator<Chromosome,Encoding>::initialize()
 {
-    this->initialize("");
+	this->initialize("");
 }
 
 /*!
@@ -419,39 +373,30 @@ void epsilon_dominance_comparator<Chromosome,Encoding>::initialize()
  */
 template <template <typename> class Chromosome, typename Encoding>
 inline int epsilon_dominance_comparator<Chromosome,Encoding>::compare(const Chromosome<Encoding>& c1,
-                                                                      const Chromosome<Encoding>& c2) const
+        const Chromosome<Encoding>& c2) const
 {
-    // epsilon dominance is equivalent to weak dominance except instead
-    // of c1[i] <= c2[i] for all i, we need (1+epsilon)*c1[i] <= c2[i] for
-    // all i
-    int state = 0;
-    if((1+m_epsilon[0])*c1.fitness[0] <= c2.fitness[0])
-    {
-        state = -1;
-    }
-    else
-    {
-        state = 1;
-    }
-    
-    for(unsigned int i=1; i<c1.fitness.size(); i++)
-    {
-        if(state == 1)
-        {
-            if((1+m_epsilon[i])*c1.fitness[i] < c2.fitness[i])
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            if((1+m_epsilon[i])*c1.fitness[i] > c2.fitness[i])
-            {
-                return 0;
-            }
-        }
-    }
-    return state;
+	// epsilon dominance is equivalent to weak dominance except instead
+	// of c1[i] <= c2[i] for all i, we need (1+epsilon)*c1[i] <= c2[i] for
+	// all i
+	int state = 0;
+	if((1+m_epsilon[0])*c1.fitness[0] <= c2.fitness[0]) {
+		state = -1;
+	} else {
+		state = 1;
+	}
+
+	for(unsigned int i=1; i<c1.fitness.size(); i++) {
+		if(state == 1) {
+			if((1+m_epsilon[i])*c1.fitness[i] < c2.fitness[i]) {
+				return 0;
+			}
+		} else {
+			if((1+m_epsilon[i])*c1.fitness[i] > c2.fitness[i]) {
+				return 0;
+			}
+		}
+	}
+	return state;
 }
 
 /*!
@@ -460,7 +405,7 @@ inline int epsilon_dominance_comparator<Chromosome,Encoding>::compare(const Chro
 template <template <typename> class Chromosome, typename Encoding>
 single_objective_comparator<Chromosome,Encoding>::single_objective_comparator(unsigned int objnum)
 {
-    m_obj = objnum;
+	m_obj = objnum;
 }
 
 /*!
@@ -476,20 +421,15 @@ single_objective_comparator<Chromosome,Encoding>::~single_objective_comparator()
  */
 template <template <typename> class Chromosome, typename Encoding>
 inline int single_objective_comparator<Chromosome,Encoding>::compare(const Chromosome<Encoding>& c1,
-                                                                     const Chromosome<Encoding>& c2) const
+        const Chromosome<Encoding>& c2) const
 {
-    if(c1.fitness[m_obj] < c2.fitness[m_obj])
-    {
-        return -1;
-    }
-    else if(c1.fitness[m_obj] > c2.fitness[m_obj])
-    {
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
+	if(c1.fitness[m_obj] < c2.fitness[m_obj]) {
+		return -1;
+	} else if(c1.fitness[m_obj] > c2.fitness[m_obj]) {
+		return 1;
+	} else {
+		return 0;
+	}
 }
 
 /*!
@@ -498,42 +438,29 @@ inline int single_objective_comparator<Chromosome,Encoding>::compare(const Chrom
 template <template <typename> class Chromosome, typename Encoding>
 comparator<Chromosome,Encoding>* comparator_factory<Chromosome,Encoding>::construct()
 {
-    string comp;
-    configuration::string_parameter(this->m_prefix+keywords::COMPARATOR, comp, true);
-    if(comp == keywords::FITNESS_COMPARATOR)
-    {
-        return new fitness_comparator<Chromosome,Encoding>;
-    }
-    else if(comp == keywords::PARETO_DOMINANCE_COMPARATOR)
-    {
-        return new pareto_dominance_comparator<Chromosome,Encoding>;
-    }
-    else if(comp == keywords::WEAK_DOMINANCE_COMPARATOR)
-    {
-        return new weak_dominance_comparator<Chromosome,Encoding>;
-    }
-    else if(comp == keywords::STRONG_DOMINANCE_COMPARATOR)
-    {
-        return new strong_dominance_comparator<Chromosome,Encoding>;
-    }
-    else if(comp == keywords::EPSILON_DOMINANCE_COMPARATOR)
-    {
-        epsilon_dominance_comparator<Chromosome,Encoding>* c =
-            new epsilon_dominance_comparator<Chromosome,Encoding>;
-        c->initialize(this->m_prefix);
-        return c;
-    }
-    else if(comp == keywords::SCALARIZING_COMPARATOR)
-    {
-        scalarizing_comparator<Chromosome,Encoding>* c =
-            new scalarizing_comparator<Chromosome,Encoding>;
-        c->initialize(this->m_prefix);
-        return c;
-    }
-    else
-    {
-        cerr << "invalid comparator: " << comp << " specified" << endl;
-        exit(1);
-        return 0;
-    }
+	string comp;
+	configuration::string_parameter(this->m_prefix+keywords::COMPARATOR, comp, true);
+	if(comp == keywords::FITNESS_COMPARATOR) {
+		return new fitness_comparator<Chromosome,Encoding>;
+	} else if(comp == keywords::PARETO_DOMINANCE_COMPARATOR) {
+		return new pareto_dominance_comparator<Chromosome,Encoding>;
+	} else if(comp == keywords::WEAK_DOMINANCE_COMPARATOR) {
+		return new weak_dominance_comparator<Chromosome,Encoding>;
+	} else if(comp == keywords::STRONG_DOMINANCE_COMPARATOR) {
+		return new strong_dominance_comparator<Chromosome,Encoding>;
+	} else if(comp == keywords::EPSILON_DOMINANCE_COMPARATOR) {
+		epsilon_dominance_comparator<Chromosome,Encoding>* c =
+		    new epsilon_dominance_comparator<Chromosome,Encoding>;
+		c->initialize(this->m_prefix);
+		return c;
+	} else if(comp == keywords::SCALARIZING_COMPARATOR) {
+		scalarizing_comparator<Chromosome,Encoding>* c =
+		    new scalarizing_comparator<Chromosome,Encoding>;
+		c->initialize(this->m_prefix);
+		return c;
+	} else {
+		cerr << "invalid comparator: " << comp << " specified" << endl;
+		exit(1);
+		return 0;
+	}
 }

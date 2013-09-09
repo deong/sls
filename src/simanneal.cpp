@@ -45,20 +45,20 @@ simulated_annealing<Chromosome,Encoding>::~simulated_annealing()
 template <template <typename> class Chromosome, typename Encoding>
 void simulated_annealing<Chromosome,Encoding>::initialize()
 {
-    local_search<Chromosome,Encoding>::initialize();
-    double init_accept;
-    double final_accept;
-    configuration::double_parameter(keywords::INITIAL_50_PERCENTILE,init_accept,true);
-    configuration::double_parameter(keywords::FINAL_50_PERCENTILE,final_accept,true);
-    m_temp = -init_accept / log(0.5);
+	local_search<Chromosome,Encoding>::initialize();
+	double init_accept;
+	double final_accept;
+	configuration::double_parameter(keywords::INITIAL_50_PERCENTILE,init_accept,true);
+	configuration::double_parameter(keywords::FINAL_50_PERCENTILE,final_accept,true);
+	m_temp = -init_accept / log(0.5);
 
-    // compute the appropriate alpha
-    unsigned int maxeval;
-    unsigned int steps;
-    configuration::unsigned_integer_parameter("ls_"+keywords::MAX_EVALUATIONS,maxeval,true);
-    configuration::unsigned_integer_parameter(keywords::COOLING_STEPS,steps,true);
-    m_alpha=pow((final_accept/init_accept),1.0/steps);
-    m_schedule=maxeval/steps;
+	// compute the appropriate alpha
+	unsigned int maxeval;
+	unsigned int steps;
+	configuration::unsigned_integer_parameter("ls_"+keywords::MAX_EVALUATIONS,maxeval,true);
+	configuration::unsigned_integer_parameter(keywords::COOLING_STEPS,steps,true);
+	m_alpha=pow((final_accept/init_accept),1.0/steps);
+	m_schedule=maxeval/steps;
 }
 
 /*!
@@ -67,20 +67,20 @@ void simulated_annealing<Chromosome,Encoding>::initialize()
 template <template <typename> class Chromosome, typename Encoding>
 void simulated_annealing<Chromosome,Encoding>::reset()
 {
-    local_search<Chromosome,Encoding>::reset();
-    double init_accept;
-    double final_accept;
-    configuration::double_parameter(keywords::INITIAL_50_PERCENTILE,init_accept,true);
-    configuration::double_parameter(keywords::FINAL_50_PERCENTILE,final_accept,true);
-    m_temp = -init_accept / log(0.5);
+	local_search<Chromosome,Encoding>::reset();
+	double init_accept;
+	double final_accept;
+	configuration::double_parameter(keywords::INITIAL_50_PERCENTILE,init_accept,true);
+	configuration::double_parameter(keywords::FINAL_50_PERCENTILE,final_accept,true);
+	m_temp = -init_accept / log(0.5);
 
-    // compute the appropriate alpha
-    unsigned int maxeval;
-    unsigned int steps;
-    configuration::unsigned_integer_parameter("ls_"+keywords::MAX_EVALUATIONS,maxeval,true);
-    configuration::unsigned_integer_parameter(keywords::COOLING_STEPS,steps,true);
-    m_alpha=pow((final_accept/init_accept),1.0/steps);
-    m_schedule=maxeval/steps;
+	// compute the appropriate alpha
+	unsigned int maxeval;
+	unsigned int steps;
+	configuration::unsigned_integer_parameter("ls_"+keywords::MAX_EVALUATIONS,maxeval,true);
+	configuration::unsigned_integer_parameter(keywords::COOLING_STEPS,steps,true);
+	m_alpha=pow((final_accept/init_accept),1.0/steps);
+	m_schedule=maxeval/steps;
 }
 
 /*!
@@ -89,22 +89,16 @@ void simulated_annealing<Chromosome,Encoding>::reset()
 template <template <typename> class Chromosome, typename Encoding>
 bool simulated_annealing<Chromosome,Encoding>::accept_move(double delta) const
 {
-    if(delta<0)
-    {
-	return true;
-    }
-    else
-    {
-	mtrandom mt;
-	if(mt.random()<exp(-delta/m_temp))
-	{
-	    return true;
+	if(delta<0) {
+		return true;
+	} else {
+		mtrandom mt;
+		if(mt.random()<exp(-delta/m_temp)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
-	else
-	{
-	    return false;
-	}
-    }
 }
 
 /*!
@@ -112,61 +106,60 @@ bool simulated_annealing<Chromosome,Encoding>::accept_move(double delta) const
  */
 template <template <typename> class Chromosome, typename Encoding>
 void simulated_annealing<Chromosome,Encoding>::improve(Chromosome<Encoding>& chr,
-						       comparator<Chromosome,Encoding>* comp,
-						       const typename Encoding::ProblemType* prob)
+        comparator<Chromosome,Encoding>* comp,
+        const typename Encoding::ProblemType* prob)
 {
-    this->reset();
-    
-    // make sure the comparator is a scalarizing comparator
-    scalarizing_comparator<Chromosome,Encoding>* sc;
-    sc=dynamic_cast<scalarizing_comparator<Chromosome,Encoding>*>(comp);
-    
-    if(!sc)
-    {
-	error("attempt to use simulated annealing with comparator other than scalarizing");
-	return;
-    }
+	this->reset();
 
-    mtrandom mt;
-    unsigned int evals=0;
+	// make sure the comparator is a scalarizing comparator
+	scalarizing_comparator<Chromosome,Encoding>* sc;
+	sc=dynamic_cast<scalarizing_comparator<Chromosome,Encoding>*>(comp);
 
-    //! keep track of current best known solution
-    Chromosome<Encoding> best=chr;
-    
-    // loop until we reach maximum iterations
-    while(!this->terminate())
-    {
-	this->m_nf->initialize(chr);
-	while(this->m_nf->has_more_neighbors())
-	{
-	    // generate the next move
-	    move<Chromosome,Encoding> m=this->m_nf->next_neighbor();
-	    Chromosome<Encoding> tmp=chr;
-
-	    // evaluate the move 
-	    m.apply(tmp);
-	    tmp.evaluate(prob);
-	    this->chromosome_evaluated(tmp);
-
-	    bool accepted=false;
-	    double delta=sc->difference(tmp,chr);
-	    if(this->accept_move(delta))
-	    {
-		chr=tmp;
-		if(sc->compare(chr,best)<0)
-		    best=chr;
-		accepted=true;
-	    }
-
-	    // exponentially decay the temperature
-	    if(++evals%m_schedule == 0)
-		m_temp*=m_alpha;
-
-	    if(accepted)
-		break;
+	if(!sc) {
+		error("attempt to use simulated annealing with comparator other than scalarizing");
+		return;
 	}
-    }
 
-    // restore the best found
-    chr=best;
+	mtrandom mt;
+	unsigned int evals=0;
+
+	//! keep track of current best known solution
+	Chromosome<Encoding> best=chr;
+
+	// loop until we reach maximum iterations
+	while(!this->terminate()) {
+		this->m_nf->initialize(chr);
+		while(this->m_nf->has_more_neighbors()) {
+			// generate the next move
+			move<Chromosome,Encoding> m=this->m_nf->next_neighbor();
+			Chromosome<Encoding> tmp=chr;
+
+			// evaluate the move
+			m.apply(tmp);
+			tmp.evaluate(prob);
+			this->chromosome_evaluated(tmp);
+
+			bool accepted=false;
+			double delta=sc->difference(tmp,chr);
+			if(this->accept_move(delta)) {
+				chr=tmp;
+				if(sc->compare(chr,best)<0) {
+					best=chr;
+				}
+				accepted=true;
+			}
+
+			// exponentially decay the temperature
+			if(++evals%m_schedule == 0) {
+				m_temp*=m_alpha;
+			}
+
+			if(accepted) {
+				break;
+			}
+		}
+	}
+
+	// restore the best found
+	chr=best;
 }

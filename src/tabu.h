@@ -30,22 +30,22 @@ template <template <typename> class Chromosome, typename Encoding>
 class tabu_list
 {
 public:
-    typedef pair<move<Chromosome,Encoding>,unsigned int> tlist_item;
+	typedef pair<move<Chromosome,Encoding>,unsigned int> tlist_item;
 
 public:
-    tabu_list();
-    ~tabu_list();
-    void set_prefix(const string& prefix);
-    void initialize();
-    void clear();
-    void accept_move(const Chromosome<Encoding>& chr, const move<Chromosome,Encoding>& m, unsigned int iter);
-    bool tabu(const move<Chromosome,Encoding>& m, unsigned int iter) const;
+	tabu_list();
+	~tabu_list();
+	void set_prefix(const string& prefix);
+	void initialize();
+	void clear();
+	void accept_move(const Chromosome<Encoding>& chr, const move<Chromosome,Encoding>& m, unsigned int iter);
+	bool tabu(const move<Chromosome,Encoding>& m, unsigned int iter) const;
 
 private:
-    unsigned int _ttmin;
-    unsigned int _ttmax;
-    deque<tlist_item> _internal;
-    string m_prefix;
+	unsigned int _ttmin;
+	unsigned int _ttmax;
+	deque<tlist_item> _internal;
+	string m_prefix;
 };
 
 /*!
@@ -55,17 +55,17 @@ template <template <typename> class Chromosome, typename Encoding>
 class tabu_search : public local_search<Chromosome,Encoding>
 {
 public:
-    tabu_search();
-    virtual ~tabu_search();
-    virtual void set_prefix(const string& prefix);
-    virtual void initialize();
-    virtual void reset();
-    virtual void improve(Chromosome<Encoding>& chr,
-                         comparator<Chromosome,Encoding>* comp,
-                         const typename Encoding::ProblemType* prob);
+	tabu_search();
+	virtual ~tabu_search();
+	virtual void set_prefix(const string& prefix);
+	virtual void initialize();
+	virtual void reset();
+	virtual void improve(Chromosome<Encoding>& chr,
+	                     comparator<Chromosome,Encoding>* comp,
+	                     const typename Encoding::ProblemType* prob);
 
 protected:
-    tabu_list<Chromosome,Encoding>* _tlist;
+	tabu_list<Chromosome,Encoding>* _tlist;
 };
 
 #include "tabu.cpp"

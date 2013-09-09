@@ -30,19 +30,19 @@ template <template <typename> class Chromosome, typename Encoding>
 class pareto_front : public population<Chromosome,Encoding>
 {
 public:
-    pareto_front();
-    pareto_front(unsigned int sz);
-    pareto_front(const pareto_front& pf);
-    pareto_front(const population<Chromosome,Encoding>& pop);
-    virtual ~pareto_front();
+	pareto_front();
+	pareto_front(unsigned int sz);
+	pareto_front(const pareto_front& pf);
+	pareto_front(const population<Chromosome,Encoding>& pop);
+	virtual ~pareto_front();
 
-    // overload the add method to respect pareto dominance
-    virtual bool add(const Chromosome<Encoding>& chr);
+	// overload the add method to respect pareto dominance
+	virtual bool add(const Chromosome<Encoding>& chr);
 
-    void construct_front(const population<Chromosome,Encoding>& pop);
-    void construct_front(string filename, const typename Encoding::ProblemType* prob);
-    
-    friend ostream& operator<<<>(ostream& ostr, const population<Chromosome,Encoding>& p);
+	void construct_front(const population<Chromosome,Encoding>& pop);
+	void construct_front(string filename, const typename Encoding::ProblemType* prob);
+
+	friend ostream& operator<<<>(ostream& ostr, const population<Chromosome,Encoding>& p);
 };
 
 #include "pfront.cpp"

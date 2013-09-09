@@ -54,6 +54,6 @@ void convergence<Chromosome,Encoding>::generation_completed(const population<Chr
 template <template <typename> class Chromosome, typename Encoding>
 list<convergence<Chromosome,Encoding>*> convergence_factory<Chromosome,Encoding>::construct()
 {
-    list<convergence<Chromosome,Encoding>*> conv;
-    return conv;
+	list<convergence<Chromosome,Encoding>*> conv;
+	return conv;
 }

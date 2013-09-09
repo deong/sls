@@ -24,18 +24,18 @@ template <template <typename> class Chromosome, typename Encoding>
 class crossover_operator
 {
 private:
-    // disallow copying of functional classes
-    crossover_operator(const crossover_operator& that);
-    crossover_operator& operator=(const crossover_operator& that);
+	// disallow copying of functional classes
+	crossover_operator(const crossover_operator& that);
+	crossover_operator& operator=(const crossover_operator& that);
 
 public:
-    crossover_operator();
-    virtual ~crossover_operator();
+	crossover_operator();
+	virtual ~crossover_operator();
 
-    virtual void crossover(const Chromosome<Encoding>& p1,
-                           const Chromosome<Encoding>& p2,
-                           Chromosome<Encoding>& c1,
-                           Chromosome<Encoding>& c2) const = 0;
+	virtual void crossover(const Chromosome<Encoding>& p1,
+	                       const Chromosome<Encoding>& p2,
+	                       Chromosome<Encoding>& c1,
+	                       Chromosome<Encoding>& c2) const = 0;
 };
 
 /*!
@@ -44,21 +44,21 @@ public:
  * implementation class for uniform crossover
  */
 template <template <typename> class Chromosome, typename Encoding>
-class uniform_crossover_impl : public crossover_operator<Chromosome,Encoding> 
+class uniform_crossover_impl : public crossover_operator<Chromosome,Encoding>
 {
 private:
-    // disallow copying of functional classes
-    uniform_crossover_impl(const uniform_crossover_impl& that);
-    uniform_crossover_impl& operator=(const uniform_crossover_impl& that);
+	// disallow copying of functional classes
+	uniform_crossover_impl(const uniform_crossover_impl& that);
+	uniform_crossover_impl& operator=(const uniform_crossover_impl& that);
 
 public:
-    uniform_crossover_impl();
-    virtual ~uniform_crossover_impl();
+	uniform_crossover_impl();
+	virtual ~uniform_crossover_impl();
 
-    virtual void crossover(const Chromosome<Encoding>& p1,
-                           const Chromosome<Encoding>& p2,
-                           Chromosome<Encoding>& c1,
-                           Chromosome<Encoding>& c2) const;
+	virtual void crossover(const Chromosome<Encoding>& p1,
+	                       const Chromosome<Encoding>& p2,
+	                       Chromosome<Encoding>& c1,
+	                       Chromosome<Encoding>& c2) const;
 };
 
 /*!
@@ -69,7 +69,7 @@ public:
 template <template <typename> class Chromosome, typename Encoding> class uniform_crossover;
 template <template <typename> class Chromosome>
 class uniform_crossover<Chromosome,boolean_encoding> :
-    public uniform_crossover_impl<Chromosome,boolean_encoding>
+	public uniform_crossover_impl<Chromosome,boolean_encoding>
 {
 };
 
@@ -80,7 +80,7 @@ class uniform_crossover<Chromosome,boolean_encoding> :
  */
 template <template <typename> class Chromosome>
 class uniform_crossover<Chromosome,binary_encoding> :
-    public uniform_crossover_impl<Chromosome,binary_encoding>
+	public uniform_crossover_impl<Chromosome,binary_encoding>
 {
 };
 
@@ -91,7 +91,7 @@ class uniform_crossover<Chromosome,binary_encoding> :
  */
 template <template <typename> class Chromosome>
 class uniform_crossover<Chromosome,real_encoding> :
-    public uniform_crossover_impl<Chromosome,real_encoding>
+	public uniform_crossover_impl<Chromosome,real_encoding>
 {
 };
 
@@ -102,7 +102,7 @@ class uniform_crossover<Chromosome,real_encoding> :
  */
 template <template <typename> class Chromosome>
 class uniform_crossover<Chromosome,integer_encoding> :
-    public uniform_crossover_impl<Chromosome,integer_encoding>
+	public uniform_crossover_impl<Chromosome,integer_encoding>
 {
 };
 
@@ -113,7 +113,7 @@ class uniform_crossover<Chromosome,integer_encoding> :
  */
 template <template <typename> class Chromosome>
 class uniform_crossover<Chromosome,gap_encoding> :
-    public uniform_crossover_impl<Chromosome,gap_encoding>
+	public uniform_crossover_impl<Chromosome,gap_encoding>
 {
 };
 
@@ -124,7 +124,7 @@ class uniform_crossover<Chromosome,gap_encoding> :
  */
 template <template <typename> class Chromosome>
 class uniform_crossover<Chromosome,gsap_encoding> :
-    public uniform_crossover_impl<Chromosome,gsap_encoding>
+	public uniform_crossover_impl<Chromosome,gsap_encoding>
 {
 };
 
@@ -137,18 +137,18 @@ template <template <typename> class Chromosome, typename Encoding>
 class one_point_crossover_impl : public crossover_operator<Chromosome,Encoding>
 {
 private:
-    // disable copying of functional classes
-    one_point_crossover_impl(const one_point_crossover_impl& that);
-    one_point_crossover_impl& operator=(const one_point_crossover_impl& that);
+	// disable copying of functional classes
+	one_point_crossover_impl(const one_point_crossover_impl& that);
+	one_point_crossover_impl& operator=(const one_point_crossover_impl& that);
 
 public:
-    one_point_crossover_impl();
-    virtual ~one_point_crossover_impl();
+	one_point_crossover_impl();
+	virtual ~one_point_crossover_impl();
 
-    virtual void crossover(const Chromosome<Encoding>& p1,
-                           const Chromosome<Encoding>& p2,
-                           Chromosome<Encoding>& c1,
-                           Chromosome<Encoding>& c2) const;
+	virtual void crossover(const Chromosome<Encoding>& p1,
+	                       const Chromosome<Encoding>& p2,
+	                       Chromosome<Encoding>& c1,
+	                       Chromosome<Encoding>& c2) const;
 };
 
 /*!
@@ -159,7 +159,7 @@ public:
 template <template <typename> class Chromosome, typename Encoding> class one_point_crossover;
 template <template <typename> class Chromosome>
 class one_point_crossover<Chromosome,boolean_encoding> :
-    public one_point_crossover_impl<Chromosome,boolean_encoding>
+	public one_point_crossover_impl<Chromosome,boolean_encoding>
 {
 };
 
@@ -170,7 +170,7 @@ class one_point_crossover<Chromosome,boolean_encoding> :
  */
 template <template <typename> class Chromosome>
 class one_point_crossover<Chromosome,binary_encoding> :
-    public one_point_crossover_impl<Chromosome,binary_encoding>
+	public one_point_crossover_impl<Chromosome,binary_encoding>
 {
 };
 
@@ -181,7 +181,7 @@ class one_point_crossover<Chromosome,binary_encoding> :
  */
 template <template <typename> class Chromosome>
 class one_point_crossover<Chromosome,real_encoding> :
-    public one_point_crossover_impl<Chromosome,real_encoding>
+	public one_point_crossover_impl<Chromosome,real_encoding>
 {
 };
 
@@ -192,7 +192,7 @@ class one_point_crossover<Chromosome,real_encoding> :
  */
 template <template <typename> class Chromosome>
 class one_point_crossover<Chromosome,integer_encoding> :
-    public one_point_crossover_impl<Chromosome,integer_encoding>
+	public one_point_crossover_impl<Chromosome,integer_encoding>
 {
 };
 
@@ -203,7 +203,7 @@ class one_point_crossover<Chromosome,integer_encoding> :
  */
 template <template <typename> class Chromosome>
 class one_point_crossover<Chromosome,gap_encoding> :
-    public one_point_crossover_impl<Chromosome,gap_encoding>
+	public one_point_crossover_impl<Chromosome,gap_encoding>
 {
 };
 
@@ -214,7 +214,7 @@ class one_point_crossover<Chromosome,gap_encoding> :
  */
 template <template <typename> class Chromosome>
 class one_point_crossover<Chromosome,gsap_encoding> :
-    public one_point_crossover_impl<Chromosome,gsap_encoding>
+	public one_point_crossover_impl<Chromosome,gsap_encoding>
 {
 };
 
@@ -227,18 +227,18 @@ template <template <typename> class Chromosome, typename Encoding>
 class two_point_crossover_impl : public crossover_operator<Chromosome,Encoding>
 {
 private:
-    // disable copying of functional class
-    two_point_crossover_impl(const two_point_crossover_impl& that);
-    two_point_crossover_impl& operator=(const two_point_crossover_impl& that);
+	// disable copying of functional class
+	two_point_crossover_impl(const two_point_crossover_impl& that);
+	two_point_crossover_impl& operator=(const two_point_crossover_impl& that);
 
 public:
-    two_point_crossover_impl();
-    virtual ~two_point_crossover_impl();
+	two_point_crossover_impl();
+	virtual ~two_point_crossover_impl();
 
-    virtual void crossover(const Chromosome<Encoding>& p1,
-                           const Chromosome<Encoding>& p2,
-                           Chromosome<Encoding>& c1,
-                           Chromosome<Encoding>& c2) const;
+	virtual void crossover(const Chromosome<Encoding>& p1,
+	                       const Chromosome<Encoding>& p2,
+	                       Chromosome<Encoding>& c1,
+	                       Chromosome<Encoding>& c2) const;
 };
 
 /*!
@@ -249,7 +249,7 @@ public:
 template <template <typename> class Chromosome, typename Encoding> class two_point_crossover;
 template <template <typename> class Chromosome>
 class two_point_crossover<Chromosome,boolean_encoding> :
-    public two_point_crossover_impl<Chromosome,boolean_encoding>
+	public two_point_crossover_impl<Chromosome,boolean_encoding>
 {
 };
 
@@ -260,7 +260,7 @@ class two_point_crossover<Chromosome,boolean_encoding> :
  */
 template <template <typename> class Chromosome>
 class two_point_crossover<Chromosome,binary_encoding> :
-    public two_point_crossover_impl<Chromosome,binary_encoding>
+	public two_point_crossover_impl<Chromosome,binary_encoding>
 {
 };
 
@@ -271,7 +271,7 @@ class two_point_crossover<Chromosome,binary_encoding> :
  */
 template <template <typename> class Chromosome>
 class two_point_crossover<Chromosome,real_encoding> :
-    public two_point_crossover_impl<Chromosome,real_encoding>
+	public two_point_crossover_impl<Chromosome,real_encoding>
 {
 };
 
@@ -282,7 +282,7 @@ class two_point_crossover<Chromosome,real_encoding> :
  */
 template <template <typename> class Chromosome>
 class two_point_crossover<Chromosome,integer_encoding> :
-    public two_point_crossover_impl<Chromosome,integer_encoding>
+	public two_point_crossover_impl<Chromosome,integer_encoding>
 {
 };
 
@@ -293,7 +293,7 @@ class two_point_crossover<Chromosome,integer_encoding> :
  */
 template <template <typename> class Chromosome>
 class two_point_crossover<Chromosome,gap_encoding> :
-    public two_point_crossover_impl<Chromosome,gap_encoding>
+	public two_point_crossover_impl<Chromosome,gap_encoding>
 {
 };
 
@@ -304,7 +304,7 @@ class two_point_crossover<Chromosome,gap_encoding> :
  */
 template <template <typename> class Chromosome>
 class two_point_crossover<Chromosome,gsap_encoding> :
-    public two_point_crossover_impl<Chromosome,gsap_encoding>
+	public two_point_crossover_impl<Chromosome,gsap_encoding>
 {
 };
 
@@ -317,18 +317,18 @@ template <template <typename> class Chromosome, typename Encoding>
 class hux_crossover_impl : public crossover_operator<Chromosome,Encoding>
 {
 private:
-    // disable copying of functional class
-    hux_crossover_impl(const hux_crossover_impl& that);
-    hux_crossover_impl& operator=(const hux_crossover_impl& that);
+	// disable copying of functional class
+	hux_crossover_impl(const hux_crossover_impl& that);
+	hux_crossover_impl& operator=(const hux_crossover_impl& that);
 
 public:
-    hux_crossover_impl();
-    virtual ~hux_crossover_impl();
+	hux_crossover_impl();
+	virtual ~hux_crossover_impl();
 
-    virtual void crossover(const Chromosome<Encoding>& p1,
-                           const Chromosome<Encoding>& p2,
-                           Chromosome<Encoding>& c1,
-                           Chromosome<Encoding>& c2) const;
+	virtual void crossover(const Chromosome<Encoding>& p1,
+	                       const Chromosome<Encoding>& p2,
+	                       Chromosome<Encoding>& c1,
+	                       Chromosome<Encoding>& c2) const;
 };
 
 /*!
@@ -339,7 +339,7 @@ public:
 template <template <typename> class Chromosome, typename Encoding> class hux_crossover;
 template <template <typename> class Chromosome>
 class hux_crossover<Chromosome,boolean_encoding> :
-    public hux_crossover_impl<Chromosome,boolean_encoding>
+	public hux_crossover_impl<Chromosome,boolean_encoding>
 {
 };
 
@@ -350,7 +350,7 @@ class hux_crossover<Chromosome,boolean_encoding> :
  */
 template <template <typename> class Chromosome>
 class hux_crossover<Chromosome,binary_encoding> :
-    public hux_crossover_impl<Chromosome,binary_encoding>
+	public hux_crossover_impl<Chromosome,binary_encoding>
 {
 };
 
@@ -363,17 +363,17 @@ template <template <typename> class Chromosome, typename Encoding>
 class sbx_crossover_impl : public crossover_operator<Chromosome,Encoding>
 {
 private:
-    double m_eta;
-    
-public:
-    sbx_crossover_impl();
-    virtual ~sbx_crossover_impl();
+	double m_eta;
 
-    virtual void initialize();
-    virtual void crossover(const Chromosome<Encoding>& p1,
-                           const Chromosome<Encoding>& p2,
-                           Chromosome<Encoding>& c1,
-                           Chromosome<Encoding>& c2) const;
+public:
+	sbx_crossover_impl();
+	virtual ~sbx_crossover_impl();
+
+	virtual void initialize();
+	virtual void crossover(const Chromosome<Encoding>& p1,
+	                       const Chromosome<Encoding>& p2,
+	                       Chromosome<Encoding>& c1,
+	                       Chromosome<Encoding>& c2) const;
 };
 
 /*!
@@ -384,7 +384,7 @@ public:
 template <template <typename> class Chromosome, typename Encoding> class sbx_crossover;
 template <template <typename> class Chromosome>
 class sbx_crossover<Chromosome,real_encoding> :
-    public sbx_crossover_impl<Chromosome,real_encoding>
+	public sbx_crossover_impl<Chromosome,real_encoding>
 {
 };
 
@@ -403,18 +403,18 @@ template <template <typename> class Chromosome, typename Encoding>
 class cycle_crossover_impl : public crossover_operator<Chromosome,Encoding>
 {
 private:
-    // disable copying of functional class
-    cycle_crossover_impl(const cycle_crossover_impl& that);
-    cycle_crossover_impl& operator=(const cycle_crossover_impl& that);
+	// disable copying of functional class
+	cycle_crossover_impl(const cycle_crossover_impl& that);
+	cycle_crossover_impl& operator=(const cycle_crossover_impl& that);
 
 public:
-    cycle_crossover_impl();
-    virtual ~cycle_crossover_impl();
+	cycle_crossover_impl();
+	virtual ~cycle_crossover_impl();
 
-    virtual void crossover(const Chromosome<Encoding>& p1,
-                           const Chromosome<Encoding>& p2,
-                           Chromosome<Encoding>& c1,
-                           Chromosome<Encoding>& c2) const;
+	virtual void crossover(const Chromosome<Encoding>& p1,
+	                       const Chromosome<Encoding>& p2,
+	                       Chromosome<Encoding>& c1,
+	                       Chromosome<Encoding>& c2) const;
 };
 
 /*!
@@ -425,7 +425,7 @@ public:
 template <template <typename> class Chromosome, typename Encoding> class cycle_crossover;
 template <template <typename> class Chromosome>
 class cycle_crossover<Chromosome,permutation_encoding> :
-    public cycle_crossover_impl<Chromosome,permutation_encoding>
+	public cycle_crossover_impl<Chromosome,permutation_encoding>
 {
 };
 
@@ -440,18 +440,18 @@ template <template <typename> class Chromosome, typename Encoding>
 class order_crossover_impl : public crossover_operator<Chromosome,Encoding>
 {
 private:
-    // disable copying of functional class
-    order_crossover_impl(const order_crossover_impl& that);
-    order_crossover_impl& operator=(const order_crossover_impl& that);
+	// disable copying of functional class
+	order_crossover_impl(const order_crossover_impl& that);
+	order_crossover_impl& operator=(const order_crossover_impl& that);
 
 public:
-    order_crossover_impl();
-    virtual ~order_crossover_impl();
+	order_crossover_impl();
+	virtual ~order_crossover_impl();
 
-    virtual void crossover(const Chromosome<Encoding>& p1,
-                           const Chromosome<Encoding>& p2,
-                           Chromosome<Encoding>& c1,
-                           Chromosome<Encoding>& c2) const;
+	virtual void crossover(const Chromosome<Encoding>& p1,
+	                       const Chromosome<Encoding>& p2,
+	                       Chromosome<Encoding>& c1,
+	                       Chromosome<Encoding>& c2) const;
 };
 
 /*!
@@ -462,7 +462,7 @@ public:
 template <template <typename> class Chromosome, typename Encoding> class order_crossover;
 template <template <typename> class Chromosome>
 class order_crossover<Chromosome,permutation_encoding> :
-    public order_crossover_impl<Chromosome,permutation_encoding>
+	public order_crossover_impl<Chromosome,permutation_encoding>
 {
 };
 
@@ -473,7 +473,7 @@ template <template <typename> class Chromosome, typename Encoding>
 class bit_vector_crossover_operator_factory
 {
 public:
-    static crossover_operator<Chromosome,Encoding>* construct();
+	static crossover_operator<Chromosome,Encoding>* construct();
 };
 
 /*!
@@ -483,7 +483,7 @@ template <template <typename> class Chromosome, typename Encoding>
 class real_crossover_operator_factory
 {
 public:
-    static crossover_operator<Chromosome,Encoding>* construct();
+	static crossover_operator<Chromosome,Encoding>* construct();
 };
 
 /*!
@@ -493,7 +493,7 @@ template <template <typename> class Chromosome, typename Encoding>
 class permutation_crossover_operator_factory
 {
 public:
-    static crossover_operator<Chromosome,Encoding>* construct();
+	static crossover_operator<Chromosome,Encoding>* construct();
 };
 
 /*!
@@ -503,7 +503,7 @@ template <template <typename> class Chromosome, typename Encoding>
 class integer_crossover_operator_factory
 {
 public:
-    static crossover_operator<Chromosome,Encoding>* construct();
+	static crossover_operator<Chromosome,Encoding>* construct();
 };
 
 /*!
@@ -513,7 +513,7 @@ template <template <typename> class Chromosome, typename Encoding>
 class gap_crossover_operator_factory
 {
 public:
-    static crossover_operator<Chromosome,Encoding>* construct();
+	static crossover_operator<Chromosome,Encoding>* construct();
 };
 
 /*!
@@ -523,7 +523,7 @@ template <template <typename> class Chromosome, typename Encoding>
 class gsap_crossover_operator_factory
 {
 public:
-    static crossover_operator<Chromosome,Encoding>* construct();
+	static crossover_operator<Chromosome,Encoding>* construct();
 };
 
 /*!
@@ -540,7 +540,7 @@ template <template <typename> class Chromosome, typename Encoding> class crossov
  */
 template <template <typename> class Chromosome>
 class crossover_operator_factory<Chromosome,binary_encoding> :
-    public bit_vector_crossover_operator_factory<Chromosome,binary_encoding>
+	public bit_vector_crossover_operator_factory<Chromosome,binary_encoding>
 {
 };
 
@@ -551,7 +551,7 @@ class crossover_operator_factory<Chromosome,binary_encoding> :
  */
 template <template <typename> class Chromosome>
 class crossover_operator_factory<Chromosome,boolean_encoding> :
-    public bit_vector_crossover_operator_factory<Chromosome,boolean_encoding>
+	public bit_vector_crossover_operator_factory<Chromosome,boolean_encoding>
 {
 };
 
@@ -562,7 +562,7 @@ class crossover_operator_factory<Chromosome,boolean_encoding> :
  */
 template <template <typename> class Chromosome>
 class crossover_operator_factory<Chromosome,real_encoding> :
-    public real_crossover_operator_factory<Chromosome,real_encoding>
+	public real_crossover_operator_factory<Chromosome,real_encoding>
 {
 };
 
@@ -573,7 +573,7 @@ class crossover_operator_factory<Chromosome,real_encoding> :
  */
 template <template <typename> class Chromosome>
 class crossover_operator_factory<Chromosome,permutation_encoding> :
-    public permutation_crossover_operator_factory<Chromosome,permutation_encoding>
+	public permutation_crossover_operator_factory<Chromosome,permutation_encoding>
 {
 };
 
@@ -584,7 +584,7 @@ class crossover_operator_factory<Chromosome,permutation_encoding> :
  */
 template <template <typename> class Chromosome>
 class crossover_operator_factory<Chromosome,integer_encoding> :
-    public integer_crossover_operator_factory<Chromosome,integer_encoding>
+	public integer_crossover_operator_factory<Chromosome,integer_encoding>
 {
 };
 
@@ -595,7 +595,7 @@ class crossover_operator_factory<Chromosome,integer_encoding> :
  */
 template <template <typename> class Chromosome>
 class crossover_operator_factory<Chromosome,gap_encoding> :
-    public gap_crossover_operator_factory<Chromosome,gap_encoding>
+	public gap_crossover_operator_factory<Chromosome,gap_encoding>
 {
 };
 
@@ -606,11 +606,11 @@ class crossover_operator_factory<Chromosome,gap_encoding> :
  */
 template <template <typename> class Chromosome>
 class crossover_operator_factory<Chromosome,gsap_encoding> :
-    public gsap_crossover_operator_factory<Chromosome,gsap_encoding>
+	public gsap_crossover_operator_factory<Chromosome,gsap_encoding>
 {
 };
 
 #include "crossover.cpp"
 
 #endif
-    
+

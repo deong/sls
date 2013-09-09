@@ -28,7 +28,7 @@ using namespace std;
  */
 template <template <typename> class Chromosome, typename Encoding>
 population<Chromosome,Encoding>::population() :
-    m_count(0)
+	m_count(0)
 {
 }
 
@@ -37,8 +37,8 @@ population<Chromosome,Encoding>::population() :
  */
 template <template <typename> class Chromosome, typename Encoding>
 population<Chromosome,Encoding>::population(unsigned int n) :
-    m_individuals(n),
-    m_count(0)
+	m_individuals(n),
+	m_count(0)
 {
 }
 
@@ -48,8 +48,8 @@ population<Chromosome,Encoding>::population(unsigned int n) :
 template <template <typename> class Chromosome, typename Encoding>
 population<Chromosome,Encoding>::population(const population& that)
 {
-    m_individuals = that.m_individuals;
-    m_count = that.m_count;
+	m_individuals = that.m_individuals;
+	m_count = that.m_count;
 }
 
 /*!
@@ -66,9 +66,9 @@ population<Chromosome,Encoding>::~population()
 template <template <typename> class Chromosome, typename Encoding>
 population<Chromosome,Encoding>& population<Chromosome,Encoding>::operator=(const population& that)
 {
-    m_individuals = that.m_individuals;
-    m_count = that.m_count;
-    return *this;
+	m_individuals = that.m_individuals;
+	m_count = that.m_count;
+	return *this;
 }
 
 /*!
@@ -80,18 +80,15 @@ population<Chromosome,Encoding>& population<Chromosome,Encoding>::operator=(cons
 template <template <typename> class Chromosome, typename Encoding>
 bool population<Chromosome,Encoding>::operator==(const population& that) const
 {
-    if(m_count != that.m_count)
-    {
-        return false;
-    }
-    for(unsigned int i=0; i<m_count; i++)
-    {
-        if(m_individuals[i] != that.m_individuals[i])
-        {
-            return false;
-        }
-    }
-    return true;
+	if(m_count != that.m_count) {
+		return false;
+	}
+	for(unsigned int i=0; i<m_count; i++) {
+		if(m_individuals[i] != that.m_individuals[i]) {
+			return false;
+		}
+	}
+	return true;
 }
 
 /*!
@@ -103,27 +100,24 @@ bool population<Chromosome,Encoding>::operator==(const population& that) const
 template <template <typename> class Chromosome, typename Encoding>
 bool population<Chromosome,Encoding>::operator!=(const population& that) const
 {
-    if(m_count != that.m_count)
-    {
-        return true;
-    }
-    for(unsigned int i=0; i<m_count; i++)
-    {
-        if(m_individuals[i] != that.m_individuals[i])
-        {
-            return true;
-        }
-    }
-    return false;
+	if(m_count != that.m_count) {
+		return true;
+	}
+	for(unsigned int i=0; i<m_count; i++) {
+		if(m_individuals[i] != that.m_individuals[i]) {
+			return true;
+		}
+	}
+	return false;
 }
-    
+
 /*!
  * \brief return the number of chromosomes in the population
  */
 template <template <typename> class Chromosome, typename Encoding>
 inline unsigned int population<Chromosome,Encoding>::size() const
 {
-    return m_count;
+	return m_count;
 }
 
 /*!
@@ -133,12 +127,11 @@ template <template <typename> class Chromosome, typename Encoding>
 population<Chromosome,Encoding>
 population<Chromosome,Encoding>::operator+(const population<Chromosome,Encoding>& that) const
 {
-    population<Chromosome,Encoding> msunion = *this;
-    for(unsigned int i=0; i<that.m_count; i++)
-    {
-        msunion.add(that.m_individuals[i]);
-    }
-    return msunion;
+	population<Chromosome,Encoding> msunion = *this;
+	for(unsigned int i=0; i<that.m_count; i++) {
+		msunion.add(that.m_individuals[i]);
+	}
+	return msunion;
 }
 
 /*!
@@ -148,12 +141,11 @@ template <template <typename> class Chromosome, typename Encoding>
 population<Chromosome,Encoding>
 population<Chromosome,Encoding>::operator-(const population<Chromosome,Encoding>& that) const
 {
-    population<Chromosome,Encoding> diff = *this;
-    for(unsigned int i=0; i<that.m_count; i++)
-    {
-        diff.remove(that.m_individuals[i]);
-    }
-    return diff;
+	population<Chromosome,Encoding> diff = *this;
+	for(unsigned int i=0; i<that.m_count; i++) {
+		diff.remove(that.m_individuals[i]);
+	}
+	return diff;
 }
 
 /*!
@@ -163,8 +155,8 @@ template <template <typename> class Chromosome, typename Encoding>
 population<Chromosome,Encoding>
 population<Chromosome,Encoding>::operator+=(const population<Chromosome,Encoding>& that)
 {
-    *this = *this + that;
-    return *this;
+	*this = *this + that;
+	return *this;
 }
 
 /*!
@@ -174,8 +166,8 @@ template <template <typename> class Chromosome, typename Encoding>
 population<Chromosome,Encoding>
 population<Chromosome,Encoding>::operator-=(const population<Chromosome,Encoding>& that)
 {
-    *this = *this - that;
-    return *this;
+	*this = *this - that;
+	return *this;
 }
 
 /*!
@@ -184,7 +176,7 @@ population<Chromosome,Encoding>::operator-=(const population<Chromosome,Encoding
 template <template <typename> class Chromosome, typename Encoding>
 inline Chromosome<Encoding>& population<Chromosome,Encoding>::operator[](unsigned int i)
 {
-    return m_individuals[i];
+	return m_individuals[i];
 }
 
 /*!
@@ -193,7 +185,7 @@ inline Chromosome<Encoding>& population<Chromosome,Encoding>::operator[](unsigne
 template <template <typename> class Chromosome, typename Encoding>
 inline const Chromosome<Encoding>& population<Chromosome,Encoding>::operator[](unsigned int i) const
 {
-    return m_individuals[i];
+	return m_individuals[i];
 }
 
 /*!
@@ -202,7 +194,7 @@ inline const Chromosome<Encoding>& population<Chromosome,Encoding>::operator[](u
 template <template <typename> class Chromosome, typename Encoding>
 void population<Chromosome,Encoding>::resize(unsigned int sz)
 {
-    m_individuals.resize(sz);
+	m_individuals.resize(sz);
 }
 
 /*!
@@ -211,16 +203,13 @@ void population<Chromosome,Encoding>::resize(unsigned int sz)
 template <template <typename> class Chromosome, typename Encoding>
 bool population<Chromosome,Encoding>::add(const Chromosome<Encoding>& ind)
 {
-    if(m_count < m_individuals.size())
-    {
-        m_individuals[m_count++] = ind;
-    }
-    else
-    {
-        m_individuals.push_back(ind);
-        m_count++;
-    }
-    return true;
+	if(m_count < m_individuals.size()) {
+		m_individuals[m_count++] = ind;
+	} else {
+		m_individuals.push_back(ind);
+		m_count++;
+	}
+	return true;
 }
 
 /*!
@@ -231,15 +220,13 @@ bool population<Chromosome,Encoding>::add(const Chromosome<Encoding>& ind)
 template <template <typename> class Chromosome, typename Encoding>
 void population<Chromosome,Encoding>::remove(const Chromosome<Encoding>& ind)
 {
-    for(unsigned int i=0; i<m_count; i++)
-    {
-        if(m_individuals[i] == ind)
-        {
-            m_individuals.erase(m_individuals.begin()+i);
-            m_count--;
-            return;
-        }
-    }
+	for(unsigned int i=0; i<m_count; i++) {
+		if(m_individuals[i] == ind) {
+			m_individuals.erase(m_individuals.begin()+i);
+			m_count--;
+			return;
+		}
+	}
 }
 
 /*!
@@ -248,8 +235,8 @@ void population<Chromosome,Encoding>::remove(const Chromosome<Encoding>& ind)
 template <template <typename> class Chromosome, typename Encoding>
 void population<Chromosome,Encoding>::remove_at(unsigned int index)
 {
-    m_individuals.erase(m_individuals.begin()+index);
-    m_count--;
+	m_individuals.erase(m_individuals.begin()+index);
+	m_count--;
 }
 
 /*!
@@ -258,8 +245,8 @@ void population<Chromosome,Encoding>::remove_at(unsigned int index)
 template <template <typename> class Chromosome, typename Encoding>
 void population<Chromosome,Encoding>::clear()
 {
-    m_individuals.clear();
-    m_count = 0;
+	m_individuals.clear();
+	m_count = 0;
 }
 
 /*!
@@ -268,7 +255,7 @@ void population<Chromosome,Encoding>::clear()
 template <template <typename> class Chromosome, typename Encoding>
 typename population<Chromosome,Encoding>::iterator population<Chromosome,Encoding>::begin()
 {
-    return m_individuals.begin();
+	return m_individuals.begin();
 }
 
 /*!
@@ -277,7 +264,7 @@ typename population<Chromosome,Encoding>::iterator population<Chromosome,Encodin
 template <template <typename> class Chromosome, typename Encoding>
 typename population<Chromosome,Encoding>::iterator population<Chromosome,Encoding>::end()
 {
-    return m_individuals.end();
+	return m_individuals.end();
 }
 
 /*!
@@ -286,7 +273,7 @@ typename population<Chromosome,Encoding>::iterator population<Chromosome,Encodin
 template <template <typename> class Chromosome, typename Encoding>
 typename population<Chromosome,Encoding>::const_iterator population<Chromosome,Encoding>::begin() const
 {
-    return m_individuals.begin();
+	return m_individuals.begin();
 }
 
 /*!
@@ -295,7 +282,7 @@ typename population<Chromosome,Encoding>::const_iterator population<Chromosome,E
 template <template <typename> class Chromosome, typename Encoding>
 typename population<Chromosome,Encoding>::const_iterator population<Chromosome,Encoding>::end() const
 {
-    return m_individuals.end();
+	return m_individuals.end();
 }
 
 /*!
@@ -304,8 +291,8 @@ typename population<Chromosome,Encoding>::const_iterator population<Chromosome,E
 template <template <typename> class Chromosome, typename Encoding>
 void population<Chromosome,Encoding>::sort(comparator<Chromosome,Encoding>* comp)
 {
-    std::sort(m_individuals.begin(), m_individuals.begin()+m_count,
-              sorting_comparator<Chromosome,Encoding>(comp));
+	std::sort(m_individuals.begin(), m_individuals.begin()+m_count,
+	          sorting_comparator<Chromosome,Encoding>(comp));
 }
 
 /*!
@@ -314,12 +301,11 @@ void population<Chromosome,Encoding>::sort(comparator<Chromosome,Encoding>* comp
 template <template <typename> class Chromosome, typename Encoding>
 ostream& operator<<(ostream& s, const population<Chromosome,Encoding>& p)
 {
-    s << "Population" << endl;
-    for(unsigned int i=0; i<p.size(); i++)
-    {
-        s << p[i] << endl;
-    }
-    return s;
+	s << "Population" << endl;
+	for(unsigned int i=0; i<p.size(); i++) {
+		s << p[i] << endl;
+	}
+	return s;
 }
 
 /*!
@@ -328,19 +314,19 @@ ostream& operator<<(ostream& s, const population<Chromosome,Encoding>& p)
 template <template <typename> class Chromosome, typename Encoding>
 istream& operator>>(istream& istr, population<Chromosome,Encoding>& p)
 {
-    typename Encoding::ProblemFactoryType pf;
-    typename Encoding::ProblemType* prob;
-    prob=pf.construct();
-    
-    while(true)
-    {
-        Chromosome<Encoding> sol(prob);
-        istr >> sol;
-        if(istr.eof())
-            break;
-        p.add(sol);
-    }
-    return istr;
+	typename Encoding::ProblemFactoryType pf;
+	typename Encoding::ProblemType* prob;
+	prob=pf.construct();
+
+	while(true) {
+		Chromosome<Encoding> sol(prob);
+		istr >> sol;
+		if(istr.eof()) {
+			break;
+		}
+		p.add(sol);
+	}
+	return istr;
 }
 
 /*!
@@ -348,7 +334,7 @@ istream& operator>>(istream& istr, population<Chromosome,Encoding>& p)
  */
 template <template <typename> class Chromosome, typename Encoding>
 sorting_comparator<Chromosome,Encoding>::sorting_comparator(comparator<Chromosome,Encoding>* comp) :
-    m_comp(comp)
+	m_comp(comp)
 {
 }
 
@@ -365,7 +351,7 @@ sorting_comparator<Chromosome,Encoding>::~sorting_comparator()
  */
 template <template <typename> class Chromosome, typename Encoding>
 bool sorting_comparator<Chromosome,Encoding>::operator()(const Chromosome<Encoding>& c1,
-                                                         const Chromosome<Encoding>& c2) const
+        const Chromosome<Encoding>& c2) const
 {
-    return m_comp->compare(c1,c2) == -1;
+	return m_comp->compare(c1,c2) == -1;
 }

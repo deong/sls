@@ -27,28 +27,28 @@ template <template <typename> class Chromosome, typename Encoding>
 class chc : public ea<Chromosome,Encoding>
 {
 public:
-    chc();
-    virtual ~chc();
-    virtual void initialize();
-    virtual void run();
-    virtual void run_one_generation();
-    void diverge();
+	chc();
+	virtual ~chc();
+	virtual void initialize();
+	virtual void run();
+	virtual void run_one_generation();
+	void diverge();
 
 protected:
-    random_selection<Chromosome,Encoding>* m_sel_scheme;
-    truncation_replacement<Chromosome,Encoding>* m_rep_scheme;
-    hux_crossover<Chromosome,Encoding>* m_cross_op;
-    comparator<Chromosome,Encoding>* m_comp;
-    neighborhood<Chromosome,Encoding>* m_distmeas;
-    double m_difference_threshold;
-    double m_divergence_rate;
+	random_selection<Chromosome,Encoding>* m_sel_scheme;
+	truncation_replacement<Chromosome,Encoding>* m_rep_scheme;
+	hux_crossover<Chromosome,Encoding>* m_cross_op;
+	comparator<Chromosome,Encoding>* m_comp;
+	neighborhood<Chromosome,Encoding>* m_distmeas;
+	double m_difference_threshold;
+	double m_divergence_rate;
 
 private:
-    // disable copying of heavyweight class
-    chc(const chc& that);
-    chc& operator=(const chc& that);
+	// disable copying of heavyweight class
+	chc(const chc& that);
+	chc& operator=(const chc& that);
 };
 
 #include "chc.cpp"
 
-#endif 
+#endif

@@ -22,20 +22,20 @@ template <template <typename> class Chromosome, typename Encoding>
 class rrls : virtual public sls<Chromosome,Encoding>
 {
 protected:
-    local_search<Chromosome,Encoding>* m_hc;
-    comparator<Chromosome,Encoding>* m_comp;
-    
-private:
-    // disable copying
-    rrls(const rrls& that);
-    rrls& operator=(const rrls& that);
-    
-public:
-    rrls();
-    virtual ~rrls();
+	local_search<Chromosome,Encoding>* m_hc;
+	comparator<Chromosome,Encoding>* m_comp;
 
-    virtual void initialize();
-    virtual void run();
+private:
+	// disable copying
+	rrls(const rrls& that);
+	rrls& operator=(const rrls& that);
+
+public:
+	rrls();
+	virtual ~rrls();
+
+	virtual void initialize();
+	virtual void run();
 };
 
 #include "rrls.cpp"

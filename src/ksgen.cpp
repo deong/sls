@@ -39,7 +39,7 @@
  * c_2n1 c_2n2 c_2n3 ... c_2nm (cost 2 for agent n to do each task)
  *
  * ...
- * 
+ *
  * c_k11 c_k12 c_k13 ... c_k1m (cost k for agent 1 to do each task)
  * c_k21 c_k22 c_k23 ... c_k2m (cost k for agent 2 to do each task)
  * ...
@@ -66,91 +66,85 @@ void generate_instance(unsigned int n, unsigned int k);
 
 int main(int argc, char** argv)
 {
-    if(argc == 1)
-    {
-        print_usage();
-        exit(1);
-    }
+	if(argc == 1) {
+		print_usage();
+		exit(1);
+	}
 
-    unsigned int n = 0;
-    unsigned int k = 0;
-    unsigned int slack = 0;
-    bool n_spec = false;
-    bool k_spec = false;
-    bool slack_spec = false;
-    
-    mtrandom::initialize();
-    
-    char curropt;
-    while((curropt = getopt(argc, argv, "hn:k:s:")) != -1)
-    {
-        switch(curropt)
-        {
-        case 'n':
-            n = static_cast<unsigned int>(atoi(optarg));
-            n_spec = true;
-            break;
-        case 'k':
-            k = static_cast<unsigned int>(atoi(optarg));
-            k_spec = true;
-            break;
-        case 's':
-            slack=atoi(optarg);
-            slack_spec=true;
-            break;
-        case 'h':
-            print_usage();
-            break;
-        default:
-            cout << "invalid option specified" << endl;
-            exit(1);
-        }
-    }
+	unsigned int n = 0;
+	unsigned int k = 0;
+	unsigned int slack = 0;
+	bool n_spec = false;
+	bool k_spec = false;
+	bool slack_spec = false;
 
-    if(!n_spec || !k_spec || !slack_spec)
-    {
-        print_usage();
-        exit(1);
-    }
-    
-    cout << ";; items: " << n << "\t";
-    cout << "objectives: " << k << "\t";
-    cout << "slack: " << slack << "\t";
-    cout << endl;
+	mtrandom::initialize();
 
-    // knapsack capacity equal to average weight * slack factor
-    unsigned int cap = static_cast<unsigned int>((double)(MAX_WEIGHT+MIN_WEIGHT)/2)*slack;
-    cout << n << " " << k << " " << cap << endl;
-    
-    generate_instance(n,k);
-    return 0;
+	char curropt;
+	while((curropt = getopt(argc, argv, "hn:k:s:")) != -1) {
+		switch(curropt) {
+		case 'n':
+			n = static_cast<unsigned int>(atoi(optarg));
+			n_spec = true;
+			break;
+		case 'k':
+			k = static_cast<unsigned int>(atoi(optarg));
+			k_spec = true;
+			break;
+		case 's':
+			slack=atoi(optarg);
+			slack_spec=true;
+			break;
+		case 'h':
+			print_usage();
+			break;
+		default:
+			cout << "invalid option specified" << endl;
+			exit(1);
+		}
+	}
+
+	if(!n_spec || !k_spec || !slack_spec) {
+		print_usage();
+		exit(1);
+	}
+
+	cout << ";; items: " << n << "\t";
+	cout << "objectives: " << k << "\t";
+	cout << "slack: " << slack << "\t";
+	cout << endl;
+
+	// knapsack capacity equal to average weight * slack factor
+	unsigned int cap = static_cast<unsigned int>((double)(MAX_WEIGHT+MIN_WEIGHT)/2)*slack;
+	cout << n << " " << k << " " << cap << endl;
+
+	generate_instance(n,k);
+	return 0;
 }
 
 void generate_instance(unsigned int n, unsigned int k)
 {
-    mtrandom rng;
-    for(unsigned int i=0; i<n; ++i)
-    {
-        // generate random weight
-        cout << rng.random(MIN_WEIGHT,MAX_WEIGHT) << " ";
-        
-        // generate random value for each objective
-        for(unsigned int j=0; j<k; ++j)
-        {
-            cout << rng.random(MIN_VALUE,MAX_VALUE) << " ";
-        }
-        cout << endl;
-    }
+	mtrandom rng;
+	for(unsigned int i=0; i<n; ++i) {
+		// generate random weight
+		cout << rng.random(MIN_WEIGHT,MAX_WEIGHT) << " ";
+
+		// generate random value for each objective
+		for(unsigned int j=0; j<k; ++j) {
+			cout << rng.random(MIN_VALUE,MAX_VALUE) << " ";
+		}
+		cout << endl;
+	}
 }
-        
+
 void print_usage()
 {
-    cout << "ksgen: generates instances of multiobjective 0-1 knapsack problem" << endl << endl;
-    cout << "parameters: [default values, * if required]" << endl;
-    cout << "\t-h: print this help screen" << endl;
-    cout << "\t-n <items> [*]" << endl;
-    cout << "\t-k <objectives> [*]" << endl;
-    cout << "\t-s <slack> [*]" << endl;
-    exit(1);
+	cout << "ksgen: generates instances of multiobjective 0-1 knapsack problem" << endl << endl;
+	cout << "parameters: [default values, * if required]" << endl;
+	cout << "\t-h: print this help screen" << endl;
+	cout << "\t-n <items> [*]" << endl;
+	cout << "\t-k <objectives> [*]" << endl;
+	cout << "\t-s <slack> [*]" << endl;
+	exit(1);
 }
 
