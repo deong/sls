@@ -1341,14 +1341,6 @@ bool lotz_problem::evaluate(const vector<int>& p, vector<int>& fit) const
 
 /*!
  * \brief constructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 f1_problem::f1_problem() :
     f1_dim(0)
@@ -1357,14 +1349,6 @@ f1_problem::f1_problem() :
 
 /*!
  * \brief destructor
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 f1_problem::~f1_problem()
 {
@@ -1372,14 +1356,6 @@ f1_problem::~f1_problem()
 
 /*!
  * \brief initialize the number of dimensions in the problem
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 void f1_problem::initialize()
 {
@@ -1388,14 +1364,6 @@ void f1_problem::initialize()
 
 /*!
  * \brief return the number of dimensions in the problem
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 unsigned int f1_problem::dimensions() const
 {
@@ -1404,14 +1372,6 @@ unsigned int f1_problem::dimensions() const
 
 /*!
  * \brief f1 is a single-objective problem
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 unsigned int f1_problem::objectives() const
 {
@@ -1420,14 +1380,6 @@ unsigned int f1_problem::objectives() const
 
 /*!
  * \brief bound the legal parameter values
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 pair<double,double> f1_problem::parameter_range(unsigned int index) const
 {
@@ -1436,14 +1388,6 @@ pair<double,double> f1_problem::parameter_range(unsigned int index) const
 
 /*!
  * \brief evaluate the fitness of a candidate solution
- *
- * \author deong
- * \date 05/11/2007
- *
- * \code
- * Modification History
- * MM/DD/YYYY   DESCRIPTION
- * \endcode
  */
 bool f1_problem::evaluate(const vector<double>& p, vector<double>& fit) const
 {
@@ -1453,6 +1397,266 @@ bool f1_problem::evaluate(const vector<double>& p, vector<double>& fit) const
         fit[0] += p[i]*p[i];
     }
     return true;
+}
+
+/*!
+ * \brief constructor
+ */
+f2_problem::f2_problem() :
+    f2_dim(2)
+{
+}
+
+/*!
+ * \brief destructor
+ */
+f2_problem::~f2_problem()
+{
+}
+
+/*!
+ * \brief initialize the number of dimensions in the problem
+ */
+void f2_problem::initialize()
+{
+}
+
+/*!
+ * \brief return the number of dimensions in the problem
+ */
+unsigned int f2_problem::dimensions() const
+{
+    return f2_dim;
+}
+
+/*!
+ * \brief f2 is a single-objective problem
+ */
+unsigned int f2_problem::objectives() const
+{
+    return 1;
+}
+
+/*!
+ * \brief bound the legal parameter values
+ */
+pair<double,double> f2_problem::parameter_range(unsigned int index) const
+{
+    return make_pair<double,double>(-2.048, 2.047);
+}
+
+/*!
+ * \brief evaluate the fitness of a candidate solution
+ */
+bool f2_problem::evaluate(const vector<double>& p, vector<double>& fit) const
+{
+	double x1=p[0];
+	double x2=p[1];
+	double sq_x1=x1*x1;       
+	double diff_x1=1.0-x1;
+	
+	fit[0] = 100.0 * ((sq_x1-x2) * (sq_x1-x2)) + (diff_x1 * diff_x1);
+	return true;
+}
+
+/*!
+ * \brief constructor
+ */
+f3_problem::f3_problem() :
+    f3_dim(5)
+{
+}
+
+/*!
+ * \brief destructor
+ */
+f3_problem::~f3_problem()
+{
+}
+
+/*!
+ * \brief initialize the number of dimensions in the problem
+ */
+void f3_problem::initialize()
+{
+}
+
+/*!
+ * \brief return the number of dimensions in the problem
+ */
+unsigned int f3_problem::dimensions() const
+{
+    return f3_dim;
+}
+
+/*!
+ * \brief f3 is a single-objective problem
+ */
+unsigned int f3_problem::objectives() const
+{
+    return 1;
+}
+
+/*!
+ * \brief bound the legal parameter values
+ */
+pair<double,double> f3_problem::parameter_range(unsigned int index) const
+{
+    return make_pair<double,double>(-5.12,5.11);
+}
+
+/*!
+ * \brief evaluate the fitness of a candidate solution
+ */
+bool f3_problem::evaluate(const vector<double>& p, vector<double>& fit) const
+{
+	double sum = 0.0;
+	for(unsigned int i=0; i<f3_dim; ++i) {
+		double part = (int)p[i];
+		if(part > p[i]) {
+			part -= 1;
+		}
+		sum += part;
+	}
+	fit[0] = 30 + sum;
+	return true;
+}
+
+/*!
+ * \brief constructor
+ */
+f4_problem::f4_problem() :
+    f4_dim(30)
+{
+}
+
+/*!
+ * \brief destructor
+ */
+f4_problem::~f4_problem()
+{
+}
+
+/*!
+ * \brief initialize the number of dimensions in the problem
+ */
+void f4_problem::initialize()
+{
+}
+
+/*!
+ * \brief return the number of dimensions in the problem
+ */
+unsigned int f4_problem::dimensions() const
+{
+    return f4_dim;
+}
+
+/*!
+ * \brief f4 is a single-objective problem
+ */
+unsigned int f4_problem::objectives() const
+{
+    return 1;
+}
+
+/*!
+ * \brief bound the legal parameter values
+ */
+pair<double,double> f4_problem::parameter_range(unsigned int index) const
+{
+    return make_pair<double,double>(-1.28, 1.27);
+}
+
+/*!
+ * \brief evaluate the fitness of a candidate solution
+ */
+bool f4_problem::evaluate(const vector<double>& p, vector<double>& fit) const
+{
+	double sum = 0.0;
+	mtrandom rng;
+	for(unsigned int i=0; i<f4_dim; ++i) {
+		double quad=p[i] *p[i] * p[i] * p[i];
+		quad *= (i+1);
+		sum += quad + rng.gaussian();
+    }
+	fit[0] = sum;
+    return true;
+}
+
+/*!
+ * \brief constructor
+ */
+f5_problem::f5_problem() :
+    f5_dim(2)
+{
+}
+
+/*!
+ * \brief destructor
+ */
+f5_problem::~f5_problem()
+{
+}
+
+/*!
+ * \brief initialize the number of dimensions in the problem
+ */
+void f5_problem::initialize()
+{
+}
+
+/*!
+ * \brief return the number of dimensions in the problem
+ */
+unsigned int f5_problem::dimensions() const
+{
+    return f5_dim;
+}
+
+/*!
+ * \brief f5 is a single-objective problem
+ */
+unsigned int f5_problem::objectives() const
+{
+    return 1;
+}
+
+/*!
+ * \brief bound the legal parameter values
+ */
+pair<double,double> f5_problem::parameter_range(unsigned int index) const
+{
+    return make_pair<double,double>(-65.536, 65.535);
+}
+
+/*!
+ * \brief evaluate the fitness of a candidate solution
+ */
+bool f5_problem::evaluate(const vector<double>& p, vector<double>& fit) const
+{
+	static int a[2][25] = {
+		{-32, -16,   0,  16,  32, -32, -16,   0,  16,  32, -32, -16, 
+		   0,  16,  32, -32, -16,   0,  16,  32, -32, -16,   0,  16, 32},
+		{-32, -32, -32, -32, -32, -16, -16, -16, -16, -16,  16,  16, 16, 
+		  16,  16,  32,  32,  32,  32,  32}};
+
+	double lowtot, prod, total = 0.002;
+
+	for(unsigned int j=0; j<25; j+=1) {
+		lowtot=1.0 + (double)j;
+		for(unsigned int i=0; i<2; i+=1) {
+			prod = 1.0;
+			for(int power=0; power<6; power+=1) {
+				prod *= p[i] - a[i][j];
+			}
+			lowtot += prod;
+		}
+		total += 1.0/lowtot;
+	}
+	
+	fit[0] = 500.0 - (1.0/total);
+	return true;
 }
 
 /*!
@@ -2543,6 +2747,30 @@ numeric_problem* numeric_problem_factory::construct()
     if(prob=="f1")
     {
         numeric_problem* p = new f1_problem;
+        p->initialize();
+        return p;
+    }
+    if(prob=="f2")
+    {
+        numeric_problem* p = new f2_problem;
+        p->initialize();
+        return p;
+    }
+    if(prob=="f3")
+    {
+        numeric_problem* p = new f3_problem;
+        p->initialize();
+        return p;
+    }
+    if(prob=="f4")
+    {
+        numeric_problem* p = new f4_problem;
+        p->initialize();
+        return p;
+    }
+    if(prob=="f5")
+    {
+        numeric_problem* p = new f5_problem;
         p->initialize();
         return p;
     }

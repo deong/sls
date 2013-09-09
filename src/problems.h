@@ -356,6 +356,94 @@ public:
 };
 
 /*!
+ * \class f2_problem
+ *
+ * \author deong
+ * \date 05/11/2007
+ */
+class f2_problem : public numeric_problem
+{
+private:
+    unsigned int f2_dim;
+
+public:
+    f2_problem();
+    virtual ~f2_problem();
+
+    virtual void initialize();
+    virtual unsigned int dimensions() const;
+    virtual unsigned int objectives() const;
+    virtual pair<double,double> parameter_range(unsigned int index) const;
+    virtual bool evaluate(const vector<double>& p, vector<double>& fit) const;
+};
+
+/*!
+ * \class f3_problem
+ *
+ * \author deong
+ * \date 05/11/2007
+ */
+class f3_problem : public numeric_problem
+{
+private:
+    unsigned int f3_dim;
+
+public:
+    f3_problem();
+    virtual ~f3_problem();
+
+    virtual void initialize();
+    virtual unsigned int dimensions() const;
+    virtual unsigned int objectives() const;
+    virtual pair<double,double> parameter_range(unsigned int index) const;
+    virtual bool evaluate(const vector<double>& p, vector<double>& fit) const;
+};
+
+/*!
+ * \class f4_problem
+ *
+ * \author deong
+ * \date 05/11/2007
+ */
+class f4_problem : public numeric_problem
+{
+private:
+    unsigned int f4_dim;
+
+public:
+    f4_problem();
+    virtual ~f4_problem();
+
+    virtual void initialize();
+    virtual unsigned int dimensions() const;
+    virtual unsigned int objectives() const;
+    virtual pair<double,double> parameter_range(unsigned int index) const;
+    virtual bool evaluate(const vector<double>& p, vector<double>& fit) const;
+};
+
+/*!
+ * \class f5_problem
+ *
+ * \author deong
+ * \date 05/11/2007
+ */
+class f5_problem : public numeric_problem
+{
+private:
+    unsigned int f5_dim;
+
+public:
+    f5_problem();
+    virtual ~f5_problem();
+
+    virtual void initialize();
+    virtual unsigned int dimensions() const;
+    virtual unsigned int objectives() const;
+    virtual pair<double,double> parameter_range(unsigned int index) const;
+    virtual bool evaluate(const vector<double>& p, vector<double>& fit) const;
+};
+
+/*!
  * \class kur_problem
  *
  * \author deong
