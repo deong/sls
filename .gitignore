@@ -1,6 +1,7 @@
 *.o
 sls
 libsls.a
+libkvp.a
 makeQAPrl
 makeQAPuni
 ksgen

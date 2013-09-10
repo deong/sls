@@ -11,6 +11,8 @@
 #include "sls.h"
 #include "localsearch.h"
 #include "metrics.h"
+#include "kvparse/kvparse.h"
+#include "keywords.h"
 
 using namespace std;
 
@@ -59,7 +61,7 @@ void morrls<Chromosome,Encoding>::initialize()
 	m_hc = lsf.construct();
 
 	// set up the number of different weight vectors to use
-	configuration::unsigned_integer_parameter(keywords::NUM_WEIGHTS, mu, true);
+	kvparse::parameter_value(keywords::NUM_WEIGHTS, mu, true);
 }
 
 /*!

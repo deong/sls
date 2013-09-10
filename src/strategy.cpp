@@ -9,7 +9,7 @@
 
 #include <cstdlib>
 #include "strategy.h"
-#include "configuration.h"
+#include "kvparse/kvparse.h"
 #include "keywords.h"
 
 using namespace std;
@@ -20,7 +20,7 @@ using namespace std;
 strategy strategy_factory::construct()
 {
 	string strname;
-	configuration::string_parameter(keywords::HC_STRATEGY, strname, true);
+	kvparse::parameter_value(keywords::HC_STRATEGY, strname, true);
 	if(strname == keywords::STRATEGY_ALL) {
 		return STRATEGY_ALL;
 	} else if(strname == keywords::STRATEGY_RANDOM) {

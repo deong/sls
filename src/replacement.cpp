@@ -19,7 +19,7 @@
 #include "encoding.h"
 #include "population.h"
 #include "comparator.h"
-#include "configuration.h"
+#include "kvparse/kvparse.h"
 #include "keywords.h"
 #include "utilities.h"
 
@@ -129,7 +129,7 @@ void elitist_replacement<Chromosome,Encoding>::initialize()
 {
 	replacement_scheme<Chromosome,Encoding>::initialize();
 	m_elites = 1;
-	configuration::unsigned_integer_parameter(keywords::ELITES, m_elites, false);
+	kvparse::parameter_value(keywords::ELITES, m_elites, false);
 }
 
 /*!
@@ -272,7 +272,7 @@ template <template <typename> class Chromosome, typename Encoding>
 replacement_scheme<Chromosome,Encoding>* replacement_scheme_factory<Chromosome,Encoding>::construct()
 {
 	string rsname;
-	configuration::string_parameter(keywords::REPLACEMENT_SCHEME, rsname, true);
+	kvparse::parameter_value(keywords::REPLACEMENT_SCHEME, rsname, true);
 
 	if(rsname == keywords::GENERATIONAL_REPLACEMENT) {
 		generational_replacement<Chromosome,Encoding>* gr = new  generational_replacement<Chromosome,Encoding>;

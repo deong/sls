@@ -19,7 +19,7 @@
 #include "encoding.h"
 #include "comparator.h"
 #include "problems.h"
-#include "configuration.h"
+#include "kvparse/kvparse.h"
 #include "keywords.h"
 
 using namespace std;
@@ -56,8 +56,8 @@ template <template <typename> class Chromosome, typename Encoding>
 void tabu_list<Chromosome,Encoding>::initialize()
 {
 	_internal.clear();
-	configuration::unsigned_integer_parameter(this->m_prefix+keywords::MIN_TABU_TENURE,_ttmin,true);
-	configuration::unsigned_integer_parameter(this->m_prefix+keywords::MAX_TABU_TENURE,_ttmax,true);
+	kvparse::parameter_value(this->m_prefix+keywords::MIN_TABU_TENURE,_ttmin,true);
+	kvparse::parameter_value(this->m_prefix+keywords::MAX_TABU_TENURE,_ttmax,true);
 }
 
 /*!

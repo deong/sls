@@ -14,7 +14,7 @@
 #include "chromosome.h"
 #include "encoding.h"
 #include "mtrandom.h"
-#include "configuration.h"
+#include "kvparse/kvparse.h"
 #include "keywords.h"
 #include "utilities.h"
 
@@ -69,7 +69,7 @@ bitwise_mutation_impl<Chromosome,Encoding>::~bitwise_mutation_impl()
 template <template <typename> class Chromosome, typename Encoding>
 void bitwise_mutation_impl<Chromosome,Encoding>::initialize()
 {
-	configuration::double_parameter(keywords::MUTATION_RATE, m_rate, true);
+	kvparse::parameter_value(keywords::MUTATION_RATE, m_rate, true);
 }
 
 /*!
@@ -110,7 +110,7 @@ swap_mutation_impl<Chromosome,Encoding>::~swap_mutation_impl()
 template <template <typename> class Chromosome, typename Encoding>
 void swap_mutation_impl<Chromosome,Encoding>::initialize()
 {
-	configuration::double_parameter(keywords::MUTATION_RATE, m_rate, true);
+	kvparse::parameter_value(keywords::MUTATION_RATE, m_rate, true);
 }
 
 /*!
@@ -153,9 +153,9 @@ gaussian_mutation_impl<Chromosome,Encoding>::~gaussian_mutation_impl()
 template <template <typename> class Chromosome, typename Encoding>
 void gaussian_mutation_impl<Chromosome,Encoding>::initialize()
 {
-	configuration::double_parameter(keywords::MUTATION_RATE, m_rate, true);
-	configuration::double_parameter(keywords::GAUSSIAN_MUTATION_MU, m_mu, true);
-	configuration::double_parameter(keywords::GAUSSIAN_MUTATION_SIGMA, m_sigma, true);
+	kvparse::parameter_value(keywords::MUTATION_RATE, m_rate, true);
+	kvparse::parameter_value(keywords::GAUSSIAN_MUTATION_MU, m_mu, true);
+	kvparse::parameter_value(keywords::GAUSSIAN_MUTATION_SIGMA, m_sigma, true);
 }
 
 /*!
@@ -198,8 +198,8 @@ polynomial_mutation_impl<Chromosome,Encoding>::~polynomial_mutation_impl()
 template <template <typename> class Chromosome, typename Encoding>
 void polynomial_mutation_impl<Chromosome,Encoding>::initialize()
 {
-	configuration::double_parameter(keywords::MUTATION_RATE, m_rate, true);
-	configuration::double_parameter(keywords::POLYNOMIAL_ETA, m_eta, true);
+	kvparse::parameter_value(keywords::MUTATION_RATE, m_rate, true);
+	kvparse::parameter_value(keywords::POLYNOMIAL_ETA, m_eta, true);
 }
 
 /*!
@@ -258,7 +258,7 @@ shift_mutation_impl<Chromosome,Encoding>::~shift_mutation_impl()
 template <template <typename> class Chromosome, typename Encoding>
 void shift_mutation_impl<Chromosome,Encoding>::initialize()
 {
-	configuration::double_parameter(keywords::MUTATION_RATE, m_rate, true);
+	kvparse::parameter_value(keywords::MUTATION_RATE, m_rate, true);
 }
 
 /*!
@@ -298,7 +298,7 @@ sss_mutation_impl<Chromosome,Encoding>::~sss_mutation_impl()
 template <template <typename> class Chromosome, typename Encoding>
 void sss_mutation_impl<Chromosome,Encoding>::initialize()
 {
-	configuration::double_parameter(keywords::MUTATION_RATE, m_rate, true);
+	kvparse::parameter_value(keywords::MUTATION_RATE, m_rate, true);
 }
 
 /*!
@@ -327,7 +327,7 @@ template <template <typename> class Chromosome, typename Encoding>
 mutation_operator<Chromosome,Encoding>* bit_mutation_operator_factory<Chromosome,Encoding>::construct()
 {
 	string opname;
-	configuration::string_parameter(keywords::MUTATION_OPERATOR, opname, true);
+	kvparse::parameter_value(keywords::MUTATION_OPERATOR, opname, true);
 
 	if(opname == keywords::BITWISE_MUTATION) {
 		bitwise_mutation<Chromosome,Encoding>* m = new bitwise_mutation<Chromosome,Encoding>;
@@ -346,7 +346,7 @@ template <template <typename> class Chromosome, typename Encoding>
 mutation_operator<Chromosome,Encoding>* permutation_mutation_operator_factory<Chromosome,Encoding>::construct()
 {
 	string opname;
-	configuration::string_parameter(keywords::MUTATION_OPERATOR, opname, true);
+	kvparse::parameter_value(keywords::MUTATION_OPERATOR, opname, true);
 
 	if(opname == keywords::SWAP_MUTATION) {
 		swap_mutation<Chromosome,Encoding>* m = new swap_mutation<Chromosome,Encoding>;
@@ -365,7 +365,7 @@ template <template <typename> class Chromosome, typename Encoding>
 mutation_operator<Chromosome,Encoding>* real_mutation_operator_factory<Chromosome,Encoding>::construct()
 {
 	string opname;
-	configuration::string_parameter(keywords::MUTATION_OPERATOR, opname, true);
+	kvparse::parameter_value(keywords::MUTATION_OPERATOR, opname, true);
 
 	if(opname == keywords::GAUSSIAN_MUTATION) {
 		gaussian_mutation<Chromosome,Encoding>* m = new gaussian_mutation<Chromosome,Encoding>;
@@ -398,7 +398,7 @@ template <template <typename> class Chromosome, typename Encoding>
 mutation_operator<Chromosome,Encoding>* gap_mutation_operator_factory<Chromosome,Encoding>::construct()
 {
 	string opname;
-	configuration::string_parameter(keywords::MUTATION_OPERATOR, opname, true);
+	kvparse::parameter_value(keywords::MUTATION_OPERATOR, opname, true);
 
 	if(opname == keywords::SHIFT_MUTATION) {
 		shift_mutation<Chromosome,Encoding>* m = new shift_mutation<Chromosome,Encoding>;
@@ -425,7 +425,7 @@ template <template <typename> class Chromosome, typename Encoding>
 mutation_operator<Chromosome,Encoding>* gsap_mutation_operator_factory<Chromosome,Encoding>::construct()
 {
 	string opname;
-	configuration::string_parameter(keywords::MUTATION_OPERATOR, opname, true);
+	kvparse::parameter_value(keywords::MUTATION_OPERATOR, opname, true);
 
 	if(opname == keywords::SHIFT_MUTATION) {
 		shift_mutation<Chromosome,Encoding>* m = new shift_mutation<Chromosome,Encoding>;

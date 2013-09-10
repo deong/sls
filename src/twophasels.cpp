@@ -11,6 +11,8 @@
 #include "sls.h"
 #include "localsearch.h"
 #include "metrics.h"
+#include "kvparse/kvparse.h"
+#include "keywords.h"
 
 using namespace std;
 
@@ -64,7 +66,7 @@ void twophasels<Chromosome,Encoding>::initialize()
 	m_hc2 = lsf2.construct();
 
 	// how many different weight vectors to try in phase two
-	configuration::unsigned_integer_parameter(keywords::PHASE_TWO_RUNS,m_phase_two_runs,true);
+	kvparse::parameter_value(keywords::PHASE_TWO_RUNS,m_phase_two_runs,true);
 }
 
 /*!

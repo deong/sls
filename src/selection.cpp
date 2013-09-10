@@ -16,7 +16,7 @@
 #include "population.h"
 #include "comparator.h"
 #include "mtrandom.h"
-#include "configuration.h"
+#include "kvparse/kvparse.h"
 #include "keywords.h"
 #include "utilities.h"
 
@@ -130,7 +130,7 @@ ranking_selection<Chromosome,Encoding>::~ranking_selection()
 template <template <typename> class Chromosome, typename Encoding>
 void ranking_selection<Chromosome,Encoding>::initialize()
 {
-	configuration::double_parameter(keywords::RANKING_BIAS, m_bias, false);
+	kvparse::parameter_value(keywords::RANKING_BIAS, m_bias, false);
 }
 
 /*!
@@ -180,7 +180,7 @@ template <template <typename> class Chromosome, typename Encoding>
 selection_scheme<Chromosome,Encoding>* selection_scheme_factory<Chromosome,Encoding>::construct()
 {
 	string ssname;
-	configuration::string_parameter(keywords::SELECTION_SCHEME, ssname, true);
+	kvparse::parameter_value(keywords::SELECTION_SCHEME, ssname, true);
 
 	if(ssname == keywords::TOURNAMENT_SELECTION) {
 		tournament_selection<Chromosome,Encoding>* ts =

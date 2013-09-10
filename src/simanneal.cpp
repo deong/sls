@@ -18,7 +18,7 @@
 #include "neighborhood.h"
 #include "metrics.h"
 #include "terminators.h"
-#include "configuration.h"
+#include "kvparse/kvparse.h"
 #include "keywords.h"
 
 using namespace std;
@@ -48,15 +48,15 @@ void simulated_annealing<Chromosome,Encoding>::initialize()
 	local_search<Chromosome,Encoding>::initialize();
 	double init_accept;
 	double final_accept;
-	configuration::double_parameter(keywords::INITIAL_50_PERCENTILE,init_accept,true);
-	configuration::double_parameter(keywords::FINAL_50_PERCENTILE,final_accept,true);
+	kvparse::parameter_value(keywords::INITIAL_50_PERCENTILE,init_accept,true);
+	kvparse::parameter_value(keywords::FINAL_50_PERCENTILE,final_accept,true);
 	m_temp = -init_accept / log(0.5);
 
 	// compute the appropriate alpha
 	unsigned int maxeval;
 	unsigned int steps;
-	configuration::unsigned_integer_parameter("ls_"+keywords::MAX_EVALUATIONS,maxeval,true);
-	configuration::unsigned_integer_parameter(keywords::COOLING_STEPS,steps,true);
+	kvparse::parameter_value("ls_"+keywords::MAX_EVALUATIONS,maxeval,true);
+	kvparse::parameter_value(keywords::COOLING_STEPS,steps,true);
 	m_alpha=pow((final_accept/init_accept),1.0/steps);
 	m_schedule=maxeval/steps;
 }
@@ -70,15 +70,15 @@ void simulated_annealing<Chromosome,Encoding>::reset()
 	local_search<Chromosome,Encoding>::reset();
 	double init_accept;
 	double final_accept;
-	configuration::double_parameter(keywords::INITIAL_50_PERCENTILE,init_accept,true);
-	configuration::double_parameter(keywords::FINAL_50_PERCENTILE,final_accept,true);
+	kvparse::parameter_value(keywords::INITIAL_50_PERCENTILE,init_accept,true);
+	kvparse::parameter_value(keywords::FINAL_50_PERCENTILE,final_accept,true);
 	m_temp = -init_accept / log(0.5);
 
 	// compute the appropriate alpha
 	unsigned int maxeval;
 	unsigned int steps;
-	configuration::unsigned_integer_parameter("ls_"+keywords::MAX_EVALUATIONS,maxeval,true);
-	configuration::unsigned_integer_parameter(keywords::COOLING_STEPS,steps,true);
+	kvparse::parameter_value("ls_"+keywords::MAX_EVALUATIONS,maxeval,true);
+	kvparse::parameter_value(keywords::COOLING_STEPS,steps,true);
 	m_alpha=pow((final_accept/init_accept),1.0/steps);
 	m_schedule=maxeval/steps;
 }

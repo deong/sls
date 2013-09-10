@@ -18,8 +18,6 @@
 #include "selection.h"
 #include "replacement.h"
 #include "mtrandom.h"
-#include "configuration.h"
-#include "keywords.h"
 #include "utilities.h"
 
 using namespace std;

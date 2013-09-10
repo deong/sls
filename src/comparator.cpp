@@ -13,7 +13,7 @@
 #include "chromosome.h"
 #include "encoding.h"
 #include "mtrandom.h"
-#include "configuration.h"
+#include "kvparse/kvparse.h"
 #include "keywords.h"
 #include "utilities.h"
 
@@ -153,8 +153,8 @@ template <template <typename> class Chromosome, typename Encoding>
 void scalarizing_comparator<Chromosome,Encoding>::initialize(const string& prefix)
 {
 	string keyword=prefix+keywords::WEIGHT_VECTOR;
-	if(configuration::keyword_exists(keyword)) {
-		configuration::vector_parameter<double>(keyword,weights,true);
+	if(kvparse::keyword_exists(keyword)) {
+		kvparse::parameter_value(keyword, weights, true);
 	}
 }
 
@@ -353,7 +353,7 @@ epsilon_dominance_comparator<Chromosome,Encoding>::~epsilon_dominance_comparator
 template <template <typename> class Chromosome, typename Encoding>
 void epsilon_dominance_comparator<Chromosome,Encoding>::initialize(const string& prefix)
 {
-	configuration::vector_parameter<double>(prefix+keywords::EPSILON, m_epsilon, true);
+	kvparse::parameter_value(prefix+keywords::EPSILON, m_epsilon, true);
 }
 
 /*!
@@ -439,7 +439,7 @@ template <template <typename> class Chromosome, typename Encoding>
 comparator<Chromosome,Encoding>* comparator_factory<Chromosome,Encoding>::construct()
 {
 	string comp;
-	configuration::string_parameter(this->m_prefix+keywords::COMPARATOR, comp, true);
+	kvparse::parameter_value(this->m_prefix+keywords::COMPARATOR, comp, true);
 	if(comp == keywords::FITNESS_COMPARATOR) {
 		return new fitness_comparator<Chromosome,Encoding>;
 	} else if(comp == keywords::PARETO_DOMINANCE_COMPARATOR) {

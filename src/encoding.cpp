@@ -17,7 +17,7 @@
 #include <cassert>
 #include "encoding.h"
 #include "mtrandom.h"
-#include "configuration.h"
+#include "kvparse/kvparse.h"
 #include "keywords.h"
 #include "utilities.h"
 
@@ -454,9 +454,9 @@ void binary_parameters::initialize_parameters(const numeric_problem* p)
 {
 	unsigned int dim = p->dimensions();
 	unsigned int totallen = 0;
-	if(configuration::keyword_exists("parameter_length")) {
+	if(kvparse::keyword_exists("parameter_length")) {
 		unsigned int plen;
-		configuration::unsigned_integer_parameter("parameter_length", plen, true);
+		kvparse::parameter_value("parameter_length", plen, true);
 		for(unsigned int i=0; i<dim; i++) {
 			binary_encoding::m_bpp.push_back(plen);
 		}
@@ -467,7 +467,7 @@ void binary_parameters::initialize_parameters(const numeric_problem* p)
 			s << "parameter_" << i << "_length";
 			string pname = s.str();
 			unsigned int plen = 0;
-			configuration::unsigned_integer_parameter(pname, plen, true);
+			kvparse::parameter_value(pname, plen, true);
 			totallen += plen;
 			binary_encoding::m_bpp.push_back(plen);
 		}
@@ -475,9 +475,9 @@ void binary_parameters::initialize_parameters(const numeric_problem* p)
 	binary_encoding::m_len = totallen;
 
 	bool gray_coded = false;
-	if(configuration::keyword_exists("parameter_encoding")) {
+	if(kvparse::keyword_exists("parameter_encoding")) {
 		string enc;
-		configuration::string_parameter("parameter_encoding", enc, false);
+		kvparse::parameter_value("parameter_encoding", enc, false);
 		if(enc == "gray") {
 			gray_coded = true;
 		} else if(enc == "binary") {
@@ -498,10 +498,10 @@ void binary_parameters::initialize_parameters(const numeric_problem* p)
 			s << "parameter_" << i << "_encoding";
 			string pname = s.str();
 
-			if(!configuration::keyword_exists(pname)) {
+			if(!kvparse::keyword_exists(pname)) {
 				binary_encoding::m_gray.push_back(false);
 			} else {
-				configuration::string_parameter(pname, enc, false);
+				kvparse::parameter_value(pname, enc, false);
 				if(enc == "gray") {
 					gray_coded = true;
 				} else if(enc == "binary") {
@@ -895,7 +895,7 @@ void gap_encoding::initialize_parameters(const gap_problem* p)
 	m_tasks = p->tasks;
 
 	double pen;
-	configuration::double_parameter(keywords::PENALIZATION_FACTOR, pen, true);
+	kvparse::parameter_value(keywords::PENALIZATION_FACTOR, pen, true);
 	m_alpha.assign(p->dimensions(), pen);
 }
 
@@ -1010,8 +1010,8 @@ void gsap_encoding::decode()
  */
 void gsap_encoding::initialize_parameters(const ProblemType* p)
 {
-	configuration::integer_parameter(keywords::UNASSIGNED_PENALTY,m_unass_pen,true);
-	configuration::integer_parameter(keywords::CAPACITY_PENALTY,m_cap_pen,true);
+	kvparse::parameter_value(keywords::UNASSIGNED_PENALTY,m_unass_pen,true);
+	kvparse::parameter_value(keywords::CAPACITY_PENALTY,m_cap_pen,true);
 	elements=p->get_elements();
 	agents_for_task = p->get_agent_task_map();
 }

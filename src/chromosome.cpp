@@ -13,8 +13,6 @@
 #include "comparator.h"
 #include "encoding.h"
 #include "problems.h"
-#include "configuration.h"
-#include "keywords.h"
 
 using namespace std;
 

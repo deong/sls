@@ -20,7 +20,7 @@
 #include "pfront.h"
 #include "strategy.h"
 #include "localsearch.h"
-#include "configuration.h"
+#include "kvparse/kvparse.h"
 #include "keywords.h"
 
 using namespace std;
@@ -440,20 +440,20 @@ void spea2<Encoding>::initialize()
 
 	// get the crossover operator parameters
 	m_cross_op = crossover_operator_factory<spea2_chromosome,Encoding>::construct();
-	configuration::double_parameter(keywords::CROSSOVER_RATE, m_cross_rate, true);
+	kvparse::parameter_value(keywords::CROSSOVER_RATE, m_cross_rate, true);
 
 	// get the mutation operator parameters
 	m_mut_op = mutation_operator_factory<spea2_chromosome,Encoding>::construct();
 
 	// configure the hill climber
-	if(configuration::keyword_exists(keywords::LOCAL_SEARCH)) {
+	if(kvparse::keyword_exists(keywords::LOCAL_SEARCH)) {
 		local_search_factory<spea2_chromosome,Encoding> lsf;
 		lsf.set_prefix("ls_");
 		m_hc = lsf.construct();
 
 		strat = strategy_factory::construct();
 		if(strat == STRATEGY_RANDOM) {
-			configuration::double_parameter(keywords::HC_RATE, hc_rate, true);
+			kvparse::parameter_value(keywords::HC_RATE, hc_rate, true);
 		}
 
 		this->optimize_population(this->m_population);
@@ -461,11 +461,11 @@ void spea2<Encoding>::initialize()
 
 	// get the archive size
 	m_archive_size = this->m_population.size();
-	configuration::unsigned_integer_parameter(keywords::ARCHIVE_SIZE, m_archive_size, false);
+	kvparse::parameter_value(keywords::ARCHIVE_SIZE, m_archive_size, false);
 
 	// get the density estimation parameter
 	m_spea2_k = static_cast<int>(sqrt(double(this->m_population.size() + m_archive_size)));
-	configuration::unsigned_integer_parameter(keywords::SPEA2_K, m_spea2_k, false);
+	kvparse::parameter_value(keywords::SPEA2_K, m_spea2_k, false);
 }
 
 /*!

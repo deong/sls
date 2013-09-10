@@ -2,8 +2,7 @@ CXX=g++
 CXXFLAGS=-Wall -O3 -funroll-loops -pipe
 #CXXFLAGS=-Wall -ggdb -pipe
 
-OBJ=configuration.o\
-	factory.o\
+OBJ=factory.o\
 	keywords.o\
 	mtrandom.o\
 	problems.o\
@@ -42,8 +41,8 @@ SRC=chc.cpp\
 	terminators.cpp\
 	twophasels.cpp
 
-sls : libsls.a ${SRC} slsmain.cpp
-	${CXX} ${CXXFLAGS} -L. slsmain.cpp -o sls -lsls -lm
+sls : libsls.a libkvp.a ${SRC} slsmain.cpp
+	${CXX} ${CXXFLAGS} -L. slsmain.cpp -o sls -lsls -lkvp -lboost_regex -lm
 
 doc : sls.doxygen
 	doxygen sls.doxygen
@@ -69,8 +68,12 @@ test : libsls.a test.cpp comparator.cpp
 libsls.a : ${OBJ}
 	ar rcs libsls.a ${OBJ}
 
+libkvp.a :
+	make -C kvparse libkvp.a
+	cp kvparse/libkvp.a .
+
 clean :
 	rm -f *.o
 
 distclean :
-	rm -f *.o libsls.a sls mergepf enumerate pearson gapgen ksgen
+	rm -f *.o libsls.a libkvp.a sls mergepf enumerate pearson gapgen ksgen

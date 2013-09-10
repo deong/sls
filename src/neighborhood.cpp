@@ -14,7 +14,7 @@
 #include "move.h"
 #include "chromosome.h"
 #include "encoding.h"
-#include "configuration.h"
+#include "kvparse/kvparse.h"
 #include "keywords.h"
 #include "mtrandom.h"
 
@@ -508,7 +508,7 @@ template <template <typename> class Chromosome, typename Encoding>
 neighborhood<Chromosome,Encoding>* bit_neighborhood_factory<Chromosome,Encoding>::construct()
 {
 	string op;
-	configuration::string_parameter(keywords::NEIGHBORHOOD, op, true);
+	kvparse::parameter_value(keywords::NEIGHBORHOOD, op, true);
 	if(op == keywords::HAMMING_NEIGHBORHOOD) {
 		hamming_neighborhood<Chromosome,Encoding>* n = new hamming_neighborhood<Chromosome,Encoding>;
 		return n;
@@ -529,7 +529,7 @@ template <template <typename> class Chromosome, typename Encoding>
 neighborhood<Chromosome,Encoding>* permutation_neighborhood_factory<Chromosome,Encoding>::construct()
 {
 	string op;
-	configuration::string_parameter(keywords::NEIGHBORHOOD, op, true);
+	kvparse::parameter_value(keywords::NEIGHBORHOOD, op, true);
 	if(op == keywords::SWAP_NEIGHBORHOOD) {
 		swap_neighborhood<Chromosome,Encoding>* n = new swap_neighborhood<Chromosome,Encoding>;
 		return n;
@@ -547,7 +547,7 @@ template <template <typename> class Chromosome, typename Encoding>
 neighborhood<Chromosome,Encoding>* gap_neighborhood_factory<Chromosome,Encoding>::construct()
 {
 	string op;
-	configuration::string_parameter(keywords::NEIGHBORHOOD, op, true);
+	kvparse::parameter_value(keywords::NEIGHBORHOOD, op, true);
 	if(op == keywords::SWAP_NEIGHBORHOOD) {
 		swap_neighborhood<Chromosome,Encoding>* n = new swap_neighborhood<Chromosome,Encoding>;
 		return n;
@@ -571,7 +571,7 @@ template <template <typename> class Chromosome, typename Encoding>
 neighborhood<Chromosome,Encoding>* gsap_neighborhood_factory<Chromosome,Encoding>::construct()
 {
 	string op;
-	configuration::string_parameter(keywords::NEIGHBORHOOD, op, true);
+	kvparse::parameter_value(keywords::NEIGHBORHOOD, op, true);
 	if(op == keywords::SWAP_NEIGHBORHOOD) {
 		swap_neighborhood<Chromosome,Encoding>* n = new swap_neighborhood<Chromosome,Encoding>;
 		return n;

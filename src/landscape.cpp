@@ -53,7 +53,7 @@ void landscape<Chromosome,Encoding>::initialize()
 	m_hc = lsf.construct();
 
 	// how many tabu search iterations
-	configuration::unsigned_integer_parameter(keywords::LOCAL_SEARCH_ITERATIONS, m_lsiter, true);
+	kvparse::parameter_value(keywords::LOCAL_SEARCH_ITERATIONS, m_lsiter, true);
 }
 
 /*!
@@ -66,7 +66,7 @@ void perturbation_search<Chromosome,Encoding>::run()
 
 	// read the maximum number of nondominated neighbors to try
 	unsigned int num_nondom = 100;
-	configuration::unsigned_integer_parameter(keywords::NONDOMINATED_POINTS, num_nondom, false);
+	kvparse::parameter_value(keywords::NONDOMINATED_POINTS, num_nondom, false);
 
 	pareto_dominance_comparator<Chromosome,Encoding> pdc;
 	scalarizing_comparator<Chromosome,Encoding> comp;
@@ -134,7 +134,7 @@ void fitness_distance_correlation<Chromosome,Encoding>::run()
 {
 	// construct the true pareto front
 	list<string> truepf;
-	configuration::list_parameter(keywords::TRUE_PARETO_FRONT,truepf,true);
+	kvparse::parameter_value(keywords::TRUE_PARETO_FRONT,truepf,true);
 	pareto_front<Chromosome,Encoding> pf;
 	for(list<string>::iterator it=truepf.begin(); it!=truepf.end(); it++) {
 		pf.construct_front(*it,this->m_fitfunc);
@@ -146,7 +146,7 @@ void fitness_distance_correlation<Chromosome,Encoding>::run()
 	// generate several local optima and compare their distance to the
 	// nearest point on the true pareto front
 	unsigned int max_points;
-	configuration::unsigned_integer_parameter(keywords::NUM_LOCAL_OPTIMA, max_points, true);
+	kvparse::parameter_value(keywords::NUM_LOCAL_OPTIMA, max_points, true);
 	unsigned int count = 0;
 	while(count < max_points) {
 		Chromosome<Encoding> chr(this->m_fitfunc);
@@ -184,7 +184,7 @@ void random_walk<Chromosome,Encoding>::run()
 
 	// construct the true pareto front
 	list<string> truepf;
-	configuration::list_parameter(keywords::TRUE_PARETO_FRONT,truepf,true);
+	kvparse::parameter_value(keywords::TRUE_PARETO_FRONT,truepf,true);
 	pareto_front<Chromosome,Encoding> pf;
 	for(list<string>::iterator it=truepf.begin(); it!=truepf.end(); it++) {
 		pf.construct_front(*it,this->m_fitfunc);
@@ -192,11 +192,11 @@ void random_walk<Chromosome,Encoding>::run()
 
 	// how many local optima to generate
 	unsigned int max_points;
-	configuration::unsigned_integer_parameter(keywords::NUM_LOCAL_OPTIMA, max_points, true);
+	kvparse::parameter_value(keywords::NUM_LOCAL_OPTIMA, max_points, true);
 
 	// how many steps to take on the random walk
 	unsigned int num_steps;
-	configuration::unsigned_integer_parameter(keywords::RANDOM_WALK_LENGTH, num_steps, true);
+	kvparse::parameter_value(keywords::RANDOM_WALK_LENGTH, num_steps, true);
 
 	unsigned int count = 0;
 	while(count < max_points) {
@@ -239,7 +239,7 @@ void random_walk_between_optima<Chromosome,Encoding>::run()
 
 	// construct the true pareto front
 	list<string> truepf;
-	configuration::list_parameter(keywords::TRUE_PARETO_FRONT,truepf,true);
+	kvparse::parameter_value(keywords::TRUE_PARETO_FRONT,truepf,true);
 	pareto_front<Chromosome,Encoding> pf;
 	for(list<string>::iterator it=truepf.begin(); it!=truepf.end(); it++) {
 		pf.construct_front(*it,this->m_fitfunc);
@@ -247,7 +247,7 @@ void random_walk_between_optima<Chromosome,Encoding>::run()
 
 	// how many local optima to generate
 	unsigned int max_points;
-	configuration::unsigned_integer_parameter(keywords::NUM_LOCAL_OPTIMA, max_points, true);
+	kvparse::parameter_value(keywords::NUM_LOCAL_OPTIMA, max_points, true);
 
 	unsigned int count = 0;
 	while(count < max_points) {
@@ -305,7 +305,7 @@ void ruggedness<Chromosome,Encoding>::run()
 
 	// construct the true pareto front
 	list<string> truepf;
-	configuration::list_parameter(keywords::TRUE_PARETO_FRONT,truepf,true);
+	kvparse::parameter_value(keywords::TRUE_PARETO_FRONT,truepf,true);
 	pareto_front<Chromosome,Encoding> pf;
 	for(list<string>::iterator it=truepf.begin(); it!=truepf.end(); it++) {
 		pf.construct_front(*it,this->m_fitfunc);
@@ -313,11 +313,11 @@ void ruggedness<Chromosome,Encoding>::run()
 
 	// how many local optima to generate
 	unsigned int max_points;
-	configuration::unsigned_integer_parameter(keywords::NUM_LOCAL_OPTIMA, max_points, true);
+	kvparse::parameter_value(keywords::NUM_LOCAL_OPTIMA, max_points, true);
 
 	// how many steps to take on the random walk
 	unsigned int num_steps;
-	configuration::unsigned_integer_parameter(keywords::RANDOM_WALK_LENGTH, num_steps, true);
+	kvparse::parameter_value(keywords::RANDOM_WALK_LENGTH, num_steps, true);
 
 	unsigned int count = 0;
 	while(count < max_points) {
@@ -352,7 +352,7 @@ void ruggedness_between_optima<Chromosome,Encoding>::run()
 
 	// construct the true pareto front
 	list<string> truepf;
-	configuration::list_parameter(keywords::TRUE_PARETO_FRONT,truepf,true);
+	kvparse::parameter_value(keywords::TRUE_PARETO_FRONT,truepf,true);
 	pareto_front<Chromosome,Encoding> pf;
 	for(list<string>::iterator it=truepf.begin(); it!=truepf.end(); it++) {
 		pf.construct_front(*it,this->m_fitfunc);
@@ -360,7 +360,7 @@ void ruggedness_between_optima<Chromosome,Encoding>::run()
 
 	// how many local optima to generate
 	unsigned int max_points;
-	configuration::unsigned_integer_parameter(keywords::NUM_LOCAL_OPTIMA, max_points, true);
+	kvparse::parameter_value(keywords::NUM_LOCAL_OPTIMA, max_points, true);
 
 	unsigned int count = 0;
 	while(count < max_points) {
@@ -405,7 +405,7 @@ void infeasibility_region<Chromosome,Encoding>::run()
 {
 	// construct the true pareto front
 	list<string> truepf;
-	configuration::list_parameter(keywords::TRUE_PARETO_FRONT,truepf,true);
+	kvparse::parameter_value(keywords::TRUE_PARETO_FRONT,truepf,true);
 	pareto_front<Chromosome,Encoding> pf;
 	for(list<string>::iterator it=truepf.begin(); it!=truepf.end(); it++) {
 		pf.construct_front(*it,this->m_fitfunc);
@@ -417,7 +417,7 @@ void infeasibility_region<Chromosome,Encoding>::run()
 	// generate several local optima and compare their distance to the
 	// nearest point on the true pareto front
 	unsigned int max_points;
-	configuration::unsigned_integer_parameter(keywords::NUM_LOCAL_OPTIMA, max_points, true);
+	kvparse::parameter_value(keywords::NUM_LOCAL_OPTIMA, max_points, true);
 	unsigned int count = 0;
 	while(count < max_points) {
 		Chromosome<Encoding> chr(this->m_fitfunc);
@@ -469,7 +469,7 @@ void hypervolume_analysis<Chromosome,Encoding>::run()
 {
 	// fill the pareto front
 	string runfile;
-	configuration::string_parameter(keywords::TRUE_PARETO_FRONT,runfile,true);
+	kvparse::parameter_value(keywords::TRUE_PARETO_FRONT,runfile,true);
 	pareto_front<Chromosome,Encoding> pf;
 	pf.construct_front(runfile, this->m_fitfunc);
 
@@ -519,7 +519,7 @@ template <template <typename> class Chromosome, typename Encoding>
 void pareto_plateaus<Chromosome,Encoding>::run()
 {
 	string infile;
-	configuration::string_parameter(keywords::TRUE_PARETO_FRONT,infile,true);
+	kvparse::parameter_value(keywords::TRUE_PARETO_FRONT,infile,true);
 	ifstream in(infile.c_str());
 	if(!in) {
 		cout << "error opening dump file" << endl;
@@ -589,7 +589,7 @@ void pareto_plateaus<Chromosome,Encoding>::run()
 
 	//! write a graphviz file to generate the graphs
 	string graphviz_file;
-	configuration::string_parameter(keywords::GRAPHVIZ_FILE,graphviz_file,true);
+	kvparse::parameter_value(keywords::GRAPHVIZ_FILE,graphviz_file,true);
 	ofstream out(graphviz_file.c_str());
 	if(!out) {
 		cout << "could not open graphviz file" << endl;
@@ -621,7 +621,7 @@ landscape<Chromosome,Encoding>* landscape_factory<Chromosome,Encoding>::construc
 {
 	// what tool to utilize
 	string toolname;
-	configuration::string_parameter(keywords::LANDSCAPE_TOOL, toolname, true);
+	kvparse::parameter_value(keywords::LANDSCAPE_TOOL, toolname, true);
 	if(toolname == keywords::PERTURBATION_SEARCH) {
 		landscape<Chromosome,Encoding>* lnd = new perturbation_search<Chromosome,Encoding>;
 		lnd->initialize();

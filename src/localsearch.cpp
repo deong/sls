@@ -14,10 +14,9 @@
 #include "comparator.h"
 #include "tabu.h"
 #include "simanneal.h"
-//#include "vds.h"
 #include "metrics.h"
 #include "terminators.h"
-#include "configuration.h"
+#include "kvparse/kvparse.h"
 #include "keywords.h"
 
 using namespace std;
@@ -78,7 +77,7 @@ void local_search<Chromosome,Encoding>::initialize()
 	rf.set_prefix(m_prefix);
 	m_repair=rf.construct();
 
-	configuration::boolean_parameter(keywords::DEBUG_LS_GENERATIONS,debug_generations);
+	kvparse::parameter_value(keywords::DEBUG_LS_GENERATIONS,debug_generations);
 }
 
 /*!
@@ -296,7 +295,7 @@ local_search<Chromosome,Encoding>*
 local_search_factory<Chromosome,Encoding>::construct()
 {
 	string hcname;
-	configuration::string_parameter(this->m_prefix+keywords::LOCAL_SEARCH, hcname, true);
+	kvparse::parameter_value(this->m_prefix+keywords::LOCAL_SEARCH, hcname, true);
 	if(hcname == keywords::NEXT_DESCENT) {
 		local_search<Chromosome,Encoding>* hc = new next_descent<Chromosome,Encoding>;
 		hc->set_prefix(this->m_prefix);

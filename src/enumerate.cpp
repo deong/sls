@@ -13,6 +13,7 @@
 #include "encoding.h"
 #include "problems.h"
 #include "pfront.h"
+#include "kvparse/kvparse.h"
 
 using namespace std;
 
@@ -30,7 +31,7 @@ int main(int argc, char** argv)
 	string probtype = argv[1];
 	string conffile = argv[2];
 
-	configuration::read_configuration_file(conffile);
+	kvparse::read_configuration_file(conffile);
 
 	if(probtype == "qap") {
 		enumerate_qap(argv[2]);

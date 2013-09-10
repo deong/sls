@@ -22,7 +22,7 @@
 #include "metrics.h"
 #include "terminators.h"
 #include "convergence.h"
-#include "configuration.h"
+#include "kvparse/kvparse.h"
 #include "keywords.h"
 
 using namespace std;
@@ -108,7 +108,7 @@ void ea<Chromosome,Encoding>::initialize()
 
 	// read in the population size
 	int popsize;
-	configuration::integer_parameter(keywords::POPULATION_SIZE, popsize, true);
+	kvparse::parameter_value(keywords::POPULATION_SIZE, popsize, true);
 
 	// construct the population
 	for(int i=0; i<popsize; i++) {

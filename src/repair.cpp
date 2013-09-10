@@ -11,6 +11,8 @@
 #include "chromosome.h"
 #include "neighborhood.h"
 #include "move.h"
+#include "kvparse/kvparse.h"
+#include "keywords.h"
 
 using namespace std;
 
@@ -429,7 +431,7 @@ template <template <typename> class Chromosome, typename Encoding>
 repair_operator<Chromosome,Encoding>* gap_repair_factory<Chromosome,Encoding>::construct()
 {
 	string repname;
-	configuration::string_parameter(this->m_prefix+keywords::REPAIR_OPERATOR, repname, true);
+	kvparse::parameter_value(this->m_prefix+keywords::REPAIR_OPERATOR, repname, true);
 	if(repname == keywords::GAP_REPAIR_ND) {
 		repair_operator<Chromosome,Encoding>* rep=new gap_repair_nd<Chromosome,Encoding>;
 		return rep;
@@ -451,7 +453,7 @@ template <template <typename> class Chromosome, typename Encoding>
 repair_operator<Chromosome,Encoding>* gsap_repair_factory<Chromosome,Encoding>::construct()
 {
 	string repname;
-	configuration::string_parameter(this->m_prefix+keywords::REPAIR_OPERATOR, repname, true);
+	kvparse::parameter_value(this->m_prefix+keywords::REPAIR_OPERATOR, repname, true);
 	if(repname == keywords::GSAP_REPAIR) {
 		repair_operator<Chromosome,Encoding>* rep=new gsap_repair<Chromosome,Encoding>;
 		return rep;

@@ -18,7 +18,7 @@
 #include "selection.h"
 #include "replacement.h"
 #include "mtrandom.h"
-#include "configuration.h"
+#include "kvparse/kvparse.h"
 #include "keywords.h"
 #include "utilities.h"
 
@@ -77,7 +77,7 @@ void genitor<Chromosome,Encoding>::initialize()
 	m_cross_op = crossover_operator_factory<Chromosome,Encoding>::construct();
 
 	// set up the crossover rate
-	configuration::double_parameter(keywords::CROSSOVER_RATE, m_cross_rate, false);
+	kvparse::parameter_value(keywords::CROSSOVER_RATE, m_cross_rate, false);
 
 	// figure out which mutation operator to use
 	m_mut_op = mutation_operator_factory<Chromosome,Encoding>::construct();

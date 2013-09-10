@@ -23,7 +23,7 @@
 #include <iterator>
 #include "problems.h"
 #include "mtrandom.h"
-#include "configuration.h"
+#include "kvparse/kvparse.h"
 #include "keywords.h"
 #include "utilities.h"
 
@@ -146,7 +146,7 @@ qap_problem::~qap_problem()
 void qap_problem::initialize()
 {
 	string filename;
-	configuration::string_parameter(keywords::PROBLEM_DATA, filename, true);
+	kvparse::parameter_value(keywords::PROBLEM_DATA, filename, true);
 
 	ifstream in(filename.c_str());
 	if(!in) {
@@ -345,7 +345,7 @@ gap_problem::~gap_problem()
 void gap_problem::initialize()
 {
 	string filename;
-	configuration::string_parameter(keywords::PROBLEM_DATA, filename, true);
+	kvparse::parameter_value(keywords::PROBLEM_DATA, filename, true);
 
 	ifstream in(filename.c_str());
 	if(!in) {
@@ -528,7 +528,7 @@ unsigned int gsap_problem::tasks() const
 void gsap_problem::initialize()
 {
 	string filename;
-	configuration::string_parameter(keywords::PROBLEM_DATA, filename, true);
+	kvparse::parameter_value(keywords::PROBLEM_DATA, filename, true);
 
 	ifstream in(filename.c_str());
 	if(!in) {
@@ -716,7 +716,7 @@ knapsack_problem::~knapsack_problem()
 void knapsack_problem::initialize()
 {
 	string filename;
-	configuration::string_parameter(keywords::PROBLEM_DATA, filename, true);
+	kvparse::parameter_value(keywords::PROBLEM_DATA, filename, true);
 
 	ifstream in(filename.c_str());
 	if(!in) {
@@ -800,7 +800,7 @@ onemax_problem::~onemax_problem()
  */
 void onemax_problem::initialize()
 {
-	configuration::unsigned_integer_parameter(keywords::DIMENSIONS, onemax_dim, true);
+	kvparse::parameter_value(keywords::DIMENSIONS, onemax_dim, true);
 }
 
 /*!
@@ -852,7 +852,7 @@ lotz_problem::~lotz_problem()
  */
 void lotz_problem::initialize()
 {
-	configuration::unsigned_integer_parameter(keywords::DIMENSIONS, lotz_dim, true);
+	kvparse::parameter_value(keywords::DIMENSIONS, lotz_dim, true);
 }
 
 /*!
@@ -918,7 +918,7 @@ f1_problem::~f1_problem()
  */
 void f1_problem::initialize()
 {
-	configuration::unsigned_integer_parameter(keywords::DIMENSIONS, f1_dim, true);
+	kvparse::parameter_value(keywords::DIMENSIONS, f1_dim, true);
 }
 
 /*!
@@ -1632,8 +1632,8 @@ void dtlz1_problem::initialize()
 {
 	dtlz1_obj = 3;
 	dtlz1_dim = 7;
-	configuration::unsigned_integer_parameter(keywords::DIMENSIONS, dtlz1_dim, false);
-	configuration::unsigned_integer_parameter(keywords::OBJECTIVES, dtlz1_obj, false);
+	kvparse::parameter_value(keywords::DIMENSIONS, dtlz1_dim, false);
+	kvparse::parameter_value(keywords::OBJECTIVES, dtlz1_obj, false);
 }
 
 /*!
@@ -1737,7 +1737,7 @@ bool rana_problem::evaluate(const vector<double>& p, vector<double>& fit) const
 permutation_problem* permutation_problem_factory::construct()
 {
 	string prob;
-	configuration::string_parameter(keywords::PROBLEM, prob, true);
+	kvparse::parameter_value(keywords::PROBLEM, prob, true);
 
 	if(prob == "qap" || prob == "mqap") {
 		permutation_problem* p = new qap_problem;
@@ -1756,7 +1756,7 @@ permutation_problem* permutation_problem_factory::construct()
 integer_problem* integer_problem_factory::construct()
 {
 	string prob;
-	configuration::string_parameter(keywords::PROBLEM, prob, true);
+	kvparse::parameter_value(keywords::PROBLEM, prob, true);
 
 	if(false) {
 		// no valid integer problems defined yet
@@ -1773,7 +1773,7 @@ integer_problem* integer_problem_factory::construct()
 gap_problem* gap_problem_factory::construct()
 {
 	string prob;
-	configuration::string_parameter(keywords::PROBLEM, prob, true);
+	kvparse::parameter_value(keywords::PROBLEM, prob, true);
 
 	if(prob == "gap") {
 		gap_problem* p = new gap_problem;
@@ -1792,7 +1792,7 @@ gap_problem* gap_problem_factory::construct()
 gsap_problem* gsap_problem_factory::construct()
 {
 	string prob;
-	configuration::string_parameter(keywords::PROBLEM, prob, true);
+	kvparse::parameter_value(keywords::PROBLEM, prob, true);
 
 	if(prob == "gsap") {
 		gsap_problem* p = new gsap_problem;
@@ -1811,7 +1811,7 @@ gsap_problem* gsap_problem_factory::construct()
 bit_string_problem* bit_string_problem_factory::construct()
 {
 	string prob;
-	configuration::string_parameter(keywords::PROBLEM, prob, true);
+	kvparse::parameter_value(keywords::PROBLEM, prob, true);
 
 	if(prob == "onemax") {
 		bit_string_problem* p = new onemax_problem;
@@ -1838,7 +1838,7 @@ bit_string_problem* bit_string_problem_factory::construct()
 numeric_problem* numeric_problem_factory::construct()
 {
 	string prob;
-	configuration::string_parameter(keywords::PROBLEM, prob, true);
+	kvparse::parameter_value(keywords::PROBLEM, prob, true);
 
 	if(prob=="f1") {
 		numeric_problem* p = new f1_problem;

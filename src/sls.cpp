@@ -12,7 +12,7 @@
 #include "encoding.h"
 #include "problems.h"
 #include "metrics.h"
-#include "configuration.h"
+#include "kvparse/kvparse.h"
 #include "keywords.h"
 #include "utilities.h"
 
@@ -188,12 +188,12 @@ void sls<Chromosome,Encoding>::initialize()
 	m_metrics = mf.construct();
 
 	// configure the repair operator
-	if(configuration::keyword_exists(keywords::REPAIR_OPERATOR)) {
+	if(kvparse::keyword_exists(keywords::REPAIR_OPERATOR)) {
 		repair_factory<Chromosome,Encoding> rof;
 		this->m_repair=rof.construct();
 	}
 
 	// verbose logging
 	m_print_every_generation = false;
-	configuration::boolean_parameter(keywords::PRINT_EVERY_GENERATION, m_print_every_generation, false);
+	kvparse::parameter_value(keywords::PRINT_EVERY_GENERATION, m_print_every_generation, false);
 }

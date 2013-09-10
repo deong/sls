@@ -26,7 +26,7 @@
 #include "encoding.h"
 #include "comparator.h"
 #include "problems.h"
-#include "configuration.h"
+#include "kvparse/kvparse.h"
 #include "keywords.h"
 
 using namespace std;
@@ -67,20 +67,20 @@ int main(int argc, char** argv)
 
 	// read any configuration files from the command line
 	for(int i=1; i<argc; i++) {
-		configuration::read_configuration_file(argv[i]);
+		kvparse::read_configuration_file(argv[i]);
 	}
 
 	// figure out how many trials to run
 	int trials = 1;
-	configuration::integer_parameter(keywords::TRIALS, trials);
+	kvparse::parameter_value(keywords::TRIALS, trials);
 
 	// what type of algorithm are we using
 	string alg;
-	configuration::string_parameter(keywords::ALGORITHM, alg, true);
+	kvparse::parameter_value(keywords::ALGORITHM, alg, true);
 
 	// what type of encoding are we using
 	string enc;
-	configuration::string_parameter(keywords::ENCODING, enc, true);
+	kvparse::parameter_value(keywords::ENCODING, enc, true);
 
 	// run the trials
 	for(int i=1; i<=trials; i++) {

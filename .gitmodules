@@ -1,0 +1,3 @@
+[submodule "src/kvparse"]
+	path = src/kvparse
+	url = git@github.com:deong/kvparse

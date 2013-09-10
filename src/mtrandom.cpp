@@ -18,7 +18,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include "mtrandom.h"
-#include "configuration.h"
+#include "kvparse/kvparse.h"
 #include "keywords.h"
 
 using namespace std;
@@ -73,8 +73,8 @@ unsigned long mtrandom::seed()
 bool mtrandom::initialize()
 {
 	unsigned int seed;
-	if(configuration::keyword_exists(keywords::RANDOM_SEED)) {
-		if(configuration::unsigned_integer_parameter(keywords::RANDOM_SEED,seed)) {
+	if(kvparse::keyword_exists(keywords::RANDOM_SEED)) {
+		if(kvparse::parameter_value(keywords::RANDOM_SEED,seed)) {
 			cerr << "Failed to read value for keyword " << keywords::RANDOM_SEED << endl;
 			return false;
 		}

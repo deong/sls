@@ -13,7 +13,7 @@
 #include "encoding.h"
 #include "mtrandom.h"
 #include "chromosome.h"
-#include "configuration.h"
+#include "kvparse/kvparse.h"
 #include "keywords.h"
 #include "utilities.h"
 #include "mtrandom.h"
@@ -232,7 +232,7 @@ sbx_crossover_impl<Chromosome,Encoding>::~sbx_crossover_impl()
 template <template <typename> class Chromosome, typename Encoding>
 void sbx_crossover_impl<Chromosome,Encoding>::initialize()
 {
-	configuration::double_parameter(keywords::SBX_ETA, m_eta, true);
+	kvparse::parameter_value(keywords::SBX_ETA, m_eta, true);
 }
 
 /*!
@@ -483,7 +483,7 @@ template <template <typename> class Chromosome, typename Encoding>
 crossover_operator<Chromosome,Encoding>* bit_vector_crossover_operator_factory<Chromosome,Encoding>::construct()
 {
 	string coname;
-	configuration::string_parameter(keywords::CROSSOVER_OPERATOR, coname, true);
+	kvparse::parameter_value(keywords::CROSSOVER_OPERATOR, coname, true);
 	if(coname == keywords::UNIFORM_CROSSOVER) {
 		return new uniform_crossover<Chromosome,Encoding>;
 	} else if(coname == keywords::ONE_POINT_CROSSOVER) {
@@ -505,7 +505,7 @@ template <template <typename> class Chromosome, typename Encoding>
 crossover_operator<Chromosome,Encoding>* real_crossover_operator_factory<Chromosome,Encoding>::construct()
 {
 	string coname;
-	configuration::string_parameter(keywords::CROSSOVER_OPERATOR, coname, true);
+	kvparse::parameter_value(keywords::CROSSOVER_OPERATOR, coname, true);
 	if(coname == keywords::UNIFORM_CROSSOVER) {
 		return new uniform_crossover<Chromosome,Encoding>;
 	} else if(coname == keywords::ONE_POINT_CROSSOVER) {
@@ -529,7 +529,7 @@ template <template <typename> class Chromosome, typename Encoding>
 crossover_operator<Chromosome,Encoding>* permutation_crossover_operator_factory<Chromosome,Encoding>::construct()
 {
 	string coname;
-	configuration::string_parameter(keywords::CROSSOVER_OPERATOR, coname, true);
+	kvparse::parameter_value(keywords::CROSSOVER_OPERATOR, coname, true);
 	if(coname == keywords::ORDER_CROSSOVER) {
 		return new order_crossover<Chromosome,Encoding>;
 	} else if(coname == keywords::CYCLE_CROSSOVER) {
@@ -547,7 +547,7 @@ template <template <typename> class Chromosome, typename Encoding>
 crossover_operator<Chromosome,Encoding>* integer_crossover_operator_factory<Chromosome,Encoding>::construct()
 {
 	string coname;
-	configuration::string_parameter(keywords::CROSSOVER_OPERATOR, coname, true);
+	kvparse::parameter_value(keywords::CROSSOVER_OPERATOR, coname, true);
 	if(coname == keywords::UNIFORM_CROSSOVER) {
 		return new uniform_crossover<Chromosome,Encoding>;
 	} else if(coname == keywords::ONE_POINT_CROSSOVER) {
@@ -567,7 +567,7 @@ template <template <typename> class Chromosome, typename Encoding>
 crossover_operator<Chromosome,Encoding>* gap_crossover_operator_factory<Chromosome,Encoding>::construct()
 {
 	string coname;
-	configuration::string_parameter(keywords::CROSSOVER_OPERATOR, coname, true);
+	kvparse::parameter_value(keywords::CROSSOVER_OPERATOR, coname, true);
 	if(coname == keywords::UNIFORM_CROSSOVER) {
 		return new uniform_crossover<Chromosome,Encoding>;
 	} else if(coname == keywords::ONE_POINT_CROSSOVER) {
@@ -587,7 +587,7 @@ template <template <typename> class Chromosome, typename Encoding>
 crossover_operator<Chromosome,Encoding>* gsap_crossover_operator_factory<Chromosome,Encoding>::construct()
 {
 	string coname;
-	configuration::string_parameter(keywords::CROSSOVER_OPERATOR, coname, true);
+	kvparse::parameter_value(keywords::CROSSOVER_OPERATOR, coname, true);
 	if(coname == keywords::UNIFORM_CROSSOVER) {
 		return new uniform_crossover<Chromosome,Encoding>;
 	} else if(coname == keywords::ONE_POINT_CROSSOVER) {

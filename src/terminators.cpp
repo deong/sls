@@ -16,7 +16,7 @@
 #include "chromosome.h"
 #include "encoding.h"
 #include "population.h"
-#include "configuration.h"
+#include "kvparse/kvparse.h"
 #include "keywords.h"
 #include "utilities.h"
 
@@ -96,7 +96,7 @@ template <template <typename> class Chromosome, typename Encoding>
 void evaluation_limit<Chromosome,Encoding>::initialize(const string& prefix)
 {
 	terminator<Chromosome,Encoding>::initialize(prefix);
-	configuration::unsigned_integer_parameter(prefix+keywords::MAX_EVALUATIONS, m_max_evals, true);
+	kvparse::parameter_value(prefix+keywords::MAX_EVALUATIONS, m_max_evals, true);
 }
 
 /*!
@@ -150,7 +150,7 @@ generation_limit<Chromosome,Encoding>::~generation_limit()
 template <template <typename> class Chromosome, typename Encoding>
 void generation_limit<Chromosome,Encoding>::initialize(const string& prefix)
 {
-	configuration::unsigned_integer_parameter(prefix+keywords::MAX_GENERATIONS,
+	kvparse::parameter_value(prefix+keywords::MAX_GENERATIONS,
 	        m_max_gens, true);
 }
 
@@ -234,7 +234,7 @@ list<terminator<Chromosome,Encoding>*> terminator_factory<Chromosome,Encoding>::
 	list<terminator<Chromosome,Encoding>*> termlist;
 
 	list<string> tnames;
-	configuration::list_parameter(this->m_prefix+keywords::TERMINATOR, tnames, true);
+	kvparse::parameter_value(this->m_prefix+keywords::TERMINATOR, tnames, true);
 
 	for(list<string>::iterator it=tnames.begin(); it!=tnames.end(); it++) {
 		string tname = (*it);

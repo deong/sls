@@ -9,8 +9,6 @@
 #include "chromosome.h"
 #include "mutation.h"
 #include "pfront.h"
-#include "configuration.h"
-#include "keywords.h"
 #include "mtrandom.h"
 
 using namespace std;

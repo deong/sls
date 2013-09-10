@@ -17,7 +17,7 @@
 #include "chromosome.h"
 #include "population.h"
 #include "comparator.h"
-#include "configuration.h"
+#include "kvparse/kvparse.h"
 #include "keywords.h"
 #include "utilities.h"
 #include "localsearch.h"
@@ -144,29 +144,29 @@ void emoea<Encoding>::initialize()
 	m_eps_comp.initialize();
 
 	// read in the same epsilon for use in the archive acceptance procedure
-	configuration::vector_parameter<double>(keywords::EPSILON, m_epsilon, true);
+	kvparse::parameter_value(keywords::EPSILON, m_epsilon, true);
 
 	// set up the crossover and mutation operators
 	m_cross_op = crossover_operator_factory<emoea_chromosome,Encoding>::construct();
-	configuration::double_parameter(keywords::CROSSOVER_RATE, m_cross_rate, true);
+	kvparse::parameter_value(keywords::CROSSOVER_RATE, m_cross_rate, true);
 	m_mut_op = mutation_operator_factory<emoea_chromosome,Encoding>::construct();
 
 	// configure the hill climber
-	if(configuration::keyword_exists(keywords::LOCAL_SEARCH)) {
+	if(kvparse::keyword_exists(keywords::LOCAL_SEARCH)) {
 		local_search_factory<emoea_chromosome,Encoding> lsf;
 		lsf.set_prefix("ls_");
 		m_hc=lsf.construct();
 
 		diversification = true;
-		configuration::boolean_parameter(keywords::DIVERSIFICATION, diversification, false);
+		kvparse::parameter_value(keywords::DIVERSIFICATION, diversification, false);
 
 		if(diversification) {
 			// figure out how many iterations to run for the second phase
 			// of local search
 			m_ls_iter = INT_MAX;
-			configuration::unsigned_integer_parameter(keywords::LOCAL_SEARCH_ITERATIONS, m_ls_iter, true);
+			kvparse::parameter_value(keywords::LOCAL_SEARCH_ITERATIONS, m_ls_iter, true);
 			ph2iter = static_cast<unsigned int>(sqrt(double(m_ls_iter)));
-			configuration::unsigned_integer_parameter(keywords::SECOND_PHASE_ITERATIONS, ph2iter, false);
+			kvparse::parameter_value(keywords::SECOND_PHASE_ITERATIONS, ph2iter, false);
 		}
 	}
 

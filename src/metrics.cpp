@@ -21,7 +21,7 @@
 #include "encoding.h"
 #include "comparator.h"
 #include "population.h"
-#include "configuration.h"
+#include "kvparse/kvparse.h"
 #include "keywords.h"
 #include "utilities.h"
 
@@ -157,7 +157,7 @@ best_solution<Chromosome,Encoding>::~best_solution()
 template <template <typename> class Chromosome, typename Encoding>
 void best_solution<Chromosome,Encoding>::initialize(const string& prefix)
 {
-	configuration::boolean_parameter(keywords::REPORT_ALL_BEST, m_report_all_best, false);
+	kvparse::parameter_value(keywords::REPORT_ALL_BEST, m_report_all_best, false);
 	comparator_factory<Chromosome,Encoding> cf;
 	cf.set_prefix(prefix);
 	m_comp = cf.construct();
@@ -292,7 +292,7 @@ hypervolume<Chromosome,Encoding>::~hypervolume()
 template <template <typename> class Chromosome, typename Encoding>
 void hypervolume<Chromosome,Encoding>::initialize(const string& prefix)
 {
-	configuration::vector_parameter<typename Encoding::FitnessType>(prefix+keywords::REFERENCE_POINT,
+	kvparse::parameter_value<typename Encoding::FitnessType>(prefix+keywords::REFERENCE_POINT,
 	        m_ref_point, true);
 }
 
@@ -500,7 +500,7 @@ list<metric<Chromosome,Encoding>*> metric_factory<Chromosome,Encoding>::construc
 	list<metric<Chromosome,Encoding>*> metlist;
 	list<string> mets;
 
-	configuration::list_parameter(this->m_prefix+keywords::METRIC, mets, false);
+	kvparse::parameter_value(this->m_prefix+keywords::METRIC, mets, false);
 	for(list<string>::iterator it=mets.begin(); it!=mets.end(); it++) {
 		string curr = (*it);
 		if(curr==keywords::EVALUATION_COUNTER) {

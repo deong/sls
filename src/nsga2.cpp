@@ -20,6 +20,8 @@
 #include "selection.h"
 #include "mtrandom.h"
 #include "localsearch.h"
+#include "kvparse/kvparse.h"
+#include "keywords.h"
 
 using namespace std;
 
@@ -151,7 +153,7 @@ void nsga2<Encoding>::initialize()
 
 	// get the crossover operator parameters
 	m_cross_op = crossover_operator_factory<nsga2_chromosome,Encoding>::construct();
-	configuration::double_parameter(keywords::CROSSOVER_RATE, m_cross_rate, true);
+	kvparse::parameter_value(keywords::CROSSOVER_RATE, m_cross_rate, true);
 
 	// get the mutation operator parameters
 	m_mut_op = mutation_operator_factory<nsga2_chromosome,Encoding>::construct();
@@ -160,13 +162,13 @@ void nsga2<Encoding>::initialize()
 	m_sel_scheme = new tournament_selection<nsga2_chromosome,Encoding>(&m_comp);
 
 	// initialize the local search operator
-	if(configuration::keyword_exists(keywords::LOCAL_SEARCH)) {
+	if(kvparse::keyword_exists(keywords::LOCAL_SEARCH)) {
 		local_search_factory<nsga2_chromosome,Encoding> lsf;
 		lsf.set_prefix("ls_");
 		m_ls_op=lsf.construct();
 
 		m_ls_iter = INT_MAX;
-		configuration::unsigned_integer_parameter(keywords::LOCAL_SEARCH_ITERATIONS,m_ls_iter,true);
+		kvparse::parameter_value(keywords::LOCAL_SEARCH_ITERATIONS,m_ls_iter,true);
 	}
 }
 
