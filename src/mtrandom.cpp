@@ -73,6 +73,8 @@ unsigned long mtrandom::seed()
 bool mtrandom::initialize()
 {
 	unsigned int seed;
+	// shuts up a compiler warning; it should always be set one way or the other
+	m_seed = 0;
 	if(kvparse::keyword_exists(keywords::RANDOM_SEED)) {
 		if(kvparse::parameter_value(keywords::RANDOM_SEED,seed)) {
 			cerr << "Failed to read value for keyword " << keywords::RANDOM_SEED << endl;

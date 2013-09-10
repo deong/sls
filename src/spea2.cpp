@@ -446,9 +446,9 @@ void spea2<Encoding>::initialize()
 	m_mut_op = mutation_operator_factory<spea2_chromosome,Encoding>::construct();
 
 	// configure the hill climber
-	if(kvparse::keyword_exists(keywords::LOCAL_SEARCH)) {
+	if(kvparse::keyword_exists("embedded_" + keywords::LOCAL_SEARCH)) {
 		local_search_factory<spea2_chromosome,Encoding> lsf;
-		lsf.set_prefix("ls_");
+		lsf.set_prefix("embedded_");
 		m_hc = lsf.construct();
 
 		strat = strategy_factory::construct();
@@ -550,6 +550,8 @@ void spea2<Encoding>::run_one_generation()
 
 /*!
  * \brief optimize entire population via local search method
+ *
+ * \todo change the way this whole thing works...this is pretty grody
  */
 template <typename Encoding>
 void spea2<Encoding>::optimize_population(population<spea2_chromosome,Encoding>& pop)

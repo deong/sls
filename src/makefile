@@ -53,11 +53,11 @@ gapgen : gapgen.o libsls.a
 ksgen : ksgen.o libsls.a
 	${CXX} ${CXXFLAGS} -L. ksgen.o -o ksgen -lsls -lm
 
-enumerate : libsls.a ${SRC} enumerate.cpp
-	${CXX} ${CXXFLAGS} -L. enumerate.cpp -o enumerate -lsls -lm
+enumerate : libsls.a libkvp.a ${SRC} enumerate.cpp
+	${CXX} ${CXXFLAGS} -L. enumerate.cpp -o enumerate -lsls -lkvp -lboost_regex -lm
 
-mergepf : libsls.a ${SRC} mergepf.cpp
-	${CXX} ${CXXFLAGS} -L. mergepf.cpp -o mergepf -lsls -lm
+mergepf : libsls.a libkvp.a ${SRC} mergepf.cpp
+	${CXX} ${CXXFLAGS} -L. mergepf.cpp -o mergepf -lsls -lkvp -lboost_regex -lm
 
 pearson : pearson.cpp utilities.o
 	${CXX} ${CXXFLAGS} pearson.cpp utilities.o -o pearson -lm
