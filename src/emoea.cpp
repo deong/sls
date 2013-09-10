@@ -152,9 +152,9 @@ void emoea<Encoding>::initialize()
 	m_mut_op = mutation_operator_factory<emoea_chromosome,Encoding>::construct();
 
 	// configure the hill climber
-	if(kvparse::keyword_exists(keywords::LOCAL_SEARCH)) {
+	if(kvparse::keyword_exists("embedded_" + keywords::LOCAL_SEARCH)) {
 		local_search_factory<emoea_chromosome,Encoding> lsf;
-		lsf.set_prefix("ls_");
+		lsf.set_prefix("embedded_");
 		m_hc=lsf.construct();
 
 		diversification = true;

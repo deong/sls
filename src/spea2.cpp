@@ -455,7 +455,6 @@ void spea2<Encoding>::initialize()
 		if(strat == STRATEGY_RANDOM) {
 			kvparse::parameter_value(keywords::HC_RATE, hc_rate, true);
 		}
-
 		this->optimize_population(this->m_population);
 	}
 
@@ -474,11 +473,6 @@ void spea2<Encoding>::initialize()
 template <typename Encoding>
 void spea2<Encoding>::run()
 {
-	// if we're using a hill climber, optimize the initial population
-	if(m_hc) {
-		optimize_population(this->m_population);
-	}
-
 	// build up the initial archive
 	construct_archive();
 	pareto_front<spea2_chromosome,Encoding> tmp(m_archive);

@@ -162,13 +162,16 @@ void nsga2<Encoding>::initialize()
 	m_sel_scheme = new tournament_selection<nsga2_chromosome,Encoding>(&m_comp);
 
 	// initialize the local search operator
-	if(kvparse::keyword_exists(keywords::LOCAL_SEARCH)) {
+	if(kvparse::keyword_exists("embedded_" + keywords::LOCAL_SEARCH)) {
 		local_search_factory<nsga2_chromosome,Encoding> lsf;
-		lsf.set_prefix("ls_");
+		lsf.set_prefix("embedded_");
 		m_ls_op=lsf.construct();
 
-		m_ls_iter = INT_MAX;
-		kvparse::parameter_value(keywords::LOCAL_SEARCH_ITERATIONS,m_ls_iter,true);
+		strat = strategy_factory::construct();
+		if(strat == STRATEGY_RANDOM) {
+			kvparse::parameter_value(keywords::HC_RATE, hc_rate, true);
+		}
+		this->optimize_population(this->m_population);
 	}
 }
 
@@ -303,12 +306,9 @@ void nsga2<Encoding>::run_one_generation()
 		m_offspring.add(c2);
 	}
 
+	// improve the offspring population
 	if(m_ls_op) {
-		for(unsigned int i=0; i<m_offspring.size(); i++) {
-			scalarizing_comparator<nsga2_chromosome,Encoding> comp;
-			comp.randomize_weights(this->m_fitfunc->objectives());
-			m_ls_op->improve(m_offspring[i], &comp, this->m_fitfunc);
-		}
+		optimize_population(m_offspring);
 	}
 
 	// now we must generate a new parent population from the previous population
@@ -338,5 +338,54 @@ void nsga2<Encoding>::run_one_generation()
 	unsigned int k = 0;
 	while(this->m_population.size() < popsize) {
 		this->m_population.add(F[fi][k++]);
+	}
+}
+
+/*!
+ * \brief optimize entire population via local search method
+ *
+ * \todo change the way this whole thing works...this is pretty grody
+ */
+template <typename Encoding>
+void nsga2<Encoding>::optimize_population(population<nsga2_chromosome,Encoding>& pop)
+{
+	scalarizing_comparator<nsga2_chromosome,Encoding> comp;
+	comp.weights.resize(pop[0].fitness.size());
+	if(strat == STRATEGY_ALL) {
+		for(unsigned int i=0; i<pop.size(); i++) {
+			comp.weights[0] = double(pop.size()-i-1)/(pop.size()-1);
+			comp.weights[1] = 1.0 - comp.weights[0];
+			m_ls_op->improve(pop[i], &comp, this->m_fitfunc);
+		}
+	} else if(strat == STRATEGY_BEST) {
+		mtrandom mt;
+		comp.weights[0] = mt.random();
+		comp.weights[1] = 1.0 - comp.weights[0];
+		int bestidx = 0;
+		for(unsigned int i=1; i<pop.size(); i++) {
+			if(comp.compare(pop[i],pop[bestidx]) == -1) {
+				bestidx = i;
+			}
+		}
+		m_ls_op->improve(pop[bestidx], &comp, this->m_fitfunc);
+	} else if(strat == STRATEGY_WORST) {
+		mtrandom mt;
+		comp.weights[0] = mt.random();
+		comp.weights[1] = 1.0 - comp.weights[0];
+		int worstidx = 0;
+		for(unsigned int i=1; i<pop.size(); i++) {
+			if(comp.compare(pop[i],pop[worstidx]) == 1) {
+				worstidx = i;
+			}
+		}
+		m_ls_op->improve(pop[worstidx], &comp, this->m_fitfunc);
+	} else if(strat == STRATEGY_RANDOM) {
+		mtrandom mt;
+		comp.weights[0] = mt.random();
+		comp.weights[1] = 1.0 - comp.weights[0];
+		int idx = mt.random(0,pop.size());
+		m_ls_op->improve(pop[idx], &comp, this->m_fitfunc);
+	} else if(strat == STRATEGY_NONE) {
+		return;
 	}
 }

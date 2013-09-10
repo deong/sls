@@ -18,6 +18,7 @@
 #include "crossover.h"
 #include "mutation.h"
 #include "localsearch.h"
+#include "strategy.h"
 
 using namespace std;
 
@@ -92,8 +93,9 @@ protected:
 	mutation_operator<nsga2_chromosome,Encoding>* m_mut_op;
 
 	// local search operator to improve individuals
+	strategy strat;
+	double hc_rate;
 	local_search<nsga2_chromosome,Encoding>* m_ls_op;
-	unsigned int m_ls_iter;
 
 	// compute the crowding distances
 	void compute_crowding_distances(pareto_front<nsga2_chromosome,Encoding>& pop);
@@ -105,6 +107,9 @@ protected:
 	// sort the population into nondomination ranks
 	void nondominated_sort(population<nsga2_chromosome,Encoding>& pop,
 	                       vector<pareto_front<nsga2_chromosome,Encoding> >& fronts);
+
+	// subject some individuals to local search
+	void optimize_population(population<nsga2_chromosome,Encoding>& pop);
 
 public:
 	// ctors and dtor
