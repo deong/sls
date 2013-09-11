@@ -15,7 +15,10 @@
 #include <vector>
 #include <deque>
 #include <map>
+#ifdef _WIN32
+#define _USE_MATH_DEFINES
 #include <cmath>
+#endif
 #include "metrics.h"
 #include "chromosome.h"
 #include "encoding.h"

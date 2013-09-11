@@ -562,7 +562,7 @@ void pareto_plateaus<Chromosome,Encoding>::run()
 
 			//! compute the next neighbor of the current point and figure out
 			//! what rank it is
-			move<Chromosome,Encoding> m=hood->next_neighbor();
+			lsmove<Chromosome,Encoding> m=hood->next_neighbor();
 			Chromosome<Encoding> tmp=sol;
 			m.apply(tmp);
 			if(tmp==sol) {      // don't consider moves that did nothing

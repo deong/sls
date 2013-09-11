@@ -13,7 +13,9 @@
 #include <iostream>
 #include <algorithm>
 #include <cassert>
+#ifndef _WIN32
 #include <unistd.h>
+#endif
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
@@ -83,14 +85,18 @@ bool mtrandom::initialize()
 		m_seed = static_cast<unsigned long>(seed);
 		m_first_time = false;
 	} else {
+#ifndef _WIN32
 		// try to read from /dev/random; if that fails, use the system time
 		int fd=open("/dev/random",O_RDONLY|O_NONBLOCK);
 		if((fd!=-1) && (read(fd,&m_seed,sizeof(unsigned long))==sizeof(unsigned long))) {
 			m_seed=static_cast<unsigned long>(m_seed);
 		} else {
 			cerr << "failed to read random bytes from /dev/random...falling back to system clock" << endl;
+#endif
 			m_seed = static_cast<unsigned long>(time(NULL));
+#ifndef _WIN32
 		}
+#endif
 		m_first_time=false;
 	}
 
@@ -106,15 +112,18 @@ bool mtrandom::initialize()
 mtrandom::mtrandom()
 {
 	if(m_first_time == true) {
+#ifndef _WIN32
 		// try to read from /dev/random; if that fails, use the system time
 		int fd=open("/dev/random",O_RDONLY|O_NONBLOCK);
 		if((fd!=-1) && (read(fd,&m_seed,sizeof(unsigned long))==sizeof(unsigned long))) {
 			m_seed=static_cast<unsigned long>(m_seed);
 		} else {
 			cerr << "failed to read random bytes from /dev/random...falling back to system clock" << endl;
+#endif
 			m_seed = static_cast<unsigned long>(time(NULL));
+#ifndef _WIN32
 		}
-
+#endif
 		m_first_time = false;
 		//m_seed = static_cast<unsigned long>(time(NULL));
 		//m_seed = ((m_seed>0) ? -m_seed : m_seed);

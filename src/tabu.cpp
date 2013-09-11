@@ -13,7 +13,7 @@
 #include <cfloat>
 #include "sls.h"
 #include "localsearch.h"
-#include "move.h"
+#include "lsmove.h"
 #include "neighborhood.h"
 #include "chromosome.h"
 #include "encoding.h"
@@ -74,15 +74,15 @@ void tabu_list<Chromosome,Encoding>::clear()
  */
 template <template <typename> class Chromosome, typename Encoding>
 void tabu_list<Chromosome,Encoding>::accept_move(const Chromosome<Encoding>& chr,
-        const move<Chromosome,Encoding>& m,
+        const lsmove<Chromosome,Encoding>& m,
         unsigned int iter)
 {
 	mtrandom mt;
 
 	//! create a move that would undo the accepted move (prevent the chromosome
 	//! from receiving the values it currently has at the affected positions)
-	move<Chromosome,Encoding> revert;
-	for(typename move<Chromosome,Encoding>::const_iterator mi=m.begin(); mi!=m.end(); mi++) {
+	lsmove<Chromosome,Encoding> revert;
+	for(typename lsmove<Chromosome,Encoding>::const_iterator mi=m.begin(); mi!=m.end(); mi++) {
 		revert.add_component(mi->first,chr[mi->first]);
 	}
 
@@ -103,18 +103,18 @@ void tabu_list<Chromosome,Encoding>::accept_move(const Chromosome<Encoding>& chr
  * \brief determine if a move is tabu at the given generation
  */
 template <template <typename> class Chromosome, typename Encoding>
-bool tabu_list<Chromosome,Encoding>::tabu(const move<Chromosome,Encoding>& m, unsigned int iter) const
+bool tabu_list<Chromosome,Encoding>::tabu(const lsmove<Chromosome,Encoding>& m, unsigned int iter) const
 {
 	for(typename deque<tlist_item>::const_iterator i=_internal.begin(); i!=_internal.end(); i++) {
 		//! check to see if any component of the move is part of a tabu move
-		move<Chromosome,Encoding> cm=i->first;
+		lsmove<Chromosome,Encoding> cm=i->first;
 		unsigned int tenure=i->second;
 
 		//! for each component mi in m
 		//!     if mi appears in curr.first and iter<=curr.second
 		//!         return true
 		//! return true
-		for(typename move<Chromosome,Encoding>::const_iterator mi=m.begin(); mi!=m.end(); mi++) {
+		for(typename lsmove<Chromosome,Encoding>::const_iterator mi=m.begin(); mi!=m.end(); mi++) {
 			if((find(cm.begin(),cm.end(),(*mi))!=cm.end()) &&
 			        (iter<=tenure)) {
 				return true;
@@ -191,7 +191,7 @@ void tabu_search<Chromosome,Encoding>::improve(Chromosome<Encoding>& chr,
 	while(!this->terminate()) {
 		//! keep track of best neighbor
 		Chromosome<Encoding> best_neighbor=chr;
-		move<Chromosome,Encoding> best_move;
+		lsmove<Chromosome,Encoding> best_move;
 		bool already_aspired=false;
 		bool first_one=true;
 
@@ -201,7 +201,7 @@ void tabu_search<Chromosome,Encoding>::improve(Chromosome<Encoding>& chr,
 		//! for each move in neighborhood
 		while(this->m_nf->has_more_neighbors()) {
 			//! determine if move is tabu, aspired
-			move<Chromosome,Encoding> m=this->m_nf->next_neighbor();
+			lsmove<Chromosome,Encoding> m=this->m_nf->next_neighbor();
 			bool istabu=_tlist->tabu(m,iter);
 			bool aspired=false;
 			Chromosome<Encoding> tmp=chr;

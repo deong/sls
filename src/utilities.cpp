@@ -107,3 +107,10 @@ double compute_pearson_correlation(const vector<pair<double,double> >& points)
 
 	return numerator / (sqrt(denom1) * sqrt(denom2));
 }
+
+#ifdef _WIN32
+double log2(double n)
+{
+	return log(n) / log(2);
+}
+#endif

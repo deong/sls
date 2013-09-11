@@ -10,7 +10,7 @@
 #include "repair.h"
 #include "chromosome.h"
 #include "neighborhood.h"
-#include "move.h"
+#include "lsmove.h"
 #include "kvparse/kvparse.h"
 #include "keywords.h"
 
@@ -82,7 +82,7 @@ void gap_repair_nd_impl<Chromosome,Encoding>::repair(Chromosome<Encoding>& chr,
 		at_local_opt = true;
 		this->m_nf->initialize(chr);
 		while(this->m_nf->has_more_neighbors()) {
-			move<Chromosome,Encoding> m=this->m_nf->next_neighbor();
+			lsmove<Chromosome,Encoding> m=this->m_nf->next_neighbor();
 
 			// analyze move to see if it would decrease excess resource usage
 			vector<int> new_used=used;
@@ -167,13 +167,13 @@ void gap_repair_sd_impl<Chromosome,Encoding>::repair(Chromosome<Encoding>& chr,
 
 	bool at_local_opt = false;
 	while(!at_local_opt && excess>0) {
-		move<Chromosome,Encoding> best_move;
+		lsmove<Chromosome,Encoding> best_move;
 		int best_move_excess=excess;
 
 		at_local_opt = true;
 		this->m_nf->initialize(chr);
 		while(this->m_nf->has_more_neighbors()) {
-			move<Chromosome,Encoding> m=this->m_nf->next_neighbor();
+			lsmove<Chromosome,Encoding> m=this->m_nf->next_neighbor();
 
 			// analyze move to see if it would decrease excess resource usage
 			vector<int> new_used=used;

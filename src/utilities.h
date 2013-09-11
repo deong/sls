@@ -39,4 +39,10 @@ ostream& operator<<(ostream& ostr, const vector<T>& v)
 
 bool operator==(const vector<int>& v1, const vector<int>& v2);
 
+// Visual Studio apparently just doesn't bother to include a log2 function in math.h?
+// What the everloving fuck is wrong with you, Microsoft?
+#ifdef _WIN32
+double log2(double n);
+#endif
+
 #endif

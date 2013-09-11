@@ -12,7 +12,7 @@
 
 #include <vector>
 #include "encoding.h"
-#include "move.h"
+#include "lsmove.h"
 
 /*!
  * \class neighborhood
@@ -44,7 +44,7 @@ public:
 	                                       const typename Encoding::ProblemType* prob) const = 0;
 	virtual void initialize(const Chromosome<Encoding>& sol);
 	virtual bool has_more_neighbors() const = 0;
-	virtual move<Chromosome,Encoding> next_neighbor() = 0;
+	virtual lsmove<Chromosome,Encoding> next_neighbor() = 0;
 };
 
 /*!
@@ -72,7 +72,7 @@ public:
 	                                       const typename Encoding::ProblemType* prob) const;
 	virtual void initialize(const Chromosome<Encoding>& sol);
 	virtual bool has_more_neighbors() const;
-	virtual move<Chromosome,Encoding> next_neighbor();
+	virtual lsmove<Chromosome,Encoding> next_neighbor();
 };
 
 /*!
@@ -129,7 +129,7 @@ public:
 	                                       const typename Encoding::ProblemType* prob) const;
 	virtual void initialize(const Chromosome<Encoding>& sol);
 	virtual bool has_more_neighbors() const;
-	virtual move<Chromosome,Encoding> next_neighbor();
+	virtual lsmove<Chromosome,Encoding> next_neighbor();
 };
 
 /*!
@@ -215,7 +215,7 @@ public:
 	                                       const typename Encoding::ProblemType* prob) const;
 	virtual void initialize(const Chromosome<Encoding>& sol);
 	virtual bool has_more_neighbors() const;
-	virtual move<Chromosome,Encoding> next_neighbor();
+	virtual lsmove<Chromosome,Encoding> next_neighbor();
 };
 
 /*!
@@ -260,7 +260,7 @@ public:
 	                                       const typename Encoding::ProblemType* prob) const;
 	virtual void initialize(const Chromosome<Encoding>& sol);
 	virtual bool has_more_neighbors() const;
-	virtual move<Chromosome,Encoding> next_neighbor();
+	virtual lsmove<Chromosome,Encoding> next_neighbor();
 };
 
 /*!

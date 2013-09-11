@@ -19,7 +19,7 @@
 #include "problems.h"
 #include "comparator.h"
 #include "localsearch.h"
-#include "move.h"
+#include "lsmove.h"
 
 using namespace std;
 
@@ -30,7 +30,7 @@ template <template <typename> class Chromosome, typename Encoding>
 class tabu_list
 {
 public:
-	typedef pair<move<Chromosome,Encoding>,unsigned int> tlist_item;
+	typedef pair<lsmove<Chromosome,Encoding>,unsigned int> tlist_item;
 
 public:
 	tabu_list();
@@ -38,8 +38,8 @@ public:
 	void set_prefix(const string& prefix);
 	void initialize();
 	void clear();
-	void accept_move(const Chromosome<Encoding>& chr, const move<Chromosome,Encoding>& m, unsigned int iter);
-	bool tabu(const move<Chromosome,Encoding>& m, unsigned int iter) const;
+	void accept_move(const Chromosome<Encoding>& chr, const lsmove<Chromosome,Encoding>& m, unsigned int iter);
+	bool tabu(const lsmove<Chromosome,Encoding>& m, unsigned int iter) const;
 
 private:
 	unsigned int _ttmin;

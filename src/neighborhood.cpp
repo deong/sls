@@ -11,7 +11,7 @@
 #include <algorithm>
 #include <cstdlib>
 #include "neighborhood.h"
-#include "move.h"
+#include "lsmove.h"
 #include "chromosome.h"
 #include "encoding.h"
 #include "kvparse/kvparse.h"
@@ -129,10 +129,10 @@ bool hamming_neighborhood_impl<Chromosome,Encoding>::has_more_neighbors() const
  * \brief return the next available move
  */
 template <template <typename> class Chromosome, typename Encoding>
-move<Chromosome,Encoding> hamming_neighborhood_impl<Chromosome,Encoding>::next_neighbor()
+lsmove<Chromosome,Encoding> hamming_neighborhood_impl<Chromosome,Encoding>::next_neighbor()
 {
 	this->m_current= this->m_base;
-	move<Chromosome,Encoding> mv;
+	lsmove<Chromosome,Encoding> mv;
 	mv.add_component(order[index],!this->m_current[order[index]]);
 	mv.apply(this->m_current);
 	index++;
@@ -230,10 +230,10 @@ bool swap_neighborhood_impl<Chromosome,Encoding>::has_more_neighbors() const
  * \brief return the next available swap
  */
 template <template <typename> class Chromosome, typename Encoding>
-move<Chromosome,Encoding> swap_neighborhood_impl<Chromosome,Encoding>::next_neighbor()
+lsmove<Chromosome,Encoding> swap_neighborhood_impl<Chromosome,Encoding>::next_neighbor()
 {
 	this->m_current= this->m_base;
-	move<Chromosome,Encoding> m;
+	lsmove<Chromosome,Encoding> m;
 	m.add_component(order[i],this->m_current[order[j]]);
 	m.add_component(order[j++],this->m_current[order[i]]);
 	if(j == this->m_base.length()) {
@@ -329,10 +329,10 @@ bool shift_neighborhood_impl<Chromosome,Encoding>::has_more_neighbors() const
  * \brief return next available move
  */
 template <template <typename> class Chromosome, typename Encoding>
-move<Chromosome,Encoding> shift_neighborhood_impl<Chromosome,Encoding>::next_neighbor()
+lsmove<Chromosome,Encoding> shift_neighborhood_impl<Chromosome,Encoding>::next_neighbor()
 {
 	this->m_current= this->m_base;
-	move<Chromosome,Encoding> m;
+	lsmove<Chromosome,Encoding> m;
 	m.add_component(task_order[task_index],agent_order[agent_index++]);
 	if(agent_index == this->m_base.agents()) {
 		mtrandom mt;
@@ -479,10 +479,10 @@ bool sss_neighborhood_impl<Chromosome,Encoding>::has_more_neighbors() const
 }
 
 /*!
- * \brief return next shift or swap move at random
+ * \brief return next shift or swap lsmove at random
  */
 template <template <typename> class Chromosome, typename Encoding>
-move<Chromosome,Encoding> sss_neighborhood_impl<Chromosome,Encoding>::next_neighbor()
+lsmove<Chromosome,Encoding> sss_neighborhood_impl<Chromosome,Encoding>::next_neighbor()
 {
 	mtrandom mt;
 

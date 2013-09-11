@@ -220,7 +220,7 @@ void next_descent<Chromosome,Encoding>::improve(Chromosome<Encoding>& chr,
 		at_local_opt = true;
 		this->m_nf->initialize(chr);
 		while(this->m_nf->has_more_neighbors()) {
-			move<Chromosome,Encoding> m=this->m_nf->next_neighbor();
+			lsmove<Chromosome,Encoding> m=this->m_nf->next_neighbor();
 			m.apply(chr);
 			chr.evaluate(prob);
 			if(this->m_repair) {
@@ -271,7 +271,7 @@ void steepest_descent<Chromosome,Encoding>::improve(Chromosome<Encoding>& chr,
 		this->m_nf->initialize(chr);
 		while(this->m_nf->has_more_neighbors()) {
 			Chromosome<Encoding> next(chr);
-			move<Chromosome,Encoding> m=this->m_nf->next_neighbor();
+			lsmove<Chromosome,Encoding> m=this->m_nf->next_neighbor();
 			m.apply(next);
 			next.evaluate(prob);
 			if(this->m_repair) {

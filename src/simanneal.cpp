@@ -14,7 +14,7 @@
 #include "encoding.h"
 #include "problems.h"
 #include "comparator.h"
-#include "move.h"
+#include "lsmove.h"
 #include "neighborhood.h"
 #include "metrics.h"
 #include "terminators.h"
@@ -131,7 +131,7 @@ void simulated_annealing<Chromosome,Encoding>::improve(Chromosome<Encoding>& chr
 		this->m_nf->initialize(chr);
 		while(this->m_nf->has_more_neighbors()) {
 			// generate the next move
-			move<Chromosome,Encoding> m=this->m_nf->next_neighbor();
+			lsmove<Chromosome,Encoding> m=this->m_nf->next_neighbor();
 			Chromosome<Encoding> tmp=chr;
 
 			// evaluate the move
