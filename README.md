@@ -129,8 +129,7 @@ files from the build.
     - Under C/C++ -> All Options
 	    * add your boost_1_54_0 directory to Additional Include Directories
 
-	    *. add "/bigobj" (without the quotes) to Additional Options
-
+	    * add "/bigobj" (without the quotes) to Additional Options
     - Under Linker -> All Options
 	    * add your boost_1_54_0/stage/lib directory to Additional Library Directories
 
