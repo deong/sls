@@ -78,8 +78,10 @@ files from the build.
 1. Install boost
     - Download the current .7z file and unzip it somewhere
 	- From inside the boost directory, run
-	    $ bootstrap
-		$ b2
+
+        $ bootstrap
+        $ b2
+		
     - Move the boost_1_54_0 directory to somewhere convenient (optional)
 
 2. Start a new empty project
