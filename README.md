@@ -134,7 +134,7 @@ files from the build.
 	    * add your boost_1_54_0/stage/lib directory to Additional Library Directories
 
 9. By default, this all happened for the Debug target. Change the target to Release
-   and repeat steps 7 and 8.
+   and repeat steps 6-8.
 
 
 
