@@ -13,3 +13,8 @@ prob/gap/*
 doc
 sls_vs2k12/Debug
 sls_vs2k12/Release
+
+#Visual Studio Files
+*.sdf
+*.opensdf
+*.suo
