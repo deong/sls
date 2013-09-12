@@ -70,6 +70,8 @@ int main(int argc, char** argv)
 		kvparse::read_configuration_file(argv[i]);
 	}
 
+	mtrandom::initialize();
+	
 	// figure out how many trials to run
 	int trials = 1;
 	kvparse::parameter_value(keywords::TRIALS, trials);

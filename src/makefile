@@ -22,7 +22,7 @@ SRC=chc.cpp\
 	localsearch.cpp\
 	metrics.cpp\
 	morrls.cpp\
-	move.cpp\
+	lsmove.cpp\
 	mutation.cpp\
 	neighborhood.cpp\
 	nsga2.cpp\
@@ -74,6 +74,8 @@ libkvp.a :
 
 clean :
 	rm -f *.o
+	make -C kvparse clean
 
 distclean :
 	rm -f *.o libsls.a libkvp.a sls mergepf enumerate pearson gapgen ksgen
+	make -C kvparse distclean

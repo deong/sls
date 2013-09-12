@@ -82,7 +82,7 @@ int main(int argc, char** argv)
 	double       r = 0.0;
 	double   slack = 1.0;
 
-	//mtrandom::initialize();
+	mtrandom::initialize();
 	mtrandom rng;
 
 	char curropt;

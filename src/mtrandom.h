@@ -45,11 +45,10 @@ public:
 	// initialize the random number seed from the configuration file,
 	// if it was specified - if unspecified, this method is a no-op.
 	static bool initialize();
+	static void seed_random(unsigned long n);
 
 public:
 	mtrandom();
-
-	void   seed_random(unsigned long n);
 	unsigned long get_seed();
 	void   reseed();
 	double random();

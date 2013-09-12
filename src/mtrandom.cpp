@@ -75,9 +75,11 @@ unsigned long mtrandom::seed()
 bool mtrandom::initialize()
 {
 	unsigned int seed;
-	// shuts up a compiler warning; it should always be set one way or the other
-	m_seed = 0;
 	if(kvparse::keyword_exists(keywords::RANDOM_SEED)) {
+		// shuts up a compiler warning; the only way it wouldn't be set once we get
+		// here is if it can't be loaded from the file, which is an error and will
+		// bail early anyway
+		seed = 0;
 		if(kvparse::parameter_value(keywords::RANDOM_SEED,seed)) {
 			cerr << "Failed to read value for keyword " << keywords::RANDOM_SEED << endl;
 			return false;
@@ -86,17 +88,18 @@ bool mtrandom::initialize()
 		m_first_time = false;
 	} else {
 #ifndef _WIN32
-		// try to read from /dev/random; if that fails, use the system time
-		int fd=open("/dev/random",O_RDONLY|O_NONBLOCK);
+		// try to read from /dev/urandom; if that fails, use the system time
+		int fd=open("/dev/urandom",O_RDONLY|O_NONBLOCK);
 		if((fd!=-1) && (read(fd,&m_seed,sizeof(unsigned long))==sizeof(unsigned long))) {
 			m_seed=static_cast<unsigned long>(m_seed);
 		} else {
-			cerr << "failed to read random bytes from /dev/random...falling back to system clock" << endl;
+			cerr << "failed to read random bytes from /dev/urandom...falling back to system clock" << endl;
 #endif
 			m_seed = static_cast<unsigned long>(time(NULL));
 #ifndef _WIN32
 		}
 #endif
+		mtrandom::seed_random(m_seed);
 		m_first_time=false;
 	}
 
@@ -111,25 +114,6 @@ bool mtrandom::initialize()
  */
 mtrandom::mtrandom()
 {
-	if(m_first_time == true) {
-#ifndef _WIN32
-		// try to read from /dev/random; if that fails, use the system time
-		int fd=open("/dev/random",O_RDONLY|O_NONBLOCK);
-		if((fd!=-1) && (read(fd,&m_seed,sizeof(unsigned long))==sizeof(unsigned long))) {
-			m_seed=static_cast<unsigned long>(m_seed);
-		} else {
-			cerr << "failed to read random bytes from /dev/random...falling back to system clock" << endl;
-#endif
-			m_seed = static_cast<unsigned long>(time(NULL));
-#ifndef _WIN32
-		}
-#endif
-		m_first_time = false;
-		//m_seed = static_cast<unsigned long>(time(NULL));
-		//m_seed = ((m_seed>0) ? -m_seed : m_seed);
-		seed_random(m_seed);
-		m_iset=0;
-	}
 }
 
 /*!
