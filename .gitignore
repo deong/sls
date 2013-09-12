@@ -10,11 +10,18 @@ cfg/kur.cfg
 out/*
 prob/gsap/gsapgen
 prob/gap/*
-doc
-sls_vs2k12/Debug
-sls_vs2k12/Release
+doc/
 
-#Visual Studio Files
+###Visual Studio Files
+# User specific
+*.suo
+*.user
+*.sln.docstates
+
+#Build results
+[Dd]ebug/
+[Rr]elease/
+
+# cache files
 *.sdf
 *.opensdf
-*.suo
