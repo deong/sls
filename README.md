@@ -76,8 +76,7 @@ boost_regex installed, and then create a project that excludes the right .cpp
 files from the build.
 
 1. Install boost
-	- Download the current .7z file and unzip it somewhere
-
+    - Download the current .7z file and unzip it somewhere
     - Move the boost_1_54_0 directory to somewhere convenient (optional)
 
 2. Start a new empty project
