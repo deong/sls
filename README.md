@@ -75,12 +75,14 @@ else, you get duplicate symbols. To get it working properly, you need to get
 boost_regex installed, and then create a project that excludes the right .cpp
 files from the build.
 
-1. Install boost. From inside the boost directory, run
+1. Install boost. Download the and unpack boost distribution, and from inside 
+   the boost directory, run
 
         $ bootstrap
         $ b2
 
-   and then move the boost_1_54_0 directory to somewhere convenient (optional).
+   You may also want to move the boost_1_54_0 directory to somewhere convenient 
+   (optional).
 
 2. Start a new empty project
 	I named mine sls_vs2k12 and added the project directory underneath the
@@ -104,6 +106,9 @@ files from the build.
     	ksgen.cpp  
     	mergepf.cpp  
     	pearson.cpp  
+
+   These files are little utility programs that can be built separately if needed,
+   but including them in the main project will cause problems due to multiple mains.
 
 5. Add the following header files from the src/kvparse directory to the project
 
