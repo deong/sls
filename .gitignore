@@ -17,10 +17,12 @@ doc/
 *.suo
 *.user
 *.sln.docstates
+*.vcxproj.filters
 
 #Build results
 [Dd]ebug/
 [Rr]elease/
+ipch/
 
 # cache files
 *.sdf
