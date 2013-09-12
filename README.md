@@ -77,7 +77,8 @@ files from the build.
 
 1. Install boost
 	- Download the current .7z file and unzip it somewhere
-	- Move the boost_1_54_0 directory to somewhere convenient (optional)
+
+    - Move the boost_1_54_0 directory to somewhere convenient (optional)
 
 2. Start a new empty project
 	I named mine sls_vs2k12 and added the project directory underneath the
@@ -127,7 +128,9 @@ files from the build.
    select Properties. Make the following changes.
     - Under C/C++ -> All Options
 	    * add your boost_1_54_0 directory to Additional Include Directories
-		*. add "/bigobj" (without the quotes) to Additional Options
+
+	    *. add "/bigobj" (without the quotes) to Additional Options
+
     - Under Linker -> All Options
 	    * add your boost_1_54_0/stage/lib directory to Additional Library Directories
 
