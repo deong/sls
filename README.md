@@ -76,59 +76,60 @@ boost_regex installed, and then create a project that excludes the right .cpp
 files from the build.
 
 1. Install boost
-	A. Download the current .7z file and unzip it somewhere
-	B. Move the boost_\1_54_0 directory to somewhere convenient (optional)
+	- Download the current .7z file and unzip it somewhere
+	- Move the boost_1_54_0 directory to somewhere convenient (optional)
 
 2. Start a new empty project
 	I named mine sls_vs2k12 and added the project directory underneath the
 	top level sls directory, like
     
-	sls
-		cfg
-		prob
-		sls_vs2k12
-		src
-		.gitignore
-		.gitmodules
-		README.md
-
+	    sls  
+		    cfg  
+    		prob  
+    		sls_vs2k12  
+    		src  
+    		.gitignore  
+    		.gitmodules  
+    		README.md  
+    
 3. Add all the header files from the src directory to the project.
 
 4. Add all of the cpp files from the src directory to the project EXCEPT for
 
-	enumerate.cpp
-	gapgen.cpp
-	ksgen.cpp
-	mergepf.cpp
-	pearson.cpp
+    	enumerate.cpp  
+    	gapgen.cpp  
+    	ksgen.cpp  
+    	mergepf.cpp  
+    	pearson.cpp  
 
 5. Add the following header files from the src/kvparse directory to the project
-	kvparse.h
-	kvparse_except.h
+
+	    kvparse.h  
+    	kvparse_except.h  
 
 6. Add kvparse.cpp from the src/kvparse directory to the project
 
 7. Select all of the cpp files under "Source Files" EXCEPT for the following
 
-	factory.cpp
-	keywords.cpp
-	kvparse.cpp
-	mtrandom.cpp
-	problems.cpp
-	slsmain.cpp
-	strategy.cpp
-	utilities.cpp
+    	factory.cpp  
+    	keywords.cpp  
+    	kvparse.cpp  
+    	mtrandom.cpp  
+    	problems.cpp  
+    	slsmain.cpp  
+    	strategy.cpp  
+    	utilities.cpp  
 
    and then right click on the selected files, choose "Properties", and under
    "Excluded from Build", select "Yes".
 
 8. Right click onthe project in the Solution explorer (not the solution) and 
    select Properties. Make the following changes.
-	A. Under C/C++ -> All Options
-		i.  add your boost_1_54_0 directory to Additional Include Directories
-		ii. add "/bigobj" (without the quotes) to Additional Options
-	B. Under Linker -> All Options
-		i.  add your boost_1_54_0/stage/lib directory to Additional Library Directories
+    - Under C/C++ -> All Options
+	    * add your boost_1_54_0 directory to Additional Include Directories
+		*. add "/bigobj" (without the quotes) to Additional Options
+    - Under Linker -> All Options
+	    * add your boost_1_54_0/stage/lib directory to Additional Library Directories
 
 9. By default, this all happened for the Debug target. Change the target to Release
    and repeat steps 7 and 8.
