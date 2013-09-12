@@ -14,6 +14,9 @@
 #include <cstdlib>
 #include <string>
 #include <utility>
+#ifdef _WIN32
+#define _USE_MATH_DEFINES
+#endif
 #include <cmath>
 #include "utilities.h"
 
@@ -111,6 +114,6 @@ double compute_pearson_correlation(const vector<pair<double,double> >& points)
 #ifdef _WIN32
 double log2(double n)
 {
-	return log(n) / log(2);
+	return log(n) / log(2.0);
 }
 #endif
