@@ -227,6 +227,20 @@ const vector<typename Encoding::Genotype>& basic_chromosome<Encoding>::genotype(
 	return m_parameters->genotype();
 }
 
+template <typename Encoding>
+vector<typename Encoding::Phenotype>& basic_chromosome<Encoding>::phenotype() 
+{
+	this->m_parameters->decode();
+	return this->m_parameters()->phenotype();
+}
+
+template <typename Encoding>
+const vector<typename Encoding::Phenotype>& basic_chromosome<Encoding>::phenotype() const
+{
+	this->m_parameters->decode();
+	return this->m_parameters()->phenotype();
+}
+
 /*!
  * \brief check chromosome for feasibility
  */

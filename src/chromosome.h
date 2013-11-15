@@ -69,6 +69,10 @@ public:
 	vector<typename Encoding::Genotype>& genotype();
 	const vector<typename Encoding::Genotype>& genotype() const;
 
+	// get the phenotype
+	vector<typename Encoding::Phenotype>& phenotype();
+	const vector<typename Encoding::Phenotype>& phenotype() const;
+
 	// compute distances to other chromosomes
 	double fitness_distance(const basic_chromosome& that) const;
 
