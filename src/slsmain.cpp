@@ -70,8 +70,6 @@ int main(int argc, char** argv)
 		kvparse::read_configuration_file(argv[i]);
 	}
 
-	mtrandom::initialize();
-	
 	// figure out how many trials to run
 	int trials = 1;
 	kvparse::parameter_value(keywords::TRIALS, trials);
@@ -89,7 +87,7 @@ int main(int argc, char** argv)
 		cout << "trial " << i << endl;
 
 		// initialize the random number generator
-		mtrandom mt;
+		mtrandom::initialize();
 		cout << "seed: " << mtrandom::seed() << endl;
 
 
