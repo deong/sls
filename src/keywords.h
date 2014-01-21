@@ -194,6 +194,21 @@ public:
 	static const string SCALARIZING_COMPARATOR;
 	static const string WEIGHT_VECTOR;
 	static const string EPSILON;
+
+	// Blade Element Momentum Theory constants
+	static const string TURBINE_WIND_DATA;
+	static const string TURBINE_TEMP_DATA;
+	static const string DB;
+	static const string DRHO;
+	static const string DEFFICIENCY;
+	static const string IWINDCUTOUT;  
+	static const string IWINDCUTIN;
+	static const string ALPHA;
+	static const string IINVESTPERIOD;
+	static const string DDISCOUNTRATE;
+	static const string IRPMFIX;
+	static const string IPITCHFIX;
+	static const string DINFLATION;
 };
 
 #endif

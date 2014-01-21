@@ -1,15 +1,27 @@
 CXX=g++
-CXXFLAGS=-Wall -O3 -funroll-loops -pipe
-#CXXFLAGS=-Wall -ggdb -pipe
+CXXFLAGS=-Wall -I. -Ibem5 -O3 -funroll-loops -pipe
+#CXXFLAGS=-Wall -I. -Ibem5 -ggdb -pipe
 
-OBJ=factory.o\
+OBJ=bem5/BEMLoop.o\
+	bem5/Burfell.o\
+	bem5/RotorProfiles.o\
+	bem5/turbine.o\
+	bem5/TurbineCost.o\
+	bem5/WeibullAEP.o\
+	factory.o\
 	keywords.o\
 	mtrandom.o\
 	problems.o\
 	strategy.o\
 	utilities.o
 
-SRC=chc.cpp\
+SRC=bem5/BEMLoop.cpp\
+	bem5/Burfell.cpp\
+	bem5/RotorProfiles.cpp\
+	bem5/turbine.cpp\
+	bem5/TurbineCost.cpp\
+	bem5/WeibullAEP.cpp\
+	chc.cpp\
 	chromosome.cpp\
 	comparator.cpp\
 	convergence.cpp\

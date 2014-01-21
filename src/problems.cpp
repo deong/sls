@@ -26,6 +26,7 @@
 #include "kvparse/kvparse.h"
 #include "keywords.h"
 #include "utilities.h"
+#include "bem5/turbine.h"
 
 using namespace std;
 
@@ -1891,6 +1892,10 @@ numeric_problem* numeric_problem_factory::construct()
 		return p;
 	} else if(prob == "rana") {
 		return new rana_problem;
+	} else if(prob == "turbine") {
+		numeric_problem* p = new turbine_problem;
+		p->initialize();
+		return p;
 	} else {
 		cerr << "invalid problem specified; " << prob << endl;
 		exit(1);
