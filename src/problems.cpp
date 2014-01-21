@@ -1764,8 +1764,8 @@ integer_problem* integer_problem_factory::construct()
 	} else {
 		cerr << "invalid problem specified: " << prob << endl;
 		exit(1);
-		return 0;
 	}
+	return 0;
 }
 
 /*!
