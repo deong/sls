@@ -31,6 +31,33 @@ public:
 };
 
 /**
+ * @class clip_bounds_repair_impl
+ */
+template <template <typename> class Chromosome, typename Encoding>
+class clip_bounds_repair_impl : public repair_operator<Chromosome,Encoding>
+{
+private:
+	clip_bounds_repair_impl(const clip_bounds_repair_impl& that);
+	clip_bounds_repair_impl& operator=(const clip_bounds_repair_impl& that);
+	
+public:
+    clip_bounds_repair_impl();
+    virtual ~clip_bounds_repair_impl();
+	virtual void repair(Chromosome<Encoding>& chr, 
+						const typename Encoding::ProblemType* prob) const;
+};
+
+/**
+ * @class clip_bounds_repair
+ * @brief repair individuals by clipping the parameters at their defined boundaries
+ */
+template <template <typename> class Chromosome, typename Encoding> class clip_bounds_repair;
+template <template <typename> class Chromosome>
+class clip_bounds_repair<Chromosome,real_encoding> : public clip_bounds_repair_impl<Chromosome,real_encoding>
+{
+};
+
+/**
  * \class gap_repair_impl
  * \brief implementation class for gap_repair_nd operator
  */

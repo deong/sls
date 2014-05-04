@@ -21,6 +21,7 @@
 #include "nsga2.h"
 #include "spea2.h"
 #include "emoea.h"
+#include "de.h"
 #include "landscape.h"
 #include "sandm.h"
 #include "chromosome.h"
@@ -342,6 +343,12 @@ int main(int argc, char** argv)
 					emoea<gsap_encoding> moea;
 					moea.initialize();
 					moea.run();
+				}
+			} else if(alg == keywords::DIFFERENTIAL_EVOLUTION) {
+				if(enc == keywords::REAL_ENCODING) {
+					differential_evolution<chromosome> de;
+					de.initialize();
+					de.run();
 				}
 			} else if(alg == keywords::LANDSCAPE) {
 				if(enc == keywords::BINARY_ENCODING) {

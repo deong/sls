@@ -36,6 +36,7 @@ const string keywords::SAMPLE_AND_MUTATE = "s_and_m";
 const string keywords::TWO_PHASE_LS = "two_phase_ls";
 const string keywords::TABU_SEARCH = "tabu_search";
 const string keywords::SIMULATED_ANNEALING = "simulated_annealing";
+const string keywords::DIFFERENTIAL_EVOLUTION = "differential_evolution";
 const string keywords::VARIABLE_DEPTH_SEARCH = "variable_depth_search";
 const string keywords::LANDSCAPE = "landscape";
 
@@ -105,6 +106,7 @@ const string keywords::REPAIR_OPERATOR="repair_operator";
 const string keywords::GAP_REPAIR_ND="gap_repair_nd";
 const string keywords::GAP_REPAIR_SD="gap_repair_sd";
 const string keywords::GSAP_REPAIR="gsap_repair";
+const string keywords::CLIP_REPAIR="clip_bounds";
 
 const string keywords::ARCHIVE_SIZE = "archive_size";
 const string keywords::SPEA2_K = "spea2_k";
@@ -128,6 +130,8 @@ const string keywords::MAX_TABU_TENURE = "max_tabu_tenure";
 const string keywords::TABU_COMPARATOR = "tabu_comparator";
 const string keywords::TABU_COMPARATOR_ANY = "any";
 const string keywords::TABU_COMPARATOR_ALL = "all";
+
+const string keywords::DE_FORCE = "force";
 
 const string keywords::METRIC = "metric";
 const string keywords::EVALUATION_COUNTER = "evaluation_count";

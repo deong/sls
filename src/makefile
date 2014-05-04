@@ -26,6 +26,7 @@ SRC=bem5/BEMLoop.cpp\
 	comparator.cpp\
 	convergence.cpp\
 	crossover.cpp\
+	de.cpp\
 	ea.cpp\
 	emoea.cpp\
 	encoding.cpp\

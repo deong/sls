@@ -33,6 +33,36 @@ repair_operator<Chromosome,Encoding>::~repair_operator()
 }
 
 /**
+ * @brief constructor
+ */
+template <template <typename> class Chromosome, typename Encoding>
+clip_bounds_repair_impl<Chromosome,Encoding>::clip_bounds_repair_impl()
+{
+}
+
+/**
+ * @brief destructor
+ */
+template <template <typename> class Chromosome, typename Encoding>
+clip_bounds_repair_impl<Chromosome,Encoding>::~clip_bounds_repair_impl()
+{
+}
+
+/**
+ * @brief repair an individual by clipping out of range parameters to
+ * the boundaries
+ */
+template <template <typename> class Chromosome, typename Encoding>
+void clip_bounds_repair_impl<Chromosome,Encoding>::repair(Chromosome<Encoding>& chr,
+        const typename Encoding::ProblemType* prob) const
+{
+	for(unsigned int i=0; i<chr.length(); ++i) {
+		pair<double,double> pr = prob->parameter_range(i);
+		chr[i] = min(max(chr[i], pr.first), pr.second);
+	}
+}
+
+/**
  * \brief constructor
  */
 template <template <typename> class Chromosome, typename Encoding>
@@ -403,6 +433,12 @@ repair_operator<Chromosome,Encoding>* bit_vector_repair_factory<Chromosome,Encod
 template <template <typename> class Chromosome, typename Encoding>
 repair_operator<Chromosome,Encoding>* real_repair_factory<Chromosome,Encoding>::construct()
 {
+	string repname;
+	kvparse::parameter_value(this->m_prefix+keywords::REPAIR_OPERATOR, repname, false);
+	if(repname == keywords::CLIP_REPAIR) {
+		repair_operator<Chromosome,Encoding>* rep = new clip_bounds_repair<Chromosome,Encoding>;
+		return rep;
+	}
 	return 0;
 }
 

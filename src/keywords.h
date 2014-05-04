@@ -51,6 +51,7 @@ public:
 	static const string TWO_PHASE_LS;
 	static const string TABU_SEARCH;
 	static const string SIMULATED_ANNEALING;
+	static const string DIFFERENTIAL_EVOLUTION;
 	static const string VARIABLE_DEPTH_SEARCH;
 	static const string LANDSCAPE;
 
@@ -123,6 +124,7 @@ public:
 	static const string GAP_REPAIR_ND;
 	static const string GAP_REPAIR_SD;
 	static const string GSAP_REPAIR;
+	static const string CLIP_REPAIR;
 
 	static const string ARCHIVE_SIZE;
 	static const string SPEA2_K;
@@ -150,6 +152,9 @@ public:
 	static const string TABU_COMPARATOR_ANY;
 	static const string TABU_COMPARATOR_ALL;
 
+	// differential evolution parameters
+	static const string DE_FORCE;
+	
 	// performance metrics
 	static const string METRIC;
 	static const string EVALUATION_COUNTER;
