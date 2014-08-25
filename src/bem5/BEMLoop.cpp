@@ -12,18 +12,20 @@
  * power curve in the form of an array
  */
 
+#define _USE_MATH_DEFINES
+
 #include <iostream>
 #include <fstream>
 #include <cmath>
 #include "BEMLoop.h"
 #include "RotorProfiles.h"
 
-#define _USE_MATH_DEFINES
 
 using namespace std;
 
-void BEMLoop(double dB, double dR, double dGenCap, double dRho, double dEfficiency, double adPowerCurve[20][4],
-             int iRPMmin, int iRPMmax, double iPitchMin, double iPitchMax)
+void BEMLoop(double dB, double dR, double dGenCap, double dRho, double dEfficiency, 
+			 double adPowerCurve[20][5], int iRPMmin, int iRPMmax, double iPitchMin,
+			 double iPitchMax, int iBlade)
 {
 	const int	 iii_max    = 20;		// Maximum Iteration Count (for convergence of a and a')
 	const int    iSections	= 25;		// Number of blade sections (i.e. 'dR' elements), should be data points for r/R, C/R and twist minus 1
@@ -84,7 +86,7 @@ void BEMLoop(double dB, double dR, double dGenCap, double dRho, double dEfficien
 					// Begin loop for convergence of a and a' for given blade section
 					for(int iii=1 ; iii< iii_max; iii++) {
 						// Call formula from 'RotorProfiles.h' to update blade parameters from table
-						ChordTwist(iElement, dR, dRadius, dC, dTwist, dElementWidth);
+						ChordTwist(iElement, dR, dRadius, dC, dTwist, dElementWidth, iBlade);
 
 						// Step 2: Compute the flow angle (phi) using equation 6.7
 						dPhiRads = atan( ((1.0-da)*iV) / ((1.0+da_dash)*dGamma*dRadius) ); //Flow Angle [radians]
@@ -99,7 +101,7 @@ void BEMLoop(double dB, double dR, double dGenCap, double dRho, double dEfficien
 
 						// Step 4: Determine Lift and Drag Coefficients from table
 						// Look up Lift and Drag data values from table in 'RotorProfiles.h', and assign to params
-						LiftDrag(dAlpha, dCL, dCD);
+						LiftDrag(dAlpha, dCL, dCD, iBlade);
 
 						// Chaviaropolous and Hansen correction (2000)
 						double dChaviF = 0.0;

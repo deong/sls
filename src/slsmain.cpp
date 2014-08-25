@@ -93,7 +93,6 @@ int main(int argc, char** argv)
 			mtrandom::initialize();
 			cout << "seed: " << mtrandom::seed() << endl;
 
-
 			if(alg == keywords::SIMPLE_GA) {
 				if(enc == keywords::BINARY_ENCODING) {
 					simple_ga<chromosome,binary_encoding> sga;

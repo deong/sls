@@ -15,7 +15,8 @@
  */
 
 //Given number of blades (dB), Radius (dR), Generator Capacity (dGenCap), Hub-Height (iHH) returns costs
-int TurbineCost(double dB, double dR, double dGenCap, int iHH, double dAEP, int iPitchFIX, int iRPMFIX, 
-				double &dCostInitial, double &dCostFixed, double &dCostVariable, double dInflation);
+int TurbineCost(double dB, double dR, double dGenCap, int iHH, double dAEP, int iPitchFIX, 
+				int iRPMFIX, double &dCostInitial, double &dCostFixed, double &dCostVariable, 
+				double dInflation, int iTwoTurbines);
 
 #endif

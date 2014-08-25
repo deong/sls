@@ -17,10 +17,11 @@
  */
 
 // Formula to look up Lift and Drag coefficients from a table based on a given alpha angle (in degrees)
-void LiftDrag(double alpha, double &dLift, double &dDrag);
+void LiftDrag(double alpha, double &dLift, double &dDrag, int iBlade);
 
 // Formula that looks up the radius ratio (r/R), chord ratio (C/R) and Twist at elements along the rotor blade
 // Based on values listed in a pre-defined table 
-void ChordTwist(int iElement, double dR, double &dRadius, double &dC, double &dTwist, double &dElementWidth);
+void ChordTwist(int iElement, double dR, double &dRadius, double &dC, double &dTwist,
+				double &dElementWidth, int iBlade);
 
 #endif

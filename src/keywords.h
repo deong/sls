@@ -203,6 +203,7 @@ public:
 	// Blade Element Momentum Theory constants
 	static const string TURBINE_WIND_DATA;
 	static const string TURBINE_TEMP_DATA;
+	static const string TURBINE_DIR_DATA;
 	static const string DB;
 	static const string DRHO;
 	static const string DEFFICIENCY;
@@ -214,6 +215,8 @@ public:
 	static const string IRPMFIX;
 	static const string IPITCHFIX;
 	static const string DINFLATION;
+	static const string IBLADE;
+	static const string ITWOTURBINES;
 };
 
 #endif

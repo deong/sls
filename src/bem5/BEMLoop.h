@@ -15,7 +15,8 @@
  * in the form of an array
  */
 
-void BEMLoop(double dB, double dR, double dGenCap, double dRho, double dEfficiency, double adPowerCurve[20][4],
-             int iRPMmin, int iRPMmax, double iPitchMin, double iPitchMax);
+void BEMLoop(double dB, double dR, double dGenCap, double dRho, double dEfficiency, 
+			 double adPowerCurve[20][5], int iRPMmin, int iRPMmax, double iPitchMin, 
+			 double iPitchMax, int iBlade);
 
 #endif

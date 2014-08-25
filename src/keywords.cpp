@@ -176,6 +176,7 @@ const string keywords::EPSILON = "epsilon";
 
 const string keywords::TURBINE_WIND_DATA = "wind_data_file";
 const string keywords::TURBINE_TEMP_DATA = "temperature_data_file";
+const string keywords::TURBINE_DIR_DATA = "direction_data_file";
 const string keywords::DB = "dB";
 const string keywords::DRHO = "dRho";
 const string keywords::DEFFICIENCY = "dEfficiency";
@@ -187,4 +188,5 @@ const string keywords::DDISCOUNTRATE = "dDiscountRate";
 const string keywords::IRPMFIX = "iRPMFIX";
 const string keywords::IPITCHFIX= "iPitchFIX";
 const string keywords::DINFLATION= "dInflation";
-
+const string keywords::IBLADE= "iBlade";
+const string keywords::ITWOTURBINES = "iTwoTurbines";
