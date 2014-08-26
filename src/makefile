@@ -86,7 +86,7 @@ libkvp.a :
 	cp kvparse/libkvp.a .
 
 clean :
-	rm -f *.o
+	rm -f *.o bem/*.o
 	make -C kvparse clean
 
 distclean :
