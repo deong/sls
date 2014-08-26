@@ -17,7 +17,7 @@
 using namespace std;
 
 turbine_problem::turbine_problem() :
-	turbine_dim(7)  // replace with number of GA variables
+	turbine_dim(9)  // replace with number of GA variables
 {
 }
 
@@ -61,7 +61,7 @@ std::pair<double,double> turbine_problem::parameter_range(unsigned int param_num
 		return make_pair(0, 15); // Min-Max range for iPitchRange (i.e. range from 0 to 15 degrees)
 		break;
 	case 7:
-		return make_pair(0, 500); // Min-Max range for dTurbDist (i.e. range from 0 to 500m)
+		return make_pair(50, 500); // Min-Max range for dTurbDist (i.e. range from 0 to 500m)
 		break;
 	case 8:
 		return make_pair(0, 360); // Min-Max range for dTurbAngle (i.e. range from 0 to 15 degrees)
