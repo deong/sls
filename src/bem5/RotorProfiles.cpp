@@ -1,7 +1,7 @@
 /**
  * @author Samuel Perkin <samuelp12@ru.is>
  * @date 21/01/2014
- * 
+ *
  * Copyright (c) 2014 Samuel Perkin
  */
 
@@ -282,7 +282,7 @@ static const double RadChordTwist2[26][3] = {
 void LiftDrag(double alpha, double &dLift, double &dDrag, int iBlade)
 {
 	const double (*adLiftDrag)[2];
-	
+
 	if(alpha < -6.0) {
 		dLift = -0.604;
 		dDrag = 0.016;
@@ -292,31 +292,31 @@ void LiftDrag(double alpha, double &dLift, double &dDrag, int iBlade)
 	//2-Dimensional array where entry 0 is alpha = -20 degrees; also column A = CL,
 	// column B = CD (Ramsav,1996 p.B-5)
 	adLiftDrag = (iBlade == 0) ? adLiftDrag1 : adLiftDrag2;
-	
-   // The adLiftDrag array lists the Lift and Drag coefficients for
-   // each integer value of alpha within the range of -6 to 90
-   // degrees.
-   // 
-   // Therefore adLiftDrag[0][1] is the Lift coefficient for an alpha
-   // value of -6.
-   // 
-   // However, the alpha value is passed into the LiftDrag module as a
-   // double value, so I use the 'down' and 'up' variables to round
-   // the double alpha value to integer values, so that I can then
-   // read the Lift/Drag values above and below the actual alpha value
-   // so that it can be linearly interpolated.
-   // 
-   // Of course, if the alpha value is less than -6 (i.e. -7 as you
-   // pointed out) you will end up with a negative array index which
-   // is physically possible but is beyond the scope of the data I
-   // have. If the alpha value is going below -6 it is normally
-   // diverging away from where it should be, or the current scenario
-   // being tested in the BEM loop is a nonsense scenario.
-	
+
+	// The adLiftDrag array lists the Lift and Drag coefficients for
+	// each integer value of alpha within the range of -6 to 90
+	// degrees.
+	//
+	// Therefore adLiftDrag[0][1] is the Lift coefficient for an alpha
+	// value of -6.
+	//
+	// However, the alpha value is passed into the LiftDrag module as a
+	// double value, so I use the 'down' and 'up' variables to round
+	// the double alpha value to integer values, so that I can then
+	// read the Lift/Drag values above and below the actual alpha value
+	// so that it can be linearly interpolated.
+	//
+	// Of course, if the alpha value is less than -6 (i.e. -7 as you
+	// pointed out) you will end up with a negative array index which
+	// is physically possible but is beyond the scope of the data I
+	// have. If the alpha value is going below -6 it is normally
+	// diverging away from where it should be, or the current scenario
+	// being tested in the BEM loop is a nonsense scenario.
+
 	// Find integer value above and below specified alpha, as int values required for look-up table
 	int down = static_cast<int>(alpha);
 	int up = static_cast<int>(alpha+1);
-	
+
 	//Return values for Lift & Drag for integer alpha values bounding actual alpha value
 	double dLiftDown = adLiftDrag[6+down][0];
 	double dDragDown = adLiftDrag[6+down][1];
@@ -331,13 +331,13 @@ void LiftDrag(double alpha, double &dLift, double &dDrag, int iBlade)
 // Formula that looks up the radius ratio (r/R), chord ratio (C/R) and
 // Twist at elements along the rotor blade Based on values listed in a
 // pre-defined table
-void ChordTwist(int iElement, double dR, double &dRadius, double &dC, 
-				double &dTwist, double &dElementWidth, int iBlade)
+void ChordTwist(int iElement, double dR, double &dRadius, double &dC,
+                double &dTwist, double &dElementWidth, int iBlade)
 {
 	const double (*RadChordTwist)[3] = (iBlade == 0) ? RadChordTwist1 : RadChordTwist2;
-	
+
 	dRadius = RadChordTwist[iElement][0]*dR;
 	dC = dR*RadChordTwist[iElement][1];
 	dTwist = (RadChordTwist[iElement][2]+ RadChordTwist[iElement-1][2])/2.0;
-	dElementWidth = dR*RadChordTwist[iElement][0] - dR*RadChordTwist[iElement-1][0]; 
+	dElementWidth = dR*RadChordTwist[iElement][0] - dR*RadChordTwist[iElement-1][0];
 }

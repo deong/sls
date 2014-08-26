@@ -1,7 +1,7 @@
 /**
  * @author Samuel Perkin <samuelp12@ru.is>
  * @date 21/01/2014
- * 
+ *
  * Copyright (c) 2014 Samuel Perkin
  */
 

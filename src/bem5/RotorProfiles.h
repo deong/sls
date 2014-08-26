@@ -1,7 +1,7 @@
 /**
  * @author Samuel Perkin <samuelp12@ru.is>
  * @date 21/01/2014
- * 
+ *
  * Copyright (c) 2014 Samuel Perkin
  */
 
@@ -20,8 +20,8 @@
 void LiftDrag(double alpha, double &dLift, double &dDrag, int iBlade);
 
 // Formula that looks up the radius ratio (r/R), chord ratio (C/R) and Twist at elements along the rotor blade
-// Based on values listed in a pre-defined table 
+// Based on values listed in a pre-defined table
 void ChordTwist(int iElement, double dR, double &dRadius, double &dC, double &dTwist,
-				double &dElementWidth, int iBlade);
+                double &dElementWidth, int iBlade);
 
 #endif

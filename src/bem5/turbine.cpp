@@ -1,4 +1,4 @@
-#include <iostream>	
+#include <iostream>
 #include <fstream>
 #include <cmath>
 #include <ctime>
@@ -37,8 +37,7 @@ unsigned int turbine_problem::objectives() const
 
 std::pair<double,double> turbine_problem::parameter_range(unsigned int param_number) const
 {
-	switch(param_number)
-	{
+	switch(param_number) {
 	case 0:
 		return make_pair(0.5, 77.0); // Min-Max range for dR (i.e. rotors can be 0.5m to 77m)
 		break;
@@ -94,7 +93,7 @@ void turbine_problem::initialize()
 	string windData;
 	kvparse::parameter_value(keywords::TURBINE_WIND_DATA, windData);
 	read_wind_data(windData);
-	
+
 	// read in the confidential temperature data from the Burfell site
 	string tempData;
 	kvparse::parameter_value(keywords::TURBINE_TEMP_DATA, tempData);
@@ -112,7 +111,7 @@ bool turbine_problem::evaluate(const vector<double>& p, vector<double>& fit) con
 	double	dR = p[0];
 	double	dGenCap = p[1];
 	int		iHH = static_cast<int>(floor(p[2]+0.5));
-	int		iRPMmin = static_cast<int>(floor(p[3]+0.5)) ;			
+	int		iRPMmin = static_cast<int>(floor(p[3]+0.5)) ;
 	int		iRPMRange = static_cast<int>(floor(p[4]+0.5));
 	int		iPitchMin = static_cast<int>(floor(p[5]+0.5));
 	int		iPitchRange = static_cast<int>(floor(p[6]+0.5));
@@ -122,40 +121,40 @@ bool turbine_problem::evaluate(const vector<double>& p, vector<double>& fit) con
 
 	//Initialize program stopwatch
 	//clock_t t1,t2;
-   // t1=clock();
+	// t1=clock();
 
 	int		iRPMmax			= iRPMmin+iRPMRange;	// Calculated maximum rotor RPM for BEM theory loop
 	int		iPitchMax		= iPitchMin+iPitchRange;// Calculated maximum rotor pitch angle for BEM theory loop
 
-	if(iRPMFIX==1)
-	{
+	if(iRPMFIX==1) {
 		iRPMmin= static_cast<int>(0.5 * (iRPMmin+iRPMmax));
 		iRPMmax= iRPMmin+4;
 	}
 
-	if(iPitchFIX==1)
+	if(iPitchFIX==1) {
 		iPitchMax=iPitchMin;
+	}
 
 	//STEP 1: BEM THEORY CALCULATIONS
 	// Initialize Power Curve array, 20 elements for velocity, each with [dPower,dThrust,iRPM,iPitch,da]
-	double adPowerCurve[20][5] = { { 0 } }; 
+	double adPowerCurve[20][5] = { { 0 } };
 
 	//Runs BEM Theory modules and outputs resultant Power Curve to PCurve.csv
-	BEMLoop(dB, dR, dGenCap, dRho, dEfficiency, adPowerCurve, iRPMmin, iRPMmax, 
-			iPitchMin, iPitchMax, iBlade);
+	BEMLoop(dB, dR, dGenCap, dRho, dEfficiency, adPowerCurve, iRPMmin, iRPMmax,
+	        iPitchMin, iPitchMax, iBlade);
 
 
 	//Enter 'Burfell.h' to check wind output based on 10min wind interval data and hub height, in kWh
-	double dAEPBurf = Burfell(iHH, iWindCutOut, iWindCutIn, alpha, adPowerCurve, dRho, 
-							  iTwoTurbines, dTurbDist, dTurbAngle, dR);
-	
+	double dAEPBurf = Burfell(iHH, iWindCutOut, iWindCutIn, alpha, adPowerCurve, dRho,
+	                          iTwoTurbines, dTurbDist, dTurbAngle, dR);
+
 	//STEP 3: COST CALCULATIONS
 	double dCostInitial;
 	double dCostFixed;
 	double dCostVariable;
 
 	TurbineCost(dB, dR, dGenCap, iHH, dAEPBurf, iPitchFIX, iRPMFIX, dCostInitial,
-				dCostFixed, dCostVariable, dInflation, iTwoTurbines);
+	            dCostFixed, dCostVariable, dInflation, iTwoTurbines);
 
 	//Send results of BEM model calculations to GA fitness vector (Fit 1 = LCOE in USD/MWh, Fit 2 = GWh/year)
 	fit[0] = LCOE(dCostInitial,dCostFixed,dCostVariable,iInvestPeriod,dDiscountRate,dAEPBurf)*1000;

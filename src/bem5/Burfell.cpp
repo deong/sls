@@ -1,7 +1,7 @@
 /**
  * @author Samuel Perkin <samuelp12@ru.is>
  * @date 21/01/2014
- * 
+ *
  * Copyright (c) 2014 Samuel Perkin
  */
 
@@ -34,14 +34,14 @@ static double BurfellTemp[52704];
 
 // The data used for this work is proprietary, obtained from Burfell, Iceland.
 // We have to read the data from an external file.
-void read_wind_data(const string& windFile) 
+void read_wind_data(const string& windFile)
 {
 	ifstream in(windFile.c_str());
 	if(!in) {
 		cerr << "could not open burfell wind data file '" << windFile << "'" << endl;
 		exit(1);
 	}
-	
+
 	for(unsigned int i=0; i<sizeof(BurfellWind)/sizeof(double); ++i) {
 		in >> BurfellWind[i];
 	}
@@ -49,14 +49,14 @@ void read_wind_data(const string& windFile)
 
 // The data used for this work is proprietary, obtained from Burfell, Iceland.
 // We have to read the data from an external file.
-void read_direction_data(const string& dirFile) 
+void read_direction_data(const string& dirFile)
 {
 	ifstream in(dirFile.c_str());
 	if(!in) {
 		cerr << "could not open burfell wind data file '" << dirFile << "'" << endl;
 		exit(1);
 	}
-	
+
 	for(unsigned int i=0; i<sizeof(BurfellDir)/sizeof(double); ++i) {
 		in >> BurfellDir[i];
 	}
@@ -64,22 +64,22 @@ void read_direction_data(const string& dirFile)
 
 // The data used for this work is proprietary, obtained from Burfell, Iceland.
 // We have to read the data from an external file.
-void read_temperature_data(const string& tempFile) 
+void read_temperature_data(const string& tempFile)
 {
 	ifstream in(tempFile.c_str());
 	if(!in) {
 		cerr << "could not open burfell temperature data file '" << tempFile << "'" << endl;
 		exit(1);
 	}
-	
+
 	for(unsigned int i=0; i<sizeof(BurfellTemp)/sizeof(double); ++i) {
 		in >> BurfellTemp[i];
 	}
 }
-		
-double Burfell(int iHH, int iWindCutOut, int iWindCutIn, double alpha, 
-			   double adPowerCurve[20][5], double dRho, int iTwoTurbines, 
-			   double dTurbDist, double dTurbAngle, double dR)
+
+double Burfell(int iHH, int iWindCutOut, int iWindCutIn, double alpha,
+               double adPowerCurve[20][5], double dRho, int iTwoTurbines,
+               double dTurbDist, double dTurbAngle, double dR)
 {
 	double	dV = 0.0;		//Wind Speed read from Burfell data, used in iteration loop below
 	double	dP = 0.0;		//Power at dV, used in iteration loop below
@@ -100,10 +100,8 @@ double Burfell(int iHH, int iWindCutOut, int iWindCutIn, double alpha,
 	double dPress = dPress0 * (pow(dTemp0 / (dTemp0 + (dLt * dElev)),g/(dLt*iRgas))) * (pow((dTemp0 + (dLt * dElev)) / (dTemp0 + (dLt * dElev)+(dL*iHH)),g/(dL*iRgas)));
 
 	//Run normal algorithm if iTwoTurbines is 0
-	if(iTwoTurbines == 0)
-	{
-		for(int iii=0; iii <52703; iii++)
-			{
+	if(iTwoTurbines == 0) {
+		for(int iii=0; iii <52703; iii++) {
 
 			dV = BurfellWind[iii];
 			dTempHH = BurfellTemp[iii] + dL * (iHH - 10.0) + 273.15; //Temperature at Hub Height [K]
@@ -112,14 +110,11 @@ double Burfell(int iHH, int iWindCutOut, int iWindCutIn, double alpha,
 			//Wind shear correction, using alpha value and hub height
 			dV *= pow((static_cast<double>(iHH)/10.0),alpha);
 
-			if(dV > iWindCutOut || dV < iWindCutIn)
-			{
+			if(dV > iWindCutOut || dV < iWindCutIn) {
 				dAEP += 0;
 				continue;
-			}
-			else if(dV > 20)
-			{
-				dP = adPowerCurve[19][0]; 
+			} else if(dV > 20) {
+				dP = adPowerCurve[19][0];
 				dAEP += dP * dTime * (dRhoAdj/dRho);
 				continue;
 			}
@@ -141,8 +136,7 @@ double Burfell(int iHH, int iWindCutOut, int iWindCutIn, double alpha,
 	// - Calculate power output as the combination of the two individual power outputs (different velocities)
 	// x Calculate cost as double
 
-	if(iTwoTurbines == 1)
-	{
+	if(iTwoTurbines == 1) {
 		//Define two turbine specific variables to calculate shadow based on [Gonzalez-Longatt, 2011]:
 		double dTurbD; //'D' variable, measuring distance between centre of turbine swept area and wind shadow [m]
 		double dRshadow; // radius of the wind shadow [m]
@@ -154,8 +148,7 @@ double Burfell(int iHH, int iWindCutOut, int iWindCutIn, double alpha,
 		double dVapp; // 'V apparent' is the weighted ratio of shaded and unshaded wind speeds on the turbine
 		//double dTurbCT; // Turbine thrust coefficient
 
-		for(int iii=0; iii <52703; iii++)
-			{
+		for(int iii=0; iii <52703; iii++) {
 
 			dV = BurfellWind[iii];
 			dTempHH = BurfellTemp[iii] + dL * (iHH - 10.0) + 273.15; //Temperature at Hub Height [K]
@@ -164,71 +157,59 @@ double Burfell(int iHH, int iWindCutOut, int iWindCutIn, double alpha,
 			//Wind shear correction, using alpha value and hub height
 			dV *= pow((static_cast<double>(iHH)/10.0),alpha);
 
-		//Unshaded turbine power calculations
-			if(dV > iWindCutOut || dV < iWindCutIn) //Power = 0 if outside of operating range
-			{
+			//Unshaded turbine power calculations
+			if(dV > iWindCutOut || dV < iWindCutIn) { //Power = 0 if outside of operating range
 				dAEP += 0;
-			}
-			else if(dV > 20) // Power = maximum if within capacity range
-			{
-				dP = adPowerCurve[19][0]; 
+			} else if(dV > 20) { // Power = maximum if within capacity range
+				dP = adPowerCurve[19][0];
+				dAEP += dP * dTime * (dRhoAdj/dRho);
+			} else {		//Linearly interpolate power production for unshaded wind turbine and add to dAEP
+				int iVDown = static_cast<int>(dV);
+				int iVUp = static_cast<int>(dV+1);
+				dP = ((adPowerCurve[iVUp-1][0] - adPowerCurve[iVDown-1][0])/(iVUp-iVDown))*(dV-iVDown) + adPowerCurve[iVDown-1][0];
 				dAEP += dP * dTime * (dRhoAdj/dRho);
 			}
-			else 			//Linearly interpolate power production for unshaded wind turbine and add to dAEP
-			{
-			int iVDown = static_cast<int>(dV);
-			int iVUp = static_cast<int>(dV+1);
-			dP = ((adPowerCurve[iVUp-1][0] - adPowerCurve[iVDown-1][0])/(iVUp-iVDown))*(dV-iVDown) + adPowerCurve[iVDown-1][0];
-			dAEP += dP * dTime * (dRhoAdj/dRho);
-			}
 
-		//Shaded turbine equivalent velocity calculation
+			//Shaded turbine equivalent velocity calculation
 			dTurbD = fabs(dTurbDist*sin(fabs(BurfellDir[iii]-dTurbAngle)*(M_PI/180.0)));
 			dRshadow = dR + dShadowAlpha*dTurbDist;
 			dTurbL = 0.5*(dRshadow-dR+dTurbD);
 
 			//check if 2nd turbine is in shadow
-			if(dTurbD-dTurbL < dR) //if turbine is shadowed
-			{
+			if(dTurbD-dTurbL < dR) { //if turbine is shadowed
 				//calculate shadow ratio
 				dTurbZ = 2.0*pow(pow(dRshadow,2.0)-pow(dTurbL,2.0),0.5);
 				dAshadow = pow(dRshadow,2.0)*acos(dTurbL/dRshadow)+pow(dR,2.0)*acos((dTurbD-dTurbL)/dR)-0.5*dTurbD*dTurbZ;
 				dShadowRatio = dAshadow / (M_PI*pow(dR,2.0));
-				if(dShadowRatio > 1.0)
+				if(dShadowRatio > 1.0) {
 					dShadowRatio = 1.0;
+				}
 
 				//calculate CT for first turbine
-			//int iVDown = static_cast<int>(dV);
-			//int iVUp = static_cast<int>(dV+1);
-			//dTurbCT = ((adPowerCurve[iVUp-1][4] - adPowerCurve[iVDown-1][4])/(iVUp-iVDown))*(dV-iVDown) + adPowerCurve[iVDown-1][4];
+				//int iVDown = static_cast<int>(dV);
+				//int iVUp = static_cast<int>(dV+1);
+				//dTurbCT = ((adPowerCurve[iVUp-1][4] - adPowerCurve[iVDown-1][4])/(iVUp-iVDown))*(dV-iVDown) + adPowerCurve[iVDown-1][4];
 
 				//calculate vapparent based on shadow area
-			dVshadow = dV + dV*(pow(1-0.4,0.5)-1.0)*pow(dR/dRshadow,2.0);
-			dVapp = dShadowRatio*dVshadow + (1.0-dShadowRatio)*dV;
-			}
-			else
-			{
+				dVshadow = dV + dV*(pow(1-0.4,0.5)-1.0)*pow(dR/dRshadow,2.0);
+				dVapp = dShadowRatio*dVshadow + (1.0-dShadowRatio)*dV;
+			} else {
 				dVapp = dV;
 			}
 
-		//Unshaded turbine power calculations
-			if(dVapp > iWindCutOut || dVapp < iWindCutIn) //Power = 0 if outside of operating range
-			{
+			//Unshaded turbine power calculations
+			if(dVapp > iWindCutOut || dVapp < iWindCutIn) { //Power = 0 if outside of operating range
 				dAEP += 0;
-			}
-			else if(dVapp > 20) // Power = maximum if within capacity range
-			{
-				dP = adPowerCurve[19][0]; 
+			} else if(dVapp > 20) { // Power = maximum if within capacity range
+				dP = adPowerCurve[19][0];
+				dAEP += dP * dTime * (dRhoAdj/dRho);
+			} else {	//Linearly interpolate power production for unshaded wind turbine and add to dAEP
+				int iVDown = static_cast<int>(dVapp);
+				int iVUp = static_cast<int>(dVapp+1);
+				dP = ((adPowerCurve[iVUp-1][0] - adPowerCurve[iVDown-1][0])/(iVUp-iVDown))*(dV-iVDown) + adPowerCurve[iVDown-1][0];
 				dAEP += dP * dTime * (dRhoAdj/dRho);
 			}
-			else 		//Linearly interpolate power production for unshaded wind turbine and add to dAEP
-			{
-			int iVDown = static_cast<int>(dVapp);
-			int iVUp = static_cast<int>(dVapp+1);
-			dP = ((adPowerCurve[iVUp-1][0] - adPowerCurve[iVDown-1][0])/(iVUp-iVDown))*(dV-iVDown) + adPowerCurve[iVDown-1][0];
-			dAEP += dP * dTime * (dRhoAdj/dRho);
-			}
-			
+
 		}
 	}
 

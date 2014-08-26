@@ -1,7 +1,7 @@
 /**
  * @author Samuel Perkin <samuelp12@ru.is>
  * @date 21/01/2014
- * 
+ *
  * Copyright (c) 2014 Samuel Perkin
  */
 
@@ -23,9 +23,9 @@
 
 using namespace std;
 
-void BEMLoop(double dB, double dR, double dGenCap, double dRho, double dEfficiency, 
-			 double adPowerCurve[20][5], int iRPMmin, int iRPMmax, double iPitchMin,
-			 double iPitchMax, int iBlade)
+void BEMLoop(double dB, double dR, double dGenCap, double dRho, double dEfficiency,
+             double adPowerCurve[20][5], int iRPMmin, int iRPMmax, double iPitchMin,
+             double iPitchMax, int iBlade)
 {
 	const int	 iii_max    = 20;		// Maximum Iteration Count (for convergence of a and a')
 	const int    iSections	= 25;		// Number of blade sections (i.e. 'dR' elements), should be data points for r/R, C/R and twist minus 1
