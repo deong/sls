@@ -104,7 +104,7 @@ template <typename Encoding>
 int crowded_comparator<Encoding>::compare(const nsga2_chromosome<Encoding>& c1,
         const nsga2_chromosome<Encoding>& c2) const
 {
-	if(c1.rank < c2.rank) {
+	if((c1.rank) < (c2.rank)) {
 		return -1;
 	} else if (c1.rank > c2.rank) {
 		return 1;

@@ -138,7 +138,7 @@ bool turbine_problem::evaluate(const vector<double>& p, vector<double>& fit) con
 
 	//STEP 1: BEM THEORY CALCULATIONS
 	// Initialize Power Curve array, 20 elements for velocity, each with [dPower,dThrust,iRPM,iPitch,da]
-	double adPowerCurve[20][5] = { 0 }; 
+	double adPowerCurve[20][5] = { { 0 } }; 
 
 	//Runs BEM Theory modules and outputs resultant Power Curve to PCurve.csv
 	BEMLoop(dB, dR, dGenCap, dRho, dEfficiency, adPowerCurve, iRPMmin, iRPMmax, 
