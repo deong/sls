@@ -1,4 +1,4 @@
-CXX=g++
+CXX=clang++
 CXXFLAGS=-Wall -I. -Ibem5 -O3 -funroll-loops -pipe
 #CXXFLAGS=-Wall -I. -Ibem5 -ggdb -pipe
 
@@ -86,7 +86,7 @@ libkvp.a :
 	cp kvparse/libkvp.a .
 
 clean :
-	rm -f *.o bem/*.o
+	rm -f *.o bem5/*.o
 	make -C kvparse clean
 
 distclean :
