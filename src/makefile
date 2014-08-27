@@ -82,13 +82,13 @@ libsls.a : ${OBJ}
 	ar rcs libsls.a ${OBJ}
 
 libkvp.a :
-	make -C kvparse libkvp.a
+	+make -C kvparse libkvp.a
 	cp kvparse/libkvp.a .
 
 clean :
 	rm -f *.o bem5/*.o
-	make -C kvparse clean
+	+make -C kvparse clean
 
 distclean :
 	rm -f *.o libsls.a libkvp.a sls mergepf enumerate pearson gapgen ksgen
-	make -C kvparse distclean
+	+make -C kvparse distclean
