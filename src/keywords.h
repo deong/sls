@@ -200,6 +200,9 @@ public:
 	static const string WEIGHT_VECTOR;
 	static const string EPSILON;
 
+	// problem specific keywords
+	static const string GRAPH_PARTITIONS;
+
 	// Blade Element Momentum Theory constants
 	static const string TURBINE_WIND_DATA;
 	static const string TURBINE_TEMP_DATA;

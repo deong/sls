@@ -22,6 +22,7 @@ const string keywords::TRUE_PARETO_FRONT = "true_pareto_front";
 const string keywords::PENALIZATION_FACTOR = "penalization_factor";
 const string keywords::UNASSIGNED_PENALTY = "unassigned_penalty";
 const string keywords::CAPACITY_PENALTY = "capacity_penalty";
+const string keywords::GRAPH_PARTITIONS = "graph_partitions";
 
 const string keywords::ALGORITHM = "algorithm";
 const string keywords::GENITOR = "genitor";

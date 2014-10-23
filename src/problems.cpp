@@ -694,6 +694,115 @@ bool gsap_problem::evaluate(const vector<int>& p, vector<int>& fit) const
 	return true;
 }
 
+/**
+ * @brief constructor
+ */
+graphpart_problem::graphpart_problem() :
+	n_nodes(0),
+	n_parts(0)	
+{
+}
+
+/**
+ * @brief destructor
+ */
+graphpart_problem::~graphpart_problem()
+{
+}
+
+/**
+ * @brief load the problem instance data
+ */
+void graphpart_problem::initialize() 
+{
+	string filename;
+	kvparse::parameter_value(keywords::PROBLEM_DATA, filename, true);
+
+	ifstream in(filename.c_str());
+	if(!in) {
+		cerr << "could not open graphpart data file: " << filename << endl;
+		exit(1);
+	}
+
+	kvparse::parameter_value(keywords::GRAPH_PARTITIONS, n_parts, true);
+	
+	in >> n_nodes;
+	for(unsigned int i=0; i<n_nodes; ++i) {
+		unsigned int src;
+		unsigned int num_edges;
+		in >> src >> num_edges;
+
+		map<unsigned int, unsigned int> edges;
+		for(unsigned int j=0; j<num_edges; ++j) {
+			unsigned int dest;
+			double weight;
+			in >> dest >> weight;
+			edges[dest] = static_cast<unsigned int>(weight*100);
+		}
+		m_edges.push_back(edges);
+	}
+}
+
+/**
+ * @brief return the number of nodes in the graph
+ */
+unsigned int graphpart_problem::dimensions() const 
+{
+	return n_nodes;
+}
+
+/**
+ * @brief return the number of objectives (assume 1 for now)
+ */
+unsigned int graphpart_problem::objectives() const
+{
+	return 1;
+}
+
+/**
+ * @brief fetch the legal values for each attribute
+ *
+ * for graph partitioning, each allele can be between 0 and k-1 where k is the number
+ * of partitions to create.
+ */
+void graphpart_problem::legal_values(unsigned int index, vector<int>& vals) const
+{
+	for(unsigned int i=0; i<n_parts; ++i) {
+		vals.push_back(i);
+	}
+}
+
+/**
+ * @brief evaluate the cost of the partitioning
+ */
+bool graphpart_problem::evaluate(const vector<int>& p, vector<int>& fit) const
+{
+	double cost = 0;
+	unsigned min_part_size = static_cast<unsigned int>(0.8 * static_cast<double>(n_nodes)/n_parts);
+	
+	for(unsigned int src=0; src<n_nodes; ++src) {
+		for(auto edge=m_edges[src].begin(); edge!=m_edges[src].end(); ++edge) {
+			unsigned int dst = (*edge).first;
+			unsigned int weight = (*edge).second;
+			if(p[src] != p[dst]) {
+				cost += weight;
+			}
+		}
+	}
+	fit[0] = cost;
+
+	vector<unsigned int> part_counts(n_parts);
+	for(unsigned int i=0; i<p.size(); ++i) {
+		part_counts[p[i]]++;
+	}
+	for(unsigned int i=0; i<n_parts; ++i) {
+		if(part_counts[i] < min_part_size) {
+			return false;
+		}
+	}
+	return true;
+}
+			
 /*!
  * \brief constructor
  */
@@ -1759,8 +1868,10 @@ integer_problem* integer_problem_factory::construct()
 	string prob;
 	kvparse::parameter_value(keywords::PROBLEM, prob, true);
 
-	if(false) {
-		// no valid integer problems defined yet
+	if(prob == "graphpart") {
+		graphpart_problem* p = new graphpart_problem;
+		p->initialize();
+		return p;
 	} else {
 		cerr << "invalid problem specified: " << prob << endl;
 		exit(1);

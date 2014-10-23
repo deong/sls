@@ -1,6 +1,6 @@
-CXX=clang++
-CXXFLAGS=-Wall -I. -Ibem5 -O3 -funroll-loops -pipe
-#CXXFLAGS=-Wall -I. -Ibem5 -ggdb -pipe
+CXX=clang++ 
+CXXFLAGS=-Wall -std=c++11 -I. -Ibem5 -O3 -funroll-loops -pipe
+#CXXFLAGS=-Wall -std=c++11 -I. -Ibem5 -ggdb -pipe
 
 OBJ=bem5/BEMLoop.o\
 	bem5/Burfell.o\

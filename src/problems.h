@@ -12,6 +12,7 @@
 #define _PROBLEMS_H_
 
 #include <vector>
+#include <map>
 
 using namespace std;
 
@@ -237,6 +238,27 @@ protected:
 	vector<vector<unsigned int> > m_resources;   //!< work units required for each agent/task
 	vector<vector<vector<unsigned int> > > m_costs;      //!< costs incurred by each agent/task
 	vector<unsigned int> tsb;     //!< time slot boundaries (first index of each slot)
+};
+
+/**
+ * @class graphpart_problem
+ * @brief graph partitioning
+ */
+class graphpart_problem : public integer_problem
+{
+public:
+    graphpart_problem();
+    virtual ~graphpart_problem();
+	virtual void initialize();
+	virtual unsigned int dimensions() const;
+	virtual unsigned int objectives() const;
+	virtual void legal_values(unsigned int index, vector<int>& vals) const;
+	virtual bool evaluate(const vector<int>& p, vector<int>& fit) const;
+	
+protected:
+	unsigned int n_nodes;
+	unsigned int n_parts;
+	vector<map<unsigned int, unsigned int> > m_edges;
 };
 
 /*!
