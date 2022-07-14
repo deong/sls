@@ -202,7 +202,9 @@ public:
 
 	// problem specific keywords
 	static const string GRAPH_PARTITIONS;
-
+	static const string TERRASS_DATA;
+	static const string TERRASS_MAX_STOPS;
+	
 	// Blade Element Momentum Theory constants
 	static const string TURBINE_WIND_DATA;
 	static const string TURBINE_TEMP_DATA;

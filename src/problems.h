@@ -261,6 +261,43 @@ protected:
 	vector<map<unsigned int, unsigned int> > m_edges;
 };
 
+/**
+ * @class terrass_problem
+ * @brief territory assignment problem
+ *
+ * Given a set of work orders due in a given month, and a distance matrix between 
+ * them, find a set of assignments of each work order to a route such that the 
+ * overall average density of each route is minimized.
+ *
+ * Routes should be roughly balanced by stop count. So if there are k technicians
+ * within the branch, the n work orders should be apportioned to k routes such 
+ * that each route has approximately n/k stops. They don't have to balance exactly
+ * but we should try to prevent too great an imbalance.
+ *
+ * No route should have more than some maximum size threshold.
+ * 
+ * This formulation of the problem is treated as a single-objective problem of
+ * minimizing total average density with penalization and/or repair to handle 
+ * soft constraints.
+ */
+class terrass_problem : public integer_problem
+{
+public:
+        terrass_problem();
+        virtual ~terrass_problem();
+        virtual void initialize();
+        virtual unsigned int dimensions() const;
+        virtual unsigned int objectives() const;
+        virtual void legal_values(unsigned int index, vector<int>& vals) const;
+        virtual bool evaluate(const vector<int>& p, vector<int>& fit) const;
+
+protected:
+        unsigned int n_stops;
+        unsigned int n_routes;
+        unsigned int max_stops;
+        vector<vector<double>> m_dist;
+};
+
 /*!
  * \class knapsack_problem
  * \brief multiobjective knapsack problem

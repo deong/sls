@@ -22,7 +22,6 @@ const string keywords::TRUE_PARETO_FRONT = "true_pareto_front";
 const string keywords::PENALIZATION_FACTOR = "penalization_factor";
 const string keywords::UNASSIGNED_PENALTY = "unassigned_penalty";
 const string keywords::CAPACITY_PENALTY = "capacity_penalty";
-const string keywords::GRAPH_PARTITIONS = "graph_partitions";
 
 const string keywords::ALGORITHM = "algorithm";
 const string keywords::GENITOR = "genitor";
@@ -174,6 +173,10 @@ const string keywords::EPSILON_DOMINANCE_COMPARATOR = "epsilon_dominance";
 const string keywords::SCALARIZING_COMPARATOR = "scalarizing";
 const string keywords::WEIGHT_VECTOR = "weight_vector";
 const string keywords::EPSILON = "epsilon";
+
+const string keywords::GRAPH_PARTITIONS = "graph_partitions";
+const string keywords::TERRASS_DATA = "terrass_data_file";
+const string keywords::TERRASS_MAX_STOPS = "max_stops";
 
 const string keywords::TURBINE_WIND_DATA = "wind_data_file";
 const string keywords::TURBINE_TEMP_DATA = "temperature_data_file";

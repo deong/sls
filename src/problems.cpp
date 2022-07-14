@@ -21,6 +21,7 @@
 #include <cmath>
 #include <iomanip>
 #include <iterator>
+#include <numeric>
 #include "problems.h"
 #include "mtrandom.h"
 #include "kvparse/kvparse.h"
@@ -888,6 +889,108 @@ bool knapsack_problem::evaluate(const vector<int>& p, vector<int>& fit) const
 		fit[i] = -fit[i];
 	}
 	return (static_cast<unsigned int>(total_weight)<=ks_capacity);
+}
+
+/**
+ * @brief constructor
+ */
+terrass_problem::terrass_problem() :
+	n_stops(0),
+	n_routes(0),
+	max_stops(0)
+{
+}
+
+/**
+ * @brief destructor
+ */
+terrass_problem::~terrass_problem()
+{
+}
+
+/**
+ * @brief load the problem instance data
+ */
+void terrass_problem::initialize()
+{
+	string filename;
+	kvparse::parameter_value(keywords::TERRASS_DATA, filename, true);
+
+	ifstream in(filename.c_str());
+	if(!in) {
+		cerr << "could not open territory data file: " << filename << endl;
+		exit(1);
+	}
+
+	max_stops = 200;
+	kvparse::parameter_value(keywords::TERRASS_MAX_STOPS, max_stops, false);
+	
+	in >> n_stops;
+	in >> n_routes;
+	for(unsigned int i=0; i<n_stops; ++i) {
+		unsigned int wo_id;
+		in >> wo_id;
+		vector<double> dist(n_stops);
+		for(unsigned int j=0; j<n_stops; ++j) {
+			in >> dist[j];
+		}
+		m_dist.push_back(dist);
+	}
+}
+
+/**
+ * @brief return dimensionality of problem instance
+ */
+unsigned int terrass_problem::dimensions() const 
+{
+	return n_stops;
+}
+
+/**
+ * @brief return number of objectives
+ */
+unsigned int terrass_problem::objectives() const
+{
+	return 1;
+}
+
+/**
+ * @brief populate valid routes a given stop can be assigned to
+ *
+ * In the current implementation, nothing is looking at customer preferences,
+ * constraints due to licensing, etc. It is assumed that all stops can be assigned
+ * to any route.
+ */
+void terrass_problem::legal_values(unsigned int index, vector<int>& vals) const
+{
+	std::iota(vals.begin(), vals.end(), 0);
+}
+
+/**
+ * @brief compute fitness as the mean distance within each cluster
+ */
+bool terrass_problem::evaluate(const vector<int>& p, vector<int>& fit) const
+{
+	double avg_route_dist = 0.0;
+	unsigned int routes_used = 0;
+	for(auto route=0; route<n_routes; ++route) {
+		double intra_dist = 0.0;
+		unsigned int route_count = 0;
+		for(auto i=0; i<p.size(); ++i) {
+			for(auto j=i+1; j<p.size(); ++j) {
+				if(p[i] == route && p[j] == route) {
+					intra_dist += m_dist[i][j];
+					++route_count;
+				}
+			}
+		}
+		if(route_count > 0) {
+			avg_route_dist += intra_dist / route_count;
+			++routes_used;
+		}
+	}
+	fit[0] = static_cast<int>(100 * avg_route_dist / routes_used);
+	return true;
 }
 
 /*!
