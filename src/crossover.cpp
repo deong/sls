@@ -430,10 +430,10 @@ void order_crossover_impl<Chromosome,Encoding>::crossover(const Chromosome<Encod
 	// genes in the second parent to determine the order in the
 	// first offspring
 	int index = xpt2;
-	vector<int>::iterator start, end, iter;
+	vector<int>::iterator iter;
 	for(int i=xpt2; i<n; i++) {
 		iter = find(used_in_c1.begin(), used_in_c1.end(), p2[i]);
-		if(iter == end) {
+		if(iter == used_in_c1.end()) {
 			c1[index++] = p2[i];
 			used_in_c1.push_back(p2[i]);
 			if(index == n) {
@@ -443,7 +443,7 @@ void order_crossover_impl<Chromosome,Encoding>::crossover(const Chromosome<Encod
 	}
 	for(int i=0; i<xpt1; i++) {
 		iter = find(used_in_c1.begin(), used_in_c1.end(), p2[i]);
-		if(iter == end) {
+		if(iter == used_in_c1.end()) {
 			c1[index++] = p2[i];
 			used_in_c1.push_back(p2[i]);
 			if(index == n) {
@@ -456,7 +456,7 @@ void order_crossover_impl<Chromosome,Encoding>::crossover(const Chromosome<Encod
 	index = xpt2;
 	for(int i=xpt2; i<n; i++) {
 		iter = find(used_in_c2.begin(), used_in_c2.end(), p1[i]);
-		if(iter == end) {
+		if(iter == used_in_c2.end()) {
 			c2[index++] = p1[i];
 			used_in_c2.push_back(p1[i]);
 			if(index == n) {
@@ -466,7 +466,7 @@ void order_crossover_impl<Chromosome,Encoding>::crossover(const Chromosome<Encod
 	}
 	for(int i=0; i<xpt2; i++) {
 		iter = find(used_in_c2.begin(), used_in_c2.end(), p1[i]);
-		if(iter == end) {
+		if(iter == used_in_c2.end()) {
 			c2[index++] = p1[i];
 			used_in_c2.push_back(p1[i]);
 			if(index == n) {
